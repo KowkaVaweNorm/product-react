@@ -1,23 +1,22 @@
-import i18n from "i18next";
-import detector from "i18next-browser-languagedetector";
-import backend from "i18next-http-backend";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next'
+import detector from 'i18next-browser-languagedetector'
+import backend from 'i18next-http-backend'
+import { initReactI18next } from 'react-i18next'
 
-
-i18n
+void i18n
   .use(detector)
   .use(backend)
-  .use(initReactI18next) 
+  .use(initReactI18next)
   .init({
-    fallbackLng: "ru", 
-    debug: __IS_DEV__ ? true : false,
+    fallbackLng: 'ru',
+    debug: !!__IS_DEV__,
 
     interpolation: {
-      escapeValue: false 
+      escapeValue: false
     },
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-  }
-  });
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    }
+  })
 
-export default i18n;
+export default i18n
