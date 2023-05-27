@@ -2,7 +2,10 @@
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "strictNullChecks": true,
+        "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
+        "noImplicitReturns": true, // Во всех случаях код производит return?
+        "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
+        "noImplicitOverride": true,  // прописывать перед прегруженными свойствами и методавми ключевое слово override
         "module": "ESNext",
         "target": "es5",
         "jsx": "react-jsx",
