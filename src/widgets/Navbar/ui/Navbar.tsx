@@ -7,9 +7,9 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps): JSX.Element => {
+export const Navbar = ({ className = '' }: NavbarProps): JSX.Element => {
   return (
-      <div className={classNames(cls.navbar, {}, [className])}>
+      <div className={classNames(cls.navbar ?? '', {}, [className])}>
 
           <div className={cls.link}></div>
 

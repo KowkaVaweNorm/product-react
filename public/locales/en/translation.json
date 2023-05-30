@@ -2,5 +2,8 @@
   "Тестовый пример": "Test example",
   "Сменить язык": "Change language",
   "Главная страница": "Main Page",
-  "Язык": "language"
+  "Язык": "language",
+  "переключить" : "toggle",
+  "Страница не найдена": "Page not found",
+  "Обновить страницу": "Update this page"
 }

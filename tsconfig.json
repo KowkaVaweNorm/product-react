@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "./dist/",
-        "noImplicitAny": true,
+        "noImplicitAny": true,  // тип any запрещен к использолванию?
         "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
         "noImplicitReturns": true, // Во всех случаях код производит return?
         "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
