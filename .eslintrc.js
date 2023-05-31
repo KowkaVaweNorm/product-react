@@ -45,6 +45,7 @@ module.exports = {
     "@typescript-eslint/restrict-plus-operands": "warn",
     '@typescript-eslint/strict-boolean-expressions': 'warn',
     "i18next/no-literal-string": ['error', {markupOnly: true}],
+    'max-len' : ['error', {ignoreComments: true, code: 100}],
   },
   globals: {
     __IS_DEV__: true
