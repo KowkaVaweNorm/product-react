@@ -2,5 +2,6 @@
 .vscode
 /build
 .eslintrc.js
-
+*.config.js
+*.config.ts
 

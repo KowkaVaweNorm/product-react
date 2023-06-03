@@ -1,6 +1,5 @@
-// @ts-nocheck
 
-import { classNames } from 'shared/lib/ClassNames/ClassNames.ts'
+import { classNames } from 'shared/lib/ClassNames/ClassNames'
 
 describe('classNames', () => {
   test('with only first param', () => {

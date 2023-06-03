@@ -5,5 +5,8 @@
   "Язык": "language",
   "Переключить" : "toggle",
   "Страница не найдена": "Page not found",
-  "Обновить страницу": "Update this page"
+  "Обновить страницу": "Update this page",
+  "Произошла ошибка" : "Throw Error",
+  "Главная" : "Main",
+  "О сайте" : "About page"
 }

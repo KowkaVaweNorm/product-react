@@ -16,7 +16,7 @@ export const PageError = ({ className = '' }: PageErrorProps): JSX.Element => {
 
   return (
       <div className={classNames(cls.PageError ?? '', {}, [className])}>
-          <h4>Произошла ошибка</h4>
+          <h4>{t('Произошла ошибка')}</h4>
           <Button onClick={reloadPage}>
               {t('Обновить страницу')}
           </Button>

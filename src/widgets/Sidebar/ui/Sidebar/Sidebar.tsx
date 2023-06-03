@@ -16,7 +16,6 @@ export const Sidebar = ({ className = '' }: SidebarProps): JSX.Element => {
   const onToggle = (): void => {
     setCollapsed((prev: boolean) => !prev)
   }
-
   return (
       <div
           data-testid="sidebar"

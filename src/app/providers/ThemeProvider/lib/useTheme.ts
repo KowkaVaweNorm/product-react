@@ -12,13 +12,13 @@ export function useTheme (): UseThemeResult {
   const toggleTheme = (): void => {
     let newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
     newTheme = newTheme ?? Theme.LIGHT
-    // @ts-ignore
-    setTheme(newTheme)
+    if (typeof newTheme !== 'undefined') {
+      setTheme(newTheme)
+    }
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }
 
   return {
-    // @ts-ignore
     theme,
     toggleTheme
   }

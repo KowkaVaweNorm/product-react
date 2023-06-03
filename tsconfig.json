@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
         "noImplicitAny": true,  // тип any запрещен к использолванию?
         "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
         "noImplicitReturns": true, // Во всех случаях код производит return?
@@ -23,7 +22,17 @@
             "module": "CommonJS"
         }
     },
-    // "include": [
-    //     "./config/jest/setupTest.ts"
-    //   ],
+    "include": [
+        // "./config/jest/setupTest.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./config/**/*.ts",
+        "./config/**/*.tsx"
+      ],
+      "exclude": [
+        "node_modules", 
+        "build", 
+        "*.test.ts", 
+        "*.test.tsx"
+    ]
 }
