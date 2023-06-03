@@ -4,4 +4,4 @@
 .eslintrc.js
 *.config.js
 *.config.ts
-
+/storybook-static
