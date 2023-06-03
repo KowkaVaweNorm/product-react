@@ -1,4 +1,5 @@
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { classNames } from 'shared/lib/ClassNames/ClassNames'
 
 describe('classNames', () => {

@@ -69,23 +69,19 @@ module.exports = {
 
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts|tsx}'],
+      files: ['*.test.{ts|tsx}'],
       rules: {
-        "i18next/no-literal-string": 'off'
+        'i18next/no-literal-string': 'off'
       },
     },
     {
-      "files": ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-      "rules": {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      rules: {
         'storybook/hierarchy-separator': 'error',
         'storybook/default-exports': 'off',
       }
     }
-  ],
-  "ignorePatterns": [
-    // "src/**/*.test.ts",
-    // "src/**/*.test.tsx"
-]
+  ]
 
 
 };

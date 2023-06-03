@@ -1,5 +1,4 @@
 import { type StoryFn } from '@storybook/react'
-import { type Theme } from 'app/providers/ThemeProvider'
 import { BrowserRouter } from 'react-router-dom'
 
 // eslint-disable-next-line react/display-name

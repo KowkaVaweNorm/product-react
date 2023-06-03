@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Navbar } from './Navbar'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ThemeButton } from 'shared/ui/Button'
 
 const meta: Meta<typeof Navbar> = {
   title: 'widgets/Navbar',
