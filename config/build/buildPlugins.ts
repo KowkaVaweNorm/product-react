@@ -5,21 +5,25 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export function buildPlugins ({ paths, isDev }: BuildOption): webpack.WebpackPluginInstance[] {
-  const plugins = []
-  // eslint-disable-next-line no-constant-condition
-  if (true) {
-    plugins.push(new webpack.HotModuleReplacementPlugin())
-    plugins.push(new webpack.DefinePlugin({
+  const plugins = [
+
+    new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev)
-    }))
-    plugins.push(new MiniCssExtractPlugin({
+    }),
+
+    new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
-    }))
-    plugins.push(new webpack.ProgressPlugin())
-    plugins.push(new HtmlWebpackPlugin({
+    }),
+
+    new HtmlWebpackPlugin({
       template: paths.html
-    }))
+    }),
+    new webpack.ProgressPlugin()
+  ]
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false
     }))
