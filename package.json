@@ -14,7 +14,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test -p 40122",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci":  "concurrently -s first -k \"npm run sb\" \"npm run test:ui\"",
+    "test:ui:ci":  "npm run concurrently -s first -k \"npm run sb\" \"npm run test:ui\"",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
     "test:ui:report" : "npm run test:ui:json && npm run test:ui:html",
