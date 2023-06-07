@@ -16,7 +16,8 @@
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
-    "sb:build": "storybook build -c ./config/storybook"
+    "sb:build": "storybook build -c ./config/storybook",
+    
   },
   "keywords": [],
   "author": "",
@@ -61,6 +62,7 @@
     "jest": "^27.5.1",
     "loki": "^0.31.2",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.62.1",
     "sass-loader": "^12.6.0",
@@ -88,14 +90,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
