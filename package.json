@@ -14,10 +14,10 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test -p 40122",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "build-storybook -c ./config/storybook && npx loki --requireReference --reactUri file:./storybook-static",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
-    "test:ui:report" : "test:ui:json && test:ui:html",
+    "test:ui:report" : "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html"
     
