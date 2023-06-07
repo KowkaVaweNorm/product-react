@@ -2,11 +2,12 @@
   "Тестовый пример": "Test example",
   "Сменить язык": "Change language",
   "Главная страница": "Main Page",
-  "Язык": "language",
+  "Язык": "English",
   "Переключить" : "toggle",
   "Страница не найдена": "Page not found",
   "Обновить страницу": "Update this page",
   "Произошла ошибка" : "Throw Error",
   "Главная" : "Main",
-  "О сайте" : "About page"
+  "О сайте" : "About page",
+  "Короткий язык" : "En"
 }

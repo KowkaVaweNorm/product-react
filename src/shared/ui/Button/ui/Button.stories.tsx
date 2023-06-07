@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button, ThemeButton } from './Button'
+import { Button, ButtonSize, ButtonTheme } from './Button'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
@@ -18,10 +18,13 @@ export const Primary: Story = {
   render: () => <Button>TEXT</Button>
 }
 export const Clear: Story = {
-  render: () => <Button theme={ThemeButton.CLEAR}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.CLEAR}>TEXT </Button>
 }
+
+// Outline
+
 export const Outline: Story = {
-  render: () => <Button theme={ThemeButton.OUTLINE}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.OUTLINE}>TEXT </Button>
 }
 export const OutlineDark: Story = {
   decorators: [
@@ -29,5 +32,45 @@ export const OutlineDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <Button theme={ThemeButton.OUTLINE}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.OUTLINE}>TEXT </Button>
+}
+
+export const OutlineSizeM: Story = {
+  render: () => <Button
+      theme={ButtonTheme.OUTLINE}
+      size={ButtonSize.M}
+  >TEXT </Button>
+}
+export const OutlineSizeL: Story = {
+  render: () => <Button
+      theme={ButtonTheme.OUTLINE}
+      size={ButtonSize.L}
+  >TEXT </Button>
+}
+export const OutlineSizeXL: Story = {
+  render: () => <Button
+      theme={ButtonTheme.OUTLINE}
+      size={ButtonSize.XL}
+  >TEXT </Button>
+}
+// Background
+export const BackgroundTheme: Story = {
+  render: () => <Button theme={ButtonTheme.BACKGROUND}>TEXT </Button>
+}
+export const BackgroundInvertedTheme: Story = {
+  render: () => <Button theme={ButtonTheme.BACKGROUND_INVERTED}>TEXT </Button>
+}
+
+// Squary
+export const Square: Story = {
+  render: () => <Button theme={ButtonTheme.BACKGROUND_INVERTED}
+      square={true}>{'>'}</Button>
+}
+export const SquareSizeL: Story = {
+  render: () => <Button theme={ButtonTheme.BACKGROUND_INVERTED}
+      square={true} size={ButtonSize.L}>{'>'}</Button>
+}
+export const SquareSizeXL: Story = {
+  render: () => <Button theme={ButtonTheme.BACKGROUND_INVERTED}
+      square={true} size={ButtonSize.XL}>{'>'}</Button>
 }
