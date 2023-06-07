@@ -21,6 +21,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install --force
+      - name: fix loki
+        run: npx aws-sdk-js-codemod -t v2-to-v3 /node_modules/@loki/target-chrome-aws-lambda/src/create-chrome-aws-lambda-target.js
       - name: build production project
         run: npm run build:prod
         if: always()
