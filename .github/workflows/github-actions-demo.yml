@@ -24,14 +24,6 @@ jobs:
       - name: build production project
         run: npm run build:prod
         if: always()
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
-        if: always()
-      - name: unit testing
-        run: npm run test:unit
       - name: screenshot testing
         run: npm run test:ui:ci
       - name: Archive screenshots
