@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 import i18nForTest from 'shared/config/i18n/i18nForTest'
 
 export interface componentRenderOptions {
-  route: string
+  route?: string
 }
 
 export function componentRender
