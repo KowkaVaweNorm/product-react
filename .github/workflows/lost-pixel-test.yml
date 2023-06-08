@@ -16,5 +16,7 @@ jobs:
         run: npm run sb:build
       - name: update playwright
         run: npx playwright install
+      - name: update docker
+        run: docker pull mcr.microsoft.com/playwright:v1.35.0-jammy
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v2.11.0
