@@ -24,12 +24,22 @@ jobs:
       - name: build production project
         run: npm run build:prod
         if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
-      - name: Archive screenshots
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v1
-        with:
-          name: design-system
-          path: .loki
+      - name: linting typescript
+        run: npm run lint:ts
+        if: always()
+      - name: linting css
+        run: npm run lint:scss
+        if: always()
+      - name: unit testing
+        run: npm run test:unit
+      - name: Build Storybook components
+        run: npm run build-storybook
+      - name: Run Lost Pixel container
+        id: lp
+        uses: lost-pixel/lost-pixel@v2.11.0
+        env:
+          LOST_PIXEL_MODE: update
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci
+      
         

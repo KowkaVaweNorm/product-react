@@ -3,6 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator'
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { withScreenshot } from 'storycap'
 
 const preview: Preview = {
   parameters: {
@@ -12,6 +13,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    screenshot: {
+      delay: 200
     }
   },
   decorators: [
@@ -25,7 +29,8 @@ const preview: Preview = {
     ),
     (Story) => (
       RouteDecorator(Story)
-    )
+    ),
+    withScreenshot
   ]
 }
 

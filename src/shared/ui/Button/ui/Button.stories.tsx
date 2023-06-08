@@ -7,8 +7,12 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 
 const meta: Meta<typeof Button> = {
   title: 'shared/Button',
-  component: Button
-
+  component: Button,
+  parameters: {
+    screenshot: {
+      viewport: 'iPhone 5'
+    }
+  }
 }
 
 export default meta
