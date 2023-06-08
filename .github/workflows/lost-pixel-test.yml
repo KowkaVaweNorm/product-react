@@ -14,8 +14,10 @@ jobs:
         run: npm ci --legaci-peer-deps
       - name: Build Storybook
         run: npm run sb:build
-      - name: update playwright
-        run: npx playwright install
+      - name: install playwright
+        run: npm install playwright@latest --with-deps
+      - name: start test playwright
+        run: npx playwright test
       - name: update docker
         run: docker pull mcr.microsoft.com/playwright:v1.35.0-jammy
       - name: Lost Pixel
