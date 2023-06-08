@@ -19,7 +19,6 @@ jobs:
         uses: lost-pixel/lost-pixel@v2.11.0
         env:
           LOST_PIXEL_MODE: update
-          LOST_PIXEL_CONFIG_DIR: "./@app/config/lost-pixel"
       - name: Create Pull request
         uses: peter-evans/create-pull-request@v4
         if: ${{ failure() && steps.lp.conclusion == 'failure' }}

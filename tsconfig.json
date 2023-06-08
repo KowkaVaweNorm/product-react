@@ -28,7 +28,7 @@
         "./src/**/*.tsx",
         "./config/**/*.ts",
         "./config/**/*.tsx"
-, ".github/workspace/lost-pixel.config.ts"      ],
+, "lost-pixel.config.ts"      ],
       "exclude": [
         "node_modules", 
         "build", 
