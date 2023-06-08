@@ -19,16 +19,16 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
-  render: () => <Button>TEXT</Button>
+  render: () => <Button>TEST</Button>
 }
 export const Clear: Story = {
-  render: () => <Button theme={ButtonTheme.CLEAR}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.CLEAR}>TEST </Button>
 }
 
 // Outline
 
 export const Outline: Story = {
-  render: () => <Button theme={ButtonTheme.OUTLINE}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.OUTLINE}>TEST </Button>
 }
 export const OutlineDark: Story = {
   decorators: [
@@ -36,20 +36,20 @@ export const OutlineDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <Button theme={ButtonTheme.OUTLINE}>TEXT </Button>
+  render: () => <Button theme={ButtonTheme.OUTLINE}>TEST </Button>
 }
 
 export const OutlineSizeM: Story = {
   render: () => <Button
       theme={ButtonTheme.OUTLINE}
       size={ButtonSize.M}
-  >TEXT </Button>
+  >TEST </Button>
 }
 export const OutlineSizeL: Story = {
   render: () => <Button
       theme={ButtonTheme.OUTLINE}
       size={ButtonSize.L}
-  >TEXT </Button>
+  >TEST </Button>
 }
 export const OutlineSizeXL: Story = {
   render: () => <Button
