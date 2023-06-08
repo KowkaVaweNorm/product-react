@@ -14,5 +14,7 @@ jobs:
         run: npm ci --legaci-peer-deps
       - name: Build Storybook
         run: npm run sb:build
+      - name: update playwright
+        run: npx playwright install
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v2.11.0
