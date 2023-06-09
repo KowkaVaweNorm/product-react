@@ -29,8 +29,7 @@ const preview: Preview = {
     ),
     (Story) => (
       RouteDecorator(Story)
-    ),
-    withScreenshot
+    )
   ]
 }
 
