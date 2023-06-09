@@ -1,8 +1,10 @@
 import type { Preview } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
+import { Suspense } from 'react'
 import { RouteDecorator } from 'shared/config/storybook/RouteDecorator/RouteDecorator'
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { I18nDecorator } from 'shared/config/storybook/i18nDecorator/i18nDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -19,6 +21,11 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
+        <Suspense fallback=''>
+            <Story />
+        </Suspense>
+    ),
+    (Story) => (
         <StyleDecorator>
             <Story />
         </StyleDecorator>
@@ -28,6 +35,9 @@ const preview: Preview = {
     ),
     (Story) => (
       RouteDecorator(Story)
+    ),
+    (Story) => (
+      I18nDecorator(Story)
     )
   ]
 }
