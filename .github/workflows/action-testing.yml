@@ -32,11 +32,5 @@ jobs:
         if: always()
       - name: unit testing
         run: npm run test:unit
-      - name: Build Storybook components
-        run: npm run sb:build
-      # - name: Run Lost Pixel 
-      #   run: npx lost-pixel
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
       
         

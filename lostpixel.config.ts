@@ -1,5 +1,5 @@
 import { CustomProjectConfig } from 'lost-pixel';
-
+  // @ts-ignore
     export const config: CustomProjectConfig = {
       storybookShots: {
         storybookUrl: './storybook-static',
