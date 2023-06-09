@@ -16,9 +16,7 @@
     "test:ui:ok": "npx lost-pixel update",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
-    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
-    "test:ui:json": "node scripts/generate-visual-json-report.js",
-    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+    "test:ui:html": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html"
   },
   "keywords": [],
   "author": "",
@@ -68,7 +66,6 @@
     "sass": "^1.62.1",
     "sass-loader": "^12.6.0",
     "storybook": "^7.0.20",
-    "storycap": "^4.1.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
