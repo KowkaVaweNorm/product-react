@@ -36,7 +36,7 @@ export const OutlineDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <Button theme={ButtonTheme.OUTLINE}>TEST </Button>
+  render: () => <Button theme={ButtonTheme.OUTLINE}>HELLO</Button>
 }
 
 export const OutlineSizeM: Story = {

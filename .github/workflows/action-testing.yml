@@ -33,12 +33,9 @@ jobs:
       - name: unit testing
         run: npm run test:unit
       - name: Build Storybook components
-        run: npm run build-storybook
-      - name: Run Lost Pixel container
-        id: lp
-        uses: lost-pixel/lost-pixel@v2.11.0
-        env:
-          LOST_PIXEL_MODE: update
+        run: npm run sb:build
+      - name: Run Lost Pixel 
+        run: npx lost-pixel
       # - name: screenshot testing
       #   run: npm run test:ui:ci
       
