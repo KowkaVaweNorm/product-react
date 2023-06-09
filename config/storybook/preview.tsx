@@ -12,6 +12,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    screenshot: {
+      delay: 200
     }
   },
   decorators: [

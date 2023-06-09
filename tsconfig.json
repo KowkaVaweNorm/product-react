@@ -28,7 +28,7 @@
         "./src/**/*.tsx",
         "./config/**/*.ts",
         "./config/**/*.tsx"
-      ],
+, "lostpixel.config.ts"      ],
       "exclude": [
         "node_modules", 
         "build", 
