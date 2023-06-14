@@ -16,7 +16,7 @@
     "test:ui:ok": "npx lost-pixel update",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
-    "test:ui:html": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html"
+    "test:ui:report": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html -J .lostpixel/report.json  "
   },
   "keywords": [],
   "author": "",
@@ -54,6 +54,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.12",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",

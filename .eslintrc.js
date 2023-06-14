@@ -30,7 +30,12 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
 
-  plugins: ['react', '@typescript-eslint', "i18next"],
+  plugins: [
+    'react',
+     '@typescript-eslint',
+   "i18next",
+   "react-hooks"
+  ],
   
   rules: {
     'react/jsx-indent': [2, 4],
@@ -62,7 +67,9 @@ module.exports = {
     'max-len': ['error', {
       ignoreComments: true,
       code: 100
-    }]
+    }],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "error" 
   },
   globals: {
     __IS_DEV__: true
@@ -70,9 +77,10 @@ module.exports = {
 
   overrides: [
     {
-      files: ['*.test.{ts|tsx}'],
+      files: ['*.{test,stories}.{ts,tsx}'],
       rules: {
-        'i18next/no-literal-string': 'off'
+        'i18next/no-literal-string': 'off',
+        "max-len": 'off'
       },
     },
     {
