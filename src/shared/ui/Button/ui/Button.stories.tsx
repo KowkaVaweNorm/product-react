@@ -24,6 +24,9 @@ export const Primary: Story = {
 export const Clear: Story = {
   render: () => <Button theme={ButtonTheme.CLEAR}>TEST </Button>
 }
+export const ClearInverted: Story = {
+  render: () => <Button theme={ButtonTheme.CLEAR_INVERTED}>TEST </Button>
+}
 
 // Outline
 

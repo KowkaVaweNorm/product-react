@@ -14,4 +14,5 @@
     "i18n-ally.sourceLanguage": "ru",
     "jest.jestCommandLine": "",
     "jest.rootPath": "./src",
+    "storyExplorer.storybookConfigDir": "./config/storybook",
 }
