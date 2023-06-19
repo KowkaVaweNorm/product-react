@@ -11,7 +11,7 @@ export function useTheme (): UseThemeResult {
     theme = Theme.LIGHT,
     setTheme
   } = useContext(ThemeContext)
-
+  console.log(theme)
   const toggleTheme = (): void => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
     if (setTheme != null) {
