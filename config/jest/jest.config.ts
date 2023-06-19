@@ -24,7 +24,8 @@ export default {
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.jest.json'
-    }
+    },
+    "__IS_DEV__": true
   },
   moduleFileExtensions: [
     'js',

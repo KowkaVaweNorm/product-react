@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
+// import { classNames } from 'shared/lib/ClassNames/ClassNames'
 
 interface PortalProps {
   children: ReactNode

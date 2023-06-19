@@ -57,6 +57,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     "@typescript-eslint/restrict-plus-operands": "warn",
     '@typescript-eslint/strict-boolean-expressions': 'warn',
+    
     "i18next/no-literal-string": ['error', {
       markupOnly: true
     }],
