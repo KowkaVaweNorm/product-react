@@ -3,8 +3,11 @@
 @import "themes/normal";
 @import "themes/dark";
 
-.app {
+body {
     font: var(--font-m);
+}
+
+.app {
     background: var(--bg-color);
     min-height: 100vh;
     color: var(--primary-color);
@@ -12,6 +15,7 @@
 
 .content-page {
     display: flex;
+    color: var(--primary-color);
 }
 
 .page-wrapper {

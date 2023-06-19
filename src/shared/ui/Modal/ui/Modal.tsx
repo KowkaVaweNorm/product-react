@@ -18,7 +18,6 @@ export const Modal = (props: ModalProps): JSX.Element => {
     onClose,
     children
   } = props
-  const { theme } = useTheme()
   const ANIMATION_DELAY = 190
 
   const [isClosing, setIsClosing] = useState(false)
@@ -46,8 +45,7 @@ export const Modal = (props: ModalProps): JSX.Element => {
   }
   const mods: Record<string, boolean> = {
     [cls.opened ?? '']: isOpen,
-    [cls.isClosing ?? '']: isClosing,
-    [theme ?? '']: true
+    [cls.isClosing ?? '']: isClosing
   }
 
   useEffect(() => {
