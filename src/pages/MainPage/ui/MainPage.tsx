@@ -11,11 +11,6 @@ const MainPage = (): JSX.Element => {
   return (
       <div>
           <h2>{t('Главная страница')}</h2>
-          <Input
-              placeholder='Введите текст'
-              onChange={onChange}
-              value={value}
-          />
       </div>
   )
 }

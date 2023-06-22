@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames'
 import cls from './Input.module.scss'
-import { memo, type InputHTMLAttributes, useState } from 'react'
+import { memo, type InputHTMLAttributes, useState, useEffect, useRef } from 'react'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -10,6 +10,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
   type?: string
   placeholder: string
+  autofocus?: boolean
 }
 
 export const Input = memo((props: InputProps): JSX.Element => {
@@ -18,9 +19,11 @@ export const Input = memo((props: InputProps): JSX.Element => {
     value = '',
     onChange,
     type = 'text',
-    placeholder = ''
+    placeholder = '',
+    autofocus,
+    ...otherProps
   } = props
-
+  const ref = useRef<HTMLInputElement>(null)
   const [isFocused, setIsFocused] = useState(false)
   const [caretPosition, setCaretPosition] = useState(0)
 
@@ -39,6 +42,13 @@ export const Input = memo((props: InputProps): JSX.Element => {
     setCaretPosition(e?.target?.selectionStart || 0)
   }
 
+  useEffect(() => {
+    if (autofocus) {
+      setIsFocused(true)
+      ref.current?.focus()
+    }
+  }, [autofocus])
+
   return (
       <div
           className={ classNames(cls.InputWrapper ?? '', {}, [])}
@@ -54,6 +64,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
           >
 
               <input
+                  ref={ref}
                   type={type}
                   value={value}
                   onChange={onChangeHandler}
@@ -61,6 +72,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
                   onFocus={onFocus}
                   onBlur={onBlur}
                   onSelect={onSelect}
+                  {...otherProps}
               />
               { isFocused && <span
                   className={cls.caret}

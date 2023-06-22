@@ -30,6 +30,7 @@ export const LoginForm = (props: LoginFormProps): JSX.Element => {
               className={cls.input}
               value={username}
               onChange={onChangeUsername}
+              autofocus={true}
                   />
           <Input
               placeholder={t('Ввод')}
@@ -37,6 +38,7 @@ export const LoginForm = (props: LoginFormProps): JSX.Element => {
               className={cls.input}
               value={password}
               onChange={onChangePaswword}
+              autofocus={false}
           />
           <Button
               className={cls.loginBtn}
