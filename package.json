@@ -17,7 +17,8 @@
     "test:ui:ok": "npx lost-pixel update",
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
-    "test:ui:report": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html -J .lostpixel/report.json  "
+    "test:ui:report": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html -J .lostpixel/report.json  ",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -79,7 +80,8 @@
     "webpack": "^5.82.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.7.4",
+    "husky": "^7.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
