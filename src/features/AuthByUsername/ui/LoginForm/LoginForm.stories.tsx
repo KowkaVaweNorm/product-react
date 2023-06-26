@@ -19,6 +19,3 @@ type Story = StoryObj<typeof LoginForm>
 export const Primary: Story = {
   render: () => <LoginForm/>
 }
-export const Clear: Story = {
-  render: () => <LoginForm/>
-}
