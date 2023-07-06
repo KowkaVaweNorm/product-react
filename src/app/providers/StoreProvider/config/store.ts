@@ -1,19 +1,31 @@
-import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { type ReducersMapObject, configureStore, type DeepPartial } from '@reduxjs/toolkit'
 import { type StateSchema } from './StateSchema'
 import { CounterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
-import { loginReducer } from 'features/AuthByUsername'
+import { createReducerManager } from './reducerManager'
 
-export function createReduxStore (initialState?: StateSchema):
-ReturnType< typeof configureStore<StateSchema>> {
+export function createReduxStore (
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+):
+  ReturnType< typeof configureStore<StateSchema>> {
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: CounterReducer,
-    user: userReducer,
-    loginForm: loginReducer
+    user: userReducer
   }
-  return configureStore<StateSchema>({
-    reducer: rootReducers,
-    devTools: __IS_DEV__,
-    preloadedState: initialState
-  })
+
+  const reducerManager = createReducerManager(rootReducers)
+
+  const store =
+    configureStore<StateSchema>({
+      reducer: reducerManager.reduce,
+      devTools: __IS_DEV__,
+      preloadedState: initialState
+    })
+
+  // @ts-expect-error  Временное решение
+  store.reducerManager = reducerManager
+
+  return store
 }
