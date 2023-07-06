@@ -25,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@jest/globals": "^29.5.0",
@@ -110,5 +111,11 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "lint-staged": {
+    "!(node_modules/**/*)*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

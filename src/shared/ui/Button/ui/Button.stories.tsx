@@ -81,3 +81,7 @@ export const SquareSizeXL: Story = {
   render: () => <Button theme={ButtonTheme.BACKGROUND_INVERTED}
       square={true} size={ButtonSize.XL}>{'>'}</Button>
 }
+export const Disabled: Story = {
+  render: () => <Button theme={ButtonTheme.OUTLINE}
+      disabled = {true}>{'>'}</Button>
+}
