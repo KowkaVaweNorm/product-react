@@ -1,7 +1,6 @@
 import {
   type ReducersMapObject,
   combineReducers,
-  createStore,
   type AnyAction,
   type Reducer
 } from 'redux'

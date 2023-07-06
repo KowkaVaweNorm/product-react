@@ -26,10 +26,10 @@ export const Error: Story = {
   />
 }
 
-export const onlyTitle: Story = {
+export const OnlyTitle: Story = {
   render: () => <Text title='Title lorem'/>
 }
-export const onlyText: Story = {
+export const OnlyText: Story = {
   render: () => <Text text='Text lorem'/>
 }
 export const PrimaryDark: Story = {
@@ -41,7 +41,7 @@ export const PrimaryDark: Story = {
   render: () => <Text title='title lorem' text='text lorem ipsum tralalala' />
 }
 
-export const onlyTitleDark: Story = {
+export const OnlyTitleDark: Story = {
   decorators: [
     (Story) => (
       ThemeDecorator(Theme.DARK)(Story)
@@ -49,7 +49,7 @@ export const onlyTitleDark: Story = {
   ],
   render: () => <Text title='Title lorem'/>
 }
-export const onlyTextDark: Story = {
+export const OnlyTextDark: Story = {
   decorators: [
     (Story) => (
       ThemeDecorator(Theme.DARK)(Story)
