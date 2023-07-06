@@ -1,25 +1,33 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames'
 import cls from './LoginForm.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input/Input'
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginActions } from '../../model/slice/loginSlice'
+import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState'
 
 interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = (props: LoginFormProps): JSX.Element => {
+export const LoginForm = memo((props: LoginFormProps): JSX.Element => {
   const { className = '' } = props
   const { t } = useTranslation()
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const onChangeUsername = (val: string): void => {
-    setUsername(val)
-  }
-  const onChangePaswword = (val: string): void => {
-    setPassword(val)
-  }
+  const dispatch = useDispatch()
+  const { username, password } = useSelector(getLoginState)
+
+  const onChangeUsername = useCallback((value: string): void => {
+    dispatch(loginActions.setUsername(value))
+  }, [dispatch])
+  const onChangePaswword = useCallback((value: string): void => {
+    dispatch(loginActions.setPassword(value))
+  }, [dispatch])
+
+  const onLoginClick = useCallback((value: string): void => {
+    
+  }, [])
   return (
       <div
           className={ classNames(cls.LoginForm ?? '', {}, [])}
@@ -41,10 +49,12 @@ export const LoginForm = (props: LoginFormProps): JSX.Element => {
               autofocus={false}
           />
           <Button
+              theme={ButtonTheme.OUTLINE}
               className={cls.loginBtn}
+              onClick={onLoginClick}
           >
               {t('Войти')}
           </Button>
       </div>
   )
-}
+})
