@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { type CounterSchema } from '../types/CounterSchema'
 
 export interface CounterState {
