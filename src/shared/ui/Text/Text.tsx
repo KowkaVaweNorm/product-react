@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import cls from './Text.module.scss'
-import { useTranslation } from 'react-i18next'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import cls from './Text.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export enum TextTheme {
   PRIMARY = 'primary',
@@ -15,7 +15,7 @@ interface TextProps {
 }
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { className = '', title, text, theme = TextTheme.PRIMARY } = props
+  const { className = '', title, text, theme = TextTheme.PRIMARY } = props;
 
   return (
       <div
@@ -24,5 +24,5 @@ export const Text = (props: TextProps): JSX.Element => {
           {(title !== undefined) && <p className={cls.title}>{title}</p>}
           {(text !== undefined) && <p className={cls.text}>{text}</p>}
       </div>
-  )
-}
+  );
+};

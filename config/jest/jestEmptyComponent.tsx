@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const jestEmptyComponent = function (): JSX.Element {
-  return <div />
-}
+  return <div />;
+};
 
-export default jestEmptyComponent
+export default jestEmptyComponent;

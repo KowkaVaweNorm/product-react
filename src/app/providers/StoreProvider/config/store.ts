@@ -1,8 +1,8 @@
-import { type ReducersMapObject, configureStore, type DeepPartial } from '@reduxjs/toolkit'
-import { type StateSchema } from './StateSchema'
-import { CounterReducer } from 'entities/Counter'
-import { userReducer } from 'entities/User'
-import { createReducerManager } from './reducerManager'
+import { type ReducersMapObject, configureStore, type DeepPartial } from '@reduxjs/toolkit';
+import { type StateSchema } from './StateSchema';
+import { CounterReducer } from 'entities/Counter';
+import { userReducer } from 'entities/User';
+import { createReducerManager } from './reducerManager';
 
 export function createReduxStore (
   initialState?: StateSchema,
@@ -13,19 +13,19 @@ export function createReduxStore (
     ...asyncReducers,
     counter: CounterReducer,
     user: userReducer
-  }
+  };
 
-  const reducerManager = createReducerManager(rootReducers)
+  const reducerManager = createReducerManager(rootReducers);
 
   const store =
     configureStore<StateSchema>({
       reducer: reducerManager.reduce,
       devTools: __IS_DEV__,
       preloadedState: initialState
-    })
+    });
 
   // @ts-expect-error  Временное решение
-  store.reducerManager = reducerManager
+  store.reducerManager = reducerManager;
 
-  return store
+  return store;
 }

@@ -1,18 +1,18 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Navbar } from './Navbar'
-import { Theme } from 'app/providers/ThemeProvider'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { Navbar } from './Navbar';
+import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta: Meta<typeof Navbar> = {
   title: 'widgets/Navbar',
   component: Navbar
 
-}
+};
 
-export default meta
+export default meta;
 type Story = StoryObj<typeof Navbar>
 
 export const Light: Story = {
@@ -22,7 +22,7 @@ export const Light: Story = {
     )
   ],
   render: () => <Navbar />
-}
+};
 export const AuthNavbar: Story = {
   decorators: [
     (Story) => (
@@ -32,7 +32,7 @@ export const AuthNavbar: Story = {
     )
   ],
   render: () => <Navbar />
-}
+};
 
 export const Dark: Story = {
   decorators: [
@@ -44,4 +44,4 @@ export const Dark: Story = {
     )
   ],
   render: () => <Navbar />
-}
+};

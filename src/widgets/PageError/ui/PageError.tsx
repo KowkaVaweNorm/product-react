@@ -1,18 +1,18 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import cls from './PageError.module.scss'
-import { useTranslation } from 'react-i18next'
-import { Button, ButtonTheme } from 'shared/ui/Button'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import cls from './PageError.module.scss';
+import { useTranslation } from 'react-i18next';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 
 interface PageErrorProps {
   className?: string
 }
 
 export const PageError = ({ className = '' }: PageErrorProps): JSX.Element => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const reloadPage = (): void => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    location.reload()
-  }
+    location.reload();
+  };
 
   return (
       <div className={classNames(cls.PageError ?? '', {}, [className])}>
@@ -23,5 +23,5 @@ export const PageError = ({ className = '' }: PageErrorProps): JSX.Element => {
               {t('Обновить страницу')}
           </Button>
       </div>
-  )
-}
+  );
+};

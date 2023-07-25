@@ -1,8 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 
-import LoginForm from './LoginForm'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import LoginForm from './LoginForm';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta: Meta<typeof LoginForm> = {
   title: 'features/LoginForm',
@@ -12,9 +12,9 @@ const meta: Meta<typeof LoginForm> = {
       viewport: 'iPhone 5'
     }
   }
-}
+};
 
-export default meta
+export default meta;
 type Story = StoryObj<typeof LoginForm>
 export const Primary: Story = {
   decorators: [
@@ -29,7 +29,7 @@ export const Primary: Story = {
     )
   ],
   render: () => <LoginForm/>
-}
+};
 export const withError: Story = {
   decorators: [
     (Story) => (
@@ -44,7 +44,7 @@ export const withError: Story = {
     )
   ],
   render: () => <LoginForm/>
-}
+};
 export const Loading: Story = {
   decorators: [
     (Story) => (
@@ -58,4 +58,4 @@ export const Loading: Story = {
     )
   ],
   render: () => <LoginForm/>
-}
+};

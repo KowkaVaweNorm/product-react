@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import cls from './Input.module.scss'
-import { memo, type InputHTMLAttributes, useState, useEffect, useRef } from 'react'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import cls from './Input.module.scss';
+import { memo, type InputHTMLAttributes, useState, useEffect, useRef } from 'react';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -22,32 +22,32 @@ export const Input = memo((props: InputProps): JSX.Element => {
     placeholder = '',
     autofocus,
     ...otherProps
-  } = props
-  const ref = useRef<HTMLInputElement>(null)
-  const [isFocused, setIsFocused] = useState(false)
-  const [caretPosition, setCaretPosition] = useState(0)
+  } = props;
+  const ref = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [caretPosition, setCaretPosition] = useState(0);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(e.target.value)
-    setCaretPosition(e.target.value.length)
-  }
+    onChange?.(e.target.value);
+    setCaretPosition(e.target.value.length);
+  };
 
   const onBlur = (): void => {
-    setIsFocused(false)
-  }
+    setIsFocused(false);
+  };
   const onFocus = (): void => {
-    setIsFocused(true)
-  }
+    setIsFocused(true);
+  };
   const onSelect = (e: any): void => {
-    setCaretPosition(e?.target?.selectionStart || 0)
-  }
+    setCaretPosition(e?.target?.selectionStart || 0);
+  };
 
   useEffect(() => {
     if (autofocus) {
-      setIsFocused(true)
-      ref.current?.focus()
+      setIsFocused(true);
+      ref.current?.focus();
     }
-  }, [autofocus])
+  }, [autofocus]);
 
   return (
       <div
@@ -82,6 +82,6 @@ export const Input = memo((props: InputProps): JSX.Element => {
           </div>
 
       </div>
-  )
+  );
 }
-)
+);

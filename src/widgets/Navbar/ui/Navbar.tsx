@@ -1,33 +1,33 @@
 /* eslint-disable i18next/no-literal-string */
 
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import cls from './Navbar.module.scss'
-import { useTranslation } from 'react-i18next'
-import { Modal } from 'shared/ui/Modal'
-import { Button, ButtonTheme } from 'shared/ui/Button'
-import { useCallback, useState } from 'react'
-import { LoginModal } from 'features/AuthByUsername'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entities/User'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import cls from './Navbar.module.scss';
+import { useTranslation } from 'react-i18next';
+import { Modal } from 'shared/ui/Modal';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { useCallback, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from 'entities/User';
 
 interface NavbarProps {
   className?: string
 }
 
 export const Navbar = ({ className = '' }: NavbarProps): JSX.Element => {
-  const { t } = useTranslation()
-  const [isAuthModal, setIsAuthModal] = useState(false)
-  const authData = useSelector(getUserAuthData)
-  const dispatch = useDispatch()
+  const { t } = useTranslation();
+  const [isAuthModal, setIsAuthModal] = useState(false);
+  const authData = useSelector(getUserAuthData);
+  const dispatch = useDispatch();
   const onCloseModal = useCallback(() => {
-    setIsAuthModal(false)
-  }, [])
+    setIsAuthModal(false);
+  }, []);
   const onShowModal = useCallback(() => {
-    setIsAuthModal(true)
-  }, [])
+    setIsAuthModal(true);
+  }, []);
   const onLogout = useCallback(() => {
-    dispatch(userActions.logout())
-  }, [dispatch])
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
   if (authData != null) {
     return (
@@ -44,7 +44,7 @@ export const Navbar = ({ className = '' }: NavbarProps): JSX.Element => {
                 onClose={onCloseModal}
               />
         </div>
-    )
+    );
   } else {
     return (
         <div className={classNames(cls.Navbar ?? '', {}, [className])}>
@@ -62,6 +62,6 @@ export const Navbar = ({ className = '' }: NavbarProps): JSX.Element => {
             )}
         </div>
 
-    )
+    );
   }
-}
+};

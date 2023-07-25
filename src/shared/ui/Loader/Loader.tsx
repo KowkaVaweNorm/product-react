@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import './Loader.scss'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import './Loader.scss';
 
 interface LoaderProps {
   className?: string
@@ -21,5 +21,5 @@ export const Loader = ({ className = '' }: LoaderProps): JSX.Element => {
           <div></div>
           <div></div>
       </div>
-  )
-}
+  );
+};

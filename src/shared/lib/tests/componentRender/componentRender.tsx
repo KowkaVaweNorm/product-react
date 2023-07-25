@@ -1,10 +1,10 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
-import { type RenderResult, render } from '@testing-library/react'
-import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { type ReactNode } from 'react'
-import { I18nextProvider } from 'react-i18next'
-import { MemoryRouter } from 'react-router-dom'
-import i18nForTest from 'shared/config/i18n/i18nForTest'
+import { type DeepPartial } from '@reduxjs/toolkit';
+import { type RenderResult, render } from '@testing-library/react';
+import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { type ReactNode } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import { MemoryRouter } from 'react-router-dom';
+import i18nForTest from 'shared/config/i18n/i18nForTest';
 
 export interface componentRenderOptions {
   route?: string
@@ -16,7 +16,7 @@ export function componentRender
   const {
     route = '/',
     inititalState
-  } = options
+  } = options;
 
   return render(
       <StoreProvider initialState={inititalState}>
@@ -26,5 +26,5 @@ export function componentRender
               </I18nextProvider>
           </MemoryRouter>
       </StoreProvider>
-  )
+  );
 }

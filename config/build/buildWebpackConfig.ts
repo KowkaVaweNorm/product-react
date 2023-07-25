@@ -1,12 +1,12 @@
-import type webpack from 'webpack'
-import { type BuildOption } from './types/config'
-import { buildLoaders } from './buildLoaders'
-import { buildPlugins } from './buildPlugins'
-import { buildResolvers } from './buildResolvers'
-import { buildDevServer } from './buildDevServer'
+import type webpack from 'webpack';
+import { type BuildOption } from './types/config';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig (options: BuildOption): webpack.Configuration {
-  const { paths, mode, isDev } = options
+  const { paths, mode, isDev } = options;
 
   return {
     mode,
@@ -28,5 +28,5 @@ export function buildWebpackConfig (options: BuildOption): webpack.Configuration
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     }
-  }
+  };
 }
