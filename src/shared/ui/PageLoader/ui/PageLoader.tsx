@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import cls from './PageLoader.module.scss'
-import { Loader } from 'shared/ui/Loader/Loader'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import cls from './PageLoader.module.scss';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 interface PageLoaderProps {
   className?: string
@@ -11,5 +11,5 @@ export const PageLoader = ({ className = '' }: PageLoaderProps): JSX.Element => 
       <div className={classNames(cls.PageLoader ?? '', {}, [className])}>
           <Loader />
       </div>
-  )
-}
+  );
+};

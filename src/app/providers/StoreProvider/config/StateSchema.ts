@@ -4,10 +4,10 @@ import {
   type ReducersMapObject,
   type EnhancedStore,
   type CombinedState
-} from '@reduxjs/toolkit'
-import { type CounterSchema } from 'entities/Counter'
-import { type UserSchema } from 'entities/User'
-import { type LoginSchema } from 'features/AuthByUsername'
+} from '@reduxjs/toolkit';
+import { type CounterSchema } from 'entities/Counter';
+import { type UserSchema } from 'entities/User';
+import { type LoginSchema } from 'features/AuthByUsername';
 
 export interface StateSchema {
   counter: CounterSchema

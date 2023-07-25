@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import LightIcon from 'shared/assets/icons/theme-light.svg'
-import DarkIcon from 'shared/assets/icons/theme-dark.svg'
-import { Button, ButtonTheme } from 'shared/ui/Button'
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import LightIcon from 'shared/assets/icons/theme-light.svg';
+import DarkIcon from 'shared/assets/icons/theme-dark.svg';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 
 interface ThemeSwitcherProps {
   className?: string
 }
 
 export const ThemeSwitcher = ({ className = '' }: ThemeSwitcherProps): JSX.Element => {
-  const { theme, toggleTheme } = useTheme()
-  console.log(theme)
+  const { theme, toggleTheme } = useTheme();
+  console.log(theme);
   return (
 
       <Button
@@ -20,5 +20,5 @@ export const ThemeSwitcher = ({ className = '' }: ThemeSwitcherProps): JSX.Eleme
             >
           {theme === Theme.DARK ? <DarkIcon /> : <LightIcon /> }
       </Button>
-  )
-}
+  );
+};

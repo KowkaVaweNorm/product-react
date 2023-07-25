@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Modal } from './Modal'
-import { Theme } from 'app/providers/ThemeProvider'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Modal } from './Modal';
+import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta: Meta<typeof Modal> = {
   title: 'shared/Modal',
@@ -11,14 +11,14 @@ const meta: Meta<typeof Modal> = {
       viewport: 'iPhone 5'
     }
   }
-}
+};
 
-export default meta
+export default meta;
 type Story = StoryObj<typeof Modal>
 
 export const Primary: Story = {
   render: () => <Modal isOpen={true}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit necessitatibus eum aliquam praesentium illum eligendi soluta, expedita maxime quam qui, eaque reiciendis, dolores modi iusto! Aliquam laudantium dicta in vero.</Modal>
-}
+};
 export const PrimaryDark: Story = {
   decorators: [
     (Story) => (
@@ -26,4 +26,4 @@ export const PrimaryDark: Story = {
     )
   ],
   render: () => <Modal isOpen={true}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit necessitatibus eum aliquam praesentium illum eligendi soluta, expedita maxime quam qui, eaque reiciendis, dolores modi iusto! Aliquam laudantium dicta in vero.</Modal>
-}
+};

@@ -15,7 +15,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard-with-typescript',
-    "plugin:@typescript-eslint/recommended",
+    // "plugin:@typescript-eslint/recommended",
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
   ],
@@ -32,9 +32,9 @@ module.exports = {
 
   plugins: [
     'react',
-     '@typescript-eslint',
-   "i18next",
-   "react-hooks"
+    '@typescript-eslint',
+    "i18next",
+    "react-hooks"
   ],
   
   rules: {
@@ -47,6 +47,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
+    "semi": ['error', 'always'],
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
@@ -56,8 +57,10 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
+    '@typescript-eslint/semi': 'off',
     "@typescript-eslint/restrict-plus-operands": "warn",
     '@typescript-eslint/strict-boolean-expressions': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
     
     "i18next/no-literal-string": ['error', {
       markupOnly: true

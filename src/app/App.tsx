@@ -1,18 +1,18 @@
-import { Suspense, useEffect } from 'react'
-import { classNames } from 'shared/lib/ClassNames/ClassNames'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { AppRouter } from 'app/providers/router'
-import { Navbar } from 'widgets/Navbar'
-import { Sidebar } from 'widgets/Sidebar'
-import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { Suspense, useEffect } from 'react';
+import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { AppRouter } from 'app/providers/router';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User';
 
 const App = (): JSX.Element => {
-  const { theme } = useTheme()
-  const dispatch = useDispatch()
+  const { theme } = useTheme();
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(userActions.initAuthdata())
-  }, [dispatch])
+    dispatch(userActions.initAuthdata());
+  }, [dispatch]);
   return (
       <div className={classNames('app', {}, [theme])}>
           <Suspense fallback="">
@@ -23,7 +23,7 @@ const App = (): JSX.Element => {
               </div>
           </Suspense>
       </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,5 +1,5 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
+import { type StateSchema } from 'app/providers/StoreProvider';
 
 export const getLoginLoading = (
   state: StateSchema
-): boolean | undefined => state?.loginForm?.isLoading ?? false
+): boolean | undefined => state?.loginForm?.isLoading ?? false;
