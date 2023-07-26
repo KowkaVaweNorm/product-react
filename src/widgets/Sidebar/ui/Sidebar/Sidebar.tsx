@@ -52,4 +52,4 @@ export const Sidebar = memo(({ className = '' }: SidebarProps): JSX.Element => {
           </div>
       </div>
   );
-})
+});

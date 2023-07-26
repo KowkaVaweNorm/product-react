@@ -13,14 +13,14 @@ interface LoginModalProps {
 
 export const LoginModal = (props: LoginModalProps): JSX.Element => {
   const {
-    className,
+    className = '',
     isOpen,
     onClose
   } = props;
 
   return (
       <Modal
-          className={ classNames(cls.LoginModal ?? '', {}, [])}
+          className={ classNames(cls.LoginModal ?? '', {}, [className])}
           isOpen={isOpen}
           onClose={onClose}
           lazy

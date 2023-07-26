@@ -30,7 +30,7 @@ export const Primary: Story = {
   ],
   render: () => <LoginForm onSuccess={() => {}}/>
 };
-export const withError: Story = {
+export const WithError: Story = {
   decorators: [
     (Story) => (
       StoreDecorator({

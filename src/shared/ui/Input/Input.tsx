@@ -39,11 +39,11 @@ export const Input = memo((props: InputProps): JSX.Element => {
     setIsFocused(true);
   };
   const onSelect = (e: any): void => {
-    setCaretPosition(e?.target?.selectionStart || 0);
+    setCaretPosition(e?.target?.selectionStart ?? 0);
   };
 
   useEffect(() => {
-    if (autofocus) {
+    if (autofocus ?? false) {
       setIsFocused(true);
       ref.current?.focus();
     }
@@ -51,7 +51,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
 
   return (
       <div
-          className={ classNames(cls.InputWrapper ?? '', {}, [])}
+          className={ classNames(cls.InputWrapper ?? '', {}, [className])}
       >
           { (placeholder.length > 0) && (
 
@@ -72,6 +72,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
                   onFocus={onFocus}
                   onBlur={onBlur}
                   onSelect={onSelect}
+                  // eslint-disable-next-line react/jsx-props-no-spreading
                   {...otherProps}
               />
               { isFocused && <span

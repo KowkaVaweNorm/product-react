@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Modal.module.scss';
 import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react';
 import { Portal } from 'shared/ui/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 interface ModalProps {
   className?: string
@@ -67,7 +66,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     }
   }, [isOpen]);
 
-  if (lazy && !isMounted) {
+  if ((lazy ?? false) && !isMounted) {
     return null;
   }
   return (

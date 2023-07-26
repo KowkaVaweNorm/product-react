@@ -32,7 +32,7 @@ export function createReducerManager (
     },
 
     add: (key: StateSchemaKey, reducer: Reducer) => {
-      if (!key || (reducers[key] != null)) {
+      if ((key.length === 0) || (reducers[key] != null)) {
         return;
       }
 
@@ -42,7 +42,7 @@ export function createReducerManager (
     },
 
     remove: (key: StateSchemaKey) => {
-      if (!key || (reducers[key] == null)) {
+      if ((key.length === 0) || (reducers[key] == null)) {
         return;
       }
 

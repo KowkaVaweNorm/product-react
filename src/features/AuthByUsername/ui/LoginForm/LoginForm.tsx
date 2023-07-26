@@ -61,7 +61,7 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
               className={ classNames(cls.LoginForm ?? '', {}, [className])}
       >
               <Text title={t('Форма авторизации')} />
-              {error &&
+              {(error != null) &&
               <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
               <Input
                   placeholder={t('Ввод')}
@@ -82,7 +82,7 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
               <Button
                   theme={ButtonTheme.OUTLINE}
                   className={cls.loginBtn}
-                  onClick={onLoginClick}
+                  onClick={() => { void onLoginClick(); }}
                   disabled={isLoading}
               >
                   {t('Войти')}

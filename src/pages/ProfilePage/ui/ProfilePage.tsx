@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import {
   DynamicModuleLoader,
@@ -15,7 +14,6 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = (props: ProfilePageProps): JSX.Element => {
-  const { className = '' } = props;
   const { t } = useTranslation();
 
   return (

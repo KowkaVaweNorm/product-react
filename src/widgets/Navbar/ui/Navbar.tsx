@@ -3,7 +3,6 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';

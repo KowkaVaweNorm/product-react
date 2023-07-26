@@ -13,6 +13,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
   async (authData, thunkAPI) => {
     try {
       const response = await axios.post('http://localhost:8000/login', authData);
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (!(response.data)) {
         throw new Error();
       }

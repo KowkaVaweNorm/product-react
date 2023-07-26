@@ -1,5 +1,5 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { type ProfileSchema, type Profile } from '../types/Profile';
+import { createSlice } from '@reduxjs/toolkit';
+import { type ProfileSchema } from '../types/Profile';
 
 export interface ProfileState {
   value: number

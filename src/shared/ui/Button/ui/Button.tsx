@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Button.module.scss';
-import React, { memo, type ButtonHTMLAttributes, type FC, ReactNode } from 'react';
+import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
 export enum ButtonTheme {
   CLEAR = 'clear',
@@ -46,6 +46,7 @@ export const Button = memo((props: ButtonProps) => {
       <button
           className={classNames(cls.Button ?? '', mods, [className, theme])}
           disabled={disabled}
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
     >
       </button>

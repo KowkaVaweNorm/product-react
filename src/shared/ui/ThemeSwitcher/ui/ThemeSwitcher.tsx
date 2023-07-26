@@ -22,4 +22,4 @@ export const ThemeSwitcher = memo(({ className = '' }: ThemeSwitcherProps): JSX.
           {theme === Theme.DARK ? <DarkIcon /> : <LightIcon /> }
       </Button>
   );
-})
+});
