@@ -28,9 +28,9 @@ export const Primary: Story = {
       })(Story)
     )
   ],
-  render: () => <LoginForm/>
+  render: () => <LoginForm onSuccess={() => {}}/>
 };
-export const withError: Story = {
+export const WithError: Story = {
   decorators: [
     (Story) => (
       StoreDecorator({
@@ -43,7 +43,7 @@ export const withError: Story = {
       })(Story)
     )
   ],
-  render: () => <LoginForm/>
+  render: () => <LoginForm onSuccess={() => {}}/>
 };
 export const Loading: Story = {
   decorators: [
@@ -57,5 +57,5 @@ export const Loading: Story = {
       })(Story)
     )
   ],
-  render: () => <LoginForm/>
+  render: () => <LoginForm onSuccess={() => {}}/>
 };

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Button.module.scss';
-import { type ButtonHTMLAttributes, type FC } from 'react';
+import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
 export enum ButtonTheme {
   CLEAR = 'clear',
@@ -22,9 +22,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: ButtonSize
   disabled?: boolean
+  children?: ReactNode
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className = '',
     theme = '',
@@ -45,8 +46,9 @@ export const Button: FC<ButtonProps> = (props) => {
       <button
           className={classNames(cls.Button ?? '', mods, [className, theme])}
           disabled={disabled}
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
     >
       </button>
   );
-};
+});

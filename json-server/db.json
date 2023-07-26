@@ -1,6 +1,6 @@
 {
   "posts": [
-    { "id": '1', "title": "json-server", "author": "typicode" }
+    { "id": "1", "title": "json-server", "author": "typicode" }
   ],
   "users": [
     {
@@ -18,5 +18,15 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "first": "Михали",
+    "lastname": "Абсудман",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://fikiwiki.com/uploads/posts/2022-02/1644984017_1-fikiwiki-com-p-kartinki-zhivotnikh-na-avu-1.jpg"
+
+  }
 }
