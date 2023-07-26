@@ -1,6 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { type UserSchema, type User } from '../types/user';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage/localstorage';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 export interface userState {
   value: number
