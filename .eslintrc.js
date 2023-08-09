@@ -61,6 +61,7 @@ module.exports = {
     "@typescript-eslint/restrict-plus-operands": "warn",
     '@typescript-eslint/strict-boolean-expressions': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'no-tabs': 'off',
     
     "i18next/no-literal-string": ['error', {
       markupOnly: true
@@ -77,7 +78,8 @@ module.exports = {
     "react-hooks/exhaustive-deps": "error" 
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   },
 
   overrides: [
