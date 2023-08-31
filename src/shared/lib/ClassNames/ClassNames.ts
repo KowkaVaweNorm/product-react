@@ -1,5 +1,5 @@
 
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string>
 
 export function classNames (
   cls: string,
