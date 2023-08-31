@@ -6,14 +6,12 @@ import {
   type CombinedState
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
-import { type CounterSchema } from 'entities/Counter';
 import { type ProfileSchema } from 'entities/Profile';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type To, type NavigateOptions } from 'react-router-dom';
 
 export interface StateSchema {
-  counter: CounterSchema
   user: UserSchema
 
   // Async

@@ -18,7 +18,7 @@ export const SidebarItem = memo((props: SidebarItemProps): JSX.Element => {
   const { item = { Icon: MainIcon, path: '/', text: '' }, collapsed } = props;
   const { t } = useTranslation();
   const isAuth = useSelector(getUserAuthData);
-  if (item.authOnly && (isAuth == null)) {
+  if ((item.authOnly === true) && (isAuth == null)) {
     return <></>;
   }
   return (

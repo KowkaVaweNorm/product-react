@@ -8,7 +8,6 @@ import {
   ProfileCard,
   ProfileReducer,
   fetchProfileData,
-  getProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading
@@ -21,8 +20,8 @@ import {
   getProfileReadonly
 } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { isNumber } from 'shared/lib/utils/isNumber/isNumber';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country/model/types/country';
+import { type Currency } from 'entities/Currency';
+import { type Country } from 'entities/Country/model/types/country';
 
 const reducers: ReducersList = {
   profile: ProfileReducer

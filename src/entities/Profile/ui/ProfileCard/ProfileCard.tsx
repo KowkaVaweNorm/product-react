@@ -68,7 +68,7 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   }
 
   const mods: Mods = {
-    [cls.editing ?? '']: !readonly
+    [cls.editing ?? '']: readonly === false
   };
 
   return (

@@ -9,7 +9,11 @@ import {
 } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ProfileActions, getProfileData, getProfileIsLoading, updateProfileData } from 'entities/Profile';
+import {
+  ProfileActions,
+  getProfileIsLoading,
+  updateProfileData
+} from 'entities/Profile';
 interface ProfilePageHeaderProps {
   className?: string
 }
@@ -23,19 +27,19 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
   const dispatch = useAppDispatch();
 
   const onEdit = useCallback((): void => {
-    if (!isLoading) {
+    if (isLoading === false) {
       dispatch(ProfileActions.setReadonly(false));
     }
   }, [dispatch, isLoading]);
 
   const onCancelEdit = useCallback((): void => {
-    if (!isLoading) {
+    if (isLoading === false) {
       dispatch(ProfileActions.cancelEdit());
     }
   }, [dispatch, isLoading]);
 
   const onSave = useCallback((): void => {
-    if (!isLoading) {
+    if (isLoading === false) {
       dispatch(updateProfileData());
     }
   }, [dispatch, isLoading]);
@@ -50,7 +54,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
           <Text
               title={t('Профиль')}
           />
-          { readonly
+          { (readonly === true)
             ? <Button
                     className={cls.editBtn}
                     theme={ButtonTheme.OUTLINE}

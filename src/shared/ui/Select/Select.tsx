@@ -54,7 +54,7 @@ export const Select = memo((props: SelectProps): JSX.Element => {
           }
       >
           {
-            label && (
+            (label != null) && (
             <span className={cls.label}>
                 {label + '>'}
             </span>

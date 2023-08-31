@@ -1,6 +1,5 @@
-import { Mods, classNames } from 'shared/lib/ClassNames/ClassNames';
+import { type Mods, classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Avatar.module.scss';
-import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
 interface AvatarProps {
@@ -17,8 +16,6 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
     alt,
     size
   } = props;
-
-  const { t } = useTranslation('profile');
   const styles = useMemo< React.CSSProperties>(() => {
     return {
       width: size ?? 100,
