@@ -1,6 +1,10 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "users": [
     {
@@ -18,15 +22,14 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": { 
-    "first": "Михали",
+  "profile": {
+    "first": "Михалин",
     "lastname": "Абсудман",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
+    "age": 23,
+    "currency": "EUR",
+    "country": "Belarus",
     "city": "Moscow",
     "username": "admin",
-    "avatar": "https://fikiwiki.com/uploads/posts/2022-02/1644984017_1-fikiwiki-com-p-kartinki-zhivotnikh-na-avu-1.jpg"
-
+    "avatar": "https://kartinki.pics/uploads/posts/2021-07/1626141542_25-kartinkin-com-p-anime-pro-khakerov-i-programmistov-anime-k-26.jpg"
   }
 }
