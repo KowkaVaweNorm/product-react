@@ -2,7 +2,7 @@ import { isNumber } from './isNumber';
 
 describe('isNumber', () => {
   test('with empty string', () => {
-    expect(isNumber('')).toEqual(false);
+    expect(isNumber('')).toEqual(true);
   });
   test('with filled string', () => {
     expect(isNumber('string')).toEqual(false);

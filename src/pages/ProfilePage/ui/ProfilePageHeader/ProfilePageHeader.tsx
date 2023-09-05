@@ -44,7 +44,6 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
     }
   }, [dispatch, isLoading]);
 
-  console.log('readonly:', readonly);
   return (
       <div
           className={

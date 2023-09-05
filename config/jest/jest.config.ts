@@ -26,7 +26,8 @@ export default {
       tsconfig: 'tsconfig.jest.json'
     },
     "__IS_DEV__": true,
-    "__API__" : ''
+    "__API__" : '',
+    "__PROJECT__" : 'jest'
   },
   moduleFileExtensions: [
     'js',
