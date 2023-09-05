@@ -9,6 +9,7 @@ const AppRouter = (): JSX.Element => {
   const isAuth = useSelector(getUserAuthData);
   const routes = useMemo(() => {
     return Object.values(routeConfig).filter(route => {
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (route.authOnly && (isAuth == null)) {
         return false;
       }

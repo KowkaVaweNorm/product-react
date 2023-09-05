@@ -47,7 +47,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
   return (
       <div
           className={
-            classNames(cls.ProfilePageHeader ?? '', {}, [])
+            classNames(cls.ProfilePageHeader ?? '', {}, [className])
         }
       >
           <Text

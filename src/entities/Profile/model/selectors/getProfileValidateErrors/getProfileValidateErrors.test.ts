@@ -1,4 +1,3 @@
-import { Country } from 'entities/Country';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 import { type StateSchema } from 'app/providers/StoreProvider';

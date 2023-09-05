@@ -37,7 +37,7 @@ export const Text = memo((props: TextProps): JSX.Element => {
 
   return (
       <div
-          className={ classNames(cls.Text ?? '', { [cls[theme] ?? '']: true }, [className])}
+          className={ classNames(cls.Text ?? '', mods, [className])}
       >
           {(title !== undefined) && <p className={cls.title}>{title}</p>}
           {(text !== undefined) && <p className={cls.text}>{text}</p>}

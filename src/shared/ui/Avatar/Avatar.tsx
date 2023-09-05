@@ -30,7 +30,7 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
           style={styles}
           alt={alt}
           className={
-                classNames(cls.Avatar ?? '', mods, [])
+                classNames(cls.Avatar ?? '', mods, [className ?? ''])
             }
       />
   );

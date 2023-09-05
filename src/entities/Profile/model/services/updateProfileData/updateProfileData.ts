@@ -14,11 +14,13 @@ ThunkConfig<ValidateProfileError[]>>(
     const formData = getProfileForm(getState());
     const errors = validateProfileData(formData);
 
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (errors.length) {
       return rejectWithValue(errors);
     }
     try {
       const response = await extra.api.put<Profile>('/profile', formData);
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (!response.data) {
         console.log('error server');
 
