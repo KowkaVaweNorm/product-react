@@ -13,8 +13,6 @@ module.exports = {
   },
   
   extends: [
-    "@sanity/eslint-config-studio",
-     "@babel/core",
     'plugin:react/recommended',
     'standard-with-typescript',
     // "plugin:@typescript-eslint/recommended",

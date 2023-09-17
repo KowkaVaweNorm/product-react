@@ -10,7 +10,7 @@ import { getUserInited, userActions } from 'entities/User';
 const App = (): JSX.Element => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
-  const inited = useSelector(getUserInited)
+  const inited = useSelector(getUserInited);
   useEffect(() => {
     dispatch(userActions.initAuthdata());
   }, [dispatch]);
