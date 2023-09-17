@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
+    "start:dev": "concurrently \"npm start\" \" npm run start:dev:server \" ",
     "start:dev:server": "node ./json-server/index.js",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
@@ -26,10 +27,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.22.7",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@jest/globals": "^29.5.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0",
     "@storybook/addon-links": "^7.4.0",
@@ -51,6 +54,8 @@
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.12.1",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^8.2.1",
     "css-loader": "^6.6.0",
     "eslint": "^8.41.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
@@ -70,6 +75,7 @@
     "jsonwebtoken": "^9.0.0",
     "lost-pixel": "^3.4.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.62.1",
@@ -97,21 +103,6 @@
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1"
-  },
-  "loki": {
-    "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.docker",
-        "width": 1366,
-        "height": 768,
-        "deviceScaleFactor": 1,
-        "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      }
-    }
   },
   "lint-staged": {
     "!(node_modules/**/*)*.ts": [

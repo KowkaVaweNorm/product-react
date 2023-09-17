@@ -6,7 +6,6 @@ import { Input } from 'shared/ui/Input/Input';
 import { type Profile } from '../../model/types/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Select } from 'shared/ui/Select/Select';
 import { type Currency, CurrencySelect } from 'entities/Currency';
 import { type Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country';

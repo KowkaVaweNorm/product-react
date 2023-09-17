@@ -7,10 +7,12 @@ import {
   ProfileActions,
   ProfileCard,
   ProfileReducer,
+  ValidateProfileError,
   fetchProfileData,
   getProfileError,
   getProfileForm,
-  getProfileIsLoading
+  getProfileIsLoading,
+  getProfileValidateErrors
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -22,6 +24,7 @@ import {
 import { isNumber } from 'shared/lib/utils/isNumber/isNumber';
 import { type Currency } from 'entities/Currency';
 import { type Country } from 'entities/Country/model/types/country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -32,15 +35,17 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = (props: ProfilePageProps): JSX.Element => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
-
+  const validateErrors = useSelector(getProfileValidateErrors);
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
@@ -75,11 +80,34 @@ const ProfilePage = (props: ProfilePageProps): JSX.Element => {
     dispatch(ProfileActions.updateProfile({ country }));
   }, [dispatch]);
 
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('серверная ошибка'),
+    [ValidateProfileError.NO_DATA]: t('нет данных'),
+    [ValidateProfileError.UNKNOWN_ERROR]: t('Неизвестная ошибка'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Неверные данные пользователя'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Неверно указана страна'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Неверный возраст')
+  };
+
+  let errorsMessage = '';
+  if (validateErrors !== undefined) {
+    if (validateErrors.length > 0) {
+      errorsMessage = validateErrors.map((err: ValidateProfileError) => (
+          <Text
+              theme={TextTheme.ERROR}
+              key={err}
+              text={validateErrorTranslates[err]}
+            />
+      ));
+    }
+  }
+
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <div
       >
               <ProfilePageHeader />
+              {errorsMessage}
               <ProfileCard
                   data={formData}
                   isLoading={isLoading}

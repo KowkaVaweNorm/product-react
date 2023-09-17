@@ -29,7 +29,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
-  const isCaretVisible = isFocused && !readonly;
+  const isCaretVisible = isFocused && (readonly === false);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     onChange?.(e.target.value);
@@ -59,7 +59,7 @@ export const Input = memo((props: InputProps): JSX.Element => {
 
   return (
       <div
-          className={ classNames(cls.InputWrapper ?? '', {}, [className])}
+          className={ classNames(cls.InputWrapper ?? '', mods, [className])}
       >
           { (placeholder.length > 0) && (
 

@@ -44,11 +44,10 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
     }
   }, [dispatch, isLoading]);
 
-  console.log('readonly:', readonly);
   return (
       <div
           className={
-            classNames(cls.ProfilePageHeader ?? '', {}, [])
+            classNames(cls.ProfilePageHeader ?? '', {}, [className])
         }
       >
           <Text
