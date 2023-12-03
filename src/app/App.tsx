@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
               <Navbar />
               <div className="content-page">
                   <Sidebar />
-                  { inited && <AppRouter />}
+                  { (inited ?? false) && <AppRouter />}
               </div>
           </Suspense>
       </div>

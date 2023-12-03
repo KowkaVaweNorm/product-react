@@ -1,6 +1,4 @@
-import { getUserAuthData } from 'entities/User';
-import { Suspense, memo, useMemo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense, memo, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { routeConfig, type AppRoutesProps } from 'shared/config/routeConfig/routerConfig';
 import { PageLoader } from 'shared/ui/PageLoader';
@@ -18,7 +16,7 @@ const AppRouter = (): JSX.Element => {
     return <Route
         key={route.path}
         path={route.path}
-        element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+        element={(route.authOnly ?? false) ? <RequireAuth>{element}</RequireAuth> : element}
     />;
   }, []);
   return (
