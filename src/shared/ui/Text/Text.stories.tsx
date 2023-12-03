@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
@@ -16,6 +16,12 @@ type Story = StoryObj<typeof Text>
 
 export const Primary: Story = {
   render: () => <Text title='title lorem' text='text lorem ipsum tralalala' />
+};
+export const SizeM: Story = {
+  render: () => <Text title='title lorem' text='text lorem ipsum tralalala' size={TextSize.M} />
+};
+export const SizeL: Story = {
+  render: () => <Text title='title lorem' text='text lorem ipsum tralalala' size={TextSize.L} />
 };
 
 export const Error: Story = {

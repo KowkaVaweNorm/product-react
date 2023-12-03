@@ -6,6 +6,7 @@ import {
   type CombinedState
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
+import { type ArticleDetailsSchema } from 'entities/Article';
 import { type ProfileSchema } from 'entities/Profile';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
@@ -17,6 +18,7 @@ export interface StateSchema {
   // Async
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

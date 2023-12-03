@@ -20,6 +20,7 @@
     "sb": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
     "test:ui:report": "reg-cli .lostpixel/baseline .lostpixel/current .lostpixel/difference -R .lostpixel/report.html -J .lostpixel/report.json  ",
+    "precommit": "npm run build:prod --env openAnalizer=false && npm run lint:ts && npm run lint:scss && npm run lint:typecheck && npm run test:unit",
     "prepare": "husky install",
     "create:page": "node PageFactory.js "
   },
