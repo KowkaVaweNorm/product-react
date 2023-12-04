@@ -6,7 +6,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
   fetchArticleById
 } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
@@ -31,6 +31,7 @@ import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 import {
   ArticleCodeBlockComponent
 } from '../../ArticleCodeBlockComponent/ui/ArticleCodeBlockComponent';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer
 };
@@ -54,21 +55,19 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent className={cls.block} block={block}/>;
+        return <ArticleCodeBlockComponent className={cls.block} block={block} key={block.id}/>;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent className={cls.block} block={block} />;
+        return <ArticleImageBlockComponent className={cls.block} block={block} key={block.id}/>;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent className={cls.block} block={block}/>;
+        return <ArticleTextBlockComponent className={cls.block} block={block} key={block.id}/>;
       default:
         return null;
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   let content;
   if (isLoading === true) {
