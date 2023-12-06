@@ -18,6 +18,17 @@ export const CommentList = memo((props: IProps): JSX.Element => {
     isLoading
   } = props;
   const { t } = useTranslation();
+
+  if (isLoading === true) {
+      <div
+          className={classNames(cls.commentlist ?? '', {}, [className, cls.loading])}>
+          <CommentCard isLoading/>
+          <CommentCard isLoading/>
+          <CommentCard isLoading/>
+
+      </div>;
+  }
+
   return (
       <div
           className={classNames(cls.commentlist ?? '', {}, [className])}>

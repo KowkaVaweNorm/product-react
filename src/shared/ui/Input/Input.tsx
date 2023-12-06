@@ -8,8 +8,6 @@ interface InputProps extends HTMLInputProps {
   className?: string
   value?: string | number
   onChange?: (value: string) => void
-  type?: string
-  placeholder: string
   autofocus?: boolean
   readonly?: boolean
 }
@@ -29,7 +27,16 @@ export const Input = memo((props: InputProps): JSX.Element => {
   const ref = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
-  const isCaretVisible = isFocused && (readonly === false);
+
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+  const isCaretVisible = isFocused && !readonly;
+
+  useEffect(() => {
+    if (autofocus) {
+      setIsFocused(true);
+      ref.current?.focus();
+    }
+  }, [autofocus]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     onChange?.(e.target.value);
@@ -45,13 +52,6 @@ export const Input = memo((props: InputProps): JSX.Element => {
   const onSelect = (e: any): void => {
     setCaretPosition(e?.target?.selectionStart ?? 0);
   };
-
-  useEffect(() => {
-    if (autofocus ?? false) {
-      setIsFocused(true);
-      ref.current?.focus();
-    }
-  }, [autofocus]);
 
   const mods: Mods = {
     [cls.readonly ?? '']: readonly ?? true

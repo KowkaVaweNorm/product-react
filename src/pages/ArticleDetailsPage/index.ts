@@ -1,4 +1,8 @@
-export type { ArticleDetailsCommentsSchema } from './ui/model/types/articleDetailsCommentsSchema';
+export {
+  fetchCommentsByArticleId
+} from './model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+
+export type { ArticleDetailsCommentsSchema } from './model/types/articleDetailsCommentsSchema';
 
 export {
   ArticleDetailsPageAsync as ArticleDetailsPage

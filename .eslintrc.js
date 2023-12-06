@@ -62,6 +62,7 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-tabs': 'off',
+    "@typescript-eslint/no-invalid-void-type": "error",
     
     "i18next/no-literal-string": ['error', {
       markupOnly: true

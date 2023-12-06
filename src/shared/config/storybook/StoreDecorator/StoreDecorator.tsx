@@ -5,13 +5,18 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { ProfileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
+  addCommentFormSliceReducer
+} from 'features/addCommentForm/model/slice/addCommentFormSlice';
+import {
   type ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: ProfileReducer,
-  articleDetails: articleDetailsReducer
+  articleDetails: articleDetailsReducer,
+  addCommentForm: addCommentFormSliceReducer,
+  articleDetailsComments: articleDetailsReducer
 };
 
 // eslint-disable-next-line react/display-name

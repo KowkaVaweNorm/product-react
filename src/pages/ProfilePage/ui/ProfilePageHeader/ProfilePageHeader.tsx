@@ -11,9 +11,11 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ProfileActions,
+  getProfileData,
   getProfileIsLoading,
   updateProfileData
 } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 interface ProfilePageHeaderProps {
   className?: string
 }
@@ -22,6 +24,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
   const { className = '' } = props;
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileReadonly);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
   const isLoading = useSelector(getProfileIsLoading);
 
   const dispatch = useAppDispatch();
@@ -53,31 +58,36 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
           <Text
               title={t('Профиль')}
           />
-          { (readonly === true)
-            ? <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEdit}
+          {canEdit && (
+          <div className={cls.btnsWrapper}>
+              { (readonly === true)
+                ? <Button
+                        className={cls.editBtn}
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEdit}
 							>
-                {t('Редактировать')}
-            </Button>
-            : <>
-                <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE_RED}
-                    onClick={onCancelEdit}
-							>
-                    {t('Отменить')}
+                    {t('Редактировать')}
                 </Button>
-                <Button
-                    className={cls.saveBtn}
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onSave}
+                : <>
+                    <Button
+                        className={cls.editBtn}
+                        theme={ButtonTheme.OUTLINE_RED}
+                        onClick={onCancelEdit}
 							>
-                    {t('Сохранить')}
-                </Button>
-            </>
+                        {t('Отменить')}
+                    </Button>
+                    <Button
+                        className={cls.saveBtn}
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onSave}
+							>
+                        {t('Сохранить')}
+                    </Button>
+                </>
             }
+          </div>
+          )}
+
       </div>
   );
 };

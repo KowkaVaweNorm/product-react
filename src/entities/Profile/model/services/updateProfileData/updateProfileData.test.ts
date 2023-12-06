@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { updateProfileData } from './updateProfileData';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
@@ -8,6 +7,7 @@ import { ValidateProfileError } from '../../types/profile';
 jest.mock('axios');
 
 const data = {
+  id: '1',
   username: 'KowkaVN',
   age: 22,
   country: Country.Russia,
@@ -25,11 +25,11 @@ describe('updateProfileData.test', () => {
         isLoading: false
       }
     });
-    thunk.api.put.mockResolvedValue(Promise.resolve({ data }));
+    thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
     const result = await thunk.callThunk();
 
-    expect(axios.put).toHaveBeenCalled();
+    expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toBe(data);
   });

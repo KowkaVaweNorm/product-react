@@ -1,3 +1,5 @@
+export { getArtilceDetailsData } from './model/selectors/articleDetails';
+
 export type { ArticleDetailsSchema } from './model/type/articleDetailsSchema';
 export type { Article } from './model/type/article';
 
