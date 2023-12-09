@@ -31,16 +31,19 @@ const reducer: ReducersList = {
 };
 
 interface IProps {
+  articleId?: string
   className?: string
 }
 
 const ArticleDetailsPage = (props: IProps): JSX.Element => {
   const {
-    className = ''
+    className = '',
+    articleId
   } = props;
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
+
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
@@ -51,10 +54,9 @@ const ArticleDetailsPage = (props: IProps): JSX.Element => {
 
   // const commentsError = useSelector(getArticleCommentsError);
   useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchCommentsByArticleId(articleId ?? id));
   });
-
-  if (id === undefined) {
+  if (id === undefined && articleId === undefined) {
     return (
         <div className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
             {t('Статья не найдена')}
