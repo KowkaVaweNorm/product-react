@@ -1,10 +1,13 @@
-import { useTranslation } from 'react-i18next';
+/* eslint-disable max-len */
+import { ArticleList, ArticleVew } from 'entities/Article';
 
 const ArticlesPage = (): JSX.Element => {
-  const { t } = useTranslation('article');
   return (
       <div>
-          <h2>{t('Страница статей')}</h2>
+
+          <ArticleList
+              articles={[]}
+              view={ArticleVew.BIG}/>
       </div>
   );
 };

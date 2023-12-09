@@ -36,7 +36,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { type ArticleBlockType, type ArticleType } from 'entities/Article/model/type/article';
 
 const meta: Meta<typeof ArticleDetails> = {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails
 
 };

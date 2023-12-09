@@ -30,6 +30,10 @@ describe('addCommentForArticle(asyncThunk)', () => {
           type: [
             ArticleType.IT
           ],
+          user: {
+            id: '1',
+            username: 'kowka'
+          },
           blocks: [
             {
               id: '1',
@@ -182,6 +186,10 @@ describe('addCommentForArticle(asyncThunk)', () => {
           type: [
             ArticleType.IT
           ],
+          user: {
+            id: '1',
+            username: 'kowka'
+          },
           blocks: [
             {
               id: '1',

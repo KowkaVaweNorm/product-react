@@ -1,19 +1,20 @@
 {
   "Тестовый пример": "Test example",
   "Сменить язык": "Change language",
-  "Главная страница": "Main Page",
+  "Главная страница": "Main",
   "Язык": "English",
   "Переключить" : "toggle",
   "Страница не найдена": "Page not found",
   "Обновить страницу": "Update this page",
   "Произошла ошибка" : "Throw Error",
-  "Главная" : "Main page",
-  "О сайте" : "About page",
-  "Профиль" : "Profile page",
-  "Статьи" : "Articles page",
+  "Главная" : "Main",
+  "О сайте" : "About",
+  "Профиль" : "Profile",
+  "Статьи" : "Articles",
   "Короткий язык" : "En",
   "Войти" : "Sign in",
   "Выйти" : "Sign out",
   "Комментарии отсутствуют" : "No comments",
-  "Введите текст комментария" : "Enter the text of the comment"
+  "Введите текст комментария" : "Enter the text of the comment",
+  "Отправить" : "Send"
 }

@@ -11,7 +11,6 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher = memo(({ className = '' }: ThemeSwitcherProps): JSX.Element => {
   const { theme, toggleTheme } = useTheme();
-  console.log(theme);
   return (
 
       <Button

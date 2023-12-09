@@ -1,6 +1,6 @@
 import { ArticleDetails } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { Text } from 'shared/ui/Text/Text';
@@ -24,7 +24,9 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { useCallback } from 'react';
 import {
   addCommentForArticle
-} from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { RoutePath } from 'shared/config/routeConfig/routerConfig';
 
 const reducer: ReducersList = {
   articleDetailsComments: articleDetailsCommentReducer
@@ -43,9 +45,13 @@ const ArticleDetailsPage = (props: IProps): JSX.Element => {
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
-
+  const navigate = useNavigate();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   const onSendComment = useCallback((text: string) => {
     console.log('text for comment:', text);
@@ -66,13 +72,18 @@ const ArticleDetailsPage = (props: IProps): JSX.Element => {
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
           <div className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
-              <ArticleDetails id={id}/>
+              <Button
+                  onClick={onBackToList}
+                  theme={ButtonTheme.OUTLINE}>
+                  {t('Назад к списку')}
+              </Button>
+              <ArticleDetails id={id ?? articleId ?? '1'}/>
               <Text title={t('Комментарии')} className={cls.comment_title}/>
               <AddCommentForm onSendComment={onSendComment} />
               <CommentList
                   isLoading={commentsIsLoading}
                   comments={comments}
-          />
+            />
           </div>
       </DynamicModuleLoader>
   );
