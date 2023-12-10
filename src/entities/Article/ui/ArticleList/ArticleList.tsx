@@ -31,14 +31,6 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
     isLoading
   } = props;
 
-  if (isLoading === true) {
-    return (<div className={
-      classNames(cls.article_list ?? '', {}, [className, cls[view]])
-    }>
-        {getSkeletons(view)}
-    </div>);
-  }
-
   const renderArticle = (article: Article): JSX.Element => {
     return (
         <ArticleListItem
@@ -59,6 +51,7 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
             ? articles.map(renderArticle)
             : null
       }
+          {isLoading === true && getSkeletons(view)}
       </div>
   );
 });

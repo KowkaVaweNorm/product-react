@@ -13,11 +13,15 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
+  getArticlesPageError,
   // getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView
 } from '../model/selectors/articlesPageSelectors';
 import { useCallback } from 'react';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { useTranslation } from 'react-i18next';
 
 interface IArticlesPageProps {
   className?: string
@@ -31,25 +35,39 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
   const {
     className
   } = props;
-
+  const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  // const error = useSelector(getArticlesPageError);
+  const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
+  const onLoadNextPart = useCallback(() => {
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchNextArticlesPage());
+    }
+  }, [dispatch]);
+
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesList({
+      page: 1
+    }));
   });
+  if (error !== undefined) {
+    return <div className={cls.error}>{t('При загрузке данных произошла ошибка')}</div>;
+  }
 
   return (
       <DynamicModuleLoader reducers={reducers}>
-          <div className={classNames(cls.articles_page, {}, [className])} >
+          <Page
+              onScrollEnd={onLoadNextPart}
+              className={
+                classNames(cls.articles_page, {}, [className])
+                } >
               <ArticleViewSelector
                   onViewClick={onChangeView}
                   view={view}/>
@@ -57,7 +75,7 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
                   isLoading={isLoading}
                   articles={articles}
                   view={view}/>
-          </div>
+          </Page>
       </DynamicModuleLoader>
   );
 };

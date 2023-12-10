@@ -27,6 +27,7 @@ import {
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routerConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducer: ReducersList = {
   articleDetailsComments: articleDetailsCommentReducer
@@ -64,14 +65,14 @@ const ArticleDetailsPage = (props: IProps): JSX.Element => {
   });
   if (id === undefined && articleId === undefined) {
     return (
-        <div className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
+        <Page className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
             {t('Статья не найдена')}
-        </div>
+        </Page>
     );
   }
   return (
       <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-          <div className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
+          <Page className={(classNames(cls.article_details_page ?? '', {}, [className]))}>
               <Button
                   onClick={onBackToList}
                   theme={ButtonTheme.OUTLINE}>
@@ -84,7 +85,7 @@ const ArticleDetailsPage = (props: IProps): JSX.Element => {
                   isLoading={commentsIsLoading}
                   comments={comments}
             />
-          </div>
+          </Page>
       </DynamicModuleLoader>
   );
 };

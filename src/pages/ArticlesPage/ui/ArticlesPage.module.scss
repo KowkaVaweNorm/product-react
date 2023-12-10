@@ -1,3 +1,11 @@
 .articles_page {
     display: block;
 }
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1rem;
+}
