@@ -98,7 +98,13 @@ module.exports = {
         'storybook/hierarchy-separator': 'error',
         'storybook/default-exports': 'off',
       }
-    }
+    },
+    {
+      files: ['**/services/**/*.ts'], // Путь к вашим файлам в папке services
+      rules: {
+        '@typescript-eslint/no-invalid-void-type': 'off', // Отключаем правило для этих файлов
+      },
+    },
   ]
 
 

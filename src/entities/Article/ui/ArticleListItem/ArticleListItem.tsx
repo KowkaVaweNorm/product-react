@@ -2,8 +2,7 @@ import cls from './ArticleListItem.module.scss';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import { memo, useCallback } from 'react';
 import {
-
-  ArticleVew,
+  ArticleView,
   type Article,
   ArticleBlockType,
   type ArticleTextBlock
@@ -21,7 +20,7 @@ import { RoutePath } from 'shared/config/routeConfig/routerConfig';
 interface IArticleListItemProps {
   className?: string
   article: Article
-  view: ArticleVew
+  view: ArticleView
 }
 
 export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element => {
@@ -47,7 +46,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
           <Icon Svg={EyeIcon}/>
       </>
   );
-  if (view === ArticleVew.BIG) {
+  if (view === ArticleView.BIG) {
     const textBlock =
     article.blocks.find(
       item => item.type === ArticleBlockType.TEXT
@@ -95,11 +94,11 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
       >
           <Card
               onClick={onOpenArticle}>
-              <div className={cls.imageWrapper}>
+              <div className={cls.image_wrapper}>
                   <img src={article.img} alt={article.title} className={cls.img}/>
                   <Text text={article.createdAt} className={cls.date}/>
               </div>
-              <div className={cls.infoWrapper}>
+              <div className={cls.info_wrapper}>
                   {types}
                   {views}
               </div>

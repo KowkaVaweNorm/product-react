@@ -34,7 +34,7 @@ export enum ArticleType {
   ECONOMICS = 'ECONOMICS'
 }
 
-export enum ArticleVew {
+export enum ArticleView {
   BIG = 'BIG',
   SMALL = 'SMALL'
 }

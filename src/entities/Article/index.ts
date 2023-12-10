@@ -1,6 +1,8 @@
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
+
 export { ArticleList } from './ui/ArticleList/ArticleList';
 
-export { ArticleVew } from './model/type/article';
+export { ArticleView } from './model/type/article';
 
 export { getArtilceDetailsData } from './model/selectors/articleDetails';
 

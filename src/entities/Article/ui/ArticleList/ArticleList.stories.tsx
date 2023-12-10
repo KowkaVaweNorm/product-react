@@ -4,7 +4,7 @@ import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ArticleList } from './ArticleList';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticleVew, type Article } from '../../model/type/article';
+import { ArticleView, type Article } from '../../model/type/article';
 
 const meta: Meta<typeof ArticleList> = {
   title: 'entities/Article/ArticleList',
@@ -400,7 +400,7 @@ const list = [
 ] as Article[];
 
 export const BigViewLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleVew.BIG}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
 };
 
 export const BigViewDark: Story = {
@@ -409,10 +409,10 @@ export const BigViewDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleVew.BIG}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
 };
 export const SmallViewLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleVew.SMALL}/>
+  render: () => <ArticleList articles={list} view={ArticleView.SMALL}/>
 };
 
 export const SmallViewDark: Story = {
@@ -422,12 +422,12 @@ export const SmallViewDark: Story = {
     )
   ],
   render: () => <ArticleList articles={list}
-      view={ArticleVew.SMALL}/>
+      view={ArticleView.SMALL}/>
 
 };
 
 export const BigViewLoadingLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleVew.BIG} isLoading={true}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG} isLoading={true}/>
 };
 
 export const BigViewLoadingDark: Story = {
@@ -436,10 +436,10 @@ export const BigViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleVew.BIG} isLoading={true}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG} isLoading={true}/>
 };
 export const SmallViewLoadingLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleVew.SMALL} isLoading={true}/>
+  render: () => <ArticleList articles={list} view={ArticleView.SMALL} isLoading={true}/>
 };
 
 export const SmallViewLoadingDark: Story = {
@@ -448,5 +448,5 @@ export const SmallViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleVew.SMALL} isLoading={true}/>
+  render: () => <ArticleList articles={list} view={ArticleView.SMALL} isLoading={true}/>
 };

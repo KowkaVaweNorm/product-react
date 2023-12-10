@@ -2,14 +2,14 @@ import cls from './ArticleListItem.module.scss';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
 import {
-  ArticleVew
+  ArticleView
 } from '../../model/type/article';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
 interface IArticleListItemSkeletonProps {
   className?: string
-  view: ArticleVew
+  view: ArticleView
 }
 
 export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProps): JSX.Element => {
@@ -18,7 +18,7 @@ export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProp
     view
   } = props;
 
-  if (view === ArticleVew.BIG) {
+  if (view === ArticleView.BIG) {
     return (
         <div
             className={

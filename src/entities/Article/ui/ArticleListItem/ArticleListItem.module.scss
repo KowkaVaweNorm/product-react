@@ -72,7 +72,7 @@
         }
     }
 
-    .imageWrapper {
+    .image_wrapper {
         width: 200px;
         height: 200px;
         position: relative;
@@ -82,7 +82,6 @@
         width: 200px;
         height: 200px;
         object-fit: cover;
-        margin: 16px 0;
         font-weight: 300;
         line-height: 2;
         text-align: center;
@@ -101,7 +100,7 @@
         }
     }
 
-    .infoWrapper {
+    .info_wrapper {
         display: flex;
         align-items: center;
         margin-top: 8px;

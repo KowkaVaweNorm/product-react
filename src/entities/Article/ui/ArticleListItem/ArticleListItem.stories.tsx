@@ -4,7 +4,7 @@ import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticleVew, type Article, ArticleBlockType, ArticleType } from 'entities/Article/model/type/article';
+import { ArticleView, type Article, ArticleBlockType, ArticleType } from '../../model/type/article';
 
 const meta: Meta<typeof ArticleListItem> = {
   title: 'entities/Article/ArticleListItem',
@@ -93,7 +93,7 @@ const article: Article = {
 };
 
 export const BigLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleVew.BIG}/>
+  render: () => <ArticleListItem article={article} view={ArticleView.BIG}/>
 };
 
 export const BigDark: Story = {
@@ -104,10 +104,10 @@ export const BigDark: Story = {
   ],
   render: () => <ArticleListItem
       article={article}
-      view={ArticleVew.BIG}/>
+      view={ArticleView.BIG}/>
 };
 export const SmallLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleVew.SMALL}/>
+  render: () => <ArticleListItem article={article} view={ArticleView.SMALL}/>
 };
 
 export const SmallDark: Story = {
@@ -118,5 +118,5 @@ export const SmallDark: Story = {
   ],
   render: () => <ArticleListItem
       article={article}
-      view={ArticleVew.SMALL}/>
+      view={ArticleView.SMALL}/>
 };
