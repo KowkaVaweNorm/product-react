@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 
 const MainPage = (): JSX.Element => {
   const { t } = useTranslation();

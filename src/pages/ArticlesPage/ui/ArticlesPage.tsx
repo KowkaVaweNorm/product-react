@@ -10,7 +10,6 @@ import {
 } from '../model/slices/articlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
   getArticlesPageError,
@@ -19,9 +18,10 @@ import {
   getArticlesPageView
 } from '../model/selectors/articlesPageSelectors';
 import { useCallback } from 'react';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { useTranslation } from 'react-i18next';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 interface IArticlesPageProps {
   className?: string
@@ -52,17 +52,14 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({
-      page: 1
-    }));
+    dispatch(initArticlesPage());
   });
   if (error !== undefined) {
     return <div className={cls.error}>{t('При загрузке данных произошла ошибка')}</div>;
   }
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
           <Page
               onScrollEnd={onLoadNextPart}
               className={

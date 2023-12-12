@@ -20,10 +20,15 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props): JSX.El
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getMountedReducers();
+
     Object.entries(reducers).forEach(([name, reducer]) => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-      store.reducerManager.add(name as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const mounted = mountedReducers[name as StateSchemaKey];
+      if (!(mounted ?? false)) {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
     return () => {
       if (removeAfterUnmount) {

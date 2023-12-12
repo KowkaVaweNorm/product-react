@@ -13,11 +13,11 @@ import { type LoginSchema } from 'features/AuthByUsername';
 import { type AddCommentFormSchema } from 'features/addCommentForm';
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from 'pages/ArticlesPage';
-import { type To, type NavigateOptions } from 'react-router-dom';
+import { type PageSchema } from 'widgets/Page/model/types/page';
 
 export interface StateSchema {
   user: UserSchema
-
+  page: PageSchema
   // Async
   loginForm?: LoginSchema
   profile?: ProfileSchema
@@ -29,11 +29,14 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema
 
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
+
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
   add: (key: StateSchemaKey, reducer: Reducer) => void
   remove: (key: StateSchemaKey) => void
+  getMountedReducers: () => MountedReducers
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
@@ -42,7 +45,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {

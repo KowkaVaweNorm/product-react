@@ -11,7 +11,6 @@ createAsyncThunk<Comment[], string | undefined, ThunkConfig<string>>(
     if (articleId === undefined) {
       return rejectWithValue('error');
     }
-    console.log('fetchCommentByArticleId running');
 
     try {
       const response = await extra.api.get<Comment[]>('/comments/', {

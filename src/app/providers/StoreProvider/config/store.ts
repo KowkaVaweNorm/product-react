@@ -8,22 +8,21 @@ import { type ThunkExtraArg, type StateSchema } from './StateSchema';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
-import { type To, type NavigateOptions } from 'react-router-dom';
+import { pageReducer } from 'widgets/Page';
 
 export function createReduxStore (
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void
+  asyncReducers?: ReducersMapObject<StateSchema>
 ): any {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
-    user: userReducer
+    user: userReducer,
+    page: pageReducer
   };
 
   const reducerManager = createReducerManager(rootReducers);
   const extraArg: ThunkExtraArg = {
-    api: $api,
-    navigate
+    api: $api
 
   };
 
