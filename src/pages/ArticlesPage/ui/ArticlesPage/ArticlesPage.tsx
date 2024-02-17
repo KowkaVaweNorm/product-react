@@ -1,13 +1,12 @@
 /* eslint-disable max-len */
-import { ArticleList, type ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './ArticlesPage.module.scss';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles
-} from '../model/slices/articlePageSlice';
+} from '../../model/slices/articlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -16,12 +15,14 @@ import {
   // getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView
-} from '../model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import { useCallback } from 'react';
 import { Page } from 'widgets/Page/ui/Page';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { useTranslation } from 'react-i18next';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface IArticlesPageProps {
   className?: string
@@ -39,11 +40,9 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view));
-  }, [dispatch]);
+  const error = useSelector(getArticlesPageError);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -52,7 +51,7 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
   if (error !== undefined) {
     return <div className={cls.error}>{t('При загрузке данных произошла ошибка')}</div>;
@@ -65,13 +64,12 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
               className={
                 classNames(cls.articles_page, {}, [className])
                 } >
-              <ArticleViewSelector
-                  onViewClick={onChangeView}
-                  view={view}/>
+              <ArticlesPageFilters/>
               <ArticleList
                   isLoading={isLoading}
                   articles={articles}
-                  view={view}/>
+                  view={view}
+                  className={cls.list}/>
           </Page>
       </DynamicModuleLoader>
   );

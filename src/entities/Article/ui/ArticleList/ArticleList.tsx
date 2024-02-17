@@ -1,15 +1,18 @@
 import cls from './ArticleList.module.scss';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
-import { memo } from 'react';
+import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleView, type Article } from '../../model/type/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 interface IArticleListProps {
   className?: string
   articles: Article[]
   isLoading?: boolean
-  view: ArticleView
+  view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView): JSX.Element[] => {
@@ -28,18 +31,34 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
     className,
     articles,
     view = ArticleView.SMALL,
-    isLoading
+    isLoading,
+    target
   } = props;
-
+  const { t } = useTranslation('article');
   const renderArticle = (article: Article): JSX.Element => {
     return (
         <ArticleListItem
             key={article.id}
             article={article}
             view={view}
-            className={cls.card}/>
+            className={cls.card}
+            target={target}/>
     );
   };
+
+  if (isLoading === false && (articles.length === 0)) {
+    return (
+        <div
+            className={
+        classNames(cls.article_list ?? '', {}, [className, cls[view]])
+      }>
+            <Text
+                title={t('Статьи не найдены')}
+                size={TextSize.L}
+            />
+        </div>
+    );
+  }
 
   return (
       <div

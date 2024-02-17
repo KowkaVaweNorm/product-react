@@ -29,7 +29,6 @@ export const Page = memo((props: IPageProps): JSX.Element => {
     children,
     onScrollEnd = undefined
   } = props;
-  console.log('render page');
 
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -64,7 +63,7 @@ export const Page = memo((props: IPageProps): JSX.Element => {
           onScroll={onScroll}
       >
           {children}
-          <div ref={triggerRef} />
+          {onScrollEnd !== undefined ? <div className={cls.trigger} ref={triggerRef} /> : null}
       </section>
   );
 });

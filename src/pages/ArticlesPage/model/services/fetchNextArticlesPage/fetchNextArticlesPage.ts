@@ -19,9 +19,7 @@ createAsyncThunk<void, void, ThunkConfig<string>>(
 
     if (hasMore && !isLoading) {
       dispatch(articlesPageActions.setPage(page + 1));
-      void dispatch(fetchArticlesList({
-        page: page + 1
-      }));
+      void dispatch(fetchArticlesList({}));
     }
   }
 );

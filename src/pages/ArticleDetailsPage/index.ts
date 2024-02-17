@@ -1,3 +1,7 @@
+export type { ArticleDetailsPageSchema } from './model/types/index';
+export type {
+  ArticleDetailsRecommendationsSchema
+} from './model/types/articleDetailsRecommendationsSchema';
 export {
   fetchCommentsByArticleId
 } from './model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

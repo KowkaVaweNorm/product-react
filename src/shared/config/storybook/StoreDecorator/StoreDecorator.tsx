@@ -7,6 +7,7 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
   addCommentFormSliceReducer
 } from 'features/addCommentForm/model/slice/addCommentFormSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import {
   type ReducersList
@@ -17,8 +18,8 @@ const defaultAsyncReducers: ReducersList = {
   profile: ProfileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormSliceReducer,
-  articleDetailsComments: articleDetailsReducer,
-  articlesPage: articlesPageReducer
+  articlesPage: articlesPageReducer,
+  articleDetailsPage: articleDetailsPageReducer
 };
 
 // eslint-disable-next-line react/display-name

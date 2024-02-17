@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
-import { ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('axios');
 
@@ -16,13 +16,18 @@ describe('fetchNexArticlesPage.test', () => {
         isLoading: false,
         hasMore: true,
         view: ArticleView.SMALL,
+        order: 'asc',
+        search: '',
+        sort: ArticleSortField.CREATED,
+        error: undefined,
+        type: ArticleType.ALL,
         _inited: false
       }
     });
 
     await thunk.callThunk();
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalledWith({});
   });
 
   test('fetchArticlesList not called', async () => {
@@ -35,6 +40,11 @@ describe('fetchNexArticlesPage.test', () => {
         isLoading: false,
         hasMore: false,
         view: ArticleView.SMALL,
+        order: 'asc',
+        search: '',
+        sort: ArticleSortField.CREATED,
+        error: undefined,
+        type: ArticleType.ALL,
         _inited: false
       }
     });
@@ -53,6 +63,11 @@ describe('fetchNexArticlesPage.test', () => {
         isLoading: true,
         hasMore: true,
         view: ArticleView.SMALL,
+        order: 'asc',
+        search: '',
+        sort: ArticleSortField.CREATED,
+        error: undefined,
+        type: ArticleType.ALL,
         _inited: false
       }
     });
