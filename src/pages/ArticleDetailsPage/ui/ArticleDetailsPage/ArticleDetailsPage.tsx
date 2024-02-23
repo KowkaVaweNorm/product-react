@@ -20,7 +20,7 @@ import {
   fetchCommentsByArticleId
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/addCommentForm';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import {
   addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle';

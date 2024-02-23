@@ -409,7 +409,7 @@ export const BigViewDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
+  render: () => <ArticleList articles={list}  view={ArticleView.BIG}/>
 };
 export const SmallViewLight: Story = {
   render: () => <ArticleList articles={list} view={ArticleView.SMALL}/>
@@ -427,7 +427,7 @@ export const SmallViewDark: Story = {
 };
 
 export const BigViewLoadingLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleView.BIG} isLoading={true}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}/>
 };
 
 export const BigViewLoadingDark: Story = {
@@ -436,10 +436,10 @@ export const BigViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleView.BIG} isLoading={true}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}/>
 };
 export const SmallViewLoadingLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleView.SMALL} isLoading={true}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}/>
 };
 
 export const SmallViewLoadingDark: Story = {
@@ -448,5 +448,5 @@ export const SmallViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleView.SMALL} isLoading={true}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}/>
 };
