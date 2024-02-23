@@ -409,7 +409,7 @@ export const BigViewDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list}  view={ArticleView.BIG}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
 };
 export const SmallViewLight: Story = {
   render: () => <ArticleList articles={list} view={ArticleView.SMALL}/>
