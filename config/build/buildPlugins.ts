@@ -4,6 +4,7 @@ import { type BuildOption } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from "copy-webpack-plugin";
 export function buildPlugins
 ({ paths, isDev, apiUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
   const plugins = [
@@ -22,7 +23,12 @@ export function buildPlugins
     new HtmlWebpackPlugin({
       template: paths.html
     }),
-    new webpack.ProgressPlugin()
+    new webpack.ProgressPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales }
+      ]
+    })
   ];
 
   if (isDev) {
