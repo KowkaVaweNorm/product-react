@@ -22,7 +22,7 @@ ThunkConfig<ValidateProfileError[]>>(
       return rejectWithValue([ValidateProfileError.NO_DATA]);
     }
     try {
-      const response = await extra.api.put<Profile>(`/profile${formData?.id}`, formData);
+      const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
 
       if (response.data === undefined) {
         console.log('error server');
