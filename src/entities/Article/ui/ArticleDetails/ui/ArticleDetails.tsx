@@ -12,9 +12,9 @@ import {
 } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import {
-  getArtilceDetailsData,
-  getArtilceDetailsError,
-  getArtilceDetailsIsLoading
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading
 } from '../../../model/selectors/articleDetails';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
@@ -48,9 +48,9 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   } = props;
   const { t } = useTranslation('article');
   const dispatch = useAppDispatch();
-  const isLoading = useSelector(getArtilceDetailsIsLoading);
-  const article = useSelector(getArtilceDetailsData);
-  const error = useSelector(getArtilceDetailsError);
+  const isLoading = useSelector(getArticleDetailsIsLoading);
+  const article = useSelector(getArticleDetailsData);
+  const error = useSelector(getArticleDetailsError);
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {

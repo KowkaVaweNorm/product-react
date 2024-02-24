@@ -6,7 +6,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getUserAuthData } from 'entities/User';
 import { type ThunkConfig } from 'app/providers/StoreProvider';
 import { type Comment } from 'entities/Comment';
-import { getArtilceDetailsData } from 'entities/Article';
+import { getArticleDetailsData } from 'entities/Article';
 
 export const addCommentForArticle = createAsyncThunk<
 Comment,
@@ -16,7 +16,7 @@ ThunkConfig<string>
   const { extra, dispatch, rejectWithValue, getState } = thunkApi;
 
   const userData = getUserAuthData(getState());
-  const article = getArtilceDetailsData(getState());
+  const article = getArticleDetailsData(getState());
 
   if ((userData === undefined) || (article === undefined) || (text === undefined)) {
     return rejectWithValue('no data');
