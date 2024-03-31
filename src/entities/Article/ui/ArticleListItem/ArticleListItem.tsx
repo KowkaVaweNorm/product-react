@@ -17,11 +17,13 @@ import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routerConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ARTICLE_LIST_ITEM_ID } from 'shared/const/localstorage';
 interface IArticleListItemProps {
   className?: string
   article: Article
   view: ArticleView
   target?: HTMLAttributeAnchorTarget
+  index: number
 }
 
 export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element => {
@@ -29,7 +31,8 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
     className,
     article,
     view,
-    target
+    target,
+    index
   } = props;
   const { t } = useTranslation('article');
 
@@ -43,6 +46,11 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
           <Icon Svg={EyeIcon}/>
       </>
   );
+
+  const handleButtonClick = (): void => {
+    sessionStorage.setItem(ARTICLE_LIST_ITEM_ID, JSON.stringify(index));
+  };
+
   if (view === ArticleView.BIG) {
     const textBlock =
     article.blocks.find(
@@ -78,7 +86,8 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
                         target={target}
                         to={RoutePath.article_details + article.id}>
                         <Button
-                            theme={ButtonTheme.OUTLINE}>
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={handleButtonClick}>
                             {t('Читать далее...')}
                         </Button>
 
@@ -94,6 +103,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps): JSX.Element 
           target={target}
           to={RoutePath.article_details + article.id}
           className={classNames(cls.article_list_item ?? '', {}, [className, cls[view]])}
+          onClick={handleButtonClick}
         >
           <Card>
               <div className={cls.image_wrapper}>

@@ -93,7 +93,7 @@ const article: Article = {
 };
 
 export const BigLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.BIG}/>
+  render: () => <ArticleListItem index={1} article={article} view={ArticleView.BIG}/>
 };
 
 export const BigDark: Story = {
@@ -102,12 +102,12 @@ export const BigDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleListItem
+  render: () => <ArticleListItem index={1}
       article={article}
       view={ArticleView.BIG}/>
 };
 export const SmallLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.SMALL}/>
+  render: () => <ArticleListItem index={1} article={article} view={ArticleView.SMALL}/>
 };
 
 export const SmallDark: Story = {
@@ -118,5 +118,6 @@ export const SmallDark: Story = {
   ],
   render: () => <ArticleListItem
       article={article}
-      view={ArticleView.SMALL}/>
+      view={ArticleView.SMALL}
+      index={1}/>
 };
