@@ -59,13 +59,18 @@ const ArticlesPage = (props: IArticlesPageProps): JSX.Element => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-          <ArticlesPageFilters/>
-          <ArticleList
-              isLoading={isLoading}
-              articles={articles}
-              view={view}
-              className={cls.list}
-              onLoadNextPart={onLoadNextPart}/>
+          <Page
+              onScrollEnd={onLoadNextPart}
+              className={
+                classNames(cls.articles_page, {}, [className])
+                } >
+              <ArticlesPageFilters/>
+              <ArticleList
+                  isLoading={isLoading}
+                  articles={articles}
+                  view={view}
+                  className={cls.list}/>
+          </Page>
       </DynamicModuleLoader>
   );
 };

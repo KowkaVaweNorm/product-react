@@ -11,6 +11,7 @@ const meta: Meta<typeof ArticleList> = {
   component: ArticleList
 
 };
+
 export default meta;
 type Story = StoryObj<typeof ArticleList>
 
@@ -399,10 +400,7 @@ const list = [
 ] as Article[];
 
 export const BigViewLight: Story = {
-  render: () => <ArticleList
-      articles={list}
-      view={ArticleView.BIG}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
 };
 
 export const BigViewDark: Story = {
@@ -411,12 +409,10 @@ export const BigViewDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={list} view={ArticleView.BIG}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={list} view={ArticleView.BIG}/>
 };
 export const SmallViewLight: Story = {
-  render: () => <ArticleList articles={list} view={ArticleView.SMALL}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={list} view={ArticleView.SMALL}/>
 };
 
 export const SmallViewDark: Story = {
@@ -426,14 +422,12 @@ export const SmallViewDark: Story = {
     )
   ],
   render: () => <ArticleList articles={list}
-      view={ArticleView.SMALL}
-      onLoadNextPart={() => {}}/>
+      view={ArticleView.SMALL}/>
 
 };
 
 export const BigViewLoadingLight: Story = {
-  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}/>
 };
 
 export const BigViewLoadingDark: Story = {
@@ -442,12 +436,10 @@ export const BigViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true}/>
 };
 export const SmallViewLoadingLight: Story = {
-  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}/>
 };
 
 export const SmallViewLoadingDark: Story = {
@@ -456,6 +448,5 @@ export const SmallViewLoadingDark: Story = {
       ThemeDecorator(Theme.DARK)(Story)
     )
   ],
-  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}
-      onLoadNextPart={() => {}}/>
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true}/>
 };
