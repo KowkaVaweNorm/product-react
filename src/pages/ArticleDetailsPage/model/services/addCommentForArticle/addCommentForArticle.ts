@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
 import {
   fetchCommentsByArticleId
-} from 'pages/ArticleDetailsPage';
+} from '../../../';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getUserAuthData } from 'entities/User';
 import { type ThunkConfig } from 'app/providers/StoreProvider';

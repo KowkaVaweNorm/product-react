@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import cls from './Modal.module.scss';
 import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react';
+// eslint-disable-next-line kowka-vn-plugin/fsd-path-checker
 import { Portal } from 'shared/ui/Portal';
 
 interface ModalProps {
@@ -35,7 +36,6 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     }
   }, [onClose]);
 
-  // Новые ссылки!!!
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeHandler();

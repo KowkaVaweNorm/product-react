@@ -33,7 +33,7 @@ import { ArticleDetails } from './ArticleDetails';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { type ArticleBlockType, type ArticleType } from 'entities/Article/model/type/article';
+import { type ArticleBlockType, type ArticleType } from '../../../model/type/article';
 
 const meta: Meta<typeof ArticleDetails> = {
   title: 'entities/Article/ArticleDetails',

@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback } from 'react';
 import {
   fetchArticleById
-} from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+} from './../../../model/services/fetchArticleById/fetchArticleById';
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import {
   getArticleDetailsData,
