@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
-import cls from './ProfilePageHeader.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text/Text';
@@ -16,6 +15,7 @@ import {
   updateProfileData
 } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 interface ProfilePageHeaderProps {
   className?: string
 }
@@ -50,44 +50,43 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps): JSX.Element =>
   }, [dispatch, isLoading]);
 
   return (
-      <div
+      <HStack
+          justify='between'
+          max
           className={
-            classNames(cls.ProfilePageHeader ?? '', {}, [className])
+            classNames('', {}, [className])
         }
       >
           <Text
               title={t('Профиль')}
           />
           {canEdit && (
-          <div className={cls.btnsWrapper}>
+          <div>
               { (readonly === true)
                 ? <Button
-                        className={cls.editBtn}
                         theme={ButtonTheme.OUTLINE}
                         onClick={onEdit}
 							>
                     {t('Редактировать')}
                 </Button>
-                : <>
+                : <HStack gap='8' max>
                     <Button
-                        className={cls.editBtn}
                         theme={ButtonTheme.OUTLINE_RED}
                         onClick={onCancelEdit}
 							>
                         {t('Отменить')}
                     </Button>
                     <Button
-                        className={cls.saveBtn}
                         theme={ButtonTheme.OUTLINE}
                         onClick={onSave}
 							>
                         {t('Сохранить')}
                     </Button>
-                </>
+                </HStack>
             }
           </div>
           )}
 
-      </div>
+      </HStack>
   );
 };

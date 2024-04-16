@@ -28,6 +28,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/ui/Page';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 
 const reducers: ReducersList = {
   profile: ProfileReducer
@@ -110,24 +111,25 @@ const ProfilePage = (props: ProfilePageProps): JSX.Element => {
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <Page
-      >
-              <ProfilePageHeader />
-              {errorsMessage}
-              <ProfileCard
-                  data={formData}
-                  isLoading={isLoading}
-                  error={error}
-                  readonly={readonly}
-                  onChangeFirstname={onChangeFirstname}
-                  onChangeLastname={onChangeLastname}
-                  onChangeCity={onChangeCity}
-                  onChangeAge={onChangeAge}
-                  onChangeUsername={onChangeUsername}
-                  onChangeAvatar={onChangeAvatar}
-                  onChangeCurrency={onChangeCurrency}
-                  onChangeCountry={onChangeCountry}
-              />
+          <Page>
+              <VStack gap='16' max >
+                  <ProfilePageHeader />
+                  {errorsMessage}
+                  <ProfileCard
+                      data={formData}
+                      isLoading={isLoading}
+                      error={error}
+                      readonly={readonly}
+                      onChangeFirstname={onChangeFirstname}
+                      onChangeLastname={onChangeLastname}
+                      onChangeCity={onChangeCity}
+                      onChangeAge={onChangeAge}
+                      onChangeUsername={onChangeUsername}
+                      onChangeAvatar={onChangeAvatar}
+                      onChangeCurrency={onChangeCurrency}
+                      onChangeCountry={onChangeCountry}
+                  />
+              </VStack>
           </Page>
       </DynamicModuleLoader>
   );
