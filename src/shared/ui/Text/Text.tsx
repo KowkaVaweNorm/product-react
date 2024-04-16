@@ -13,6 +13,7 @@ export enum TextAlign {
   RIGHT = 'right'
 }
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -25,6 +26,12 @@ interface TextProps {
   align?: TextAlign
   size?: TextSize
 }
+type HeaderTag = 'h1' | 'h2' | 'h3';
+const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1'
+};
 
 export const Text = memo((props: TextProps): JSX.Element => {
   const {
@@ -36,6 +43,8 @@ export const Text = memo((props: TextProps): JSX.Element => {
     size = TextSize.M
   } = props;
 
+  const HeaderTag = mapSizeToHeaderTag[size];
+
   const mods: Mods = {
     [cls[theme] ?? '']: true,
     [cls[align] ?? '']: true,
@@ -46,7 +55,7 @@ export const Text = memo((props: TextProps): JSX.Element => {
       <div
           className={ classNames(cls.Text ?? '', mods, [className])}
       >
-          {(title !== undefined) && <p className={cls.title}>{title}</p>}
+          {(title !== undefined) && <HeaderTag className={cls.title}>{title}</HeaderTag>}
           {(text !== undefined) && <p className={cls.text}>{text}</p>}
       </div>
   );

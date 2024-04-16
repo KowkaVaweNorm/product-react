@@ -57,13 +57,13 @@ export const Page = memo((props: IPageProps): JSX.Element => {
   }, 200);
 
   return (
-      <section
+      <main
           ref={wrapperRef}
           className={classNames(cls.page ?? '', {}, [className])}
           onScroll={onScroll}
       >
           {children}
           {onScrollEnd !== undefined ? <div className={cls.trigger} ref={triggerRef} /> : null}
-      </section>
+      </main>
   );
 });

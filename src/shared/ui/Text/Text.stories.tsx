@@ -17,6 +17,9 @@ type Story = StoryObj<typeof Text>
 export const Primary: Story = {
   render: () => <Text title='title lorem' text='text lorem ipsum tralalala' />
 };
+export const SizeS: Story = {
+  render: () => <Text title='title lorem' text='text lorem ipsum tralalala' size={TextSize.S} />
+};
 export const SizeM: Story = {
   render: () => <Text title='title lorem' text='text lorem ipsum tralalala' size={TextSize.M} />
 };
