@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 declare module '*.scss' {
-  type IClassNames = Record<string, string>
+  type IClassNames = Record<string, string>;
   const classNames: IClassNames;
-  export = classNames
+  export = classNames;
 }
+
 declare module '*.svg' {
   import type React from 'react';
   const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;

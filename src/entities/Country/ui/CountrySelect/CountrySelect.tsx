@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/country';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
   readonly?: boolean
@@ -33,12 +33,14 @@ export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
       <div
           className={ classNames('', {}, [className]) }
       >
-          <Select
+          <ListBox
               readonly={readonly}
               label={t('Укажите страну')}
-              options={options}
+              defaultValue={t('Укажите страну')}
+              items={options}
               value={value}
               onChange={onChangeHandler}
+              direction='top right'
               />
       </div>
   );

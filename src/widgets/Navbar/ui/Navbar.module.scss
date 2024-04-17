@@ -7,8 +7,10 @@
     background: var(--inverted-bg-color);
 }
 
-.link {
+.link,
+.dropdown {
     margin-left: auto;
+    caret-color: transparent;
 }
 
 .mainLink {

@@ -56,9 +56,13 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent className={cls.block} block={block} key={block.id}/>;
+        return <HStack justify='center' max>
+            <ArticleCodeBlockComponent className={cls.block} block={block} key={block.id}/>
+        </HStack>;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent className={cls.block} block={block} key={block.id}/>;
+        return <HStack justify='center' max>
+            <ArticleImageBlockComponent className={cls.block} block={block} key={block.id}/>
+        </HStack>;
       case ArticleBlockType.TEXT:
         return <ArticleTextBlockComponent className={cls.block} block={block} key={block.id}/>;
       default:
@@ -71,15 +75,15 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   });
 
   let content;
-  if (isLoading === true) {
+  if (isLoading) {
     content = (
-        <div>
+        <VStack max gap='16' align='start'>
             <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>
             <Skeleton className={cls.title} width={300} height={32} />
             <Skeleton className={cls.skeleton} width={600} height={24} />
             <Skeleton className={cls.skeleton} width={'100%'} height={200} />
             <Skeleton className={cls.skeleton} width={'100%'} height={200} />
-        </div>
+        </VStack>
     );
   } else if (error !== undefined) {
     content = (
@@ -121,7 +125,7 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   }
   return (
       <DynamicModuleLoader reducers={reducers}>
-          <VStack gap='16' className={classNames(cls.article_details ?? '', {}, [className])}>
+          <VStack gap='16' max className={classNames(cls.article_details ?? '', {}, [className])}>
               {content}
           </VStack>
       </DynamicModuleLoader>

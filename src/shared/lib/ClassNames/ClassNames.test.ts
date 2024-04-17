@@ -23,7 +23,7 @@ describe('classNames', () => {
       'someClass',
       { hovered: true, scrollable: false },
       ['class1']
-    )).toBe('someClass hovered class1');
+    )).toBe('someClass class1 hovered');
   });
 
   test('with mods undefined', () => {
@@ -31,6 +31,6 @@ describe('classNames', () => {
       'someClass',
       { hovered: true, scrollable: undefined },
       ['class1']
-    )).toBe('someClass hovered class1');
+    )).toBe('someClass class1 hovered');
   });
 });

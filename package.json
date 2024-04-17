@@ -28,6 +28,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^1.4.0",
     "i18next": "^21.6.11",
@@ -93,7 +94,7 @@
     "lost-pixel": "^3.4.1",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.12.0",
-    "reg-cli": "^0.17.7",
+    "reg-cli": "^0.18.1",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.62.1",
     "sass-loader": "^12.6.0",
