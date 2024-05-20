@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { memo, useCallback } from 'react';
+import { EventHandler, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import {
@@ -46,7 +46,8 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(async () => {
+  const onSubmit = useCallback(async (e) => {
+    e.preventDefault();
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
@@ -57,9 +58,10 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
       <DynamicModuleLoader
           reducers={initialReducers}
           removeAfterUnmount>
-          <div
-              className={ classNames(cls.LoginForm ?? '', {}, [className])}
-      >
+            <form
+                onSubmit={onSubmit}
+                className={ classNames(cls.LoginForm ?? '', {}, [className])}
+            >
               <Text title={t('Форма авторизации')} />
               {(error != null) &&
               <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
@@ -80,14 +82,14 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
                   autofocus={false}
           />
               <Button
+                  type='submit'
                   theme={ButtonTheme.OUTLINE}
                   className={cls.loginBtn}
-                  onClick={() => { void onLoginClick(); }}
                   disabled={isLoading}
               >
                   {t('Войти')}
               </Button>
-          </div>
+          </form>
       </DynamicModuleLoader>
   );
 });

@@ -15,11 +15,13 @@ import {
   type ArticleDetailsPageSchema
 } from 'pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from 'pages/ArticlesPage';
+import { type rtkApi } from 'shared/api/rtkApi';
 import { type PageSchema } from 'widgets/Page/model/types/page';
 
 export interface StateSchema {
   user: UserSchema
   page: PageSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
   // Async
   loginForm?: LoginSchema
   profile?: ProfileSchema

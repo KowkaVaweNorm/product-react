@@ -26,7 +26,7 @@ export const Light: Story = {
       })(Story)
     )
   ],
-  render: () => <ArticleDetailsPage articleId='1'/>
+  render: () => <ArticleDetailsPage />
 };
 
 const article = {
@@ -651,5 +651,5 @@ export const Dark: Story = {
       })(Story)
     )
   ],
-  render: () => <ArticleDetailsPage articleId='1' />
+  render: () => <ArticleDetailsPage />
 };
