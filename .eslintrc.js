@@ -67,6 +67,8 @@ module.exports = {
     "no-tabs": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/no-invalid-void-type": "error",
+    "@typescript-eslint/restrict-template-expressions" : "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
 
     "i18next/no-literal-string": [
       "error",

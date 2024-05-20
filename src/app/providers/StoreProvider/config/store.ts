@@ -9,15 +9,18 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 import { pageReducer } from 'widgets/Page';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export function createReduxStore (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>
+  
 ): any {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
-    page: pageReducer
+    page: pageReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -35,7 +38,7 @@ export function createReduxStore (
         thunk: {
           extraArgument: extraArg
         }
-      })
+      }).concat(rtkApi.middleware)
     });
 
   // @ts-expect-error  Временное решение
