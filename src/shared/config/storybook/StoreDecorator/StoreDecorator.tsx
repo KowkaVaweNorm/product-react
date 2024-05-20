@@ -2,8 +2,8 @@
 import { type StoryFn } from '@storybook/react';
 import { StoreProvider, type StateSchema } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { ProfileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { profileReducer } from 'features/editableProfileCard';
 import {
   addCommentFormSliceReducer
 } from 'features/addCommentForm/model/slice/addCommentFormSlice';
@@ -15,7 +15,7 @@ import {
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
-  profile: ProfileReducer,
+  profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormSliceReducer,
   articlesPage: articlesPageReducer,

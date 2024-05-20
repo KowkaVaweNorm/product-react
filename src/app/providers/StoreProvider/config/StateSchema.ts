@@ -7,10 +7,10 @@ import {
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
 import { type ArticleDetailsSchema } from 'entities/Article';
-import { type ProfileSchema } from 'entities/Profile';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type AddCommentFormSchema } from 'features/addCommentForm';
+import { type ProfileSchema } from 'features/editableProfileCard';
 import {
   type ArticleDetailsPageSchema
 } from 'pages/ArticleDetailsPage';

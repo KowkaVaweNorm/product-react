@@ -31,7 +31,6 @@ interface EditableProfileCardProps {
 }
 
 const reducers: ReducersList = {
-  // @ts-expect-error Тип корректен
   profile: profileReducer
 };
 
@@ -61,27 +60,27 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   });
 
   const onChangeFirstname = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ first: value || '' }));
+    dispatch(profileActions.updateProfile({ first: value ?? '' }));
   }, [dispatch]);
 
   const onChangeLastname = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    dispatch(profileActions.updateProfile({ lastname: value ?? '' }));
   }, [dispatch]);
 
   const onChangeCity = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ city: value || '' }));
+    dispatch(profileActions.updateProfile({ city: value ?? '' }));
   }, [dispatch]);
 
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+    dispatch(profileActions.updateProfile({ age: Number(value ?? 0) }));
   }, [dispatch]);
 
   const onChangeUsername = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ username: value || '' }));
+    dispatch(profileActions.updateProfile({ username: value ?? '' }));
   }, [dispatch]);
 
   const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ avatar: value || '' }));
+    dispatch(profileActions.updateProfile({ avatar: value ?? '' }));
   }, [dispatch]);
 
   const onChangeCurrency = useCallback((currency?: Currency) => {
@@ -100,7 +99,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
               className={classNames('', {}, [className])}
             >
               <EditableProfileCardHeader />
-              {validateErrors?.length && validateErrors.map((err) => (
+              {validateErrors?.length && validateErrors.map((err: any) => (
                   <Text
                       key={err}
                       theme={TextTheme.ERROR}

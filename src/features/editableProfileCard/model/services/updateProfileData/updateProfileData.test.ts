@@ -8,7 +8,7 @@ const data = {
   username: 'admin',
   age: 22,
   country: Country.Ukraine,
-  lastname: 'ulbi tv',
+  lastname: 'kowka vn',
   first: 'asd',
   city: 'asf',
   currency: Currency.USD,
@@ -19,6 +19,7 @@ describe('updateProfileData.test', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
+        readonly: true,
         form: data,
         isLoading: false
       }
@@ -36,6 +37,7 @@ describe('updateProfileData.test', () => {
   test('error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
+        readonly: true,
         form: data,
         isLoading: false
       }
@@ -53,6 +55,7 @@ describe('updateProfileData.test', () => {
   test('validate error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
+        readonly: true,
         form: {
           ...data,
           lastname: ''
