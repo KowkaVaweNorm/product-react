@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { EventHandler, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import {
@@ -58,9 +58,10 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
       <DynamicModuleLoader
           reducers={initialReducers}
           removeAfterUnmount>
-            <form
-                onSubmit={onSubmit}
-                className={ classNames(cls.LoginForm ?? '', {}, [className])}
+          <form
+              // eslint-disable-next-line @typescript-eslint/no-misused-promises
+              onSubmit={onSubmit}
+              className={ classNames(cls.LoginForm ?? '', {}, [className])}
             >
               <Text title={t('Форма авторизации')} />
               {(error != null) &&

@@ -42,6 +42,7 @@ export function Dropdown (props: DropdownProps): JSX.Element {
               {items.map((item) => {
                 const content = ({ active }: { active: boolean }): JSX.Element => (
                     <button
+                        key={item.href}
                         type="button"
                         disabled={item.disabled}
                         onClick={item.onClick}

@@ -14,13 +14,13 @@ import { rtkApi } from 'shared/api/rtkApi';
 export function createReduxStore (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>
-  
+
 ): any {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
     page: pageReducer,
-    [rtkApi.reducerPath]: rtkApi.reducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
 
   const reducerManager = createReducerManager(rootReducers);

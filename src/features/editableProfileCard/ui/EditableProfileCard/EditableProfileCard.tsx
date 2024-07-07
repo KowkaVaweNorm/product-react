@@ -54,7 +54,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   };
 
   useInitialEffect(() => {
-    if (id) {
+    if (id.length > 0) {
       dispatch(fetchProfileData(id));
     }
   });
@@ -107,6 +107,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                         // @ts-expect-error здесь ошибки нет
                         validateErrorTranslates[err]
                       }
+                      data-testid="EditableProfileCard.Error"
                     />
               ))}
               <ProfileCard
