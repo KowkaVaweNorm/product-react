@@ -13,6 +13,7 @@
     "build:dev": "webpack  --env mode=development",
     "prettier": "npx prettier --write **/*.{ts,tsx,json}",
     "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
+    "lint:typecheck": "tsc --project ./tsconfig.json --noEmit",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
