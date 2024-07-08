@@ -1,23 +1,22 @@
 .Navbar {
-    display: flex;
     width: 100%;
     height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    display: flex;
     align-items: center;
     padding: 20px;
-    background: var(--inverted-bg-color);
 }
 
-.link,
+.links,
 .dropdown {
     margin-left: auto;
-    caret-color: transparent;
 }
 
 .mainLink {
     margin-right: 15px;
 }
 
-.app_name {
+.appName {
     width: var(--sidebar-width);
     margin-left: 15px;
 }

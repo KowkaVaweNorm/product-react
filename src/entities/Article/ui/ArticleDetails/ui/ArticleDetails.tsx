@@ -75,7 +75,7 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   });
 
   let content;
-  if (isLoading) {
+  if (isLoading !== undefined) {
     content = (
         <VStack max gap='16' align='start'>
             <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>

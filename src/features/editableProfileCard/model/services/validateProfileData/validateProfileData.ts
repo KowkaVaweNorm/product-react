@@ -12,11 +12,14 @@ export const validateProfileData = (profile?: Profile) => {
 
   const errors: ValidateProfileError[] = [];
 
-  if (!first || !lastname) {
+  if (
+    (first === undefined || first.length < 1) ||
+    (lastname === undefined || lastname.length < 1)
+  ) {
     errors.push(ValidateProfileError.INCORRECT_USER_DATA);
   }
 
-  if (!age || !Number.isInteger(age)) {
+  if ((age === undefined) || !Number.isInteger(age)) {
     errors.push(ValidateProfileError.INCORRECT_AGE);
   }
 

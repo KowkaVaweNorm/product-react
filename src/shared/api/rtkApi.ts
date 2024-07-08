@@ -7,7 +7,7 @@ export const rtkApi = createApi({
     baseUrl: __API__,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) ?? '';
-      if (token) {
+      if (token.length > 0) {
         headers.set('Authorization', token);
       }
       return headers;

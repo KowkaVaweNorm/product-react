@@ -28,6 +28,7 @@ ThunkConfig<ValidateProfileError[]>
                     formData
       );
 
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (!response.data) {
         throw new Error();
       }

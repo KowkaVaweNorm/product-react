@@ -77,7 +77,7 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
 
   return (
       <VStack
-          gap='4'
+          gap='8'
           max
           className={ classNames(cls.ProfileCard ?? '', mods, [className])}
 			>

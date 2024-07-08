@@ -12,7 +12,7 @@ const App = (): JSX.Element => {
   const dispatch = useDispatch();
   const inited = useSelector(getUserInited);
   useEffect(() => {
-    dispatch(userActions.initAuthdata());
+    dispatch(userActions.initAuthData());
   }, [dispatch]);
   return (
       <div className={classNames('app', {}, [theme])}>

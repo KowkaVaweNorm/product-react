@@ -7,7 +7,7 @@ import { updateProfileData } from './updateProfileData';
 const data = {
   username: 'admin',
   age: 22,
-  country: Country.Ukraine,
+  country: Country.Russia,
   lastname: 'kowka vn',
   first: 'asd',
   city: 'asf',

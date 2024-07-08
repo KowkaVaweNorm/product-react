@@ -14,6 +14,7 @@ ThunkConfig<string>
     try {
       const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (!response.data) {
         throw new Error();
       }

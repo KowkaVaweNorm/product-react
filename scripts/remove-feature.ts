@@ -1,144 +1,144 @@
-import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
+// import { type JsxAttribute, type Node, Project, SyntaxKind } from 'ts-morph';
 
-const removedFeatureName = process.argv[2]; // example isArticleEnabled
-const featureState = process.argv[3]; // example off\on
+// const removedFeatureName = process.argv[2]; // example isArticleEnabled
+// const featureState = process.argv[3]; // example off\on
 
-const toggleFunctionName = 'toggleFeatures';
-const toggleComponentName = 'ToggleFeatures';
+// const toggleFunctionName = 'toggleFeatures';
+// const toggleComponentName = 'ToggleFeatures';
 
-if (!removedFeatureName) {
-    throw new Error('Укажите название фича-флага');
-}
+// if (!removedFeatureName) {
+//   throw new Error('Укажите название фича-флага');
+// }
 
-if (!featureState) {
-    throw new Error('Укажите состояние фичи (on или off)');
-}
+// if (!featureState) {
+//   throw new Error('Укажите состояние фичи (on или off)');
+// }
 
-if (featureState !== 'on' && featureState !== 'off') {
-    throw new Error('Некорректное значение состояния фичи (on или off)');
-}
+// if (featureState !== 'on' && featureState !== 'off') {
+//   throw new Error('Некорректное значение состояния фичи (on или off)');
+// }
 
-const project = new Project({});
+// const project = new Project({});
 
-project.addSourceFilesAtPaths('src/**/*.ts');
-project.addSourceFilesAtPaths('src/**/*.tsx');
+// project.addSourceFilesAtPaths('src/**/*.ts');
+// project.addSourceFilesAtPaths('src/**/*.tsx');
 
-const files = project.getSourceFiles();
+// const files = project.getSourceFiles();
 
-function isToggleFunction(node: Node) {
-    let isToggleFeatures = false;
+// function isToggleFunction (node: Node) {
+//   let isToggleFeatures = false;
 
-    node.forEachChild((child) => {
-        if (
-            child.isKind(SyntaxKind.Identifier) &&
-            child.getText() === toggleFunctionName
-        ) {
-            isToggleFeatures = true;
-        }
-    });
+//   node.forEachChild((child) => {
+//     if (
+//       child.isKind(SyntaxKind.Identifier) &&
+//             child.getText() === toggleFunctionName
+//     ) {
+//       isToggleFeatures = true;
+//     }
+//   });
 
-    return isToggleFeatures;
-}
+//   return isToggleFeatures;
+// }
 
-function isToggleComponent(node: Node) {
-    const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
+// function isToggleComponent (node: Node) {
+//   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
 
-    return identifier?.getText() === toggleComponentName;
-}
+//   return identifier?.getText() === toggleComponentName;
+// }
 
-const replaceToggleFunction = (node: Node) => {
-    const objectOptions = node.getFirstDescendantByKind(
-        SyntaxKind.ObjectLiteralExpression,
-    );
+// const replaceToggleFunction = (node: Node) => {
+//   const objectOptions = node.getFirstDescendantByKind(
+//     SyntaxKind.ObjectLiteralExpression
+//   );
 
-    if (!objectOptions) return;
+//   if (objectOptions == null) return;
 
-    const offFunctionProperty = objectOptions.getProperty('off');
-    const onFunctionProperty = objectOptions.getProperty('on');
+//   const offFunctionProperty = objectOptions.getProperty('off');
+//   const onFunctionProperty = objectOptions.getProperty('on');
 
-    const featureNameProperty = objectOptions.getProperty('name');
+//   const featureNameProperty = objectOptions.getProperty('name');
 
-    const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
-    );
-    const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
-    );
-    const featureName = featureNameProperty
-        ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-        ?.getText()
-        .slice(1, -1);
+//   const onFunction = onFunctionProperty?.getFirstDescendantByKind(
+//     SyntaxKind.ArrowFunction
+//   );
+//   const offFunction = offFunctionProperty?.getFirstDescendantByKind(
+//     SyntaxKind.ArrowFunction
+//   );
+//   const featureName = featureNameProperty
+//     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
+//     ?.getText()
+//     .slice(1, -1);
 
-    if (featureName !== removedFeatureName) return;
+//   if (featureName !== removedFeatureName) return;
 
-    if (featureState === 'on') {
-        node.replaceWithText(onFunction?.getBody().getText() ?? '');
-    }
+//   if (featureState === 'on') {
+//     node.replaceWithText(onFunction?.getBody().getText() ?? '');
+//   }
 
-    if (featureState === 'off') {
-        node.replaceWithText(offFunction?.getBody().getText() ?? '');
-    }
-};
+//   if (featureState === 'off') {
+//     node.replaceWithText(offFunction?.getBody().getText() ?? '');
+//   }
+// };
 
-const getAttributeNodeByName = (
-    jsxAttributes: JsxAttribute[],
-    name: string,
-) => {
-    return jsxAttributes.find((node) => node.getName() === name);
-};
+// const getAttributeNodeByName = (
+//   jsxAttributes: JsxAttribute[],
+//   name: string
+// ) => {
+//   return jsxAttributes.find((node) => node.getName() === name);
+// };
 
-const getReplacedComponent = (attribute?: JsxAttribute) => {
-    const value = attribute
-        ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
-        ?.getExpression()
-        ?.getText();
+// const getReplacedComponent = (attribute?: JsxAttribute) => {
+//   const value = attribute
+//     ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
+//     ?.getExpression()
+//     ?.getText();
 
-    if (value?.startsWith('(')) {
-        return value.slice(1, -1);
-    }
+//   if (value?.startsWith('(')) {
+//     return value.slice(1, -1);
+//   }
 
-    return value;
-};
+//   return value;
+// };
 
-const replaceComponent = (node: Node) => {
-    const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
+// const replaceComponent = (node: Node) => {
+//   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
 
-    const onAttribute = getAttributeNodeByName(attributes, 'on');
-    const offAttribute = getAttributeNodeByName(attributes, 'off');
+//   const onAttribute = getAttributeNodeByName(attributes, 'on');
+//   const offAttribute = getAttributeNodeByName(attributes, 'off');
 
-    const featureNameAttribute = getAttributeNodeByName(attributes, 'feature');
-    const featureName = featureNameAttribute
-        ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-        ?.getText()
-        ?.slice(1, -1);
+//   const featureNameAttribute = getAttributeNodeByName(attributes, 'feature');
+//   const featureName = featureNameAttribute
+//     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
+//     ?.getText()
+//     ?.slice(1, -1);
 
-    if (featureName !== removedFeatureName) return;
+//   if (featureName !== removedFeatureName) return;
 
-    const offValue = getReplacedComponent(offAttribute);
-    const onValue = getReplacedComponent(onAttribute);
+//   const offValue = getReplacedComponent(offAttribute);
+//   const onValue = getReplacedComponent(onAttribute);
 
-    if (featureState === 'on' && onValue) {
-        node.replaceWithText(onValue);
-    }
+//   if (featureState === 'on' && onValue) {
+//     node.replaceWithText(onValue);
+//   }
 
-    if (featureState === 'off' && offValue) {
-        node.replaceWithText(offValue);
-    }
-};
+//   if (featureState === 'off' && offValue) {
+//     node.replaceWithText(offValue);
+//   }
+// };
 
-files.forEach((sourceFile) => {
-    sourceFile.forEachDescendant((node) => {
-        if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            return replaceToggleFunction(node);
-        }
+// files.forEach((sourceFile) => {
+//   sourceFile.forEachDescendant((node) => {
+//     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
+//       replaceToggleFunction(node); return;
+//     }
 
-        if (
-            node.isKind(SyntaxKind.JsxSelfClosingElement) &&
-            isToggleComponent(node)
-        ) {
-            return replaceComponent(node);
-        }
-    });
-});
+//     if (
+//       node.isKind(SyntaxKind.JsxSelfClosingElement) &&
+//             isToggleComponent(node)
+//     ) {
+//       replaceComponent(node);
+//     }
+//   });
+// });
 
-project.save();
+// void project.save();

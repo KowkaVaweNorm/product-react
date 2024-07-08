@@ -1,5 +1,5 @@
 import { AdminPanelPageAsync } from './ui/AdminPanelPage.async';
 
 export {
-    AdminPanelPageAsync as AdminPanelPage,
+  AdminPanelPageAsync as AdminPanelPage
 };

@@ -6,8 +6,6 @@ import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchComme
 jest.mock('../fetchCommentsByArticleId/fetchCommentsByArticleId');
 
 describe('addCommentForArticle(asyncThunk)', () => {
-  // Затем в вашем тесте используйте mockDispatch, чтобы мокировать dispatch
-
   test('success', async () => {
     const thunk = new TestAsyncThunk(addCommentForArticle, {
       user: {
@@ -133,7 +131,11 @@ describe('addCommentForArticle(asyncThunk)', () => {
 
   test('reject with no data in store', async () => {
     // empty store
-    const thunk = new TestAsyncThunk(addCommentForArticle, {});
+    const thunk = new TestAsyncThunk(addCommentForArticle, {
+      user: {
+        authData: undefined
+      }
+    });
     const returnedValue = {
       articleId: '1',
       userId: '1',

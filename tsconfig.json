@@ -30,7 +30,8 @@
         "./src/**/*.tsx",
         "./config/**/*.ts",
         "./config/**/*.tsx", 
-        "lostpixel.config.ts"      
+        "lostpixel.config.ts",
+        "scripts/**/*"      
     ],
       "exclude": [
         "node_modules", 

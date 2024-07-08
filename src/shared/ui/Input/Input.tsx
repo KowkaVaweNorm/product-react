@@ -47,8 +47,6 @@ export const Input = memo((props: InputProps): JSX.Element => {
     setIsFocused(false);
   };
   const onFocus = (): void => {
-    console.log('focused');
-
     setIsFocused(true);
   };
   const onSelect = (e: any): void => {
