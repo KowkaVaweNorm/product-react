@@ -14,10 +14,10 @@ void i18n
 
     interpolation: {
       escapeValue: false
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
     }
+    // backend: {
+    // loadPath: '/locales/{{lng}}/{{ns}}.json'
+    // }
   });
 
 export default i18n;

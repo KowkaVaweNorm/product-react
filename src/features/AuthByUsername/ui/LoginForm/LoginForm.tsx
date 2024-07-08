@@ -3,7 +3,7 @@ import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { memo, useCallback } from 'react';
+import { type FormEvent, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import {
@@ -46,7 +46,7 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onSubmit = useCallback(async (e) => {
+  const onSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
