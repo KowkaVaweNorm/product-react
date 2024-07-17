@@ -1,0 +1,7 @@
+{
+  "projectId": "Project:chpt_be087a93dbc7664",
+  "buildScriptName": "sb:build",
+  "debug": true,
+  "zip": true,
+  "storybookConfigDir": "./config/storybook/" 
+}
