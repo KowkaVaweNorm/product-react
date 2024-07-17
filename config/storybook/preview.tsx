@@ -6,6 +6,7 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 initialize();
+
 const preview: Preview = {
   parameters: {
     controls: {

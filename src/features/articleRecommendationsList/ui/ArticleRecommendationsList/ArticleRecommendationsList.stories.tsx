@@ -125,40 +125,17 @@ const meta: Meta<typeof ArticleRecommendationsList> = {
     screenshot: {
       viewport: 'iPhone 5'
     }
-    // msw: {
-    //   handlers: [
-    //     http.get('/articles/', ({ request }) => {
-    //       console.log('request:', request);
-    //       return HttpResponse.json(testData);
-    //     }),
-    //     http.get('/articles', ({ request, params }) => {
-    //       console.log('request:', request);
-
-    //       const { _limit, _expand } = params;
-    //       if (_limit === '3' && _expand === 'user') {
-    //         const filteredData = testData.slice(0, 3);
-    //         return HttpResponse.json(filteredData);
-    //       }
-
-    //       return new HttpResponse(null, {
-    //         status: 404,
-    //         statusText: 'Ошибка выборки статей'
-    //       });
-    //     })
-    //   ]
-    // }
   }
 
 };
 export default meta;
   type Story = StoryObj<typeof ArticleRecommendationsList>
-console.log('api:', __API__ + 'articles');
 
 export const Primary: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get(__API__ + '/articles', () => {
+        http.get('/articles', () => {
           return HttpResponse.json(testData);
         })
       ]
