@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Button.module.scss';
 import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
@@ -24,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize
   disabled?: boolean
   children?: ReactNode
+  isLoading?: boolean
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -33,6 +34,8 @@ export const Button = memo((props: ButtonProps) => {
     square = false,
     size = ButtonSize.M,
     disabled = false,
+    isLoading,
+    children,
     ...otherProps
   } = props;
 
@@ -42,14 +45,14 @@ export const Button = memo((props: ButtonProps) => {
     [cls[size] ?? '']: true,
     [cls.disabled ?? '']: disabled
   };
-
   return (
       <button
           className={classNames(cls.Button ?? '', mods, [className, theme])}
-          disabled={disabled}
+          disabled={disabled || isLoading}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
     >
+          {children}
       </button>
   );
 });

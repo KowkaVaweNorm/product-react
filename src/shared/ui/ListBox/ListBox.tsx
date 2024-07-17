@@ -3,17 +3,17 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { HStack } from '../Stack';
 import cls from './ListBox.module.scss';
 import { Button } from '../Button';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
-import { type DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { type DropdownDirection } from '@/shared/types/ui';
 
-export interface ListBoxItem {
-  value: string
+export interface ListBoxItem<ValueType> {
+  value: ValueType
   content: ReactNode
   disabled?: boolean
 }
 
-interface ListBoxProps {
-  items?: ListBoxItem[]
+interface ListBoxProps<ValueType> {
+  items?: Array<ListBoxItem<ValueType>>
   className?: string
   value?: string
   defaultValue?: string
@@ -30,7 +30,7 @@ const mapDirectionClass: Record<DropdownDirection, string> = {
   "top right": cls.optionsTopRight ?? 'oT'
 };
 
-export function ListBox (props: ListBoxProps): JSX.Element {
+export function ListBox <ValueType extends string> (props: ListBoxProps<ValueType>): JSX.Element {
   const {
     className,
     items,
@@ -43,7 +43,7 @@ export function ListBox (props: ListBoxProps): JSX.Element {
   } = props;
 
   const optionsClasses: string[] = [mapDirectionClass[direction]];
-
+  // TODO: Убрать вложенность button in button
   return (
       <HStack gap="4">
           {label !== undefined && <span>{`${label}>`}</span>}

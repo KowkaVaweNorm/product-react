@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Modal.module.scss';
 import { useState, type ReactNode, useRef, useEffect, useCallback } from 'react';
 // eslint-disable-next-line kowka-vn-plugin/fsd-path-checker
-import { Portal } from 'shared/ui/Portal';
+import { Portal } from '@/shared/ui/Portal';
 
 interface ModalProps {
   className?: string

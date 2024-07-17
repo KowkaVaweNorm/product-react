@@ -4,12 +4,12 @@ export type Mods = Record<string, boolean | string | undefined>
 export function classNames (
   cls: string = '',
   mods: Mods = {},
-  additioonal: Array<string | undefined> = []): string {
+  additional: Array<string | undefined> = []): string {
   return [
     cls,
-    ...additioonal.filter(Boolean),
+    ...additional.filter(Boolean),
     ...Object.entries(mods)
-      .filter(([, value]) => Boolean(value))
+      .filter(([_, value]) => Boolean(value))
       .map(([className]) => className)
   ].join(' ');
 }

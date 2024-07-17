@@ -5,11 +5,11 @@ import {
   type CombinedState
 } from '@reduxjs/toolkit';
 import { type ThunkExtraArg, type StateSchema } from './StateSchema';
-import { userReducer } from 'entities/User';
+import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
-import { $api } from 'shared/api/api';
-import { pageReducer } from 'widgets/Page';
-import { rtkApi } from 'shared/api/rtkApi';
+import { $api } from '@/shared/api/api';
+import { pageReducer } from '@/widgets/Page';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export function createReduxStore (
   initialState?: StateSchema,

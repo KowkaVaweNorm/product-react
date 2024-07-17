@@ -1,4 +1,4 @@
-import { type StateSchema } from 'app/providers/StoreProvider';
+import { type StateSchema } from '@/app/providers/StoreProvider';
 import { type ScrollSchema } from '../../types/page';
 import { createSelector } from '@reduxjs/toolkit';
 

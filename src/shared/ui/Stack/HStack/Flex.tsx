@@ -1,5 +1,5 @@
 
-import { classNames } from "shared/lib/ClassNames/ClassNames";
+import { classNames } from "@/shared/lib/ClassNames/ClassNames";
 import cls from "./Flex.module.scss";
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'

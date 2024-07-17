@@ -1,0 +1,36 @@
+.wrap {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    z-index: 10;
+
+    & > * {
+        transition: ease 0.4s;
+        transition-delay: 0.8s;
+    }
+}
+
+.contentOverlay {
+    filter: blur(1px) grayscale(80%);
+    width: fit-content;
+}
+
+.wrap .Spinner_default {
+    position: absolute;
+    opacity: 0;
+}
+
+.wrap .Spinner_visible {
+    opacity: 1;
+    caret-color: transparent !important;
+}
+
+.wrap .Spinner_visible ~ * {
+    pointer-events: none;
+    user-select: none;
+    caret-color: transparent !important;
+}

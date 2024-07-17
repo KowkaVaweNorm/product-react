@@ -43,10 +43,12 @@ export default {
   ],
   modulePaths: [
     '<rootDir>/src/'
-  ],
+  ], 
+  // Порядок имеет значение!!! - сначала конкретные расширения а потом более общие
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    "^@/(.*)$": "<rootDir>/src/$1"
   },
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts'],
   rootDir: '../../',

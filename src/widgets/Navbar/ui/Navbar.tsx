@@ -1,18 +1,18 @@
 /* eslint-disable i18next/no-literal-string */
 
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { memo, useCallback, useState } from 'react';
-import { LoginModal } from 'features/AuthByUsername';
+import { LoginModal } from '@/features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routerConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routerConfig';
+import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
 interface NavbarProps {
   className?: string
 }

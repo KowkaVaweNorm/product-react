@@ -1,11 +1,11 @@
 
-import { type StateSchema } from 'app/providers/StoreProvider';
+import { type StateSchema } from '@/app/providers/StoreProvider';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView
 } from './articlesPageSelectors';
-import { ArticleView } from 'entities/Article';
+import { ArticleView } from '@/entities/Article';
 
 const SuccessState: DeepPartial<StateSchema> = {
   articlesPage: {

@@ -1,12 +1,12 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/type/article';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleBlockType, ArticleType } from '@/entities/Article/model/type/article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
-import { UserRole } from 'entities/User';
+import { UserRole } from '@/entities/User';
 const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage

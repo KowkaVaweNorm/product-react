@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { Page } from 'widgets/Page';
+import { Page } from '@/widgets/Page';
 
 const MainPage = (): JSX.Element => {
   const { t } = useTranslation();

@@ -3,26 +3,26 @@ import cls from './ArticleDetails.module.scss';
 import {
   DynamicModuleLoader,
   type ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback } from 'react';
 import {
   fetchArticleById
 } from './../../../model/services/fetchArticleById/fetchArticleById';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from '../../../model/selectors/articleDetails';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { ArticleBlockType, type ArticleBlock } from '../../../model/type/article';
 import {
   ArticleImageBlockComponent
@@ -31,8 +31,8 @@ import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 import {
   ArticleCodeBlockComponent
 } from '../../ArticleCodeBlockComponent/ui/ArticleCodeBlockComponent';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from '@/shared/ui/Stack';
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer
 };
@@ -56,11 +56,11 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <HStack justify='center' max>
+        return <HStack justify='center' max key={block.id}>
             <ArticleCodeBlockComponent className={cls.block} block={block} key={block.id}/>
         </HStack>;
       case ArticleBlockType.IMAGE:
-        return <HStack justify='center' max>
+        return <HStack justify='center' max key={block.id}>
             <ArticleImageBlockComponent className={cls.block} block={block} key={block.id}/>
         </HStack>;
       case ArticleBlockType.TEXT:
@@ -75,10 +75,10 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
   });
 
   let content;
-  if (isLoading !== undefined) {
+  if (isLoading !== undefined && isLoading) {
     content = (
         <VStack max gap='16' align='start'>
-            <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>
+            <Skeleton className={cls.avatar} width={200} height={200} border={'50%'} />
             <Skeleton className={cls.title} width={300} height={32} />
             <Skeleton className={cls.skeleton} width={600} height={24} />
             <Skeleton className={cls.skeleton} width={'100%'} height={200} />
@@ -103,7 +103,6 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
             />
             </HStack>
             <VStack gap='4' max>
-
                 <Text
                     className={cls.title}
                     title={article?.title}

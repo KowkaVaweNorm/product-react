@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('axios');
 

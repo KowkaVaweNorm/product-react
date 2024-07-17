@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -10,12 +10,12 @@ import {
   fetchNextArticlesPage
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   type ReducersList,
   DynamicModuleLoader
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
   className?: string

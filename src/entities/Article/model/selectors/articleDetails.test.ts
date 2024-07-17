@@ -4,7 +4,7 @@ import {
   getArticleDetailsIsLoading
 } from './articleDetails';
 
-import { type StateSchema } from 'app/providers/StoreProvider';
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
 describe('articleDetailsData.test', () => {
   test('should return data', () => {

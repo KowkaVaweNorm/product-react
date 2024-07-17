@@ -1,8 +1,8 @@
 import cls from './ArticleImageBlockComponent.module.scss';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type ArticleImageBlock } from '../../../model/type/article';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign } from '@/shared/ui/Text/Text';
 
 interface IProps {
   className?: string

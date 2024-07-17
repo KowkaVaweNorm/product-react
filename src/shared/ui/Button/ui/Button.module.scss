@@ -35,13 +35,13 @@
 }
 
 .background {
-    background: var(--bg-color);
+    background-color: var(--bg-color);
     color: var(--primary-color);
     border: none;
 }
 
 .backgroundInverted {
-    background: var(--inverted-bg-color);
+    background-color: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
 }

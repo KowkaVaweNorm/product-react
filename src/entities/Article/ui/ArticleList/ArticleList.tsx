@@ -1,10 +1,10 @@
 import cls from './ArticleList.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleView, type Article } from '../../model/type/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 
 interface IArticleListProps {

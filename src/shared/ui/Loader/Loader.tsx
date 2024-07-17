@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
-import './Loader.scss';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import cls from './Loader.module.scss';
 
 interface LoaderProps {
   className?: string
@@ -7,19 +7,6 @@ interface LoaderProps {
 
 export const Loader = ({ className = '' }: LoaderProps): JSX.Element => {
   return (
-      <div className={classNames('lds-spinner', {}, [className])}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-      </div>
+      <div className={classNames(cls.loader, {}, [className])}></div>
   );
 };

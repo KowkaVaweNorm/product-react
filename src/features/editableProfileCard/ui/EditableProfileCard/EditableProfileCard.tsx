@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { type Currency } from 'entities/Currency';
-import { type Country } from 'entities/Country';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ProfileCard } from 'entities/Profile';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { type Currency } from '@/entities/Currency';
+import { type Country } from '@/entities/Country';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { ProfileCard } from '@/entities/Profile';
 import {
   DynamicModuleLoader,
   type ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -23,7 +23,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slices/editableProfileCardSlice';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface EditableProfileCardProps {
   className?: string

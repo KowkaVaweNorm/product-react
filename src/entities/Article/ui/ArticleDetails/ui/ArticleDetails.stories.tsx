@@ -1,38 +1,8 @@
-// /* eslint-disable i18next/no-literal-string */
-// import type { Meta, StoryFn, StoryObj } from '@storybook/react';
-
-// import { ArticleDetails } from './ArticleDetails';
-// import { Theme } from 'app/providers/ThemeProvider';
-// import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-
-// const meta: Meta<typeof ArticleDetails> = {
-//   title: 'entities/ArticleDetails',
-//   component: ArticleDetails
-
-// };
-
-// export default meta;
-// type Story = StoryObj<typeof ArticleDetails>
-
-// export const Light: Story = {
-//   render: () => <ArticleDetails />
-// };
-
-// export const Dark: Story = {
-//   decorators: [
-//     (Story: StoryFn) => (
-//       ThemeDecorator(Theme.DARK)(Story)
-//     )
-//   ],
-//   render: () => <ArticleDetails />
-// };
-/* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
-
 import { ArticleDetails } from './ArticleDetails';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { type ArticleBlockType, type ArticleType } from '../../../model/type/article';
 
 const meta: Meta<typeof ArticleDetails> = {

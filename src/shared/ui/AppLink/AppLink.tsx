@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './AppLink.module.scss';
 import { Link, type LinkProps } from 'react-router-dom';
 import { memo } from 'react';

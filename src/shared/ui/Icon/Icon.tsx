@@ -1,5 +1,5 @@
 import cls from './Icon.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type SVGProps, memo } from 'react';
 
 interface IconProps {

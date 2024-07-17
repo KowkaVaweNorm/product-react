@@ -1,8 +1,8 @@
 import cls from './Code.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo, useCallback } from 'react';
 import { Button } from '../Button';
-import CopyIcon from 'shared/assets/icons/copy-20-20.svg';
+import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
 interface IProps {
   className?: string
   text: string

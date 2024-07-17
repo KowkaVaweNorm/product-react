@@ -1,20 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
 
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   type ReducersList,
   DynamicModuleLoader
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {
   className?: string

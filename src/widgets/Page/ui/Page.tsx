@@ -1,5 +1,5 @@
 import cls from './Page.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   type ReactNode,
   memo,
@@ -7,15 +7,15 @@ import {
   type MutableRefObject,
   type UIEvent
 } from 'react';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { pageActions } from '../model/slices/pageSlice';
 import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
-import { type StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { type StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
 interface IPageProps {
   className?: string

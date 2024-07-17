@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Country } from '../../model/types/country';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
   readonly?: boolean
@@ -24,9 +24,10 @@ export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
     readonly
   } = props;
   const { t } = useTranslation('profile');
-
+  const [localValue, setLocalValue] = useState<Country | undefined>(undefined);
   const onChangeHandler = useCallback((value: string) => {
     onChange?.(value as Country);
+    setLocalValue(value as Country);
   }, [onChange]);
 
   return (
@@ -38,7 +39,7 @@ export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
               label={t('Укажите страну')}
               defaultValue={t('Укажите страну')}
               items={options}
-              value={value}
+              value={value ?? localValue}
               onChange={onChangeHandler}
               direction='top right'
               />

@@ -1,15 +1,15 @@
-import { type Mods, classNames } from 'shared/lib/ClassNames/ClassNames';
+import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { Input } from 'shared/ui/Input/Input';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
+import { Input } from '@/shared/ui/Input/Input';
 import { type Profile } from '../../model/types/profile';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { type Currency, CurrencySelect } from 'entities/Currency';
-import { type Country } from 'entities/Country/model/types/country';
-import { CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { type Currency, CurrencySelect } from '@/entities/Currency';
+import { type Country } from '@/entities/Country/model/types/country';
+import { CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string
@@ -23,8 +23,8 @@ interface ProfileCardProps {
   onChangeCity?: (value?: string) => void
   onChangeUsername?: (value?: string) => void
   onChangeAvatar?: (value?: string) => void
-  onChangeCurrency?: (currency?: Currency) => void
-  onChangeCountry?: (country?: Country) => void
+  onChangeCurrency?: (currency: Currency) => void
+  onChangeCountry?: (country: Country) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
@@ -74,7 +74,6 @@ export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   const mods: Mods = {
     [cls.editing ?? '']: readonly === false
   };
-
   return (
       <VStack
           gap='8'

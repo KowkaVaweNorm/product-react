@@ -1,8 +1,8 @@
-import React, { type ReactChildren, type ReactChild } from 'react';
-import 'app/styles/index.scss';
+import { type ReactNode } from 'react';
+import '@/app/styles/index.scss';
 
 interface StyleProps {
-  children: ReactChild | ReactChildren
+  children: ReactNode
 }
 
 export const StyleDecorator = (props: StyleProps): JSX.Element => {

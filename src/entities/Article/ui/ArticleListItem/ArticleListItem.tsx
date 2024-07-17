@@ -1,5 +1,5 @@
 import cls from './ArticleListItem.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import {
   ArticleView,
@@ -7,16 +7,16 @@ import {
   ArticleBlockType,
   type ArticleTextBlock
 } from '../../model/type/article';
-import { Text } from 'shared/ui/Text/Text';
-import { Icon } from 'shared/ui/Icon/Icon';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Text } from '@/shared/ui/Text/Text';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { Card } from '@/shared/ui/Card/Card';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
-import { RoutePath } from 'shared/config/routeConfig/routerConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routerConfig';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 interface IArticleListItemProps {
   className?: string
   article: Article

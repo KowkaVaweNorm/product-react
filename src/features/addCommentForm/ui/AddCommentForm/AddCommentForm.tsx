@@ -1,14 +1,14 @@
 import cls from './AddCommentForm.module.scss';
-import { classNames } from 'shared/lib/ClassNames/ClassNames';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo, useCallback } from 'react';
-import { Input } from 'shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useSelector } from 'react-redux';
 import {
   getAddCommentFormText
 } from '../../model/selectors/addCommentFormSelectors';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   addCommentFormSliceActions,
   addCommentFormSliceReducer
@@ -16,8 +16,8 @@ import {
 import {
   DynamicModuleLoader,
   type ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from 'shared/ui/Stack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from '@/shared/ui/Stack';
 
 export interface IAddCommentFormProps {
   className?: string
@@ -58,6 +58,7 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
                   onChange={onCommentTextChange}
               />
               <Button
+                  theme={ButtonTheme.OUTLINE}
                   onClick={onSendHandler}>
                   {t('Отправить')}
               </Button>

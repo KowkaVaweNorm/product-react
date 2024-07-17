@@ -14,5 +14,6 @@ type Story = StoryObj<typeof CurrencySelect>
 
 export const Primary: Story = {
   args: {
+    direction: 'bottom right'
   }
 };
