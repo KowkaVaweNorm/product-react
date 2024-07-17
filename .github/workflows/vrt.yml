@@ -14,15 +14,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 19.x
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
     
       - name: Build Storybook
-        run: npm run sb:build && npx sb extract
+        run: npm run sb:build 
 
       - name: Lost Pixel
-        uses: lost-pixel/lost-pixel@v3.4.0
+        uses: lost-pixel/lost-pixel@3.3.0
         env:
           LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
           
