@@ -110,20 +110,20 @@ export const LightLoading: Story = {
   ],
   render: () => <ArticleDetails id='2'/>
 };
-export const LightError: Story = {
-  decorators: [
-    (Story: any) => (
-      StoreDecorator({
-        articleDetails: {
-          data: undefined,
-          isLoading: false,
-          error: 'Не удалось загрузить статью'
-        }
-      })(Story)
-    )
-  ],
-  render: () => <ArticleDetails id='2'/>
-};
+// export const LightError: Story = {
+//   decorators: [
+//     (Story: any) => (
+//       StoreDecorator({
+//         articleDetails: {
+//           data: undefined,
+//           isLoading: false,
+//           error: 'Не удалось загрузить статью'
+//         }
+//       })(Story)
+//     )
+//   ],
+//   render: () => <ArticleDetails id='2'/>
+// };
 
 export const Dark: Story = {
   decorators: [

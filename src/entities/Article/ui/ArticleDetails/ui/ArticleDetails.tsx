@@ -89,7 +89,7 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
     content = (
         <Text
             align={TextAlign.CENTER}
-            text={t('Произошла ошибка при загрузке статьи')}
+            text={t('Произошла ошибка при загрузке статьи!!!')}
         />
     );
   } else {
