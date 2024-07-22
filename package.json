@@ -33,8 +33,7 @@
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js",
     "remove-feature": "ts-node ./scripts/remove-feature.ts",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664"
   },
   "keywords": [],
   "author": "",
