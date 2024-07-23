@@ -1,5 +1,6 @@
 /node_modules
 /build
+/reports
 /storybook-static
 *storybook.log
 /reports
