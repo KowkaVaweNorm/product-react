@@ -3,3 +3,5 @@
 /storybook-static
 *storybook.log
 /reports
+chromatic.log
+chromatic-diagnostics.json

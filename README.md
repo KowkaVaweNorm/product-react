@@ -5,11 +5,12 @@
 Интернационализация, темизация(доступны 3 темы), свой ui-кит
 
 
-# Ссылки
-  // Логин: user пароль: 123
-  онлайн версия - https://master--kowka-app.netlify.app/  
-  chromatic -  https://www.chromatic.com/library?appId=6690d3546f3d377867d91626
-  storybook -  https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light
+## Ссылки
+
+- Логин: `user`, пароль: `123`
+- [Сайт (последняя сборка)](https://master--kowka-app.netlify.app/)
+- [Chromatic (скришотные тесты)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
+- [Storybook (онлайн версия)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
 
 ## Команды скриптов
 
