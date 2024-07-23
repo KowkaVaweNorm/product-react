@@ -135,7 +135,7 @@ export const Primary: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('/articles', () => {
+        http.get('*/articles', () => {
           return HttpResponse.json(testData);
         })
       ]

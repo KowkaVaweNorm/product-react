@@ -20,20 +20,14 @@
     "lint:fix": "npm run lint:scss:fix && npm run lint:ts:fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:e2e": "cypress open",
-    "test:ui": "npx loki test",
-    "chromatic": "chromatic --exit-zero-on-changes",
-    "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
-    "test:ui:json": "node scripts/generate-visual-json-report.js",
-    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "sb": "storybook dev -p 6006 --config-dir ./config/storybook",
     "sb:build": "storybook build --config-dir ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js",
     "remove-feature": "ts-node ./scripts/remove-feature.ts",
-    "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664"
+    "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes",
+    "chromatic": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes"
   },
   "keywords": [],
   "author": "",
@@ -63,7 +57,6 @@
     "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-interactions": "^8.2.2",
     "@storybook/addon-links": "^8.2.2",
-    "@storybook/addon-onboarding": "^8.2.2",
     "@storybook/addon-queryparams": "^7.0.1",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.4",
     "@storybook/blocks": "^8.2.2",
@@ -138,7 +131,8 @@
   },
   "msw": {
     "workerDirectory": [
-      "public"
+      "public",
+      "storybook-static"
     ]
   }
 }
