@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { Suspense } from 'react';
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 initialize();
 
 const preview: Preview = {
@@ -20,22 +20,12 @@ const preview: Preview = {
     }
   },
   decorators: [
-    (Story) => (
-        <Suspense fallback=''>
-            <Story />
-        </Suspense>
-    ),
-    (Story) => (
-        <StyleDecorator>
-            <Story />
-        </StyleDecorator>
-    ),
+    SuspenseDecorator,
+    StyleDecorator,
     (Story) => (
       ThemeDecorator(Theme.LIGHT)(Story)
     ),
-    (Story) => (
-      RouteDecorator(Story)
-    )
+    RouteDecorator
   ],
   loaders: [mswLoader]
 };

@@ -1,14 +1,10 @@
-import { type ReactNode } from 'react';
 import '@/app/styles/index.scss';
+import { type StoryFn } from '@storybook/react/*';
 
-interface StyleProps {
-  children: ReactNode
-}
-
-export const StyleDecorator = (props: StyleProps): JSX.Element => {
+export const StyleDecorator = (StoryComponent: StoryFn): JSX.Element => {
   return (
       <>
-          {props.children}
+          <StoryComponent />
       </>
   );
 };

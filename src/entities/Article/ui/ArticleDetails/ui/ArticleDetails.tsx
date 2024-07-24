@@ -39,7 +39,7 @@ const reducers: ReducersList = {
 
 interface IProps {
   className?: string
-  id: string
+  id?: string
 }
 
 export const ArticleDetails = memo((props: IProps): JSX.Element => {

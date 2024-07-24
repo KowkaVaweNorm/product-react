@@ -3,11 +3,14 @@ import { type ThunkConfig } from '@/app/providers/StoreProvider';
 import { type Article } from '../../type/article';
 
 export const fetchArticleById =
-createAsyncThunk<Article, string, ThunkConfig<string>>(
+createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
   'articleDetails/fetchArticleById',
   async (id, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
     try {
+      if (!id) {
+        throw new Error('id не указано');
+      }
       const response = await extra.api.get<Article>('/articles/' + id, {
         params: {
           _expand: 'user'

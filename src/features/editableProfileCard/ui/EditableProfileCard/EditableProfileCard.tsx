@@ -27,7 +27,7 @@ import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface EditableProfileCardProps {
   className?: string
-  id: string
+  id?: string
 }
 
 const reducers: ReducersList = {
@@ -54,7 +54,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   };
 
   useInitialEffect(() => {
-    if (id.length > 0) {
+    if (id !== undefined) {
       dispatch(fetchProfileData(id));
     }
   });

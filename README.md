@@ -30,8 +30,9 @@ Webpack
 Jest - unit тесты
 RTL - тесты компонентов
 Storybook 
-Lost-pixel - скриншотное тестирование 
+Chromatic - скриншотное тестирование 
 ESLint
+Stylelint
 json-server - для мока серверных данных
 husky - для прекоммит проверки(тесты на машине разработчика)
 github-actions - CI тесты на коммит

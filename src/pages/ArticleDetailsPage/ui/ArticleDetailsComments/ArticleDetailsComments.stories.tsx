@@ -1,19 +1,19 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import {ArticleDetailsComments} from './ArticleDetailsComments';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleType } from '@/entities/Article/model/type/article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
 import { UserRole } from '@/entities/User';
-const meta: Meta<typeof ArticleDetailsPage> = {
-  title: 'pages/ArticleDetailsPage/ArticleDetails',
-  component: ArticleDetailsPage
+const meta: Meta<typeof ArticleDetailsComments> = {
+  title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
+  component: ArticleDetailsComments
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleDetailsPage>
+type Story = StoryObj<typeof ArticleDetailsComments>
 
 export const Light: Story = {
   decorators: [
@@ -28,7 +28,7 @@ export const Light: Story = {
       })(Story)
     )
   ],
-  render: () => <ArticleDetailsPage />
+  render: () => <ArticleDetailsComments />
 };
 
 const article = {
@@ -154,5 +154,5 @@ export const Dark: Story = {
       })(Story)
     )
   ],
-  render: () => <ArticleDetailsPage />
+  render: () => <ArticleDetailsComments />
 };
