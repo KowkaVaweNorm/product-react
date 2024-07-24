@@ -26,16 +26,8 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
   const { className } = props;
-  const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
 
-  // if (id === undefined) {
-  //   return (
-  //       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-  //           {t('Статья не найдена')}
-  //       </Page>
-  //   );
-  // }
 
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

@@ -21,9 +21,9 @@ import {
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slices/editableProfileCardSlice';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ValidateProfileError } from '../../model/consts/consts';
 
 interface EditableProfileCardProps {
   className?: string
@@ -104,7 +104,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                       key={err}
                       theme={TextTheme.ERROR}
                       text={
-                        // @ts-expect-error здесь ошибки нет
+                        // @ts-expect-error no err
                         validateErrorTranslates[err]
                       }
                       data-testid="EditableProfileCard.Error"

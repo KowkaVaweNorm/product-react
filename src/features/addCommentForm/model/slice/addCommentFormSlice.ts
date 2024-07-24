@@ -17,20 +17,6 @@ export const addCommentFormSlice = createSlice({
       state.error = action.payload;
     }
   }
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(ASYNC_FETCH.pending, (state, action) => {
-  //       state.error = undefined;
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(ASYNC_FETCH.fulfilled, (state, action) => {
-  //       state.isLoading = false;
-  //     })
-  //     .addCase(ASYNC_FETCH.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.error = action.payload as string;
-  //     });
-  // }
 });
 
 export const { actions: addCommentFormSliceActions } = addCommentFormSlice;
