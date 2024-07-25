@@ -1,5 +1,3 @@
-export { UserRole } from './model/consts/consts';
-
 export {
   getUserAuthData
 } from './model/selectors/getUserAuthData/getUserAuthData';
@@ -18,3 +16,4 @@ export {
   type UserSchema,
   type User
 } from './model/types/user';
+export { UserRole } from './model/consts/consts';

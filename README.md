@@ -4,7 +4,6 @@
 покрытие тестами, в том числе покрытие storybook.
 Интернационализация, темизация(доступны 3 темы), свой ui-кит
 
-
 ## Ссылки
 
 - Логин: `user`, пароль: `123`
@@ -17,20 +16,22 @@
 ```bash
 npm run start:dev       // Запуск в дев режиме (клиента + мок сервера)
 
-npm run sb        // Запуск storybook 
+npm run sb        // Запуск storybook
 ```
+
 ### Технологический стек
+
 ```
 TypeScript
 React:
-Redux-toolkit + RTK
+Redux-toolkit + RTK Query
 i18n - доступен перевод на английский
-SCSS 
+SCSS
 Webpack
 Jest - unit тесты
 RTL - тесты компонентов
-Storybook 
-Chromatic - скриншотное тестирование 
+Storybook
+Chromatic - скриншотное тестирование
 ESLint
 Stylelint
 json-server - для мока серверных данных

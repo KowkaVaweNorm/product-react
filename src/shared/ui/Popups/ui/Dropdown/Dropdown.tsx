@@ -1,9 +1,11 @@
 import { Menu } from '@headlessui/react';
-import { AppLink } from '../AppLink/AppLink';
-import cls from './Dropdown.module.scss';
-import { type ReactNode, Fragment } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { Fragment, type ReactNode } from 'react';
 import { type DropdownDirection } from '@/shared/types/ui';
+import { AppLink } from '../../../AppLink/AppLink';
+import cls from './Dropdown.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 export interface DropdownItem {
   disabled?: boolean
@@ -19,14 +21,7 @@ interface DropdownProps {
   trigger: ReactNode
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft ?? '',
-  'bottom right': cls.optionsBottomRight ?? '',
-  'top right': cls.optionsTopRight ?? '',
-  'top left': cls.optionsTopLeft ?? ''
-};
-
-export function Dropdown (props: DropdownProps): JSX.Element {
+export function Dropdown (props: DropdownProps) {
   const {
     className, trigger, items, direction = 'bottom right'
   } = props;
@@ -34,25 +29,24 @@ export function Dropdown (props: DropdownProps): JSX.Element {
   const menuClasses = [mapDirectionClass[direction]];
 
   return (
-      <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-          <Menu.Button className={cls.btn}>
+      <Menu as="div" className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}>
+          <Menu.Button className={popupCls.trigger}>
               {trigger}
           </Menu.Button>
           <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
               {items.map((item) => {
-                const content = ({ active }: { active: boolean }): JSX.Element => (
+                const content = ({ active }: { active: boolean }) => (
                     <button
-                        key={item.href}
                         type="button"
                         disabled={item.disabled}
                         onClick={item.onClick}
-                        className={classNames(cls.item, { [cls.active ?? '']: active })}
+                        className={classNames(cls.item, { [popupCls.active ?? '']: active })}
                         >
                         {item.content}
                     </button>
                 );
 
-                if (item.href !== undefined) {
+                if (item.href) {
                   return (
                       <Menu.Item
                           key={item.href}
