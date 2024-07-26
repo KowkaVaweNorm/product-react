@@ -35,12 +35,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(true);
   }, []);
 
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
-  const isAdminPanelAvailable = isAdmin || isManager;
-
   if (authData != null) {
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
