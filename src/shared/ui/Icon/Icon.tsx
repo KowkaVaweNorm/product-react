@@ -5,8 +5,7 @@ import { type SVGProps, memo } from 'react';
 interface IconProps {
   className?: string
   Svg?: React.FC<SVGProps<SVGSVGElement>>
-  
-  inverted?: boolean;
+  inverted?: boolean
 }
 
 export const Icon = memo((props: IconProps): JSX.Element => {
