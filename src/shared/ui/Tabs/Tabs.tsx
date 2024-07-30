@@ -32,7 +32,6 @@ export const Tabs = memo((props: ITabsProps): JSX.Element => {
       <div
           className={classNames(cls.tabs ?? '', {}, [className])}
       >
-
           {tabs.map((tab) => (
               <Card
                   theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}

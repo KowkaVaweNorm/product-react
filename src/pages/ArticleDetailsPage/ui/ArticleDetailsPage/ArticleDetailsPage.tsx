@@ -15,6 +15,7 @@ import {
   DynamicModuleLoader
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -28,13 +29,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
   const { className } = props;
   const { id } = useParams<{ id: string }>();
 
-
+if(!id) {
+  return <></>;
+}
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
               <VStack gap="16" max>
                   <ArticleDetailsPageHeader />
                   <ArticleDetails id={id} />
+                  <ArticleRating articleId={id} />
                   <ArticleRecommendationsList />
                   <ArticleDetailsComments id={id} />
               </VStack>
