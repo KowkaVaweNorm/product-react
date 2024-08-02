@@ -107,7 +107,8 @@ module.exports = {
       alias: '@'
     }],
     "kowka-vn-plugin/public-api-imports": ["error", {
-      alias: '@'
+      alias: '@',
+      testFiles: ['**/*.test.*','**/*.stories.*', '**/StoreDecorator.tsx']
     }],
   },
   globals: {
