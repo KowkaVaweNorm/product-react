@@ -1,17 +1,28 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+/* eslint-disable i18next/no-literal-string */
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { NotificationButton } from './NotificationButton';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-export default {
-    title: 'shared/NotificationButton',
-    component: NotificationButton,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof NotificationButton>;
+const meta: Meta<typeof NotificationButton> = {
+  title: 'features/NotificationButton',
+  component: NotificationButton
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
+};
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export default meta;
+type Story = StoryObj<typeof NotificationButton>
+
+export const Light: Story = {
+  render: () => <NotificationButton />
+};
+
+export const Dark: Story = {
+  decorators: [
+    (Story) => (
+      ThemeDecorator(Theme.DARK)(Story)
+    )
+  ],
+  render: () => <NotificationButton />
+};

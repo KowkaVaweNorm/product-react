@@ -1,14 +1,7 @@
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Portal } from '@headlessui/react';
-import {
-  type ReactNode,
-  useState,
-  useRef,
-  type MutableRefObject,
-  useEffect,
-  useCallback
-} from 'react';
+import { type ReactNode } from 'react';
 import { Overlay } from '../../Overlay/Overlay';
 import cls from './Modal.module.scss';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
@@ -49,7 +42,7 @@ export const Modal = (props: ModalProps) => {
     [cls.isClosing ?? '']: isClosing
   };
 
-  if (lazy && !isMounted) {
+  if (Boolean(lazy) && !isMounted) {
     return null;
   }
 

@@ -35,4 +35,4 @@ export const Popover = (props: PopoverProps) => {
           </HPopover.Panel>
       </HPopover>
   );
-}
+};

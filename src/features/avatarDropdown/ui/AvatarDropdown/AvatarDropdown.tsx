@@ -27,7 +27,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
   const isAdminPanelAvailable = isAdmin || isManager;
 
-  if (!authData) {
+  if (authData == null) {
     return null;
   }
 

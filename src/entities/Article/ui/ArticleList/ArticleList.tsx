@@ -13,7 +13,6 @@ interface IArticleListProps {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
-  virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView): JSX.Element[] => {
@@ -33,8 +32,7 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
     articles,
     view = ArticleView.SMALL,
     isLoading,
-    target,
-    virtualized = true
+    target
   } = props;
   const { t } = useTranslation('article');
   const renderArticle = (article: Article): JSX.Element => {

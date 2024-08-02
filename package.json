@@ -25,6 +25,7 @@
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js",
+    "precommit": "npm run build:prod && npm run sb:build && npm run lint:ts && npm run lint:scss && npm run lint:typecheck && npm run test:unit",
     "remove-feature": "ts-node ./scripts/remove-feature.ts",
     "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes",
     "chromatic": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes"
@@ -92,7 +93,7 @@
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-kowka-vn-plugin": "^0.0.2",
+    "eslint-plugin-kowka-vn-plugin": "^0.0.4",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",

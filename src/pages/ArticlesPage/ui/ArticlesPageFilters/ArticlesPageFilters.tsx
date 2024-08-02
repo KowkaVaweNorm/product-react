@@ -5,7 +5,8 @@ import {
   type ArticleView,
   ArticleViewSelector,
   type ArticleSortField,
-  ArticleTypeTabs
+  ArticleTypeTabs,
+  type ArticleType
 } from '@/entities/Article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -26,7 +27,6 @@ import {
   fetchArticlesList
 } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { type ArticleType } from '@/entities/Article/model/type/article';
 
 interface IArticlesPageFiltersProps {
   className?: string

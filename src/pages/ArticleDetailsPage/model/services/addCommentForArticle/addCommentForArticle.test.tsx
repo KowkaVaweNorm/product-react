@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { addCommentForArticle } from './addCommentForArticle';
-import { ArticleBlockType, ArticleType } from '@/entities/Article/model/type/article';
+import { ArticleBlockType, ArticleType } from '@/entities/Article';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 jest.mock('../fetchCommentsByArticleId/fetchCommentsByArticleId');

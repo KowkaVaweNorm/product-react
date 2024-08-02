@@ -11,7 +11,6 @@ interface DrawerProps {
   children: ReactNode
   isOpen?: boolean
   onClose?: () => void
-  lazy?: boolean
 }
 
 const height = window.innerHeight - 100;
@@ -24,8 +23,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     className,
     children,
     onClose,
-    isOpen,
-    lazy
+    isOpen = false
   } = props;
 
   const openDrawer = useCallback(() => {

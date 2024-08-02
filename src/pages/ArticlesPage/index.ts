@@ -1,3 +1,5 @@
+export { articlesPageReducer } from './model/slices/articlePageSlice';
+
 export {
   getArticlesPageOrder,
   getArticlesPageSearch,

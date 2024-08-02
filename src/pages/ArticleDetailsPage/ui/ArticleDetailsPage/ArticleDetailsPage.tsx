@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
@@ -29,9 +28,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
   const { className } = props;
   const { id } = useParams<{ id: string }>();
 
-if(!id) {
-  return <></>;
-}
+  if (!id) {
+    return <></>;
+  }
   return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
           <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>

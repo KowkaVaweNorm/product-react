@@ -16,7 +16,7 @@ import {
 } from '@/pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { type rtkApi } from '@/shared/api/rtkApi';
-import { type PageSchema } from '@/widgets/Page/model/types/page';
+import { type PageSchema } from '@/widgets/Page';
 
 export interface StateSchema {
   user: UserSchema

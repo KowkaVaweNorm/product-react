@@ -9,7 +9,7 @@ interface UseModalProps {
 }
 
 export function useModal ({
-  animationDelay, isOpen, onClose
+  animationDelay, isOpen = false, onClose
 }: UseModalProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);

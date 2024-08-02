@@ -25,7 +25,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
   children?: ReactNode
   isLoading?: boolean
-  fullWidth?: boolean;
+  fullWidth?: boolean
 }
 
 export const Button = memo((props: ButtonProps) => {

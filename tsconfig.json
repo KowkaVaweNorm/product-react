@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,  // тип any запрещен к использолванию?
+        "noImplicitAny": true,  // тип any запрещен к использолванию неявно?
         "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
         "noImplicitReturns": true, // Во всех случаях код производит return?
         "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
@@ -32,12 +32,12 @@
         "./config/**/*.ts",
         "./config/**/*.tsx", 
         "lostpixel.config.ts",
-        "scripts/**/*"      
     ],
-      "exclude": [
+    "exclude": [
         "node_modules", 
         "build", 
         "*.test.ts", 
-        "*.test.tsx"
+        "*.test.tsx",
+        "scripts/**/*"      
     ]
 }

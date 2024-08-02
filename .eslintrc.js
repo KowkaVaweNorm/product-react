@@ -89,7 +89,8 @@ module.exports = {
           "direction",
           "gap",
           "as",
-          "role"
+          "role",
+          "border"
         ],
       },
     ],
@@ -102,7 +103,12 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "error",
-    "kowka-vn-plugin/fsd-path-checker": "error",
+    "kowka-vn-plugin/fsd-path-checker": ["error", {
+      alias: '@'
+    }],
+    "kowka-vn-plugin/public-api-imports": ["error", {
+      alias: '@'
+    }],
   },
   globals: {
     __IS_DEV__: true,
@@ -126,7 +132,7 @@ module.exports = {
       },
     },
     {
-      files: ["**/services/**/*.ts"], // Путь к вашим файлам в папке services
+      files: ["**/services/**/*.ts", "**/api/**/*.ts"], // Путь к вашим файлам в папке services
       rules: {
         "@typescript-eslint/no-invalid-void-type": "off", // Отключаем правило для этих файлов
       },
