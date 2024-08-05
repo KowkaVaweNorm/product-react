@@ -4,5 +4,6 @@
 .eslintrc.js
 *.config.js
 *.config.ts
+scripts/*
 PageFactory.js
 /storybook-static

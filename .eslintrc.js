@@ -35,6 +35,7 @@ module.exports = {
     "i18next",
     "react-hooks",
     "kowka-vn-plugin",
+    "unused-imports"
   ],
 
   rules: {
@@ -50,6 +51,7 @@ module.exports = {
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "no-unused-vars": "warn",
+    'unused-imports/no-unused-imports': 'error',
     semi: ["error", "always"],
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",

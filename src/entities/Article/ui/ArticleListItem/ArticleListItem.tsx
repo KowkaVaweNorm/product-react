@@ -7,15 +7,15 @@ import {
   ArticleBlockType,
   type ArticleTextBlock
 } from "../../model/type/article";
-import { Text } from "@/shared/ui/Text/Text";
-import { Icon } from "@/shared/ui/Icon/Icon";
+import { Text } from "@/shared/ui/Text";
+import { Icon } from "@/shared/ui/Icon";
 import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
-import { Card } from "@/shared/ui/Card/Card";
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Card } from "@/shared/ui/Card";
+import { Avatar } from "@/shared/ui/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { useTranslation } from "react-i18next";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { AppLink } from "@/shared/ui/AppLink";
 import { getRouteArticleDetails } from "@/shared/const/router";
 interface IArticleListItemProps {
   className?: string

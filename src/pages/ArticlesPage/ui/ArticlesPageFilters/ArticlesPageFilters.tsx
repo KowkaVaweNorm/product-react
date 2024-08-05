@@ -19,8 +19,8 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { ArticleSortSelector } from '@/entities/Article';
 import { type SortOrder } from '@/shared/types/sort';
 import {

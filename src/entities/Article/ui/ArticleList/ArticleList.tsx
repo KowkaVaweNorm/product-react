@@ -4,7 +4,7 @@ import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleView, type Article } from '../../model/type/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 
 interface IArticleListProps {

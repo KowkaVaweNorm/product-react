@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { Input } from '@/shared/ui/Input/Input';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { ButtonSize } from '@/shared/ui/Button/ui/Button';
+import { Text } from '@/shared/ui/Text';
+import { StarRating } from '@/shared/ui/StarRating';
+import { Input } from '@/shared/ui/Input';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Button, ButtonTheme, ButtonSize } from '@/shared/ui/Button';
+
 import { Modal } from '@/shared/ui/Modal';
 
 interface RatingCardProps {
@@ -82,7 +82,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                           <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
                               {t('Закрыть')}
                           </Button>
-                          <Button onClick={acceptHandle}>
+                          <Button theme={ButtonTheme.OUTLINE} onClick={acceptHandle}>
                               {t('Отправить')}
                           </Button>
                       </HStack>

@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './SidebarItem.module.scss';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 
 import MainIcon from '@/shared/assets/icons/home-icon.svg';
 import { memo } from 'react';

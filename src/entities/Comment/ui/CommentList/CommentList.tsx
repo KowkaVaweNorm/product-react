@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { useTranslation } from 'react-i18next';
 import { type Comment } from '../../model/types/comment';

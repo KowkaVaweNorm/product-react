@@ -4,9 +4,9 @@ import cls from './NotificationButton.module.scss';
 import { NotificationList } from '@/entities/Notification';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 interface NotificationButtonProps {
