@@ -1,3 +1,4 @@
+/* eslint-disable kowka-vn-plugin/layer-imports */
 import { type StoryFn } from '@storybook/react';
 import { StoreProvider, type StateSchema } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article';

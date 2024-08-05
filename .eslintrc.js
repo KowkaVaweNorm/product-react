@@ -110,6 +110,10 @@ module.exports = {
       alias: '@',
       testFiles: ['**/*.test.*','**/*.stories.*', '**/StoreDecorator.tsx']
     }],
+    "kowka-vn-plugin/layer-imports": ["error", {
+      alias: '@',
+      ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+    }],
   },
   globals: {
     __IS_DEV__: true,

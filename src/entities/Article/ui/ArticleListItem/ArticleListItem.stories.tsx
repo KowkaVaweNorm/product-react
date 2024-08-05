@@ -2,7 +2,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { ArticleListItem } from './ArticleListItem';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleView, type Article, ArticleBlockType, ArticleType } from '../../model/type/article';
 

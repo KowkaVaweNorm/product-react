@@ -4,5 +4,6 @@
 /storybook-static
 *storybook.log
 /reports
+package-lock.json
 chromatic.log
 chromatic-diagnostics.json

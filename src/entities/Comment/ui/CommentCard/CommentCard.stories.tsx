@@ -2,7 +2,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { CommentCard } from './CommentCard';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { type Comment } from '../../model/types/comment';
 

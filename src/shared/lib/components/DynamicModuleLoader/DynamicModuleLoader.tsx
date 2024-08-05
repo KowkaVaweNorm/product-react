@@ -1,3 +1,4 @@
+/* eslint-disable kowka-vn-plugin/layer-imports */
 import { type ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import {

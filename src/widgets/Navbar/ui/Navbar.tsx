@@ -1,19 +1,19 @@
 /* eslint-disable i18next/no-literal-string */
 
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './Navbar.module.scss';
-import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { memo, useCallback, useState } from 'react';
-import { LoginModal } from '@/features/AuthByUsername';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routerConfig';
-import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/notificationButton';
-import { AvatarDropdown } from '@/features/avatarDropdown';
+import { classNames } from "@/shared/lib/ClassNames/ClassNames";
+import cls from "./Navbar.module.scss";
+import { useTranslation } from "react-i18next";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { memo, useCallback, useState } from "react";
+import { LoginModal } from "@/features/AuthByUsername";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import { HStack } from "@/shared/ui/Stack";
+import { NotificationButton } from "@/features/notificationButton";
+import { AvatarDropdown } from "@/features/avatarDropdown";
+import { getRouteArticleCreate } from "@/shared/const/router";
 interface NavbarProps {
   className?: string
 }
@@ -35,15 +35,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Text
                 className={cls.appName}
-                title={t('KowkaVN App')}
+                title={t("KowkaVN App")}
                 theme={TextTheme.INVERTED}
-              />
+        />
             <AppLink
-                to={RoutePath.article_create}
+                to={getRouteArticleCreate()}
                 theme={AppLinkTheme.SECONDARY}
                 className={cls.createBtn}
-              >
-                {t('Создать статью')}
+        >
+                {t("Создать статью")}
             </AppLink>
             <HStack gap="16" className={cls.actions}>
                 <NotificationButton />
@@ -59,14 +59,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               theme={ButtonTheme.CLEAR_INVERTED}
               className={cls.links}
               onClick={onShowModal}
-          >
-              {t('Войти')}
+      >
+              {t("Войти")}
           </Button>
           {isAuthModal && (
-              <LoginModal
-                  isOpen={isAuthModal}
-                  onClose={onCloseModal}
-              />
+          <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
           )}
       </header>
   );

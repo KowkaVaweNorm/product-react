@@ -1,3 +1,4 @@
+// eslint-disable-next-line kowka-vn-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { type StoryFn } from '@storybook/react/*';
 
