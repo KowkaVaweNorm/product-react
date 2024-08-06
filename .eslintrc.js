@@ -92,7 +92,7 @@ module.exports = {
           "gap",
           "as",
           "role",
-          "border"
+          "border",
           "loading",
           "decoding"
         ],

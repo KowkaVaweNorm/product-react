@@ -16,8 +16,9 @@ import { useSelector } from 'react-redux';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
 import { type StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 
-interface IPageProps {
+interface IPageProps extends TestProps{
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
@@ -58,6 +59,7 @@ export const Page = memo((props: IPageProps): JSX.Element => {
 
   return (
       <main
+      data-testid={props['data-testid'] ?? 'Page'}
           ref={wrapperRef}
           className={classNames(cls.page ?? '', {}, [className])}
           onScroll={onScroll}
