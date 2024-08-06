@@ -3,7 +3,6 @@ import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo, useCallback } from 'react';
 import {
   type ArticleView,
-  ArticleViewSelector,
   type ArticleSortField,
   type ArticleType
 } from '@/entities/Article';
@@ -27,6 +26,7 @@ import {
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 interface IArticlesPageFiltersProps {
   className?: string

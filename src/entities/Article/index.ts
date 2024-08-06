@@ -9,8 +9,6 @@ export {
 
 export { ArticleSortField, ArticleBlockType, ArticleType, ArticleView } from "./model/type/article";
 
-export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
-
 export { ArticleList } from "./ui/ArticleList/ArticleList";
 
 export type { ArticleDetailsSchema } from "./model/type/articleDetailsSchema";
