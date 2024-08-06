@@ -59,10 +59,10 @@ export const ArticleListItem = memo(
                   <Text title={article.title} className={cls.title} />
                   {types}
                   <AppImage
-                        fallback={<Skeleton width="100%" height={250} />}
-                        src={article.img}
-                        className={cls.img}
-                        alt={article.title}
+                      fallback={<Skeleton width="100%" height={250} />}
+                      src={article.img}
+                      className={cls.img}
+                      alt={article.title}
                     />
                   {textBlock !== undefined && (
                   <ArticleTextBlockComponent
@@ -96,7 +96,7 @@ export const ArticleListItem = memo(
       >
             <Card>
                 <div className={cls.image_wrapper}>
-                <AppImage
+                    <AppImage
                         fallback={<Skeleton width={200} height={200} />}
                         alt={article.title}
                         src={article.img}

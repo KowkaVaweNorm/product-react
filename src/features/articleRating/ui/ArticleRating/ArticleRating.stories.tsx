@@ -9,17 +9,17 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof ArticleRating> = {
   title: "features/ArticleRating",
   component: ArticleRating,
-  decorators: [StoreDecorator({})],
+  decorators: [StoreDecorator({})]
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleRating>;
 
 export const Light: Story = {
-  render: () => <ArticleRating articleId="0" />,
+  render: () => <ArticleRating articleId="0" />
 };
 
 export const Dark: Story = {
   decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <ArticleRating articleId="0" />,
+  render: () => <ArticleRating articleId="0" />
 };
