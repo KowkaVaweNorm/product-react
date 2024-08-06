@@ -93,6 +93,8 @@ module.exports = {
           "as",
           "role",
           "border"
+          "loading",
+          "decoding"
         ],
       },
     ],
