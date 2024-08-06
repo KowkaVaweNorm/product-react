@@ -16,20 +16,10 @@ export function buildPlugins
       __PROJECT__: JSON.stringify(project)
     }),
 
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css'
-    }),
-
     new HtmlWebpackPlugin({
       template: paths.html
     }),
     new webpack.ProgressPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: paths.locales, to: paths.buildLocales }
-      ]
-    }),
     new ForkTsCheckerWebpackPlugin()
     // new CircularDependencyPlugin({
     //   exclude: /node_modules/,
@@ -39,8 +29,17 @@ export function buildPlugins
 
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin());
+    plugins.push(new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales }
+      ]
+    }));
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false
+    }));
+    plugins.push(new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css'
     }));
   }
   return plugins;

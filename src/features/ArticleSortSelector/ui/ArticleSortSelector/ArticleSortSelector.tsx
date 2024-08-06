@@ -1,11 +1,10 @@
-import cls from './ArticleSortSelector.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { memo, useMemo } from 'react';
 import { Select, type SelectOption } from '@/shared/ui/Select';
-import { ArticleSortField } from '../../model/type/article';
+import { ArticleSortField } from '@/entities/Article';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type SortOrder } from '@/shared/types/sort';
-
+import cls from './ArticleSortSelector.module.scss';
 interface IArticleSortSelectorProps {
   className?: string
   sort: ArticleSortField
@@ -52,19 +51,19 @@ export const ArticleSortSelector = memo((props: IArticleSortSelectorProps): JSX.
   return (
       <div
           className={classNames(cls.article_sort_selector ?? '', {}, [className])}
-      >
-          <Select
+        >
+          <Select<ArticleSortField>
               options={sortFieldOptions}
               value={sort}
               onChange={onChangeSort}
               label={t('Сортировка ПО')} />
-          <Select
+          <Select<SortOrder>
               options={orderOptions}
               value={order}
               onChange={onChangeOrder}
               label={t('по')}
               className={cls.order}
-               />
+                 />
       </div>
   );
 });

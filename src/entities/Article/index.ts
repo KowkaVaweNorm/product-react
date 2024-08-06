@@ -7,10 +7,6 @@ export {
   getArticleDetailsError
 } from "./model/selectors/articleDetails";
 
-export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
-
-export { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector";
-
 export { ArticleSortField, ArticleBlockType, ArticleType, ArticleView } from "./model/type/article";
 
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";

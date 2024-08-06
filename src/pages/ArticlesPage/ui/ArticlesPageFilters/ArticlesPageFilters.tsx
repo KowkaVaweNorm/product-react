@@ -5,7 +5,6 @@ import {
   type ArticleView,
   ArticleViewSelector,
   type ArticleSortField,
-  ArticleTypeTabs,
   type ArticleType
 } from '@/entities/Article';
 import { useSelector } from 'react-redux';
@@ -21,12 +20,13 @@ import { articlesPageActions } from '../../model/slices/articlePageSlice';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { ArticleSortSelector } from '@/entities/Article';
 import { type SortOrder } from '@/shared/types/sort';
 import {
   fetchArticlesList
 } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface IArticlesPageFiltersProps {
   className?: string
