@@ -8,7 +8,6 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 const meta: Meta<typeof NotificationButton> = {
   title: 'features/NotificationButton',
   component: NotificationButton
-
 };
 
 export default meta;

@@ -1,9 +1,15 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+          backgrounds: false,
+      },
+  },
     "@storybook/addon-interactions",
     "@storybook/addon-webpack5-compiler-swc",
     '@storybook/addon-actions',
@@ -20,10 +26,12 @@ const config: StorybookConfig = {
     //   }
     // }
   ],
+
   framework: {
     name: "@storybook/react-webpack5",
     options: { }
   },
+
   swc: () => ({
     jsc: {
       transform: {
@@ -33,9 +41,13 @@ const config: StorybookConfig = {
       }
     }
   }),
-  docs: {
-    autodocs: 'tag'
-  },
-  staticDirs: ['../../public']
+
+  docs: {},
+
+  staticDirs: ['../../public'],
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript"
+  }
 };
 export default config;

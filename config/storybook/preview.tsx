@@ -5,9 +5,11 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 initialize();
 
 const preview: Preview = {
+  // TODO: Разобраться в необходимости данных параметров
   parameters: {
     controls: {
       matchers: {
@@ -15,19 +17,17 @@ const preview: Preview = {
         date: /Date$/
       }
     },
-    screenshot: {
-      delay: 200
-    }
   },
+
   decorators: [
     SuspenseDecorator,
     StyleDecorator,
-    (Story) => (
-      ThemeDecorator(Theme.LIGHT)(Story)
-    ),
-    RouteDecorator
+    ThemeDecorator(Theme.LIGHT),
+    RouteDecorator,
+    StoreDecorator({})
   ],
-  loaders: [mswLoader]
+  loaders: [mswLoader],
+  // tags: ['autodocs']
 };
 
 export default preview;

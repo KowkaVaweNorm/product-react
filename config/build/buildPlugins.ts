@@ -8,6 +8,7 @@ import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 export function buildPlugins
 ({ paths, isDev, apiUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
+  const isProd = !isDev;
   const plugins = [
 
     new webpack.DefinePlugin({
@@ -27,20 +28,24 @@ export function buildPlugins
     // })
   ];
 
-  if (isDev) {
-    plugins.push(new ReactRefreshWebpackPlugin());
+  if (isProd) {
     plugins.push(new CopyPlugin({
       patterns: [
         { from: paths.locales, to: paths.buildLocales }
       ]
     }));
-    plugins.push(new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    }));
+
     plugins.push(new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
     }));
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    }));
+  }
+
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
   }
   return plugins;
 }
