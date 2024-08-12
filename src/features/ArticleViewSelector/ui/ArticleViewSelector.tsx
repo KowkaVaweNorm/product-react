@@ -8,27 +8,23 @@ import { Icon } from '@/shared/ui/Icon';
 import { ArticleView } from '@/entities/Article';
 
 interface IArticleViewSelectorProps {
-  className?: string
-  view: ArticleView
-  onViewClick: (view: ArticleView) => void
+  className?: string;
+  view: ArticleView;
+  onViewClick: (view: ArticleView) => void;
 }
 
 export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.Element => {
-  const {
-    className,
-    onViewClick,
-    view
-  } = props;
+  const { className, onViewClick, view } = props;
 
   const viewsTypes = [
     {
       view: ArticleView.SMALL,
-      icon: TiledIcon
+      icon: TiledIcon,
     },
     {
       view: ArticleView.BIG,
-      icon: ListIcon
-    }
+      icon: ListIcon,
+    },
   ];
 
   const onClick = (newView: ArticleView) => () => {
@@ -36,23 +32,21 @@ export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.
   };
 
   return (
-      <div
-          className={classNames(cls.article_view_selector ?? '', {}, [className])}
-      >
-          {
-          viewsTypes.map(viewItem => (
-              <Button
-                  theme={ButtonTheme.CLEAR}
-                  key={viewItem.view}
-                  onClick={onClick(viewItem.view)}>
-                  <Icon
-                      className={
-                      classNames('', { [cls.notSelected ?? '']: viewItem.view !== view }, [])
-                    }
-                      Svg={viewItem.icon}/>
-              </Button>
-          ))
-        }
-      </div>
+    <div className={classNames(cls.article_view_selector ?? '', {}, [className])}>
+      {viewsTypes.map((viewItem) => (
+        <Button theme={ButtonTheme.CLEAR} key={viewItem.view} onClick={onClick(viewItem.view)}>
+          <Icon
+            className={classNames(
+              '',
+              {
+                [cls.notSelected ?? '']: viewItem.view !== view,
+              },
+              [],
+            )}
+            Svg={viewItem.icon}
+          />
+        </Button>
+      ))}
+    </div>
   );
 });

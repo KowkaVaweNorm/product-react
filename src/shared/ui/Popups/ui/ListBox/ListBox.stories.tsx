@@ -7,17 +7,21 @@ const meta: Meta<typeof ListBox> = {
   title: 'shared/ListBox',
   component: ListBox,
   decorators: [
-    Story => <div style={{ padding: 100 }} ><Story/></div>
+    (Story) => (
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
+    ),
   ],
   parameters: {
     screenshot: {
-      viewport: 'iPhone 5'
-    }
-  }
+      viewport: 'iPhone 5',
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof ListBox>
+type Story = StoryObj<typeof ListBox>;
 
 export const TopLeft: Story = {
   args: {
@@ -26,19 +30,19 @@ export const TopLeft: Story = {
     items: [
       {
         content: '12aasdfsdf',
-        value: '1'
+        value: '1',
       },
       {
         content: '22aasdfsdf',
-        value: '2'
+        value: '2',
       },
       {
         content: '32aasdfsdf',
-        value: '3'
-      }
+        value: '3',
+      },
     ],
-    onChange: action
-  }
+    onChange: action,
+  },
 };
 export const TopRight: Story = {
   args: {
@@ -47,19 +51,19 @@ export const TopRight: Story = {
     items: [
       {
         content: '12aasdfsdf',
-        value: '1'
+        value: '1',
       },
       {
         content: '22aasdfsdf',
-        value: '2'
+        value: '2',
       },
       {
         content: '32aasdfsdf',
-        value: '3'
-      }
+        value: '3',
+      },
     ],
-    onChange: action
-  }
+    onChange: action,
+  },
 };
 export const BottomLeft: Story = {
   args: {
@@ -68,19 +72,19 @@ export const BottomLeft: Story = {
     items: [
       {
         content: '12aasdfsdf',
-        value: '1'
+        value: '1',
       },
       {
         content: '22aasdfsdf',
-        value: '2'
+        value: '2',
       },
       {
         content: '32aasdfsdf',
-        value: '3'
-      }
+        value: '3',
+      },
     ],
-    onChange: action
-  }
+    onChange: action,
+  },
 };
 export const BottomRight: Story = {
   args: {
@@ -89,17 +93,17 @@ export const BottomRight: Story = {
     items: [
       {
         content: '12aasdfsdf',
-        value: '1'
+        value: '1',
       },
       {
         content: '22aasdfsdf',
-        value: '2'
+        value: '2',
       },
       {
         content: '32aasdfsdf',
-        value: '3'
-      }
+        value: '3',
+      },
     ],
-    onChange: action
-  }
+    onChange: action,
+  },
 };

@@ -4,18 +4,18 @@ import { useDispatch, useStore } from 'react-redux';
 import {
   type StateSchema,
   type ReduxStoreWithManager,
-  type StateSchemaKey
+  type StateSchemaKey,
 } from '@/app/providers/StoreProvider/config/StateSchema';
 import { type Reducer } from 'redux';
 
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
-}
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
+};
 
 interface DynamicModuleLoaderProps {
-  reducers: ReducersList
-  removeAfterUnmount?: boolean
-  children?: ReactNode
+  reducers: ReducersList;
+  removeAfterUnmount?: boolean;
+  children?: ReactNode;
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps): JSX.Element => {
@@ -41,12 +41,8 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps): JSX.Elemen
         });
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-      <>
-          {children}
-      </>
-  );
+  return <>{children}</>;
 };

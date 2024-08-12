@@ -10,31 +10,21 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 const meta: Meta<typeof AboutPage> = {
   title: 'pages/AboutPage',
   component: AboutPage,
-  decorators: [
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ]
+  decorators: [(Story) => StoreDecorator({})(Story)],
 };
 
 export default meta;
-type Story = StoryObj<typeof AboutPage>
+type Story = StoryObj<typeof AboutPage>;
 
 export const Light: Story = {
-  render: () => <AboutPage />
+  render: () => <AboutPage />,
 };
 
 export const Dark: Story = {
   decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story) => (
-      I18nDecorator(Story)
-    ),
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+    (Story) => I18nDecorator(Story),
+    (Story) => StoreDecorator({})(Story),
   ],
-  render: () => <AboutPage />
+  render: () => <AboutPage />,
 };

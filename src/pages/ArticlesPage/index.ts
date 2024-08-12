@@ -4,7 +4,7 @@ export {
   getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageSort,
-  getArticlesPageView
+  getArticlesPageView,
 } from './model/selectors/articlesPageSelectors';
 
 export type { ArticlesPageSchema } from './model/types/artcilesPage';

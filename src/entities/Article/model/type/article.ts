@@ -13,48 +13,48 @@ export enum ArticleBlockType {
 }
 
 export interface ArticleBlockBase {
-  id: string
-  type: ArticleBlockType
+  id: string;
+  type: ArticleBlockType;
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
-  type: ArticleBlockType.CODE
-  code: string
+  type: ArticleBlockType.CODE;
+  code: string;
 }
 export interface ArticleImageBlock extends ArticleBlockBase {
-  type: ArticleBlockType.IMAGE
-  title: string
-  src: string
+  type: ArticleBlockType.IMAGE;
+  title: string;
+  src: string;
 }
 export interface ArticleTextBlock extends ArticleBlockBase {
-  type: ArticleBlockType.TEXT
-  title?: string
-  paragraphs?: string[]
+  type: ArticleBlockType.TEXT;
+  title?: string;
+  paragraphs?: string[];
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock
+export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
 export enum ArticleType {
   ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
+  ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleView {
   BIG = 'BIG',
-  SMALL = 'SMALL'
+  SMALL = 'SMALL',
 }
 
 export interface Article {
-  id: string
-  title: string
-  user: User
-  subtitle: string
-  img: string
-  views: number
-  createdAt: string
-  userId: string
-  type: ArticleType[]
-  blocks: ArticleBlock[]
+  id: string;
+  title: string;
+  user: User;
+  subtitle: string;
+  img: string;
+  views: number;
+  createdAt: string;
+  userId: string;
+  type: ArticleType[];
+  blocks: ArticleBlock[];
 }

@@ -7,24 +7,29 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Code> = {
   title: 'shared/Code',
-  component: Code
-
+  component: Code,
 };
 
 export default meta;
-type Story = StoryObj<typeof Code>
+type Story = StoryObj<typeof Code>;
 
 export const Light: Story = {
-  render: () =>
-      <Code text={'<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'} />
+  render: () => (
+    <Code
+      text={
+        '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
+      }
+    />
+  ),
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () =>
-      <Code text={'<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'} />
+  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => (
+    <Code
+      text={
+        '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
+      }
+    />
+  ),
 };

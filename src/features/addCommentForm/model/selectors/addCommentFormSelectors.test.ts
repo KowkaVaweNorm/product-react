@@ -1,21 +1,17 @@
-
 import { type StateSchema } from '@/app/providers/StoreProvider';
-import {
-  getAddCommentFormText,
-  getAddCommentFormError
-} from './addCommentFormSelectors';
+import { getAddCommentFormText, getAddCommentFormError } from './addCommentFormSelectors';
 
 const Fullstate: DeepPartial<StateSchema> = {
   addCommentForm: {
     text: 'testText',
-    error: 'testError'
-  }
+    error: 'testError',
+  },
 };
 const Emptystate: DeepPartial<StateSchema> = {
   addCommentForm: {
     text: undefined,
-    error: undefined
-  }
+    error: undefined,
+  },
 };
 describe('addCommentFormSelectors.test', () => {
   test('should return text comment', () => {

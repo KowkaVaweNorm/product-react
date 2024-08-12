@@ -25,14 +25,11 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const files = project.getSourceFiles();
 
-function isToggleFunction (node: Node) {
+function isToggleFunction(node: Node) {
   let isToggleFeatures = false;
 
   node.forEachChild((child) => {
-    if (
-      child.isKind(SyntaxKind.Identifier) &&
-            child.getText() === toggleFunctionName
-    ) {
+    if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFunctionName) {
       isToggleFeatures = true;
     }
   });
@@ -40,16 +37,14 @@ function isToggleFunction (node: Node) {
   return isToggleFeatures;
 }
 
-function isToggleComponent (node: Node) {
+function isToggleComponent(node: Node) {
   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
 
   return identifier?.getText() === toggleComponentName;
 }
 
 const replaceToggleFunction = (node: Node) => {
-  const objectOptions = node.getFirstDescendantByKind(
-    SyntaxKind.ObjectLiteralExpression
-  );
+  const objectOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
 
   if (objectOptions == null) return;
 
@@ -58,12 +53,8 @@ const replaceToggleFunction = (node: Node) => {
 
   const featureNameProperty = objectOptions.getProperty('name');
 
-  const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-    SyntaxKind.ArrowFunction
-  );
-  const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-    SyntaxKind.ArrowFunction
-  );
+  const onFunction = onFunctionProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction);
+  const offFunction = offFunctionProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction);
   const featureName = featureNameProperty
     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
     ?.getText()
@@ -80,10 +71,7 @@ const replaceToggleFunction = (node: Node) => {
   }
 };
 
-const getAttributeNodeByName = (
-  jsxAttributes: JsxAttribute[],
-  name: string
-) => {
+const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) => {
   // @ts-expect-error no error
   return jsxAttributes.find((node) => node.getName() === name);
 };
@@ -130,13 +118,11 @@ const replaceComponent = (node: Node) => {
 files.forEach((sourceFile) => {
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-      replaceToggleFunction(node); return;
+      replaceToggleFunction(node);
+      return;
     }
 
-    if (
-      node.isKind(SyntaxKind.JsxSelfClosingElement) &&
-            isToggleComponent(node)
-    ) {
+    if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
       replaceComponent(node);
     }
   });

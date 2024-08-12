@@ -9,8 +9,8 @@ describe('getLoginLoading.test', () => {
         username: '',
         isLoading: true,
         password: '',
-        error: 'error'
-      }
+        error: 'error',
+      },
     };
     expect(getLoginLoading(state as StateSchema)).toEqual(true);
   });

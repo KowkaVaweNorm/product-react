@@ -14,15 +14,15 @@ const App = (): JSX.Element => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
   return (
-      <div className={classNames('app', {}, [theme])}>
-          <Suspense fallback="">
-              <Navbar />
-              <div className="content-page">
-                  <Sidebar />
-                  { (inited ?? false) && <AppRouter />}
-              </div>
-          </Suspense>
-      </div>
+    <div className={classNames('app', {}, [theme])}>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {(inited ?? false) && <AppRouter />}
+        </div>
+      </Suspense>
+    </div>
   );
 };
 

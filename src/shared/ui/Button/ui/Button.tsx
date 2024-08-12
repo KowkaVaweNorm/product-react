@@ -8,7 +8,7 @@ export enum ButtonTheme {
   OUTLINE = 'outline',
   OUTLINE_RED = 'outline_red',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
@@ -18,14 +18,14 @@ export enum ButtonSize {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  theme?: ButtonTheme
-  square?: boolean
-  size?: ButtonSize
-  disabled?: boolean
-  children?: ReactNode
-  isLoading?: boolean
-  fullWidth?: boolean
+  className?: string;
+  theme?: ButtonTheme;
+  square?: boolean;
+  size?: ButtonSize;
+  disabled?: boolean;
+  children?: ReactNode;
+  isLoading?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -46,16 +46,16 @@ export const Button = memo((props: ButtonProps) => {
     [cls.square ?? '']: square,
     [cls[size] ?? '']: true,
     [cls.disabled ?? '']: disabled,
-    [cls.fullWidth ?? '']: fullWidth
+    [cls.fullWidth ?? '']: fullWidth,
   };
   return (
-      <button
-          className={classNames(cls.Button ?? '', mods, [className, theme])}
-          disabled={disabled || isLoading}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...otherProps}
+    <button
+      className={classNames(cls.Button ?? '', mods, [className, theme])}
+      disabled={disabled || isLoading}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...otherProps}
     >
-          {children}
-      </button>
+      {children}
+    </button>
   );
 });

@@ -3,13 +3,12 @@ import { type ThunkConfig } from '@/app/providers/StoreProvider';
 import {
   getArticlesPageHasMore,
   getArticlesPageIsLoading,
-  getArticlesPageNum
+  getArticlesPageNum,
 } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-export const fetchNextArticlesPage =
-createAsyncThunk<void, void, ThunkConfig<string>>(
+export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
   'articlePage/fetchNextArticlesPage',
   async (_, thunkApi) => {
     const { getState, dispatch } = thunkApi;
@@ -21,5 +20,5 @@ createAsyncThunk<void, void, ThunkConfig<string>>(
       dispatch(articlesPageActions.setPage(page + 1));
       void dispatch(fetchArticlesList({}));
     }
-  }
+  },
 );

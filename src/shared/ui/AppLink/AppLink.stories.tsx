@@ -7,48 +7,59 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AppLink> = {
   title: 'shared/AppLink',
-  component: AppLink
-
+  component: AppLink,
 };
 
 export default meta;
-type Story = StoryObj<typeof AppLink>
+type Story = StoryObj<typeof AppLink>;
 
 export const Primary: Story = {
-  render: () => <AppLink to='/' theme={AppLinkTheme.PRIMARY}>TEXT</AppLink>
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.PRIMARY}>
+      TEXT
+    </AppLink>
+  ),
 };
 
 export const Secondary: Story = {
-  render: () => <AppLink to='/' theme={AppLinkTheme.SECONDARY}>TEXT</AppLink>
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
+      TEXT
+    </AppLink>
+  ),
 };
 
 export const Red: Story = {
-  render: () => <AppLink to='/' theme={AppLinkTheme.RED}>TEXT</AppLink>
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.RED}>
+      TEXT
+    </AppLink>
+  ),
 };
 
 export const PrimaryDark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <AppLink to='/' theme={AppLinkTheme.PRIMARY}>TEXT</AppLink>
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.PRIMARY}>
+      TEXT
+    </AppLink>
+  ),
 };
 
 export const SecondaryDark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <AppLink to='/' theme={AppLinkTheme.SECONDARY}>TEXT</AppLink>
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
+      TEXT
+    </AppLink>
+  ),
 };
 
 export const RedDark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <AppLink to='/' theme={AppLinkTheme.RED}>TEXT</AppLink>
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => (
+    <AppLink to="/" theme={AppLinkTheme.RED}>
+      TEXT
+    </AppLink>
+  ),
 };

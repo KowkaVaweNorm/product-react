@@ -8,7 +8,7 @@ import { type Comment } from '../../model/types/comment';
 
 const meta: Meta<typeof CommentCard> = {
   title: 'entities/Comment/CommentCard',
-  component: CommentCard
+  component: CommentCard,
 };
 
 const card: Comment = {
@@ -17,44 +17,33 @@ const card: Comment = {
   user: {
     id: '2',
     username: 'Mavrody',
-    avatar: 'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625'
-  }
+    avatar:
+      'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof CommentCard>
+type Story = StoryObj<typeof CommentCard>;
 
 export const Light: Story = {
-  render: () => <CommentCard comment={card}/>
+  render: () => <CommentCard comment={card} />,
 };
 export const LoadingLight: Story = {
-  render: () => <CommentCard comment={card} isLoading={true}/>
+  render: () => <CommentCard comment={card} isLoading={true} />,
 };
 export const NoDataLight: Story = {
-  render: () => <CommentCard />
+  render: () => <CommentCard />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <CommentCard comment={card}/>
+  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <CommentCard comment={card} />,
 };
 export const LoadingDark: Story = {
-  decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <CommentCard comment={card} isLoading={true}/>
+  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <CommentCard comment={card} isLoading={true} />,
 };
 export const NoDataDark: Story = {
-  decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <CommentCard />
+  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <CommentCard />,
 };

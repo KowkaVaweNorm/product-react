@@ -9,25 +9,17 @@ import { Theme } from '@/shared/const/theme';
 const meta: Meta<typeof MainPage> = {
   title: 'pages/MainPage',
   component: MainPage,
-  decorators: [
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ]
+  decorators: [(Story) => StoreDecorator({})(Story)],
 };
 
 export default meta;
-type Story = StoryObj<typeof MainPage>
+type Story = StoryObj<typeof MainPage>;
 
 export const Light: Story = {
-  render: () => <MainPage />
+  render: () => <MainPage />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <MainPage />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <MainPage />,
 };

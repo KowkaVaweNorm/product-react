@@ -7,22 +7,17 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof PageError> = {
   title: 'widgets/PageError',
-  component: PageError
-
+  component: PageError,
 };
 
 export default meta;
-type Story = StoryObj<typeof PageError>
+type Story = StoryObj<typeof PageError>;
 
 export const Light: Story = {
-  render: () => <PageError />
+  render: () => <PageError />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <PageError />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <PageError />,
 };

@@ -8,22 +8,25 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Card> = {
   title: 'shared/Card',
-  component: Card
-
+  component: Card,
 };
 
 export default meta;
-type Story = StoryObj<typeof Card>
+type Story = StoryObj<typeof Card>;
 
 export const Light: Story = {
-  render: () => <Card><Text title='test title' text='text title'/></Card>
+  render: () => (
+    <Card>
+      <Text title="test title" text="text title" />
+    </Card>
+  ),
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <Card ><Text title='test title' text='text title'/></Card>
+  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => (
+    <Card>
+      <Text title="test title" text="text title" />
+    </Card>
+  ),
 };

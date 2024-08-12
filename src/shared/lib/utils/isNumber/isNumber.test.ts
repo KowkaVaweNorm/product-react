@@ -34,5 +34,4 @@ describe('isNumber', () => {
   test('testing with the Number object to which the filled string was passed ', () => {
     expect(isNumber(Number('sstring'))).toEqual(false);
   });
-}
-);
+});

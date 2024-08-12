@@ -1,1 +1,1 @@
-export { ArticleImageBlockComponent } from "./ui/ArticleImageBlockComponent";
+export { ArticleImageBlockComponent } from './ui/ArticleImageBlockComponent';

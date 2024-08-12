@@ -7,22 +7,17 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 
 const meta: Meta<typeof ThemeSwitcher> = {
   title: 'shared/ThemeSwitcher',
-  component: ThemeSwitcher
-
+  component: ThemeSwitcher,
 };
 
 export default meta;
-type Story = StoryObj<typeof ThemeSwitcher>
+type Story = StoryObj<typeof ThemeSwitcher>;
 
 export const Light: Story = {
-  render: () => <ThemeSwitcher />
+  render: () => <ThemeSwitcher />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <ThemeSwitcher />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <ThemeSwitcher />,
 };

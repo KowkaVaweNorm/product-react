@@ -7,22 +7,17 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AppImage> = {
   title: 'shared/AppImage',
-  component: AppImage
-
+  component: AppImage,
 };
 
 export default meta;
-type Story = StoryObj<typeof AppImage>
+type Story = StoryObj<typeof AppImage>;
 
 export const Light: Story = {
-  render: () => <AppImage />
+  render: () => <AppImage />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <AppImage />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <AppImage />,
 };

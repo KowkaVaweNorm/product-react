@@ -7,7 +7,7 @@ import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'features/LangSwitcher',
-  component: LangSwitcher
+  component: LangSwitcher,
 } satisfies Meta<typeof LangSwitcher>;
 
 export default meta;
@@ -15,34 +15,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const PrimaryShort: Story = {
-  decorators: [
-    ThemeDecorator(Theme.DARK)
-  ],
+  decorators: [ThemeDecorator(Theme.DARK)],
   args: {
-    short: true
-  }
+    short: true,
+  },
 };
 export const PrimaryShortDark: Story = {
-  decorators: [
-    LayoutDecorator({ inverted: true })
-  ],
+  decorators: [LayoutDecorator({ inverted: true })],
   args: {
-    short: true
-  }
+    short: true,
+  },
 };
 export const PrimaryLong: Story = {
-  decorators: [
-    ThemeDecorator(Theme.DARK)
-  ],
+  decorators: [ThemeDecorator(Theme.DARK)],
   args: {
-    short: false
-  }
+    short: false,
+  },
 };
 export const PrimaryLongDark: Story = {
-  decorators: [
-    LayoutDecorator({ inverted: true })
-  ],
+  decorators: [LayoutDecorator({ inverted: true })],
   args: {
-    short: false
-  }
+    short: false,
+  },
 };

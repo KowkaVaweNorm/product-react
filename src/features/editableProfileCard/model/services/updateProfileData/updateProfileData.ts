@@ -6,37 +6,31 @@ import { validateProfileData } from '../validateProfileData/validateProfileData'
 import { ValidateProfileError } from '../../consts/consts';
 
 export const updateProfileData = createAsyncThunk<
-Profile,
-void,
-ThunkConfig<ValidateProfileError[]>
->(
-  'profile/updateProfileData',
-  async (_, thunkApi) => {
-    const { extra, rejectWithValue, getState } = thunkApi;
+  Profile,
+  void,
+  ThunkConfig<ValidateProfileError[]>
+>('profile/updateProfileData', async (_, thunkApi) => {
+  const { extra, rejectWithValue, getState } = thunkApi;
 
-    const formData = getProfileForm(getState());
+  const formData = getProfileForm(getState());
 
-    const errors = validateProfileData(formData);
+  const errors = validateProfileData(formData);
 
-    if (errors.length > 0) {
-      return rejectWithValue(errors);
-    }
-
-    try {
-      const response = await extra.api.put<Profile>(
-                    `/profile/${formData?.id}`,
-                    formData
-      );
-
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-      if (!response.data) {
-        throw new Error();
-      }
-
-      return response.data;
-    } catch (e) {
-      console.log(e);
-      return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
-    }
+  if (errors.length > 0) {
+    return rejectWithValue(errors);
   }
-);
+
+  try {
+    const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
+
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (!response.data) {
+      throw new Error();
+    }
+
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+  }
+});

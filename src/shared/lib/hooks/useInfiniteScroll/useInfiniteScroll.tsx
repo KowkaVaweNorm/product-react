@@ -1,21 +1,14 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import {
-  type MutableRefObject,
-  useEffect
-} from 'react';
+import { type MutableRefObject, useEffect } from 'react';
 
 interface UseInfiniteScrollProps {
-  callback?: () => void
-  triggerRef: MutableRefObject<HTMLElement>
-  wrapperRef: MutableRefObject<HTMLElement>
+  callback?: () => void;
+  triggerRef: MutableRefObject<HTMLElement>;
+  wrapperRef: MutableRefObject<HTMLElement>;
 }
 
 export const useInfiniteScroll = (props: UseInfiniteScrollProps): any => {
-  const {
-    callback,
-    triggerRef,
-    wrapperRef
-  } = props;
+  const { callback, triggerRef, wrapperRef } = props;
   useEffect(() => {
     const wrapperElement = wrapperRef.current;
     const triggerElement = triggerRef.current;
@@ -25,7 +18,7 @@ export const useInfiniteScroll = (props: UseInfiniteScrollProps): any => {
       const options = {
         root: wrapperElement,
         rootMargin: '0px',
-        threshold: 1.0
+        threshold: 1.0,
       };
 
       observer = new IntersectionObserver(([entry]) => {

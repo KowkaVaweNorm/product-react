@@ -8,7 +8,7 @@ const initialState: ProfileSchema = {
   readonly: true,
   isLoading: false,
   error: undefined,
-  data: undefined
+  data: undefined,
 };
 
 export const editableProfileCardSlice = createSlice({
@@ -26,9 +26,9 @@ export const editableProfileCardSlice = createSlice({
     updateProfile: (state, action: PayloadAction<Profile>) => {
       state.form = {
         ...state.form,
-        ...action.payload
+        ...action.payload,
       };
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -36,10 +36,7 @@ export const editableProfileCardSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileData.fulfilled, (
-        state,
-        action: PayloadAction<Profile>
-      ) => {
+      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
@@ -52,10 +49,7 @@ export const editableProfileCardSlice = createSlice({
         state.validateErrors = undefined;
         state.isLoading = true;
       })
-      .addCase(updateProfileData.fulfilled, (
-        state,
-        action: PayloadAction<Profile>
-      ) => {
+      .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
         state.isLoading = false;
         state.data = action.payload;
         state.form = action.payload;
@@ -66,7 +60,7 @@ export const editableProfileCardSlice = createSlice({
         state.isLoading = false;
         state.validateErrors = action.payload;
       });
-  }
+  },
 });
 
 // Action creators are generated for each case reducer function

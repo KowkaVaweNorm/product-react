@@ -5,12 +5,11 @@ import { NotificationItem } from './NotificationItem';
 
 const meta: Meta<typeof NotificationItem> = {
   title: 'entities/NotificationItem',
-  component: NotificationItem
-
+  component: NotificationItem,
 };
 
 export default meta;
-type Story = StoryObj<typeof NotificationItem>
+type Story = StoryObj<typeof NotificationItem>;
 
 export const Primary: Story = {
   args: {
@@ -18,7 +17,7 @@ export const Primary: Story = {
       id: '',
       title: 'Title header',
       description: 'Desctiption this',
-      href: '/'
-    }
-  }
+      href: '/',
+    },
+  },
 };

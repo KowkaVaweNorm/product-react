@@ -1,7 +1,7 @@
 import {
   getArticleDetailsData,
   getArticleDetailsError,
-  getArticleDetailsIsLoading
+  getArticleDetailsIsLoading,
 } from './articleDetails';
 
 import { type StateSchema } from '@/app/providers/StoreProvider';
@@ -10,12 +10,12 @@ describe('articleDetailsData.test', () => {
   test('should return data', () => {
     const data = {
       id: '1',
-      title: 'subtitle'
+      title: 'subtitle',
     };
     const state: DeepPartial<StateSchema> = {
       articleDetails: {
-        data
-      }
+        data,
+      },
     };
     expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
   });
@@ -30,8 +30,8 @@ describe('articleDetailsloading.test', () => {
     const state: DeepPartial<StateSchema> = {
       articleDetails: {
         data: undefined,
-        isLoading: true
-      }
+        isLoading: true,
+      },
     };
     expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
   });
@@ -47,8 +47,8 @@ describe('articleDetaierror.test', () => {
       articleDetails: {
         data: undefined,
         isLoading: false,
-        error: 'err'
-      }
+        error: 'err',
+      },
     };
     expect(getArticleDetailsError(state as StateSchema)).toEqual('err');
   });

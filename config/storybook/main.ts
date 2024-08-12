@@ -1,20 +1,19 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
+import type { StorybookConfig } from '@storybook/react-webpack5';
 const config: StorybookConfig = {
-  stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
-
+  stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
+    '@storybook/addon-links',
     {
       name: '@storybook/addon-essentials',
       options: {
-          backgrounds: false,
+        backgrounds: false,
       },
-  },
-    "@storybook/addon-interactions",
-    "@storybook/addon-webpack5-compiler-swc",
+    },
+    '@storybook/addon-interactions',
+    '@storybook/addon-webpack5-compiler-swc',
     '@storybook/addon-actions',
     '@storybook/addon-queryparams',
-    "@chromatic-com/storybook"
+    '@chromatic-com/storybook',
     // {
     //   name: "@chromatic-com/storybook",
     //   options: {
@@ -28,18 +27,18 @@ const config: StorybookConfig = {
   ],
 
   framework: {
-    name: "@storybook/react-webpack5",
-    options: { }
+    name: '@storybook/react-webpack5',
+    options: {},
   },
 
   swc: () => ({
     jsc: {
       transform: {
         react: {
-          runtime: 'automatic'
-        }
-      }
-    }
+          runtime: 'automatic',
+        },
+      },
+    },
   }),
 
   docs: {},
@@ -47,7 +46,7 @@ const config: StorybookConfig = {
   staticDirs: ['../../public'],
 
   typescript: {
-    reactDocgen: "react-docgen-typescript"
-  }
+    reactDocgen: 'react-docgen-typescript',
+  },
 };
 export default config;

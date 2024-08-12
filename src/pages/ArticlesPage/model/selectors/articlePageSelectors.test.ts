@@ -1,9 +1,8 @@
-
 import { type StateSchema } from '@/app/providers/StoreProvider';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
-  getArticlesPageView
+  getArticlesPageView,
 } from './articlesPageSelectors';
 import { ArticleView } from '@/entities/Article';
 
@@ -11,29 +10,29 @@ const SuccessState: DeepPartial<StateSchema> = {
   articlesPage: {
     isLoading: false,
     error: undefined,
-    view: ArticleView.BIG
-  }
+    view: ArticleView.BIG,
+  },
 };
 const LoadingState: DeepPartial<StateSchema> = {
   articlesPage: {
     isLoading: true,
     error: undefined,
-    view: undefined
-  }
+    view: undefined,
+  },
 };
 const ErrorState: DeepPartial<StateSchema> = {
   articlesPage: {
     isLoading: false,
     error: 'error',
-    view: undefined
-  }
+    view: undefined,
+  },
 };
 const Emptystate: DeepPartial<StateSchema> = {
   articlesPage: {
     error: undefined,
     isLoading: undefined,
-    view: undefined
-  }
+    view: undefined,
+  },
 };
 describe('articlesPageSelectors success state', () => {
   const currentState = SuccessState as StateSchema;

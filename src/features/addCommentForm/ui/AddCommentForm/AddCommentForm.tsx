@@ -5,41 +5,39 @@ import { Input } from '@/shared/ui/Input';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useSelector } from 'react-redux';
-import {
-  getAddCommentFormText
-} from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   addCommentFormSliceActions,
-  addCommentFormSliceReducer
+  addCommentFormSliceReducer,
 } from '../../model/slice/addCommentFormSlice';
 import {
   DynamicModuleLoader,
-  type ReducersList
+  type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/Stack';
 
 export interface IAddCommentFormProps {
-  className?: string
-  onSendComment: (arg: string) => void
+  className?: string;
+  onSendComment: (arg: string) => void;
 }
 
 const reducers: ReducersList = {
-  addCommentForm: addCommentFormSliceReducer
+  addCommentForm: addCommentFormSliceReducer,
 };
 
 const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
-  const {
-    className,
-    onSendComment
-  } = props;
+  const { className, onSendComment } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
 
-  const onCommentTextChange = useCallback((value: string): void => {
-    dispatch(addCommentFormSliceActions.setText(value));
-  }, [dispatch]);
+  const onCommentTextChange = useCallback(
+    (value: string): void => {
+      dispatch(addCommentFormSliceActions.setText(value));
+    },
+    [dispatch],
+  );
 
   const onSendHandler = useCallback(() => {
     onSendComment(text ?? '');
@@ -47,23 +45,29 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
   }, [onCommentTextChange, onSendComment, text]);
 
   return (
-      <DynamicModuleLoader reducers={reducers}>
-          <HStack justify='between' max
-              className={classNames(cls.add_comment_form ?? '', {}, [className])}
-          >
-              <Input
-                  className={cls.input}
-                  placeholder={t('Введите текст комментария')}
-                  value={text}
-                  onChange={onCommentTextChange}
-              />
-              <Button
-                  theme={ButtonTheme.OUTLINE}
-                  onClick={onSendHandler}>
-                  {t('Отправить')}
-              </Button>
-          </HStack>
-      </DynamicModuleLoader>
+    <DynamicModuleLoader reducers={reducers}>
+      <HStack
+        justify="between"
+        max
+        data-testid={'AddCommentForm'}
+        className={classNames(cls.add_comment_form ?? '', {}, [className])}
+      >
+        <Input
+          className={cls.input}
+          placeholder={t('Введите текст комментария')}
+          value={text}
+          onChange={onCommentTextChange}
+          data-testid={'AddCommentForm.Input'}
+        />
+        <Button
+          data-testid={'AddCommentForm.Button'}
+          theme={ButtonTheme.OUTLINE}
+          onClick={onSendHandler}
+        >
+          {t('Отправить')}
+        </Button>
+      </HStack>
+    </DynamicModuleLoader>
   );
 });
 

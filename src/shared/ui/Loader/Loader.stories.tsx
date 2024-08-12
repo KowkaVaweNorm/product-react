@@ -7,22 +7,17 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Loader> = {
   title: 'shared/Loader',
-  component: Loader
-
+  component: Loader,
 };
 
 export default meta;
-type Story = StoryObj<typeof Loader>
+type Story = StoryObj<typeof Loader>;
 
 export const Light: Story = {
-  render: () => <Loader />
+  render: () => <Loader />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <Loader />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <Loader />,
 };

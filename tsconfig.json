@@ -1,43 +1,37 @@
 {
+  "compilerOptions": {
+    "noImplicitAny": true, // тип any запрещен к использолванию неявно?
+    "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
+    "noImplicitReturns": true, // Во всех случаях код производит return?
+    "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
+    "noImplicitOverride": true, // прописывать перед прегруженными свойствами и методавми ключевое слово override
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
+  },
+  "ts-node": {
     "compilerOptions": {
-        "noImplicitAny": true,  // тип any запрещен к использолванию неявно?
-        "strictNullChecks": true, // При true разрешает возвращать null вместо конкретного типа
-        "noImplicitReturns": true, // Во всех случаях код производит return?
-        "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
-        "noImplicitOverride": true,  // прописывать перед прегруженными свойствами и методавми ключевое слово override
-        "module": "ESNext",
-        "target": "es5",
-        "jsx": "react-jsx",
-        "allowJs": true,
-        "strict": true,
-        "moduleResolution": "node",
-        "skipLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        },
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "isolatedModules": true
-    },
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS"
-        }
-    },
-    "include": [
-        // "./config/jest/setupTest.ts",
-        "./src/**/*.ts",
-        "./src/**/*.tsx",
-        "./config/**/*.ts",
-        "./config/**/*.tsx", 
-        "lostpixel.config.ts",
-    ],
-    "exclude": [
-        "node_modules", 
-        "build", 
-        "*.test.ts", 
-        "*.test.tsx",
-        "scripts/**/*"      
-    ]
+      "module": "CommonJS"
+    }
+  },
+  "include": [
+    // "./config/jest/setupTest.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
+    "lostpixel.config.ts"
+  ],
+  "exclude": ["node_modules", "build", "*.test.ts", "*.test.tsx", "scripts/**/*"]
 }

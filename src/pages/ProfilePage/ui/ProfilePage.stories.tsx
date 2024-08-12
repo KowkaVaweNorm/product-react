@@ -9,16 +9,15 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ProfilePage> = {
   title: 'pages/ProfilePage',
-  component: ProfilePage
-
+  component: ProfilePage,
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfilePage>
+type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
   decorators: [
-    (Story: any) => (
+    (Story: any) =>
       StoreDecorator({
         profile: {
           form: {
@@ -28,21 +27,18 @@ export const Light: Story = {
             lastname: 'Vlom',
             first: 'Kowka',
             city: 'Moscow',
-            currency: Currency.USD
-          }
-        }
-      })(Story)
-    )
+            currency: Currency.USD,
+          },
+        },
+      })(Story),
   ],
-  render: () => <ProfilePage />
+  render: () => <ProfilePage />,
 };
 
 export const Dark: Story = {
   decorators: [
-    (Story: any) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story: any) => (
+    (Story: any) => ThemeDecorator(Theme.DARK)(Story),
+    (Story: any) =>
       StoreDecorator({
         profile: {
           form: {
@@ -52,11 +48,10 @@ export const Dark: Story = {
             lastname: 'Vlom',
             first: 'Kowka',
             city: 'Moscow',
-            currency: Currency.USD
-          }
-        }
-      })(Story)
-    )
+            currency: Currency.USD,
+          },
+        },
+      })(Story),
   ],
-  render: () => <ProfilePage />
+  render: () => <ProfilePage />,
 };

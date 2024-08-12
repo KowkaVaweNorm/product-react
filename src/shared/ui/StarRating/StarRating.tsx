@@ -5,18 +5,16 @@ import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface StarRatingProps {
-  className?: string
-  onSelect?: (starsCount: number) => void
-  size?: number
-  selectedStars?: number
+  className?: string;
+  onSelect?: (starsCount: number) => void;
+  size?: number;
+  selectedStars?: number;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-  const {
-    className, size = 30, selectedStars = 0, onSelect
-  } = props;
+  const { className, size = 30, selectedStars = 0, onSelect } = props;
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -41,28 +39,30 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-      <div className={classNames(cls.StarRating, {}, [className])}>
-          {stars.map((starNumber) => (
-              <Icon
-                  className={classNames(
-                    cls.starIcon,
-                    {
-                      [cls.selected ?? '']: isSelected,
-                      [cls.selected ?? '']: isSelected,
-                      [cls.hovered ?? '']: currentStarsCount >= starNumber,
-                      [cls.normal ?? '']: currentStarsCount < starNumber
-                    },
-                    []
-                  )}
-                  Svg={StarIcon}
-                  key={starNumber}
-                  width={size}
-                  height={size}
-                  onMouseLeave={onLeave}
-                  onMouseEnter={onHover(starNumber)}
-                  onClick={onClick(starNumber)}
-                />
-          ))}
-      </div>
+    <div className={classNames(cls.StarRating, {}, [className])}>
+      {stars.map((starNumber) => (
+        <Icon
+          className={classNames(
+            cls.starIcon,
+            {
+              [cls.selected ?? '']: isSelected,
+              [cls.selected ?? '']: isSelected,
+              [cls.hovered ?? '']: currentStarsCount >= starNumber,
+              [cls.normal ?? '']: currentStarsCount < starNumber,
+            },
+            [],
+          )}
+          Svg={StarIcon}
+          key={starNumber}
+          width={size}
+          height={size}
+          onMouseLeave={onLeave}
+          onMouseEnter={onHover(starNumber)}
+          onClick={onClick(starNumber)}
+          data-testid={`StarRating.${starNumber}`}
+          data-selected={currentStarsCount >= starNumber}
+        />
+      ))}
+    </div>
   );
 });

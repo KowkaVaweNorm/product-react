@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path'
+import path from 'path';
 
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -18,60 +18,42 @@ export default {
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\'
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.jest.json'
+      tsconfig: 'tsconfig.jest.json',
     },
-    "__IS_DEV__": true,
-    "__API__" : '',
-    "__PROJECT__" : 'jest'
+    __IS_DEV__: true,
+    __API__: '',
+    __PROJECT__: 'jest',
   },
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
-  ],
-  moduleDirectories: [
-    'node_modules',
-    'src'
-  ],
-  modulePaths: [
-    '<rootDir>/src/'
-  ], 
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleDirectories: ['node_modules', 'src'],
+  modulePaths: ['<rootDir>/src/'],
   // Порядок имеет значение!!! - сначала конкретные расширения а потом более общие
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    "^@/(.*)$": "<rootDir>/src/$1"
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts'],
   rootDir: '../../',
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: [
-    "node_modules/(?!axios.*)"
-  ],
-  
+  transformIgnorePatterns: ['node_modules/(?!axios.*)'],
+
   reporters: [
     'default',
     [
-        'jest-html-reporters',
-        {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            // openReport: true,
-            inlineSource: true,
-        },
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        // openReport: true,
+        inlineSource: true,
+      },
     ],
-],
+  ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -203,8 +185,6 @@ export default {
   // A map from regular expressions to paths to transformers
   // transform: undefined,
 
-
-
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 
@@ -216,4 +196,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};

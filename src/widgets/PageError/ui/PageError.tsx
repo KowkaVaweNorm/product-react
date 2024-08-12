@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 interface PageErrorProps {
-  className?: string
+  className?: string;
 }
 
 export const PageError = ({ className = '' }: PageErrorProps): JSX.Element => {
@@ -15,13 +15,11 @@ export const PageError = ({ className = '' }: PageErrorProps): JSX.Element => {
   };
 
   return (
-      <div className={classNames(cls.PageError ?? '', {}, [className])}>
-          <h4>{t('Произошла ошибка')}</h4>
-          <Button
-              theme={ButtonTheme.OUTLINE}
-              onClick={reloadPage}>
-              {t('Обновить страницу')}
-          </Button>
-      </div>
+    <div className={classNames(cls.PageError ?? '', {}, [className])}>
+      <h4>{t('Произошла ошибка')}</h4>
+      <Button theme={ButtonTheme.OUTLINE} onClick={reloadPage}>
+        {t('Обновить страницу')}
+      </Button>
+    </div>
   );
 };

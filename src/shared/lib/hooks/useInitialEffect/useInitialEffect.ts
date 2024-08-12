@@ -5,6 +5,6 @@ export const useInitialEffect = (callback: () => void): void => {
     if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
       callback();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };

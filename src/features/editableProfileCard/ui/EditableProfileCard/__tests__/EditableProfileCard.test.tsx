@@ -16,7 +16,7 @@ const profile: Profile = {
   currency: Currency.USD,
   country: Country.Kazakhstan,
   city: 'Moscow',
-  username: 'admin213'
+  username: 'admin213',
 };
 
 const options = {
@@ -24,15 +24,15 @@ const options = {
     profile: {
       readonly: true,
       data: profile,
-      form: profile
+      form: profile,
     },
     user: {
-      authData: { id: '1', username: 'admin' }
-    }
+      authData: { id: '1', username: 'admin' },
+    },
   },
   asyncReducers: {
-    profile: profileReducer
-  }
+    profile: profileReducer,
+  },
 };
 
 describe('features/EditableProfileCard', () => {

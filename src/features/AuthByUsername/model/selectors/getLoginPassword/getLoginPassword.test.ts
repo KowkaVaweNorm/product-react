@@ -1,4 +1,3 @@
-
 import { type StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
@@ -9,8 +8,8 @@ describe('getLoginPassword.test', () => {
         username: '',
         isLoading: false,
         password: 'password',
-        error: 'error'
-      }
+        error: 'error',
+      },
     };
     expect(getLoginPassword(state as StateSchema)).toEqual('password');
   });

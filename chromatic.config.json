@@ -3,5 +3,5 @@
   "buildScriptName": "sb:build",
   "debug": true,
   "zip": true,
-  "storybookConfigDir": "config\\storybook\\" 
+  "storybookConfigDir": "config\\storybook\\"
 }

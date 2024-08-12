@@ -5,22 +5,15 @@ import { type ArticleCodeBlock } from '../../../model/type/article';
 import { Code } from '@/shared/ui/Code';
 
 interface IProps {
-  className?: string
-  block: ArticleCodeBlock
+  className?: string;
+  block: ArticleCodeBlock;
 }
 
 export const ArticleCodeBlockComponent = memo((props: IProps): JSX.Element => {
-  const {
-    className = '',
-    block
-  } = props;
+  const { className = '', block } = props;
   return (
-      <div
-          className={
-            classNames(cls.article_code_block_component ?? '', {}, [className])
-          }
-      >
-          <Code text={block.code }/>
-      </div>
+    <div className={classNames(cls.article_code_block_component ?? '', {}, [className])}>
+      <Code text={block.code} />
+    </div>
   );
 });

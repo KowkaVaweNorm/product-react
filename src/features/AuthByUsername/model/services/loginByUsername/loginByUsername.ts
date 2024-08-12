@@ -4,19 +4,18 @@ import { userActions, type User } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 interface LoginByUsernameProps {
-  username: string
-  password: string
+  username: string;
+  password: string;
 }
 
-export const loginByUsername =
-createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string> >(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
   'login/loginByUsername',
   async (authData, thunkApi) => {
     const { dispatch, extra, rejectWithValue } = thunkApi;
     try {
       const response = await extra.api.post<User>('/login', authData);
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-      if (!(response.data)) {
+      if (!response.data) {
         throw new Error();
       }
 
@@ -28,5 +27,5 @@ createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string> >(
       console.log(error);
       return rejectWithValue('error');
     }
-  }
+  },
 );

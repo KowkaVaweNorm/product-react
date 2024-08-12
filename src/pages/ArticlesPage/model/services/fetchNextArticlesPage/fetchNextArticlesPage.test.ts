@@ -21,8 +21,8 @@ describe('fetchNexArticlesPage.test', () => {
         sort: ArticleSortField.CREATED,
         error: undefined,
         type: ArticleType.ALL,
-        _inited: false
-      }
+        _inited: false,
+      },
     });
 
     await thunk.callThunk();
@@ -45,8 +45,8 @@ describe('fetchNexArticlesPage.test', () => {
         sort: ArticleSortField.CREATED,
         error: undefined,
         type: ArticleType.ALL,
-        _inited: false
-      }
+        _inited: false,
+      },
     });
 
     await thunk.callThunk();
@@ -68,8 +68,8 @@ describe('fetchNexArticlesPage.test', () => {
         sort: ArticleSortField.CREATED,
         error: undefined,
         type: ArticleType.ALL,
-        _inited: false
-      }
+        _inited: false,
+      },
     });
 
     await thunk.callThunk();

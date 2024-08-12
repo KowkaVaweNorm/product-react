@@ -10,35 +10,29 @@ import { getUserAuthData } from '@/entities/User';
 import { type SidebarItemType } from '../../model/types/sidebar';
 
 interface SidebarItemProps {
-  item?: SidebarItemType
-  collapsed: boolean
+  item?: SidebarItemType;
+  collapsed: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps): JSX.Element => {
   const { item = { Icon: MainIcon, path: '/', text: '' }, collapsed } = props;
   const { t } = useTranslation();
   const isAuth = useSelector(getUserAuthData);
-  if ((item.authOnly === true) && (isAuth == null)) {
+  if (item.authOnly === true && isAuth == null) {
     return <></>;
   }
   return (
-      <div
-          className={ classNames(cls.SidebarItem ?? '', {}, [])}
+    <div className={classNames(cls.SidebarItem ?? '', {}, [])}>
+      <AppLink
+        to={item?.path ?? '/'}
+        theme={AppLinkTheme.SECONDARY}
+        className={classNames(cls.item ?? '', {
+          [cls.collapsed ?? '']: collapsed,
+        })}
       >
-          <AppLink
-              to={item?.path ?? '/'}
-              theme={AppLinkTheme.SECONDARY}
-              className={classNames(cls.item ?? '', { [cls.collapsed ?? '']: collapsed })}
-          >
-              <item.Icon className={cls.icon} />
-              <span
-                  className={cls.link}
-            >
-                  {t(item?.text ?? '')}
-
-              </span>
-          </AppLink>
-      </div>
+        <item.Icon className={cls.icon} />
+        <span className={cls.link}>{t(item?.text ?? '')}</span>
+      </AppLink>
+    </div>
   );
-}
-);
+});

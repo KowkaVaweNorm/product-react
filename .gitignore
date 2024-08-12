@@ -6,3 +6,4 @@
 package-lock.json
 chromatic.log
 chromatic-diagnostics.json
+.vscode

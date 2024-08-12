@@ -8,8 +8,8 @@ describe('getLoginUsername.test', () => {
         username: 'username',
         isLoading: false,
         password: 'password',
-        error: 'error'
-      }
+        error: 'error',
+      },
     };
     expect(getLoginUsername(state as StateSchema)).toEqual('username');
   });

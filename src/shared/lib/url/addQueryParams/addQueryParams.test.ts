@@ -1,9 +1,9 @@
-import { getQueryParams } from "./addQueryParams";
+import { getQueryParams } from './addQueryParams';
 
 describe('shared/lib/url/addQueryParams', () => {
   test('test with one params', () => {
     const params = getQueryParams({
-      test: 'test1'
+      test: 'test1',
     });
 
     expect(params.searchParams.toString()).toBe('test=test1');
@@ -12,7 +12,7 @@ describe('shared/lib/url/addQueryParams', () => {
     const params = getQueryParams({
       test: 'test1',
       test2: 'test2',
-      test3: 'test3'
+      test3: 'test3',
     });
 
     expect(params.searchParams.toString()).toBe('test=test1&test2=test2&test3=test3');
@@ -20,7 +20,7 @@ describe('shared/lib/url/addQueryParams', () => {
   test('test with undefined', () => {
     const params = getQueryParams({
       test: 'test1',
-      test2: undefined
+      test2: undefined,
     });
 
     expect(params.searchParams.toString()).toBe('test=test1');

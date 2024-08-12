@@ -8,12 +8,12 @@ const recommendationsApi = rtkApi.injectEndpoints({
         url: '/articles',
         params: {
           _limit: limit,
-          _expand: 'user'
-        }
-      })
-    })
-  })
+          _expand: 'user',
+        },
+      }),
+    }),
+  }),
 });
 
 export const useArticleRecommendationsList =
-    recommendationsApi.useGetArticleRecommendationsListQuery;
+  recommendationsApi.useGetArticleRecommendationsListQuery;

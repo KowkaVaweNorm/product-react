@@ -6,7 +6,7 @@ import { type Article } from '../type/article';
 const initialState: ArticleDetailsSchema = {
   isLoading: false,
   error: undefined,
-  data: undefined
+  data: undefined,
 };
 
 export const articleDetailsSlice = createSlice({
@@ -15,7 +15,7 @@ export const articleDetailsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-    // fetchArticleById
+      // fetchArticleById
       .addCase(fetchArticleById.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
@@ -28,7 +28,7 @@ export const articleDetailsSlice = createSlice({
         state.error = action.payload as string;
         state.isLoading = false;
       });
-  }
+  },
 });
 
 export const { actions: articleDetailsActions } = articleDetailsSlice;

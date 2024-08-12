@@ -14,8 +14,8 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/
-      }
+        date: /Date$/,
+      },
     },
   },
 
@@ -24,7 +24,7 @@ const preview: Preview = {
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT),
     RouteDecorator,
-    StoreDecorator({})
+    StoreDecorator({}),
   ],
   loaders: [mswLoader],
   // tags: ['autodocs']

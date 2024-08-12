@@ -1,7 +1,4 @@
-
-export const getQueryParams = (
-  params: OptionalRecord<string, string>
-): URL => {
+export const getQueryParams = (params: OptionalRecord<string, string>): URL => {
   const url = new URL(String(window.location));
   Object.entries(params).forEach(([name, value]) => {
     if (value !== undefined) {
@@ -17,8 +14,6 @@ export const getQueryParams = (
  * Функция добавления параметров строки запроса в URL
  * @param params
  */
-export const addQueryParams = (
-  params: OptionalRecord<string, string>
-): void => {
+export const addQueryParams = (params: OptionalRecord<string, string>): void => {
   window.history.pushState('', '', getQueryParams(params));
 };

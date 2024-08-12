@@ -1,23 +1,23 @@
-import { type LoginSchema } from "../../types/LoginSchema";
+import { type LoginSchema } from '../../types/LoginSchema';
 
 const initialState: LoginSchema = {
   username: '',
   password: '',
-  isLoading: false
+  isLoading: false,
 };
 const loadingState: LoginSchema = {
   username: '',
   password: '',
-  isLoading: true
+  isLoading: true,
 };
 const filledState: LoginSchema = {
   username: 'user',
   password: '123',
-  isLoading: false
+  isLoading: false,
 };
 
 export const testDataLoginSlice = {
   initialState,
   loadingState,
-  filledState
+  filledState,
 };

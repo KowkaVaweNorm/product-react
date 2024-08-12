@@ -5,27 +5,15 @@ import { type ArticleImageBlock } from '../../../model/type/article';
 import { Text, TextAlign } from '@/shared/ui/Text';
 
 interface IProps {
-  className?: string
-  block: ArticleImageBlock
+  className?: string;
+  block: ArticleImageBlock;
 }
 export const ArticleImageBlockComponent = memo((props: IProps): JSX.Element => {
-  const {
-    className = '',
-    block
-  } = props;
+  const { className = '', block } = props;
   return (
-      <div
-          className={
-            classNames(cls.article_image_block_component ?? '', {}, [className])
-          }
-      >
-          <img src={block.src} alt={block.title} className={cls.image} />
-          {block.title !== undefined && (
-          <Text
-              align={TextAlign.CENTER}
-              text={block.title}
-            />
-          )}
-      </div>
+    <div className={classNames(cls.article_image_block_component ?? '', {}, [className])}>
+      <img src={block.src} alt={block.title} className={cls.image} />
+      {block.title !== undefined && <Text align={TextAlign.CENTER} text={block.title} />}
+    </div>
   );
 });

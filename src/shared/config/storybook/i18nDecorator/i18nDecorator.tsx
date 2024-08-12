@@ -5,8 +5,8 @@ import { I18nextProvider } from 'react-i18next';
 
 export const I18nDecorator = (StoryComponent: StoryFn): JSX.Element => {
   return (
-      <I18nextProvider i18n={i18n}>
-          <StoryComponent />
-      </I18nextProvider>
+    <I18nextProvider i18n={i18n}>
+      <StoryComponent />
+    </I18nextProvider>
   );
 };

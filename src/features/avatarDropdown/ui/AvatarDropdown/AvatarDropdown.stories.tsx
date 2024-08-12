@@ -8,40 +8,27 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 const meta: Meta<typeof AvatarDropdown> = {
   title: 'features/AvatarDropdown',
-  component: AvatarDropdown
-
+  component: AvatarDropdown,
 };
 
 export default meta;
-type Story = StoryObj<typeof AvatarDropdown>
+type Story = StoryObj<typeof AvatarDropdown>;
 
 export const Light: Story = {
-  decorators: [
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ],
-  render: () => <AvatarDropdown />
+  decorators: [(Story) => StoreDecorator({})(Story)],
+  render: () => <AvatarDropdown />,
 };
 export const AuthAvatarDropdown: Story = {
   decorators: [
-    (Story) => (
+    (Story) =>
       StoreDecorator({
-        user: { authData: { id: '', username: '' } }
-      })(Story)
-    )
+        user: { authData: { id: '', username: '' } },
+      })(Story),
   ],
-  render: () => <AvatarDropdown />
+  render: () => <AvatarDropdown />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ],
-  render: () => <AvatarDropdown />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story), (Story) => StoreDecorator({})(Story)],
+  render: () => <AvatarDropdown />,
 };

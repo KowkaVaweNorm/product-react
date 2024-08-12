@@ -11,17 +11,17 @@ import { articleDetailsPageReducer } from '../../model/slice';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   type ReducersList,
-  DynamicModuleLoader
+  DynamicModuleLoader,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
-  className?: string
+  className?: string;
 }
 
 const reducers: ReducersList = {
-  articleDetailsPage: articleDetailsPageReducer
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
@@ -32,17 +32,17 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
     return <></>;
   }
   return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-              <VStack gap="16" max>
-                  <ArticleDetailsPageHeader />
-                  <ArticleDetails id={id} />
-                  <ArticleRating articleId={id} />
-                  <ArticleRecommendationsList />
-                  <ArticleDetailsComments id={id} />
-              </VStack>
-          </Page>
-      </DynamicModuleLoader>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <VStack gap="16" max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
+          <ArticleRecommendationsList />
+          <ArticleDetailsComments id={id} />
+        </VStack>
+      </Page>
+    </DynamicModuleLoader>
   );
 };
 

@@ -10,7 +10,7 @@ import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 interface NotificationButtonProps {
-  className?: string
+  className?: string;
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
@@ -26,29 +26,28 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
   }, []);
 
   const trigger = (
-      <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-          <Icon Svg={NotificationIcon} inverted />
-      </Button>
+    <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+      <Icon Svg={NotificationIcon} inverted />
+    </Button>
   );
 
   return (
-      <div>
-          <BrowserView>
-              <Popover
-                  className={classNames(cls.NotificationButton, {}, [className])}
-                  direction="bottom left"
-                  trigger={trigger}
-              >
-                  <NotificationList className={cls.notifications} />
-              </Popover>
-          </BrowserView>
-          <MobileView>
-              {trigger}
-              <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                  <NotificationList />
-              </Drawer>
-          </MobileView>
-      </div>
-
+    <div>
+      <BrowserView>
+        <Popover
+          className={classNames(cls.NotificationButton, {}, [className])}
+          direction="bottom left"
+          trigger={trigger}
+        >
+          <NotificationList className={cls.notifications} />
+        </Popover>
+      </BrowserView>
+      <MobileView>
+        {trigger}
+        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <NotificationList />
+        </Drawer>
+      </MobileView>
+    </div>
   );
 });

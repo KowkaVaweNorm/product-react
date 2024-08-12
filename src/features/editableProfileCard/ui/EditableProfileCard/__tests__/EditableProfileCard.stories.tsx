@@ -8,16 +8,17 @@ const meta: Meta<typeof EditableProfileCard> = {
   component: EditableProfileCard,
   parameters: {
     screenshot: {
-      viewport: 'iPhone 5'
-    }
+      viewport: 'iPhone 5',
+    },
   },
   decorators: [
-    (Story) => StoreDecorator({ profile: testDataEditableProfileCard.filledState })(Story)
-  ]
+    (Story) =>
+      StoreDecorator({
+        profile: testDataEditableProfileCard.filledState,
+      })(Story),
+  ],
 };
 
 export default meta;
-  type Story = StoryObj<typeof EditableProfileCard>
-export const Primary: Story = {
-
-};
+type Story = StoryObj<typeof EditableProfileCard>;
+export const Primary: Story = {};

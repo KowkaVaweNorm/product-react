@@ -11,13 +11,13 @@ const meta: Meta<typeof ProfileCard> = {
   component: ProfileCard,
   parameters: {
     screenshot: {
-      viewport: 'iPhone 5'
-    }
-  }
+      viewport: 'iPhone 5',
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfileCard>
+type Story = StoryObj<typeof ProfileCard>;
 
 export const Primary: Story = {
   args: {
@@ -30,19 +30,19 @@ export const Primary: Story = {
       first: 'michael',
       city: 'Voronezh',
       currency: Currency.USD,
-      avatar
-    }
-  }
+      avatar,
+    },
+  },
 };
 
 export const WithError: Story = {
   args: {
-    error: 'true'
-  }
+    error: 'true',
+  },
 };
 
 export const Loading: Story = {
   args: {
-    isLoading: true
-  }
+    isLoading: true,
+  },
 };

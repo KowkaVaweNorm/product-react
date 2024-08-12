@@ -1,4 +1,3 @@
-
 import { type StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginError } from './getLoginError';
 
@@ -9,8 +8,8 @@ describe('getLoginError.test', () => {
         username: '',
         isLoading: false,
         password: '',
-        error: 'error'
-      }
+        error: 'error',
+      },
     };
     expect(getLoginError(state as StateSchema)).toEqual('error');
   });

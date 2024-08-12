@@ -8,12 +8,11 @@ import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { type SortOrder } from '@/shared/types/sort';
 
 const articlesAdapter = createEntityAdapter<Article>({
-  selectId: (article: Article) => article.id
+  selectId: (article: Article) => article.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) =>
-    state.articlesPage ?? articlesAdapter.getInitialState()
+  (state) => state.articlesPage ?? articlesAdapter.getInitialState(),
 );
 
 const articlesPageSlice = createSlice({
@@ -31,7 +30,7 @@ const articlesPageSlice = createSlice({
     search: '',
     order: 'asc',
     type: ArticleType.ALL,
-    _inited: false
+    _inited: false,
   }),
   reducers: {
     setView: (state: ArticlesPageSchema, action: PayloadAction<ArticleView>) => {
@@ -61,35 +60,31 @@ const articlesPageSlice = createSlice({
       state.view = view;
       state.limit = view === ArticleView.BIG ? 4 : 9;
       state._inited = true;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(
-        fetchArticlesList.pending, (state, action) => {
-          state.error = undefined;
-          state.isLoading = true;
-          if (action.meta.arg.replace === true) {
-            articlesAdapter.removeAll(state);
-          }
-        })
-      .addCase(fetchArticlesList.fulfilled,
-        (state, action) => {
-          state.isLoading = false;
-          state.hasMore = action.payload.length >= state.limit;
-          if (action.meta.arg.replace === true) {
-            articlesAdapter.setAll(state, action.payload);
-          } else {
-            articlesAdapter.addMany(state, action.payload);
-          }
-        })
-      .addCase(fetchArticlesList.rejected,
-        (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        });
-  }
-
+      .addCase(fetchArticlesList.pending, (state, action) => {
+        state.error = undefined;
+        state.isLoading = true;
+        if (action.meta.arg.replace === true) {
+          articlesAdapter.removeAll(state);
+        }
+      })
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hasMore = action.payload.length >= state.limit;
+        if (action.meta.arg.replace === true) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
+      })
+      .addCase(fetchArticlesList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const { reducer: articlesPageReducer } = articlesPageSlice;

@@ -8,100 +8,100 @@ const meta: Meta<typeof Flex> = {
   component: Flex,
   parameters: {
     screenshot: {
-      viewport: 'iPhone 5'
-    }
-  }
+      viewport: 'iPhone 5',
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof Flex>
+type Story = StoryObj<typeof Flex>;
 
 export const Row: Story = {
   args: {
     direction: 'row',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const Column: Story = {
   args: {
     direction: 'column',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const ColumnGap16: Story = {
   args: {
     direction: 'column',
     gap: '16',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const RowGap4: Story = {
   args: {
     direction: 'row',
     gap: '4',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const RowGap8: Story = {
   args: {
     direction: 'row',
     gap: '8',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const RowGap16: Story = {
   args: {
     direction: 'row',
     gap: '16',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };
 export const RowGap32: Story = {
   args: {
     direction: 'row',
     gap: '32',
     children: (
-        <>
-            <div>first</div>
-            <div>second</div>
-            <div>thirs</div>
-        </>
-    )
-  }
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>thirs</div>
+      </>
+    ),
+  },
 };

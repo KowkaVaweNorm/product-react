@@ -8,39 +8,35 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 const meta: Meta<typeof AddCommentForm> = {
   title: 'features/AddCommentForm',
-  component: AddCommentForm
+  component: AddCommentForm,
 };
 
 export default meta;
-type Story = StoryObj<typeof AddCommentForm>
+type Story = StoryObj<typeof AddCommentForm>;
 
 export const Light: Story = {
   decorators: [
-    (Story: StoryFn) => (
+    (Story: StoryFn) =>
       StoreDecorator({
         addCommentForm: {
           text: 'text comment',
-          error: undefined
-        }
-      })(Story)
-    )
+          error: undefined,
+        },
+      })(Story),
   ],
-  render: () => <AddCommentForm onSendComment={action('onSendComment')} />
+  render: () => <AddCommentForm onSendComment={action('onSendComment')} />,
 };
 
 export const Dark: Story = {
   decorators: [
-    (Story: StoryFn) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story: StoryFn) => (
+    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
+    (Story: StoryFn) =>
       StoreDecorator({
         addCommentForm: {
           text: 'text comment',
-          error: undefined
-        }
-      })(Story)
-    )
+          error: undefined,
+        },
+      })(Story),
   ],
-  render: () => <AddCommentForm onSendComment={action('onSendComment')} />
+  render: () => <AddCommentForm onSendComment={action('onSendComment')} />,
 };

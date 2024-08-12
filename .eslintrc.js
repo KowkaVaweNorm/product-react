@@ -12,6 +12,7 @@ module.exports = {
   },
 
   extends: [
+    "prettier",
     "plugin:react/recommended",
     "standard-with-typescript",
     // "plugin:@typescript-eslint/recommended",
@@ -25,7 +26,7 @@ module.exports = {
     ecmaVersion: "latest",
     parser: "@typescript-eslint/parser",
     sourceType: "module",
-    project: ["./tsconfig.json"],
+    project: ["./tsconfig.json", "./cypress/tsconfig.json"],
     tsconfigRootDir: __dirname,
   },
 
@@ -39,8 +40,6 @@ module.exports = {
   ],
 
   rules: {
-    "react/jsx-indent": [2, 4],
-    "react/jsx-indent-props": [2, 4],
     "react/jsx-filename-extension": [
       2,
       {
@@ -52,26 +51,31 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-unused-vars": "warn",
     'unused-imports/no-unused-imports': 'error',
-    semi: ["error", "always"],
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "react/display-name": "off",
     "no-shadow": "off",
+    "max-len": 'off',
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
-    "@typescript-eslint/semi": "off",
+    "multiline-ternary": 'off',
     "@typescript-eslint/restrict-plus-operands": "warn",
     "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/space-before-function-paren": 'off',
+    "@typescript-eslint/semi": 'off',
+    "@typescript-eslint/member-delimiter-style": 'off',
+    "@typescript-eslint/comma-dangle": 'off',
+    "@typescript-eslint/indent": 'off',
     "no-tabs": "off",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/no-invalid-void-type": "error",
     "@typescript-eslint/restrict-template-expressions" : "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-
+    "@typescript-eslint/no-namespace" : "off",
     "i18next/no-literal-string": [
       "error",
       {
@@ -96,13 +100,6 @@ module.exports = {
           "loading",
           "decoding"
         ],
-      },
-    ],
-    "max-len": [
-      "error",
-      {
-        ignoreComments: true,
-        code: 100,
       },
     ],
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks

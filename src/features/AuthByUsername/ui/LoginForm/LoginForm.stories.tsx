@@ -9,53 +9,50 @@ const meta: Meta<typeof LoginForm> = {
   component: LoginForm,
   parameters: {
     screenshot: {
-      viewport: 'iPhone 5'
-    }
-  }
+      viewport: 'iPhone 5',
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof LoginForm>
+type Story = StoryObj<typeof LoginForm>;
 export const Primary: Story = {
   decorators: [
-    (Story) => (
-      StoreDecorator({
-        loginForm: {
-          username: '123',
-          password: 'asd',
-          isLoading: false
-        }
-      })(Story)
-    )
-  ],
-  render: () => <LoginForm onSuccess={() => {}}/>
-};
-export const WithError: Story = {
-  decorators: [
-    (Story) => (
+    (Story) =>
       StoreDecorator({
         loginForm: {
           username: '123',
           password: 'asd',
           isLoading: false,
-          error: 'ERROR'
-        }
-      })(Story)
-    )
+        },
+      })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}}/>
+  render: () => <LoginForm onSuccess={() => {}} />,
+};
+export const WithError: Story = {
+  decorators: [
+    (Story) =>
+      StoreDecorator({
+        loginForm: {
+          username: '123',
+          password: 'asd',
+          isLoading: false,
+          error: 'ERROR',
+        },
+      })(Story),
+  ],
+  render: () => <LoginForm onSuccess={() => {}} />,
 };
 export const Loading: Story = {
   decorators: [
-    (Story) => (
+    (Story) =>
       StoreDecorator({
         loginForm: {
           password: '',
           username: '',
-          isLoading: true
-        }
-      })(Story)
-    )
+          isLoading: true,
+        },
+      })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}}/>
+  render: () => <LoginForm onSuccess={() => {}} />,
 };

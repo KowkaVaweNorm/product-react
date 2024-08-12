@@ -4,7 +4,7 @@
   "Читать далее...": "Read more...",
   "Комментарии": "Comments",
   "Сортировка ПО": "Sorting by",
-  "по": "by",  
+  "по": "by",
   "Поиск": "Search",
   "возрастанию": "ascending",
   "убыванию": "descending",
@@ -15,5 +15,4 @@
   "Статьи не найдены": "Articles not found",
   "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
   "При загрузке данных произошла ошибка": "An error occurred while loading data"
-
 }

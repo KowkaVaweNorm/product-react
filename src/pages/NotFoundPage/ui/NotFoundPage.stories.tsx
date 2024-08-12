@@ -7,22 +7,17 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof NotFoundPage> = {
   title: 'pages/NotFoundPage',
-  component: NotFoundPage
-
+  component: NotFoundPage,
 };
 
 export default meta;
-type Story = StoryObj<typeof NotFoundPage>
+type Story = StoryObj<typeof NotFoundPage>;
 
 export const Light: Story = {
-  render: () => <NotFoundPage />
+  render: () => <NotFoundPage />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    )
-  ],
-  render: () => <NotFoundPage />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  render: () => <NotFoundPage />,
 };

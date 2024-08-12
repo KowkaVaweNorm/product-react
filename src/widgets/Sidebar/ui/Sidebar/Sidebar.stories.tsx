@@ -8,51 +8,43 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Sidebar> = {
   title: 'widgets/Sidebar',
-  component: Sidebar
-
+  component: Sidebar,
 };
 
 export default meta;
-type Story = StoryObj<typeof Sidebar>
+type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
   decorators: [
-    (Story) => (
+    (Story) =>
       StoreDecorator({
         user: {
-          authData: {}
-        }
-      })(Story)
-    )
+          authData: {},
+        },
+      })(Story),
   ],
-  render: () => <Sidebar />
+  render: () => <Sidebar />,
 };
 
 export const Dark: Story = {
   decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story) => (
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+    (Story) =>
       StoreDecorator({
         user: {
-          authData: {}
-        }
-      })(Story)
-    )
+          authData: {},
+        },
+      })(Story),
   ],
-  render: () => <Sidebar />
+  render: () => <Sidebar />,
 };
 export const NoAuth: Story = {
   decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story) => (
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+    (Story) =>
       StoreDecorator({
-        user: {}
-      })(Story)
-    )
+        user: {},
+      })(Story),
   ],
-  render: () => <Sidebar />
+  render: () => <Sidebar />,
 };

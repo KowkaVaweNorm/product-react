@@ -1,18 +1,13 @@
-import {
-  type ReducersMapObject,
-  combineReducers,
-  type AnyAction,
-  type Reducer
-} from 'redux';
+import { type ReducersMapObject, combineReducers, type AnyAction, type Reducer } from 'redux';
 import {
   type StateSchemaKey,
   type StateSchema,
   type ReducerManager,
-  type MountedReducers
+  type MountedReducers,
 } from './StateSchema';
 
-export function createReducerManager (
-  initialReducers: ReducersMapObject<StateSchema>
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>,
 ): ReducerManager {
   const reducers = { ...initialReducers };
 
@@ -38,7 +33,7 @@ export function createReducerManager (
     },
 
     add: (key: StateSchemaKey, reducer: Reducer) => {
-      if ((key.length === 0) || (reducers[key] != null)) {
+      if (key.length === 0 || reducers[key] != null) {
         return;
       }
 
@@ -49,7 +44,7 @@ export function createReducerManager (
     },
 
     remove: (key: StateSchemaKey) => {
-      if ((key.length === 0) || (reducers[key] == null)) {
+      if (key.length === 0 || reducers[key] == null) {
         return;
       }
 
@@ -61,6 +56,6 @@ export function createReducerManager (
       mountedReducers[key] = false;
 
       combinedReducer = combineReducers(reducers);
-    }
+    },
   };
 }

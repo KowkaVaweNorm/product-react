@@ -8,40 +8,27 @@ import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Navbar> = {
   title: 'widgets/Navbar',
-  component: Navbar
-
+  component: Navbar,
 };
 
 export default meta;
-type Story = StoryObj<typeof Navbar>
+type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
-  decorators: [
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ],
-  render: () => <Navbar />
+  decorators: [(Story) => StoreDecorator({})(Story)],
+  render: () => <Navbar />,
 };
 export const AuthNavbar: Story = {
   decorators: [
-    (Story) => (
+    (Story) =>
       StoreDecorator({
-        user: { authData: { id: '', username: '' } }
-      })(Story)
-    )
+        user: { authData: { id: '', username: '' } },
+      })(Story),
   ],
-  render: () => <Navbar />
+  render: () => <Navbar />,
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story) => (
-      ThemeDecorator(Theme.DARK)(Story)
-    ),
-    (Story) => (
-      StoreDecorator({})(Story)
-    )
-  ],
-  render: () => <Navbar />
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story), (Story) => StoreDecorator({})(Story)],
+  render: () => <Navbar />,
 };
