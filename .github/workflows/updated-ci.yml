@@ -34,7 +34,7 @@ jobs:
         run: npm run build:prod
         if: always()
       - name: build storybook
-        run: npm run storybook:build
+        run: npm run sb:build
         if: always()
       - name: unit testing
         if: always()
