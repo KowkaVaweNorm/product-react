@@ -4,6 +4,7 @@ export type BuildMode = 'production' | 'development'
 export interface BuildPaths {
   entry: string
   build: string
+  reports: string
   html: string
   src: string
   locales: string

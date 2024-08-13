@@ -6,6 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import path from 'path';
 export function buildPlugins
 ({ paths, isDev, apiUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
   const isProd = !isDev;
@@ -40,7 +41,9 @@ export function buildPlugins
       chunkFilename: 'css/[name].[contenthash:8].css'
     }));
     plugins.push(new BundleAnalyzerPlugin({
-      openAnalyzer: false
+      openAnalyzer: false,
+      analyzerMode: 'static',
+      reportFilename: path.resolve(paths.reports, 'bundleAnalyzer', 'analyze.html'),
     }));
   }
 

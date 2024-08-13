@@ -6,6 +6,7 @@ import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
     build: '',
+    reports: '',
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
