@@ -11,6 +11,9 @@ initialize();
 const preview: Preview = {
   // TODO: Разобраться в необходимости данных параметров
   parameters: {
+    screenshot: {
+      delay: 200,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

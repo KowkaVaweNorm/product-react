@@ -14,11 +14,11 @@ const meta: Meta<typeof AvatarDropdown> = {
 export default meta;
 type Story = StoryObj<typeof AvatarDropdown>;
 
-export const Light: Story = {
-  decorators: [(Story) => StoreDecorator({})(Story)],
+export const NoAuth: Story = {
   render: () => <AvatarDropdown />,
 };
-export const AuthAvatarDropdown: Story = {
+
+export const PrimaryAuthLight: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
@@ -27,8 +27,13 @@ export const AuthAvatarDropdown: Story = {
   ],
   render: () => <AvatarDropdown />,
 };
-
-export const Dark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story), (Story) => StoreDecorator({})(Story)],
+export const PrimaryAuthDark: Story = {
+  decorators: [
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+    (Story) =>
+      StoreDecorator({
+        user: { authData: { id: '', username: '' } },
+      })(Story),
+  ],
   render: () => <AvatarDropdown />,
 };

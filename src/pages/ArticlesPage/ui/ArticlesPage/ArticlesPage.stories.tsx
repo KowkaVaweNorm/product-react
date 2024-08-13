@@ -380,22 +380,85 @@ const articleStateSmall: ArticlesPageSchema = {
   _inited: false,
 };
 
+export const BigViewLightFirstEnter: Story = {
+  decorators: [
+    (Story: StoryFn) =>
+      StoreDecorator({
+        articlesPage: articleStateBig,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: false,
+            },
+          },
+        },
+      })(Story),
+  ],
+  render: () => <ArticlesPage />,
+};
 export const BigViewLight: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateBig,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: true,
+            },
+          },
+        },
       })(Story),
   ],
   render: () => <ArticlesPage />,
 };
 
+export const BigViewDarkFirstEnter: Story = {
+  decorators: [
+    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
+    (Story: StoryFn) =>
+      StoreDecorator({
+        articlesPage: articleStateBig,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: false,
+            },
+          },
+        },
+      })(Story),
+  ],
+  render: () => <ArticlesPage />,
+};
 export const BigViewDark: Story = {
   decorators: [
     (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateBig,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: true,
+            },
+          },
+        },
+      })(Story),
+  ],
+  render: () => <ArticlesPage />,
+};
+export const SmallViewLightFirstEnter: Story = {
+  decorators: [
+    (Story: StoryFn) =>
+      StoreDecorator({
+        articlesPage: articleStateSmall,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: false,
+            },
+          },
+        },
       })(Story),
   ],
   render: () => <ArticlesPage />,
@@ -405,17 +468,48 @@ export const SmallViewLight: Story = {
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateSmall,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: true,
+            },
+          },
+        },
       })(Story),
   ],
   render: () => <ArticlesPage />,
 };
 
+export const SmallViewDarkFirstEnter: Story = {
+  decorators: [
+    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
+    (Story: StoryFn) =>
+      StoreDecorator({
+        articlesPage: articleStateSmall,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: false,
+            },
+          },
+        },
+      })(Story),
+  ],
+  render: () => <ArticlesPage />,
+};
 export const SmallViewDark: Story = {
   decorators: [
     (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateSmall,
+        user: {
+          authData: {
+            jsonSettings: {
+              isArticlesPageWasOpened: true,
+            },
+          },
+        },
       })(Story),
   ],
   render: () => <ArticlesPage />,

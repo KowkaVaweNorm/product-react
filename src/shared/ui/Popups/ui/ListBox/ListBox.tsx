@@ -3,7 +3,7 @@ import { Listbox as HListBox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type DropdownDirection } from '@/shared/types/ui';
-import { Button } from '../../../Button';
+import { Button, ButtonTheme } from '../../../Button';
 import { HStack } from '../../../Stack';
 
 export interface ListBoxItem<ValueType> {
@@ -55,7 +55,9 @@ export function ListBox<ValueType extends string>(props: ListBoxProps<ValueType>
         onChange={onChange}
       >
         <HListBox.Button className={cls.trigger}>
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          <Button theme={ButtonTheme.OUTLINE} disabled={readonly}>
+            {value ?? defaultValue}
+          </Button>
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
           {items?.map((item) => (
