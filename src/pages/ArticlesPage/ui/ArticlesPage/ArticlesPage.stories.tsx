@@ -4,8 +4,9 @@ import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import ArticlesPage from './ArticlesPage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleBlockType, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { Theme } from '@/shared/const/theme';
+import { type ArticlesPageSchema } from '../../model/types/artcilesPage';
 
 const meta: Meta<typeof ArticlesPage> = {
   title: 'pages/ArticlesPage',
@@ -15,7 +16,7 @@ const meta: Meta<typeof ArticlesPage> = {
 export default meta;
 type Story = StoryObj<typeof ArticlesPage>;
 
-const articleStateBig = {
+const articleStateBig: ArticlesPageSchema = {
   ids: ['1', '2', '3', '4'],
   entities: {
     1: {
@@ -92,14 +93,11 @@ const articleStateBig = {
         username: 'admin',
         features: {
           isArticleRatingEnabled: true,
-          isCounterEnabled: true,
-          isAppRedesigned: true,
         },
         avatar:
           'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
         jsonSettings: {
           isArticlesPageWasOpened: true,
-          theme: 'app_dark_theme',
         },
       },
     },
@@ -193,8 +191,13 @@ const articleStateBig = {
   page: 1,
   hasMore: false,
   limit: 4,
+  order: 'asc',
+  sort: ArticleSortField.VIEW,
+  search: '',
+  type: ArticleType.ALL,
+  _inited: false,
 };
-const articleStateSmall = {
+const articleStateSmall: ArticlesPageSchema = {
   ids: ['1', '2', '3', '4'],
   entities: {
     1: {
@@ -271,14 +274,12 @@ const articleStateSmall = {
         username: 'admin',
         features: {
           isArticleRatingEnabled: true,
-          isCounterEnabled: true,
-          isAppRedesigned: true,
         },
         avatar:
           'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
         jsonSettings: {
           isArticlesPageWasOpened: true,
-          theme: 'app_dark_theme',
+          theme: Theme.LIGHT,
         },
       },
     },
@@ -372,6 +373,11 @@ const articleStateSmall = {
   page: 1,
   hasMore: false,
   limit: 4,
+  order: 'asc',
+  sort: ArticleSortField.VIEW,
+  search: '',
+  type: ArticleType.ALL,
+  _inited: false,
 };
 
 export const BigViewLight: Story = {

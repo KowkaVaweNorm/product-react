@@ -141,7 +141,7 @@
   },
   "lint-staged": {
     "!(node_modules/**/*)*.ts": [
-      "prettier --list-different",
+      "npm run prettier:check --list-different",
       "npm run lint:ts"
     ]
   },
