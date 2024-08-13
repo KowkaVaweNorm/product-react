@@ -1,6 +1,7 @@
 /node_modules
 .vscode
 config
+cypress
 .eslintrc.js
 *.config.js
 *.config.ts
