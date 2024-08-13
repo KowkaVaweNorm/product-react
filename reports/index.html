@@ -6,10 +6,45 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Отчеты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .report-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .report-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .report-links a:hover {
+            background-color: #0056b3;
+        }
+        hr {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-<a href="./unit/report.html">UNIT REPORT</a>
-<a href="./bundleAnalyzer/analyze.html">Bundle analyze REPORT</a>
-<hr>
+    <h1>Отчеты</h1>
+    <div class="report-links">
+        <a href="./unit/report.html">UNIT REPORT</a>
+        <a href="./bundleAnalyzer/analyze.html">Bundle analyze REPORT</a>
+    </div>
+    <hr>
 </body>
 </html>
