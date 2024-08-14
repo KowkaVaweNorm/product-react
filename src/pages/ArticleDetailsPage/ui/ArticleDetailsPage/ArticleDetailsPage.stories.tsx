@@ -7,6 +7,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticleBlockType, ArticleType } from '@/entities/Article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
 import { UserRole } from '@/entities/User';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'pages/ArticleDetailsPage/ArticleDetails',
   component: ArticleDetailsPage,
@@ -129,13 +130,28 @@ const comments: ArticleDetailsCommentsSchema = {
   },
   isLoading: false,
 };
-
+// TODO: Вынести роут декоратор чтобы прокидывать текущее местоположение
 export const Dark: Story = {
   decorators: [
     (Story) => ThemeDecorator(Theme.DARK)(Story),
+    (Story) => (
+      <MemoryRouter initialEntries={['/articles/2']}>
+        <Routes>
+          <Route path="/articles/:id" element={<Story />} />
+        </Routes>
+      </MemoryRouter>
+    ),
     (Story) =>
       StoreDecorator({
+        user: {
+          authData: {
+            features: {
+              isArticleRatingEnabled: true,
+            },
+          },
+        },
         articleDetails: {
+          isLoading: false,
           data: article,
         },
         articleDetailsPage: {

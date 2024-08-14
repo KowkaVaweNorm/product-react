@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
@@ -31,9 +31,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
+  const params = useParams<any>();
+  const url = useLocation();
 
   if (!id) {
-    return <></>;
+    return <>{t("Статья не найдена")}</>;
   }
 
   return (
