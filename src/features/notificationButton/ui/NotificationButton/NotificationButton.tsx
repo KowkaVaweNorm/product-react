@@ -3,10 +3,10 @@ import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import cls from './NotificationButton.module.scss';
 import { NotificationList } from '@/entities/Notification';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import { Popover } from '@/shared/ui/Popups';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Popover } from '@/shared/ui/deprecated/Popups';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 interface NotificationButtonProps {

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Currency } from '../../model/types/currency';
 import { memo, useCallback, useState } from 'react';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 
 type ListBoxProps = Omit<Parameters<typeof ListBox>[0], 'onChange' | 'value'>;
 

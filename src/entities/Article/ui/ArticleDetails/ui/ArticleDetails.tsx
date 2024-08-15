@@ -15,18 +15,18 @@ import {
   getArticleDetailsIsLoading,
 } from '../../../model/selectors/articleDetails';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import { ArticleBlockType, type ArticleBlock } from '../../../model/type/article';
 import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent/ui/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../../ArticleCodeBlockComponent/ui/ArticleCodeBlockComponent';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };

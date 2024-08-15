@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
-import { Select, type SelectOption } from '@/shared/ui/Select';
+import { Select, type SelectOption } from '@/shared/ui/deprecated/Select';
 import { ArticleSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type SortOrder } from '@/shared/types/sort';

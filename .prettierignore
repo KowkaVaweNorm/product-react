@@ -5,3 +5,4 @@ node_modules
 *.html
 *.css
 *.scss
+json-server

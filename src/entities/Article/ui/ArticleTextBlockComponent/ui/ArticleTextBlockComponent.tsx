@@ -2,7 +2,7 @@ import cls from './ArticleTextBlockComponent.module.scss';
 import { memo } from 'react';
 import { type ArticleTextBlock } from '../../../model/type/article';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 interface IProps {
   className?: string;

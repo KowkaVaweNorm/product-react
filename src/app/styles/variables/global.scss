@@ -1,5 +1,16 @@
+@font-face {
+    font-family: Roboto;
+    src: url("../../../shared/assets/fonts/RobotoFlex.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
+    // Подключаем шрифт в глобальном стиле или как часть модуля
     --font-family-main: consolas, "Times New Roman", serif;
+    --font-family-text-redesigned: "Nunito Sans", sans-serif;
+    --font-family-header-redesigned: "Roboto", sans-serif;
 
     // s
     --font-size-s: 12px;
@@ -36,4 +47,18 @@
     --overlay-color: rgba(0 0 0 / 60%);
     --red-light: red;
     --red-dark: #ce0505;
+
+    // redesigned
+
+    // s
+    --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+
+    // m
+    --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-text-redesigned);
+
+    // l
+    --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-header-redesigned);
+
+    // xl
+    --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 }

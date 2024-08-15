@@ -21,12 +21,7 @@ const preview: Preview = {
     },
   },
 
-  decorators: [
-    SuspenseDecorator,
-    StyleDecorator,
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({}),
-  ],
+  decorators: [SuspenseDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
   loaders: [mswLoader],
   // tags: ['autodocs']
 };
