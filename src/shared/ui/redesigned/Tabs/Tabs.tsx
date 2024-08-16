@@ -5,7 +5,7 @@ import cls from './Tabs.module.scss';
 import { Flex, type FlexDirection } from '../Stack/Flex/Flex';
 
 export interface TabItem {
-  value: string;
+  value?: string;
   content: ReactNode;
 }
 
@@ -40,7 +40,7 @@ export const Tabs = memo((props: TabsProps) => {
           <Card
             variant={isSelected ? 'light' : 'normal'}
             className={classNames(cls.tab, {
-              [cls.selected]: isSelected,
+              [cls.selected ?? '']: isSelected,
             })}
             key={tab.value}
             onClick={clickHandle(tab)}

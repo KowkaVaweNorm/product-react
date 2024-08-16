@@ -1,8 +1,8 @@
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Page } from '@/widgets/Page';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ProfilePageProps {
   className?: string;

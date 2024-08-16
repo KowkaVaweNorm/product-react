@@ -1,9 +1,15 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import MainIcon from '@/shared/assets/icons/home-icon.svg';
-import AboutIcon from '@/shared/assets/icons/about-icon.svg';
-import ProfileIcon from '@/shared/assets/icons/profile_page-icon.svg';
-import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
+import MainIconDeprecated from '@/shared/assets/icons/main-20-20.svg';
+import AboutIconDeprecated from '@/shared/assets/icons/about-20-20.svg';
+import ProfileIconDeprecated from '@/shared/assets/icons/profile-20-20.svg';
+import ArticleIconDeprecated from '@/shared/assets/icons/article-20-20.svg';
+
+import MainIcon from '@/shared/assets/icons/home.svg';
+import ArticleIcon from '@/shared/assets/icons/article.svg';
+import AboutIcon from '@/shared/assets/icons/Info.svg';
+import ProfileIcon from '@/shared/assets/icons/avatar.svg';
+
 import { type SidebarItemType } from '../types/sidebar';
 import {
   getRouteAbout,
@@ -11,35 +17,55 @@ import {
   getRouteMain,
   getRouteProfile,
 } from '@/shared/const/router';
+import { toggleFeatures } from '@/shared/lib/features';
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
-  const list: SidebarItemType[] = [
+export const useSidebarItems = () => {
+  const userData = useSelector(getUserAuthData);
+  const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),
-      Icon: MainIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => MainIconDeprecated,
+        on: () => MainIcon,
+      }),
       text: 'Главная',
     },
     {
       path: getRouteAbout(),
-      Icon: AboutIcon,
+      Icon: toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => AboutIconDeprecated,
+        on: () => AboutIcon,
+      }),
       text: 'О сайте',
     },
   ];
-  if (userData !== undefined) {
-    list.push(
+
+  if (userData != null) {
+    sidebarItemsList.push(
       {
         path: getRouteProfile(userData.id),
-        Icon: ProfileIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ProfileIconDeprecated,
+          on: () => ProfileIcon,
+        }),
         text: 'Профиль',
         authOnly: true,
       },
       {
         path: getRouteArticles(),
-        Icon: ArticleIcon,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          off: () => ArticleIconDeprecated,
+          on: () => ArticleIcon,
+        }),
         text: 'Статьи',
         authOnly: true,
       },
     );
   }
-  return list;
-});
+
+  return sidebarItemsList;
+};

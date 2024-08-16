@@ -45,9 +45,9 @@ export const Card = memo((props: CardProps) => {
       className={classNames(
         cls.Card,
         {
-          [cls.max]: max,
-          [cls.fullHeight]: fullHeight,
-          [cls.fullWidth]: fullWidth,
+          [cls.max ?? '']: max,
+          [cls.fullHeight ?? '']: fullHeight,
+          [cls.fullWidth ?? '']: fullWidth,
         },
         [className, cls[variant], cls[paddingClass], cls[border]],
       )}

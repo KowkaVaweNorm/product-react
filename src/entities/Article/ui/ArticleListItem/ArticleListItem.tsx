@@ -17,8 +17,8 @@ import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 interface IArticleListItemProps {
   className?: string;
   article: Article;

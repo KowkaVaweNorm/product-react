@@ -34,7 +34,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     value,
     defaultValue,
     onChange,
-    readonly = true,
+    readonly = false,
     direction = 'bottom right',
     label,
   } = props;
@@ -55,7 +55,14 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button as={Button} variant="filled" addonRight={<Icon Svg={ArrowIcon} />}>
+        <HListBox.Button
+          onClick={() => {
+            console.log('click');
+          }}
+          as={Button}
+          variant="filled"
+          addonRight={<Icon Svg={ArrowIcon} />}
+        >
           {selectedItem?.content ?? defaultValue}
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>

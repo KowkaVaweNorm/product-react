@@ -2,10 +2,10 @@ import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
 import CopyIconNew from '@/shared/assets/icons/copy.svg';
-import { Button, ButtonTheme } from '../../deprecated/Button/Button';
 import cls from './Code.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '../Icon';
+import { Button, ButtonTheme } from '../../deprecated/Button';
 
 interface CodeProps {
   className?: string;

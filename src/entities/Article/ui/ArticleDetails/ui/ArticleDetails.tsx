@@ -26,7 +26,7 @@ import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent/ui/
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../../ArticleCodeBlockComponent/ui/ArticleCodeBlockComponent';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
 };

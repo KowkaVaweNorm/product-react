@@ -5,7 +5,6 @@ export const getQueryParams = (params: OptionalRecord<string, string>): URL => {
       url.searchParams.set(name, value);
     }
   });
-  console.log(url.searchParams.toString());
 
   return url;
 };

@@ -4,7 +4,7 @@ import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type DropdownDirection } from '@/shared/types/ui';
 import { Button, ButtonTheme } from '../../../Button';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 
 export interface ListBoxItem<ValueType> {
   value: ValueType;

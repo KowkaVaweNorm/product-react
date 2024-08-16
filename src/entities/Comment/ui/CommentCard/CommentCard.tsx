@@ -6,8 +6,8 @@ import { Text } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { getRouteProfile } from '@/shared/const/router';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface IProps {
   className?: string;

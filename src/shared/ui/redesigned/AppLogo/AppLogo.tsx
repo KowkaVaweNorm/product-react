@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import cls from './AppLogo.module.scss';
 import { HStack } from '../Stack';
 import AppSvg from '@/shared/assets/icons/app-image.svg';

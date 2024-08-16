@@ -1,17 +1,16 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './Sidebar.module.scss';
 import { memo, useMemo, useState } from 'react';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { SidebarItem } from '../SidebarItem/SidebarItem';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import cls from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ToggleFeatures } from '@/shared/lib/features';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface SidebarProps {
   className?: string;
@@ -19,18 +18,20 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className = '' }: SidebarProps): JSX.Element => {
   const [collapsed, setCollapsed] = useState(false);
-  const onToggle = (): void => {
-    setCollapsed((prev: boolean) => !prev);
+  const sidebarItemsList = useSidebarItems();
+
+  const onToggle = () => {
+    setCollapsed((prev) => !prev);
   };
-  const SidebarItemsList = useSelector(getSidebarItems);
 
   const itemsList = useMemo(
     () =>
-      SidebarItemsList.map((item) => (
-        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      sidebarItemsList.map((item) => (
+        <SidebarItem item={item} collapsed={collapsed} key={item.path} />
       )),
-    [SidebarItemsList, collapsed],
+    [collapsed, sidebarItemsList],
   );
+
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
@@ -43,7 +44,7 @@ export const Sidebar = memo(({ className = '' }: SidebarProps): JSX.Element => {
             [className],
           )}
         >
-          <AppLogo size={collapsed ? 30 : 50} className={cls.appLogo} />
+          <AppLogo size={collapsed ? 25 : 70} className={cls.appLogo} />
           <VStack role="navigation" gap="8" className={cls.items}>
             {itemsList}
           </VStack>
