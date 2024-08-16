@@ -1,5 +1,4 @@
-.comment_card {
-    display: block;
+.CommentCard {
     padding: 10px;
     border: 1px solid var(--primary-color);
 }
@@ -11,4 +10,8 @@
 
 .username {
     margin-left: 10px;
+}
+
+.loading {
+    border: none;
 }

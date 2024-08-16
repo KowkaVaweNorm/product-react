@@ -14,7 +14,7 @@ export const ArticlePageGreeting = memo(() => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!isArticlesPageWasOpened) {
+    if (!(isArticlesPageWasOpened ?? false)) {
       setIsOpen(true);
       dispatch(saveJsonSettings({ isArticlesPageWasOpened: true }));
     }

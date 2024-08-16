@@ -1,6 +1,5 @@
 import cls from './ArticlesPage.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
@@ -31,7 +30,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
   const { className } = props;
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
 

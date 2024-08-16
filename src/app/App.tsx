@@ -20,8 +20,10 @@ const App = (): JSX.Element => {
   const { t } = useTranslation();
   const toolbar = useAppToolbar();
   useEffect(() => {
-    dispatch(initAuthData());
-  }, [dispatch]);
+    if (!inited) {
+      dispatch(initAuthData());
+    }
+  }, [dispatch, inited]);
 
   if (!inited) {
     return (

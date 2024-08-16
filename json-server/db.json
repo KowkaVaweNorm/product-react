@@ -109,9 +109,9 @@
     {
       "id": "2",
       "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2023 год?",
       "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
-      "views": 5204,
+      "views": 4,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -924,7 +924,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "фыаыфаыф",
+      "first": "Михаил",
       "lastname": "kowka",
       "age": 25,
       "currency": "RUB",
@@ -1012,6 +1012,12 @@
       "rate": 5,
       "feedback": "фыаыфаыаф",
       "id": "ftXTMSh"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 4,
+      "id": "xU7r-T0"
     }
   ],
   "profile-ratings": [

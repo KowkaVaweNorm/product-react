@@ -1,8 +1,9 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback } from 'react';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Country } from '../../model/types/country';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CountrySelectProps {
   readonly?: boolean;
@@ -12,33 +13,37 @@ interface CountrySelectProps {
 }
 
 const options = [
+  { value: Country.Armenia, content: Country.Armenia },
   { value: Country.Russia, content: Country.Russia },
   { value: Country.Belarus, content: Country.Belarus },
   { value: Country.Kazakhstan, content: Country.Kazakhstan },
+  { value: Country.Ukraine, content: Country.Ukraine },
 ];
 export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
   const { className = '', onChange, value, readonly } = props;
   const { t } = useTranslation('profile');
-  const [localValue, setLocalValue] = useState<Country | undefined>(undefined);
   const onChangeHandler = useCallback(
     (value: string) => {
       onChange?.(value as Country);
-      setLocalValue(value as Country);
     },
     [onChange],
   );
+  const propsList = {
+    className,
+    value,
+    defaultValue: t('Укажите страну'),
+    label: t('Укажите страну'),
+    items: options,
+    onChange: onChangeHandler,
+    readonly,
+    direction: 'top right' as const,
+  };
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <ListBox
-        readonly={readonly}
-        label={t('Укажите страну')}
-        defaultValue={t('Укажите страну')}
-        items={options}
-        value={value ?? localValue}
-        onChange={onChangeHandler}
-        direction="top right"
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ListBox {...propsList} />}
+      off={<ListBoxDeprecated {...propsList} />}
+    />
   );
 });

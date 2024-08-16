@@ -1,11 +1,14 @@
 import cls from './ArticleList.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleView, type Article } from '../../model/type/article';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
+import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { type Article } from '../../model/type/article';
 
 interface IArticleListProps {
   className?: string;
@@ -14,43 +17,62 @@ interface IArticleListProps {
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
 }
-
-const getSkeletons = (view: ArticleView): JSX.Element[] => {
-  return new Array(view === ArticleView.SMALL ? 9 : 3)
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((item, index) => <ArticleListItemSkeleton view={view} key={index} className={cls.card} />);
-};
+    .map((item, index) => <ArticleListItemSkeleton className={cls.card} key={index} view={view} />);
 
 export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
   const { className, articles, view = ArticleView.SMALL, isLoading, target } = props;
   const { t } = useTranslation('article');
-  const renderArticle = (article: Article): JSX.Element => {
-    return (
-      <ArticleListItem
-        key={article.id}
-        article={article}
-        view={view}
-        className={cls.card}
-        target={target}
-      />
-    );
-  };
 
-  if (isLoading === false && articles.length === 0) {
+  if (!(isLoading ?? false) && articles.length === 0) {
     return (
-      <div className={classNames(cls.article_list ?? '', {}, [className, cls[view]])}>
-        <Text title={t('Статьи не найдены')} size={TextSize.L} />
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text size={TextSize.L} title={t('Статьи не найдены')} />
       </div>
     );
   }
 
   return (
-    <div
-      className={classNames(cls.article_list ?? '', {}, [className, cls[view]])}
-      data-testid={'ArticleList'}
-    >
-      {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading === true && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {(isLoading ?? false) && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {(isLoading ?? false) && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });
