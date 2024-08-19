@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { memo, Suspense, useEffect } from 'react';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -12,8 +12,9 @@ import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useTranslation } from 'react-i18next';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-const App = (): JSX.Element => {
+const App = memo((): JSX.Element => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
   const inited = useSelector(getUserInited);
@@ -66,6 +67,6 @@ const App = (): JSX.Element => {
       }
     />
   );
-};
+});
 
-export default App;
+export default withTheme(App);

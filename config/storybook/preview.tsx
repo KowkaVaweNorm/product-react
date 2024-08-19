@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 initialize();
 
 const preview: Preview = {
@@ -21,9 +22,14 @@ const preview: Preview = {
     },
   },
 
-  decorators: [SuspenseDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
-  loaders: [mswLoader],
-  // tags: ['autodocs']
+  decorators: [
+    SuspenseDecorator,
+    StyleDecorator,
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({}),
+    FeaturesFlagsDecorator({}),
+  ],
+  loaders: [mswLoader]
 };
 
 export default preview;
