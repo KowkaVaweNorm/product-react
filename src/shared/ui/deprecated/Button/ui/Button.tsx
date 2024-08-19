@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Button.module.scss';
-import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { ForwardedRef, forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
 export enum ButtonTheme {
   CLEAR = 'clear',
@@ -22,7 +22,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
-  disabled?: boolean;
+  isDisabled?: boolean;
   children?: ReactNode;
   isLoading?: boolean;
   fullWidth?: boolean;
@@ -31,13 +31,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const Button = memo((props: ButtonProps) => {
+export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
   const {
     className = '',
     theme = '',
     square = false,
     size = ButtonSize.M,
-    disabled = false,
+    isDisabled = false,
     fullWidth = false,
     isLoading,
     children,
@@ -48,15 +48,16 @@ export const Button = memo((props: ButtonProps) => {
     [cls[theme] ?? '']: true,
     [cls.square ?? '']: square,
     [cls[size] ?? '']: true,
-    [cls.disabled ?? '']: disabled,
+    [cls.disabled ?? '']: isDisabled,
     [cls.fullWidth ?? '']: fullWidth,
   };
   return (
     <button
       className={classNames(cls.Button ?? '', mods, [className, theme])}
-      disabled={disabled || isLoading}
+      disabled={isDisabled || isLoading}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
+      ref={ref}
     >
       {children}
     </button>

@@ -57,10 +57,13 @@ export function ListBox<ValueType extends string>(props: ListBoxProps<ValueType>
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button className={cls.trigger}>
-          <Button theme={ButtonTheme.OUTLINE} disabled={readonly}>
-            {value ?? defaultValue}
-          </Button>
+        <HListBox.Button
+          as={Button}
+          theme={ButtonTheme.OUTLINE}
+          className={cls.trigger}
+          isDisabled={readonly}
+        >
+          {value ?? defaultValue}
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
           {items?.map((item) => (

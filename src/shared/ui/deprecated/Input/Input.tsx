@@ -64,9 +64,9 @@ export const Input = memo((props: InputProps): JSX.Element => {
   };
 
   return (
-    <div className={classNames(cls.InputWrapper ?? '', mods, [className])}>
+    <div className={classNames(cls.InputWrapper ?? '', {}, [className])}>
       {placeholder.length > 0 && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
-      <div className={cls.caretWrapper}>
+      <div className={classNames(cls.caretWrapper, mods, [])}>
         <input
           ref={ref}
           type={type}

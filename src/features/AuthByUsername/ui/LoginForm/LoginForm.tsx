@@ -23,7 +23,6 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { LoadingOverlay } from '@/shared/ui/deprecated/LoadingOverlay';
 
@@ -46,8 +45,6 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
   const isLoading = useSelector(getLoginLoading);
   const error = useSelector(getLoginError);
 
-  const forceUpdate = useForceUpdate();
-
   const onChangeUsername = useCallback(
     (value: string): void => {
       dispatch(loginActions.setUsername(value));
@@ -67,10 +64,9 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
       const result = await dispatch(loginByUsername({ username, password }));
       if (result.meta.requestStatus === 'fulfilled') {
         onSuccess();
-        forceUpdate();
       }
     },
-    [dispatch, forceUpdate, onSuccess, password, username],
+    [dispatch, onSuccess, password, username],
   );
   return (
     // eslint-disable-next-line i18next/no-literal-string
