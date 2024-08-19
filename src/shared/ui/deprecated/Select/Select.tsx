@@ -15,6 +15,7 @@ interface SelectProps<T extends string> {
   onChange?: (value: T) => void;
   readonly?: boolean;
 }
+// TODO: Исправить цвет выпадающего меню
 /**
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated

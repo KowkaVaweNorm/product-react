@@ -2,9 +2,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ListBox } from './ListBox';
+// TODO: Сделать отображение относительно заданного направления
+// TODO: Сделать выделение на hover
 
 const meta: Meta<typeof ListBox> = {
-  title: 'shared/ListBox',
+  title: 'shared/depreacated/ListBox',
   component: ListBox,
   decorators: [
     (Story) => (

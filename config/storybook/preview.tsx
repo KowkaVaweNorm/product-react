@@ -6,6 +6,7 @@ import { initialize, mswLoader } from 'msw-storybook-addon';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
+import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
 initialize();
 
 const preview: Preview = {
@@ -27,7 +28,10 @@ const preview: Preview = {
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({}),
-    FeaturesFlagsDecorator({}),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: false,
+    }),
+    RouteDecorator,
   ],
   loaders: [mswLoader],
 };

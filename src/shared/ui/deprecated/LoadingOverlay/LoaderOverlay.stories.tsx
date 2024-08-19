@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LoadingOverlay } from './LoadingOverlay';
 
 const meta: Meta<typeof LoadingOverlay> = {
-  title: 'shared/LoadingOverlay',
+  title: 'shared/depreacated/LoadingOverlay',
   component: LoadingOverlay,
   parameters: {
     screenshot: {

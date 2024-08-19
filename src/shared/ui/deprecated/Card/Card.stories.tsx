@@ -7,7 +7,7 @@ import { Text } from '../Text/Text';
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Card> = {
-  title: 'shared/Card',
+  title: 'shared/depreacated/Card',
   component: Card,
 };
 

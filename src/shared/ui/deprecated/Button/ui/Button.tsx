@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Button.module.scss';
-import { ForwardedRef, forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { type ForwardedRef, forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 
 export enum ButtonTheme {
   CLEAR = 'clear',

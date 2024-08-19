@@ -4,16 +4,16 @@ import { StoreProvider, type StateSchema } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article';
 import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/features/editableProfileCard';
-import { addCommentFormSliceReducer } from '@/features/addCommentForm';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 import { articlesPageReducer } from '@/pages/ArticlesPage';
 import { type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { addCommentFormReducer } from '@/features/addCommentForm';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  addCommentForm: addCommentFormSliceReducer,
+  addCommentForm: addCommentFormReducer,
   articlesPage: articlesPageReducer,
   articleDetailsPage: articleDetailsPageReducer,
 };
