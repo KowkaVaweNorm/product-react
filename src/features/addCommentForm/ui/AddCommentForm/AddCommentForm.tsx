@@ -5,15 +5,14 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import {
-  addCommentFormActions,
   addCommentFormReducer,
+  useAddCommentFormActions,
 } from '../../model/slice/addCommentFormSlice';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -33,14 +32,14 @@ const reducers: ReducersList = {
 const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+  const { setText } = useAddCommentFormActions();
   const text = useSelector(getAddCommentFormText);
 
   const onCommentTextChange = useCallback(
     (value: string): void => {
-      dispatch(addCommentFormActions.setText(value));
+      setText(value);
     },
-    [dispatch],
+    [setText],
   );
 
   const onSendHandler = useCallback(() => {

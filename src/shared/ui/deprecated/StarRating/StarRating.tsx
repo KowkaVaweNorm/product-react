@@ -61,7 +61,6 @@ export const StarRating = memo((props: StarRatingProps) => {
             currentStarsCount >= starNumber ? cls.hovered : cls.normal,
           ]),
           Svg: StarIcon,
-          key: starNumber,
           width: size,
           height: size,
           onMouseLeave: onLeave,
@@ -72,10 +71,10 @@ export const StarRating = memo((props: StarRatingProps) => {
         };
         return (
           <ToggleFeatures
-            key={starNumber}
+            key={String(starNumber) + '_ToggleFeatures'}
             feature="isAppRedesigned"
-            on={<Icon clickable={!isSelected} {...commonProps} />}
-            off={<IconDeprecated {...commonProps} />}
+            on={<Icon clickable={!isSelected} key={starNumber} {...commonProps} />}
+            off={<IconDeprecated key={starNumber} {...commonProps} />}
           />
         );
       })}

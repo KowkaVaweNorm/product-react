@@ -1,4 +1,11 @@
-import { type ImgHTMLAttributes, memo, type ReactElement, useLayoutEffect, useState } from 'react';
+import React, {
+  type ImgHTMLAttributes,
+  memo,
+  type ReactElement,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
@@ -10,26 +17,32 @@ export const AppImage = memo((props: AppImageProps) => {
   const { className, src, alt = 'image', errorFallback, fallback, ...otherProps } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-
+  const imgRef = useRef<HTMLImageElement>(null);
   useLayoutEffect(() => {
-    const img = new Image();
-    img.src = src ?? '';
-    img.onload = () => {
-      setIsLoading(false);
-    };
-    img.onerror = () => {
-      setIsLoading(false);
-      setHasError(true);
-    };
-  }, [src]);
+    const img = imgRef.current;
+    if (img != null) {
+      img.src = src ?? '';
+      img.onload = () => {
+        setIsLoading(false);
+      };
+      img.onerror = () => {
+        setIsLoading(false);
+        setHasError(true);
+      };
+    }
+  }, [src, imgRef]);
 
   if (isLoading && fallback != null) {
-    return fallback;
+    return (
+      <>
+        <img ref={imgRef} style={{ opacity: 0 }} />
+        {fallback};
+      </>
+    );
   }
 
   if (hasError && errorFallback != null) {
     return errorFallback;
   }
-
-  return <img className={className} src={src} alt={alt} {...otherProps} />;
+  return <img className={className} ref={imgRef} alt={alt} {...otherProps} />;
 });

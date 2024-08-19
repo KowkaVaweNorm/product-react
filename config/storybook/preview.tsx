@@ -29,7 +29,7 @@ const preview: Preview = {
     StoreDecorator({}),
     FeaturesFlagsDecorator({}),
   ],
-  loaders: [mswLoader]
+  loaders: [mswLoader],
 };
 
 export default preview;
