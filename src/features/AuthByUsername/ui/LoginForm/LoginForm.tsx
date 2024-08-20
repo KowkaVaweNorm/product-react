@@ -8,7 +8,6 @@ import {
   ButtonTheme as ButtonThemeDeprecated,
 } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import { TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import {
   DynamicModuleLoader,
@@ -24,7 +23,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
-import { LoadingOverlay } from '@/shared/ui/deprecated/LoadingOverlay';
+import { LoadingOverlay } from '@/shared/ui/redesigned/LoadingOverlay';
 
 export interface LoginFormProps {
   className?: string;
@@ -78,9 +77,7 @@ const LoginForm = memo((props: LoginFormProps): JSX.Element => {
           className={classNames(cls.LoginForm ?? '', {}, [className])}
         >
           <Text title={t('Форма авторизации')} />
-          {error != null && (
-            <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />
-          )}
+          {error != null && <Text text={t('Вы ввели неверный логин или пароль')} variant="error" />}
           <ToggleFeatures
             feature="isAppRedesigned"
             on={

@@ -6,7 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Loader> = {
-  title: 'shared/depreacated/Loader',
+  title: 'shared/Loader',
   component: Loader,
 };
 

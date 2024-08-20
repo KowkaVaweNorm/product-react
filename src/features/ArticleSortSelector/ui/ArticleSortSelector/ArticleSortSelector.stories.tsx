@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleSortSelector } from './ArticleSortSelector';
+import { ArticleSortSelector, type IArticleSortSelectorProps } from './ArticleSortSelector';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { ArticleSortField } from '@/entities/Article';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof ArticleSortSelector> = {
   title: 'features/ArticleSortSelector',
@@ -14,29 +15,38 @@ const meta: Meta<typeof ArticleSortSelector> = {
 export default meta;
 type Story = StoryObj<typeof ArticleSortSelector>;
 
-export const Light: Story = {
-  args: {
-    sort: ArticleSortField.VIEW,
-    order: 'desc',
-    onChangeOrder: (props) => {
-      console.log(props);
-    },
-    onChangeSort(props) {
-      console.log(props);
-    },
+const stubArgs: Partial<IArticleSortSelectorProps> = {
+  sort: ArticleSortField.VIEW,
+  order: 'desc',
+  onChangeOrder: (props: any) => {
+    console.log(props);
+  },
+  onChangeSort(props: any) {
+    console.log(props);
   },
 };
+export const LightDeprecated: Story = {
+  args: stubArgs,
+};
+export const Light: Story = {
+  decorators: [
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: stubArgs,
+};
 
-export const Dark: Story = {
+export const DarkDeprecated: Story = {
   decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-  args: {
-    sort: ArticleSortField.VIEW,
-    order: 'desc',
-    onChangeOrder: (props) => {
-      console.log(props);
-    },
-    onChangeSort(props) {
-      console.log(props);
-    },
-  },
+  args: stubArgs,
+};
+export const Dark: Story = {
+  decorators: [
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+  ],
+  args: stubArgs,
 };

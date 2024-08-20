@@ -9,7 +9,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
-interface IArticleSortSelectorProps {
+export interface IArticleSortSelectorProps {
   className?: string;
   sort: ArticleSortField;
   order: SortOrder;

@@ -5,6 +5,7 @@ import AddCommentForm from './AddCommentForm';
 import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof AddCommentForm> = {
   title: 'features/AddCommentForm',
@@ -14,7 +15,7 @@ const meta: Meta<typeof AddCommentForm> = {
 export default meta;
 type Story = StoryObj<typeof AddCommentForm>;
 
-export const Light: Story = {
+export const LightDeprecated: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
@@ -24,10 +25,33 @@ export const Light: Story = {
         },
       })(Story),
   ],
-  render: () => <AddCommentForm onSendComment={action('onSendComment')} />,
+  args: {
+    onSendComment: () => {
+      action('onSendComment');
+    },
+  },
+};
+export const Light: Story = {
+  decorators: [
+    (Story: StoryFn) =>
+      StoreDecorator({
+        addCommentForm: {
+          text: 'text comment',
+          error: undefined,
+        },
+      })(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    onSendComment: () => {
+      action('onSendComment');
+    },
+  },
 };
 
-export const Dark: Story = {
+export const DarkDeprecated: Story = {
   decorators: [
     (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
@@ -38,5 +62,29 @@ export const Dark: Story = {
         },
       })(Story),
   ],
-  render: () => <AddCommentForm onSendComment={action('onSendComment')} />,
+  args: {
+    onSendComment: () => {
+      action('onSendComment');
+    },
+  },
+};
+export const Dark: Story = {
+  decorators: [
+    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
+    (Story: StoryFn) =>
+      StoreDecorator({
+        addCommentForm: {
+          text: 'text comment',
+          error: undefined,
+        },
+      })(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    onSendComment: () => {
+      action('onSendComment');
+    },
+  },
 };

@@ -1,10 +1,10 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './StarRating.module.scss';
 import { memo, useState } from 'react';
-import { Icon as IconDeprecated } from '../Icon/Icon';
+import { Icon as IconDeprecated } from '../../deprecated/Icon/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
-import { Icon } from '../../redesigned/Icon';
+import { Icon } from '../Icon';
 
 interface StarRatingProps {
   className?: string;
@@ -14,10 +14,7 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, size = 30, selectedStars = 0, onSelect } = props;
   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);

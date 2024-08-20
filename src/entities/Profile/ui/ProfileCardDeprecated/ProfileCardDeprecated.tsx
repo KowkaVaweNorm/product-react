@@ -8,7 +8,7 @@ import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
-import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Loader } from '@/shared/ui/redesigned/Loader';
 import { Text as TextDeprecated, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 
 export const ProfileCardDeprecatedError = () => {

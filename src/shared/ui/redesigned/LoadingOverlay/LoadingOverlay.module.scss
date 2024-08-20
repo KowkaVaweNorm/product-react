@@ -25,6 +25,7 @@
 }
 
 .wrap .Spinner_visible {
+    z-index: 1;
     opacity: 1;
     caret-color: transparent !important;
 }

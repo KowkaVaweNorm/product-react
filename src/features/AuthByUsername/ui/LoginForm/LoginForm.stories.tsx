@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import LoginForm from './LoginForm';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof LoginForm> = {
   title: 'features/LoginForm',
@@ -15,8 +16,10 @@ const meta: Meta<typeof LoginForm> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof LoginForm>;
-export const Primary: Story = {
+
+export const LightDeprecated: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
@@ -27,7 +30,44 @@ export const Primary: Story = {
         },
       })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}} />,
+  args: {
+    onSuccess() {},
+  },
+};
+export const Light: Story = {
+  decorators: [
+    (Story) =>
+      StoreDecorator({
+        loginForm: {
+          username: '123',
+          password: 'asd',
+          isLoading: false,
+        },
+      })(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    onSuccess() {},
+  },
+};
+
+export const WithErrorDeprecated: Story = {
+  decorators: [
+    (Story) =>
+      StoreDecorator({
+        loginForm: {
+          username: '123',
+          password: 'asd',
+          isLoading: false,
+          error: 'ERROR',
+        },
+      })(Story),
+  ],
+  args: {
+    onSuccess() {},
+  },
 };
 export const WithError: Story = {
   decorators: [
@@ -40,10 +80,16 @@ export const WithError: Story = {
           error: 'ERROR',
         },
       })(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
   ],
-  render: () => <LoginForm onSuccess={() => {}} />,
+  args: {
+    onSuccess() {},
+  },
 };
-export const Loading: Story = {
+
+export const LoadingDeprecated: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
@@ -54,5 +100,26 @@ export const Loading: Story = {
         },
       })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}} />,
+  args: {
+    onSuccess() {},
+  },
+};
+
+export const Loading: Story = {
+  decorators: [
+    (Story) =>
+      StoreDecorator({
+        loginForm: {
+          password: '',
+          username: '',
+          isLoading: true,
+        },
+      })(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    onSuccess() {},
+  },
 };

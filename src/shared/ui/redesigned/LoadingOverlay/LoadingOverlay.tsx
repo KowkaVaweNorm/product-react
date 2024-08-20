@@ -7,10 +7,6 @@ interface IProps {
   children?: ReactNode;
   loading?: boolean;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const LoadingOverlay = ({ children, loading = false }: IProps): JSX.Element => {
   return (
     <div className={cls.wrap}>

@@ -32,7 +32,6 @@ export interface ProfileCardProps {
 export const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   const { error = '', isLoading = false } = props;
 
-  console.log('profile props:', props);
   if (isLoading) {
     return (
       <ToggleFeatures
