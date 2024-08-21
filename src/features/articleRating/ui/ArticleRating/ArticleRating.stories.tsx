@@ -5,6 +5,7 @@ import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof ArticleRating> = {
   title: 'features/ArticleRating',
@@ -15,11 +16,38 @@ const meta: Meta<typeof ArticleRating> = {
 export default meta;
 type Story = StoryObj<typeof ArticleRating>;
 
+export const LightDeprecated: Story = {
+  args: {
+    articleId: '0',
+  },
+};
+
 export const Light: Story = {
-  render: () => <ArticleRating articleId="0" />,
+  decorators: [
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    articleId: '0',
+  },
+};
+
+export const DarkDeprecated: Story = {
+  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+  args: {
+    articleId: '0',
+  },
 };
 
 export const Dark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <ArticleRating articleId="0" />,
+  decorators: [
+    (Story) => ThemeDecorator(Theme.DARK)(Story),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
+  args: {
+    articleId: '0',
+  },
 };

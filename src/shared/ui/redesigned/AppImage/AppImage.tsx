@@ -36,7 +36,7 @@ export const AppImage = memo((props: AppImageProps) => {
     return (
       <>
         <img ref={imgRef} style={{ opacity: 0 }} />
-        {fallback};
+        {fallback}
       </>
     );
   }

@@ -30,9 +30,9 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
-    ) as ArticleTextBlock;
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as
+      | ArticleTextBlock
+      | undefined;
 
     return (
       <div
@@ -53,7 +53,9 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
             className={cls.img}
             alt={article.title}
           />
-          {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
+          {textBlock !== undefined && (
+            <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+          )}
           <div className={cls.footer}>
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
