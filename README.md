@@ -10,7 +10,7 @@
 - [Сайт (последняя сборка)](https://master--kowka-app.netlify.app/)
 - [Chromatic (скришотные тесты)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
 - [Storybook (онлайн версия)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
-- [Отчёты (тесты, размер бандла и тд)]([https://master--kowka-app.netlify.app/](https://kowkavawenorm.github.io/product-react))
+- [Отчёты (тесты, размер бандла и тд)](https://kowkavawenorm.github.io/product-react))
 ## Команды скриптов
 
 ```bash
