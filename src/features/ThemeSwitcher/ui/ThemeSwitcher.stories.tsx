@@ -4,20 +4,33 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof ThemeSwitcher> = {
-  title: 'shared/ThemeSwitcher',
+  title: 'features/ThemeSwitcher',
   component: ThemeSwitcher,
 };
 
 export default meta;
 type Story = StoryObj<typeof ThemeSwitcher>;
 
+export const LightDeprecated: Story = {};
 export const Light: Story = {
-  render: () => <ThemeSwitcher />,
+  decorators: [
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
 };
 
+export const DarkDeprecated: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
 export const Dark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <ThemeSwitcher />,
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    FeaturesFlagsDecorator({
+      isAppRedesigned: true,
+    }),
+  ],
 };

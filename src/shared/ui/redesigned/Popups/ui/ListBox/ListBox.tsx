@@ -9,6 +9,7 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { Icon } from '../../../Icon';
+import { Text } from '../../../Text';
 
 export interface ListBoxItem<T extends string> {
   value: T;
@@ -47,7 +48,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
   return (
     <HStack gap="4">
-      {Boolean(label) && <span>{`${label}>`}</span>}
+      {Boolean(label) && <Text text={label} />}
       <HListBox
         disabled={readonly}
         as="div"

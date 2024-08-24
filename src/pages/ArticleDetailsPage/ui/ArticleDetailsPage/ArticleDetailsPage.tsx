@@ -49,8 +49,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps): JSX.Element => {
                 <VStack gap="16" max>
                   <DetailsContainer />
                   <ArticleRating articleId={id} />
-                  {/* <ArticleRecommendationsList />
-                  <ArticleDetailsComments id={id} /> */}
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments id={id} />
                 </VStack>
               </Page>
             }
