@@ -67,5 +67,5 @@ export const AvatarDark: Story = {
   ],
   args: {
     className: cls.Centered,
-  }
+  },
 };
