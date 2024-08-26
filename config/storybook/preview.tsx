@@ -7,20 +7,32 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 initialize();
 
 const themes: (keyof typeof Theme)[] = ['LIGHT', 'DARK', 'ORANGE'];
-
+const design: ('old' | 'new')[] = ['new', 'old'];
 const preview: Preview = {
   globalTypes: {
+    // Иконки можно посмотреть туть : https://5a375b97f4b14f0020b0cda3-wbeulgbetj.chromatic.com/?path=/story/basics-icon--labels
     theme: {
       description: 'Global theme for components',
       defaultValue: 'light',
       toolbar: {
         title: 'Theme',
-        icon: 'circlehollow',
+        icon: 'paintbrush',
         items: themes,
+        dynamicTitle: true,
+      },
+    },
+    design: {
+      description: 'Global theme for components',
+      defaultValue: 'new',
+      toolbar: {
+        title: 'Design',
+        icon: 'contrast',
+        items: design,
         dynamicTitle: true,
       },
     },
@@ -36,6 +48,18 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    chromatic: {
+      modes: {
+        light_new: {
+          design: 'new',
+          theme: Theme.LIGHT
+        },
+        light_old: {
+          design: 'old',
+          theme: Theme.LIGHT
+        }
+      },
+    },
   },
 
   decorators: [
@@ -43,9 +67,7 @@ const preview: Preview = {
     StyleDecorator,
     ThemeDecorator,
     StoreDecorator({}),
-    FeaturesFlagsDecorator({
-      isAppRedesigned: false,
-    }),
+    NewDesignDecorator,
     RouteDecorator,
   ],
   loaders: [mswLoader],

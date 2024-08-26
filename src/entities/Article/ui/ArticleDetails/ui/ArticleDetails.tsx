@@ -33,7 +33,7 @@ const Redesigned = () => {
   const article = useSelector(getArticleDetailsData);
 
   return (
-    <VStack align="center">
+    <VStack gap="4" max>
       <Text title={article?.title} size="l" bold />
       <Text title={article?.subtitle} />
       <AppImage
@@ -101,12 +101,7 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack
-        gap="16"
-        align="center"
-        max
-        className={classNames(cls.ArticleDetails, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
       </VStack>
     </DynamicModuleLoader>

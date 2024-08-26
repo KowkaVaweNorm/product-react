@@ -11,6 +11,7 @@ body {
 .app,
 .app_modal,
 .app_drawer {
+    overflow: auto;
     font: var(--font-m);
     color: var(--primary-color);
 }
