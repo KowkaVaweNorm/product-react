@@ -8,15 +8,11 @@ import {
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text as TextDeprecated, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -27,43 +23,17 @@ import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../../model/services/fetchArticleById/fetchArticleById';
+import { ArticleDetailsDeprecated } from './deprecated/ArticleDetailsDeprecated';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
-};
-const Deprecated = () => {
-  const article = useSelector(getArticleDetailsData);
-  return (
-    <>
-      <HStack justify="center" max className={cls.avatarWrapper}>
-        <Avatar size={200} src={article?.img} className={cls.avatar} />
-      </HStack>
-      <VStack gap="4" max data-testid="ArticleDetails.Info">
-        <TextDeprecated
-          className={cls.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={TextSize.L}
-        />
-        <HStack gap="8" className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={EyeIcon} />
-          <TextDeprecated text={String(article?.views)} />
-        </HStack>
-        <HStack gap="8" className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={CalendarIcon} />
-          <TextDeprecated text={article?.createdAt} />
-        </HStack>
-      </VStack>
-      {article?.blocks.map(renderArticleBlock)}
-    </>
-  );
 };
 
 const Redesigned = () => {
   const article = useSelector(getArticleDetailsData);
 
   return (
-    <>
+    <VStack align="center">
       <Text title={article?.title} size="l" bold />
       <Text title={article?.subtitle} />
       <AppImage
@@ -72,7 +42,7 @@ const Redesigned = () => {
         className={cls.img}
       />
       {article?.blocks.map(renderArticleBlock)}
-    </>
+    </VStack>
   );
 };
 
@@ -120,12 +90,23 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
       <TextDeprecated align={TextAlign.CENTER} title={t('Произошла ошибка при загрузке статьи.')} />
     );
   } else {
-    content = <ToggleFeatures feature="isAppRedesigned" on={<Redesigned />} off={<Deprecated />} />;
+    content = (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<Redesigned />}
+        off={<ArticleDetailsDeprecated />}
+      />
+    );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap="16" max className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap="16"
+        align="center"
+        max
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
       </VStack>
     </DynamicModuleLoader>
