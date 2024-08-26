@@ -52,12 +52,12 @@ const preview: Preview = {
       modes: {
         light_new: {
           design: 'new',
-          theme: Theme.LIGHT
+          theme: Theme.LIGHT,
         },
         light_old: {
           design: 'old',
-          theme: Theme.LIGHT
-        }
+          theme: Theme.LIGHT,
+        },
       },
     },
   },

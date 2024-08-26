@@ -6,7 +6,7 @@ import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { getFeatureFlag, ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { type Article } from '../../model/type/article';
 
@@ -34,7 +34,7 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
   } = props;
   const { t } = useTranslation('article');
   const hasSomeArticles = articles !== undefined && articles.length > 0;
-
+  const flag = getFeatureFlag('isAppRedesigned');
   if (!isLoading && !hasSomeArticles) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

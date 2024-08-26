@@ -2,19 +2,21 @@ import React, {
   type ImgHTMLAttributes,
   memo,
   type ReactElement,
+  type ReactNode,
   useLayoutEffect,
   useRef,
   useState,
 } from 'react';
+import { ErrorFallback as DefaultErrorFallback } from './ErrorFallback';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
-  errorFallback?: ReactElement;
+  ErrorFallback?: ReactNode;
 }
 
-export const AppImage = memo((props: AppImageProps) => {
-  const { className, src, alt = 'image', errorFallback, fallback, ...otherProps } = props;
+export const AppImage = memo((props: AppImageProps): JSX.Element => {
+  const { className, src, alt = 'image', ErrorFallback, fallback, ...otherProps } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -41,8 +43,17 @@ export const AppImage = memo((props: AppImageProps) => {
     );
   }
 
-  if (hasError && errorFallback != null) {
-    return errorFallback;
+  if (hasError) {
+    console.log('has Error:', hasError);
+    return (
+      <>
+        {ErrorFallback ? (
+          <ErrorFallback className={className} alt={alt} {...otherProps} />
+        ) : (
+          <DefaultErrorFallback className={className} alt={alt} {...otherProps} />
+        )}
+      </>
+    );
   }
   return <img className={className} ref={imgRef} alt={alt} {...otherProps} />;
 });

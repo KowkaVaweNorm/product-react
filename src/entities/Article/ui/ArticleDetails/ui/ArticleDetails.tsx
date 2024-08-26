@@ -9,41 +9,21 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import {
-  getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../../model/selectors/articleDetails';
-import { renderArticleBlock } from './renderBlock';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsDeprecated } from './deprecated/ArticleDetailsDeprecated';
+import { Redesigned } from './redesigned/ArticleDetails';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
-};
-
-const Redesigned = () => {
-  const article = useSelector(getArticleDetailsData);
-
-  return (
-    <VStack gap="4" max>
-      <Text title={article?.title} size="l" bold />
-      <Text title={article?.subtitle} />
-      <AppImage
-        fallback={<SkeletonRedesigned width="100%" height={420} border="16px" />}
-        src={article?.img}
-        className={cls.img}
-      />
-      {article?.blocks.map(renderArticleBlock)}
-    </VStack>
-  );
 };
 
 export const ArticleDetailsSkeleton = () => {

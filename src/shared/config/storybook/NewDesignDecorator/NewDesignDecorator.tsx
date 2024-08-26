@@ -15,10 +15,10 @@ export const NewDesignDecorator = (StoryComponent: StoryFn, context: StoryContex
         document.documentElement.classList.add('app');
         document.documentElement.classList.remove('app_redesigned');
         break;
-        case 'new':
-          setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: true });
-          setCurrentDesign('new');
-          document.documentElement.classList.remove('app');
+      case 'new':
+        setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: true });
+        setCurrentDesign('new');
+        document.documentElement.classList.remove('app');
         document.documentElement.classList.add('app_redesigned');
         break;
       default:
@@ -28,7 +28,7 @@ export const NewDesignDecorator = (StoryComponent: StoryFn, context: StoryContex
     }
   }, [design]);
   return (
-    <div className={currentDesign === 'new' ? 'app_redesigned' : ''}>
+    <div key={currentDesign} className={currentDesign === 'new' ? 'app_redesigned' : ''}>
       <StoryComponent />
     </div>
   );
