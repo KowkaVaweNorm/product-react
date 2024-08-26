@@ -1,9 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { ArticleView, type Article } from '../../model/type/article';
 
 const meta: Meta<typeof ArticleList> = {
@@ -392,7 +391,6 @@ export const BigViewLight: Story = {
 };
 
 export const BigViewDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleList articles={list} view={ArticleView.BIG} />,
 };
 export const SmallViewLight: Story = {
@@ -400,7 +398,6 @@ export const SmallViewLight: Story = {
 };
 
 export const SmallViewDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleList articles={list} view={ArticleView.SMALL} />,
 };
 
@@ -409,7 +406,6 @@ export const BigViewLoadingLight: Story = {
 };
 
 export const BigViewLoadingDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleList articles={[]} view={ArticleView.BIG} isLoading={true} />,
 };
 export const SmallViewLoadingLight: Story = {
@@ -417,6 +413,5 @@ export const SmallViewLoadingLight: Story = {
 };
 
 export const SmallViewLoadingDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true} />,
 };

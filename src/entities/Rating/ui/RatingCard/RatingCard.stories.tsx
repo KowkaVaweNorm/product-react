@@ -2,8 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { RatingCard } from './RatingCard';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof RatingCard> = {
@@ -23,14 +22,12 @@ export const Light: Story = {
 };
 export const LightDeprecated: Story = {};
 
-export const DarkDeprecated: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-};
+export const DarkDeprecated: Story = {};
 export const Dark: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    FeaturesFlagsDecorator({
-      isAppRedesigned: true,
-    }),
+    (Story) =>
+      FeaturesFlagsDecorator({
+        isAppRedesigned: true,
+      }),
   ],
 };

@@ -2,8 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleTypeTabs } from './ArticleTypeTabs';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof ArticleTypeTabs> = {
@@ -31,15 +30,14 @@ export const Light: Story = {
 };
 
 export const DarkDeprecated: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   args: stubArgs,
 };
 export const Dark: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    FeaturesFlagsDecorator({
-      isAppRedesigned: true,
-    }),
+    (Story) =>
+      FeaturesFlagsDecorator({
+        isAppRedesigned: true,
+      }),
   ],
   args: stubArgs,
 };

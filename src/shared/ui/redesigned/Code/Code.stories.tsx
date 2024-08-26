@@ -1,9 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Code } from './Code';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof Code> = {
@@ -29,19 +28,13 @@ export const LightDeprecated: Story = {
 };
 
 export const Dark: Story = {
-  decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    FeaturesFlagsDecorator({ isAppRedesigned: true }),
-  ],
+  decorators: [FeaturesFlagsDecorator({ isAppRedesigned: true })],
   args: {
     text: stubText,
   },
 };
 export const DarkDeprecated: Story = {
-  decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    FeaturesFlagsDecorator({ isAppRedesigned: false }),
-  ],
+  decorators: [FeaturesFlagsDecorator({ isAppRedesigned: false })],
   args: {
     text: stubText,
   },

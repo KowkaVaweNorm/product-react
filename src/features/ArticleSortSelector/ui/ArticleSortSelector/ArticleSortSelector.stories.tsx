@@ -2,8 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleSortSelector, type IArticleSortSelectorProps } from './ArticleSortSelector';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+
 import { ArticleSortField } from '@/entities/Article';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
@@ -38,7 +37,6 @@ export const Light: Story = {
 };
 
 export const DarkDeprecated: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   args: stubArgs,
 };
 export const Dark: Story = {
@@ -46,7 +44,6 @@ export const Dark: Story = {
     FeaturesFlagsDecorator({
       isAppRedesigned: true,
     }),
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
   ],
   args: stubArgs,
 };

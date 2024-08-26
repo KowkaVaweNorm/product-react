@@ -2,8 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button, ButtonSize, ButtonTheme } from './Button';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Button> = {
   title: 'shared/depreacated/Button',
@@ -34,7 +32,6 @@ export const Outline: Story = {
   render: () => <Button theme={ButtonTheme.OUTLINE}>TEST </Button>,
 };
 export const OutlineDark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <Button theme={ButtonTheme.OUTLINE}>TEXT</Button>,
 };
 

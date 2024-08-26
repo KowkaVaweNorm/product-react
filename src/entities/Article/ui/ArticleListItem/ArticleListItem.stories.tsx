@@ -1,9 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleListItem } from './ArticleListItem';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { ArticleView, type Article, ArticleBlockType, ArticleType } from '../../model/type/article';
 
 const meta: Meta<typeof ArticleListItem> = {
@@ -94,7 +93,6 @@ export const BigLight: Story = {
 };
 
 export const BigDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleListItem article={article} view={ArticleView.BIG} />,
 };
 export const SmallLight: Story = {
@@ -102,6 +100,5 @@ export const SmallLight: Story = {
 };
 
 export const SmallDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => <ArticleListItem article={article} view={ArticleView.SMALL} />,
 };

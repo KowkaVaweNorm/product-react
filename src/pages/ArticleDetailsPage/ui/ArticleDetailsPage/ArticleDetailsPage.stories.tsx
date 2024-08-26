@@ -1,8 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleType } from '@/entities/Article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
@@ -133,8 +132,7 @@ const comments: ArticleDetailsCommentsSchema = {
 // TODO: Вынести роут декоратор чтобы прокидывать текущее местоположение
 export const Dark: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    (Story) => (
+    (Story) => (Story) => (
       <MemoryRouter initialEntries={['/articles/2']}>
         <Routes>
           <Route path="/articles/:id" element={<Story />} />

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { LangSwitcher } from './LangSwitcher';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { Theme } from '@/shared/const/theme';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 import { I18nDecorator } from '@/shared/config/storybook/i18nDecorator/i18nDecorator';

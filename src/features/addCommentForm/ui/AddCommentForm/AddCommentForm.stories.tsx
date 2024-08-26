@@ -2,8 +2,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import AddCommentForm from './AddCommentForm';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
@@ -53,7 +52,6 @@ export const Light: Story = {
 
 export const DarkDeprecated: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         addCommentForm: {
@@ -70,7 +68,6 @@ export const DarkDeprecated: Story = {
 };
 export const Dark: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         addCommentForm: {

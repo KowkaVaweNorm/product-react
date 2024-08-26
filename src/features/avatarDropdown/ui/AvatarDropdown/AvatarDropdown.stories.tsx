@@ -2,8 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AvatarDropdown } from './AvatarDropdown';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 import cls from './AvatarDropdown.stories.module.scss';
@@ -44,8 +43,7 @@ export const AvatarLight: Story = {
 };
 export const AvatarDarkDeprecated: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    (Story) =>
+    (Story) => (Story) =>
       StoreDecorator({
         user: { authData: { id: '', username: '' } },
       })(Story),
@@ -56,8 +54,7 @@ export const AvatarDarkDeprecated: Story = {
 };
 export const AvatarDark: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    (Story) =>
+    (Story) => (Story) =>
       StoreDecorator({
         user: { authData: { id: '', username: '' } },
       })(Story),
@@ -67,5 +64,5 @@ export const AvatarDark: Story = {
   ],
   args: {
     className: cls.Centered,
-  }
+  },
 };

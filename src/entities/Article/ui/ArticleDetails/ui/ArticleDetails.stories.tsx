@@ -1,7 +1,5 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { type ArticleBlockType, type ArticleType } from '../../../model/type/article';
 
@@ -122,7 +120,6 @@ export const LightLoading: Story = {
 
 export const Dark: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: any) =>
       StoreDecorator({
         articleDetails: {
@@ -203,7 +200,6 @@ export const Dark: Story = {
 };
 export const DarkLoading: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: any) =>
       StoreDecorator({
         articleDetails: {
@@ -216,7 +212,6 @@ export const DarkLoading: Story = {
 };
 export const DarkError: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: any) =>
       StoreDecorator({
         articleDetails: {

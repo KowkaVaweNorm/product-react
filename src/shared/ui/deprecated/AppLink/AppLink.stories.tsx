@@ -2,8 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AppLink, AppLinkTheme } from './AppLink';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof AppLink> = {
   title: 'shared/depreacated/AppLink',
@@ -38,7 +36,6 @@ export const Red: Story = {
 };
 
 export const PrimaryDark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => (
     <AppLink to="/" theme={AppLinkTheme.PRIMARY}>
       TEXT
@@ -47,7 +44,6 @@ export const PrimaryDark: Story = {
 };
 
 export const SecondaryDark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => (
     <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
       TEXT
@@ -56,7 +52,6 @@ export const SecondaryDark: Story = {
 };
 
 export const RedDark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
   render: () => (
     <AppLink to="/" theme={AppLinkTheme.RED}>
       TEXT

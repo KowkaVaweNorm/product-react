@@ -1,9 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Skeleton } from './Skeleton';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof Skeleton> = {
   title: 'shared/depreacated/Skeleton',
@@ -30,7 +28,6 @@ export const Circle: Story = {
   render: (args) => <Skeleton border={args.border} height={args.height} width={args.width} />,
 };
 export const NormalDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   args: {
     width: '100%',
     height: 200,
@@ -39,7 +36,6 @@ export const NormalDark: Story = {
 };
 
 export const CircleDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
   args: {
     border: '50%',
     width: 100,

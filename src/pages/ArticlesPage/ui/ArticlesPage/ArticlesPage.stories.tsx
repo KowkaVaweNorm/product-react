@@ -2,7 +2,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import ArticlesPage from './ArticlesPage';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { Theme } from '@/shared/const/theme';
@@ -415,7 +415,6 @@ export const BigViewLight: Story = {
 
 export const BigViewDarkFirstEnter: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateBig,
@@ -432,7 +431,6 @@ export const BigViewDarkFirstEnter: Story = {
 };
 export const BigViewDark: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateBig,
@@ -482,7 +480,6 @@ export const SmallViewLight: Story = {
 
 export const SmallViewDarkFirstEnter: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateSmall,
@@ -499,7 +496,6 @@ export const SmallViewDarkFirstEnter: Story = {
 };
 export const SmallViewDark: Story = {
   decorators: [
-    (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     (Story: StoryFn) =>
       StoreDecorator({
         articlesPage: articleStateSmall,
