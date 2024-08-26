@@ -12,10 +12,14 @@ export const NewDesignDecorator = (StoryComponent: StoryFn, context: StoryContex
       case 'old':
         setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: false });
         setCurrentDesign('old');
+        document.documentElement.classList.add('app');
+        document.documentElement.classList.remove('app_redesigned');
         break;
-      case 'new':
-        setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: true });
-        setCurrentDesign('new');
+        case 'new':
+          setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: true });
+          setCurrentDesign('new');
+          document.documentElement.classList.remove('app');
+        document.documentElement.classList.add('app_redesigned');
         break;
       default:
         setFeatureFlags({ ...getAllFeatureFlags(), isAppRedesigned: true });
