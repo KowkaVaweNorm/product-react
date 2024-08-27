@@ -1,3 +1,10 @@
+export {
+  ArticleBlockType,
+  ArticleSortField,
+  ArticleType,
+  ArticleView,
+} from './model/consts/articleConsts';
+
 export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 
 export {
@@ -5,8 +12,6 @@ export {
   getArticleDetailsIsLoading,
   getArticleDetailsError,
 } from './model/selectors/articleDetails';
-
-export { ArticleSortField, ArticleBlockType, ArticleType, ArticleView } from './model/type/article';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 

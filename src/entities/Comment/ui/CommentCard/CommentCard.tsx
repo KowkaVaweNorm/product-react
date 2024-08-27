@@ -30,18 +30,51 @@ export const CommentCard = memo((props: IProps): JSX.Element | null => {
   });
   if (isLoading ?? false) {
     return (
-      <VStack
-        data-testid="CommentCard.Loading"
-        gap="8"
-        max
-        className={classNames(cls.CommentCard, {}, [className, cls.loading])}
-      >
-        <div className={cls.header}>
-          <Skeleton width={30} height={30} border="50%" />
-          <Skeleton height={16} width={100} className={cls.username} />
-        </div>
-        <Skeleton className={cls.text} width="100%" height={50} />
-      </VStack>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Card padding="24" border="partial" fullWidth className={cls.CardRedesigned}>
+            <VStack
+              data-testid="CommentCard.Content"
+              gap="8"
+              max
+              className={classNames('', {}, [className])}
+            >
+              <div className={cls.header}>
+                <Skeleton width={30} height={30} border="50%" />
+                <Skeleton height={16} width={100} className={cls.username} />
+              </div>
+              <Skeleton className={cls.text} width="100%" height={50} />
+            </VStack>
+          </Card>
+        }
+        off={
+          <VStack
+            data-testid="CommentCard.Content"
+            gap="8"
+            max
+            className={classNames(cls.CommentCard, {}, [className])}
+          >
+            <div className={cls.header}>
+              <Skeleton width={30} height={30} border="50%" />
+              <Skeleton height={16} width={100} className={cls.username} />
+            </div>
+            <Skeleton className={cls.text} width="100%" height={50} />
+          </VStack>
+        }
+      />
+      // <VStack
+      //   data-testid="CommentCard.Loading"
+      //   gap="8"
+      //   max
+      //   className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+      // >
+      //   <div className={cls.header}>
+      //     <Skeleton width={30} height={30} border="50%" />
+      //     <Skeleton height={16} width={100} className={cls.username} />
+      //   </div>
+      //   <Skeleton className={cls.text} width="100%" height={50} />
+      // </VStack>
     );
   }
 
@@ -53,12 +86,12 @@ export const CommentCard = memo((props: IProps): JSX.Element | null => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <Card padding="24" border="partial" fullWidth>
+        <Card padding="24" border="partial" fullWidth className={cls.CardRedesigned}>
           <VStack
             data-testid="CommentCard.Content"
             gap="8"
             max
-            className={classNames(cls.CommentCardRedesigned, {}, [className])}
+            className={classNames('', {}, [className])}
           >
             <AppLink to={getRouteProfile(comment.user.id)}>
               <HStack gap="8">

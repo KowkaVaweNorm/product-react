@@ -11,7 +11,7 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { getRouteArticleDetails } from '@/shared/const/router';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type ArticleListItemProps } from '../ArticleListItem';
@@ -41,8 +41,12 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
       >
         <Card className={cls.card}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
+            <AppLink to={getRouteProfile(article.user.id)} className={cls.username}>
+              <Avatar size={30} src={article.user.avatar} />
+            </AppLink>
+            <AppLink to={getRouteProfile(article.user.id)} className={cls.username}>
+              {article.user.username}
+            </AppLink>
             <Text text={article.createdAt} className={cls.date} />
           </div>
           <Text title={article.title} className={cls.title} />
@@ -77,6 +81,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
           <AppImage
+            errorFallback
             fallback={<Skeleton width={200} height={200} />}
             alt={article.title}
             src={article.img}

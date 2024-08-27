@@ -1,3 +1,7 @@
+.ListBox {
+    caret-color: transparent;
+}
+
 .trigger {
     background: none;
     border: none;
@@ -16,5 +20,14 @@
 }
 
 .item {
+    color: var(--primary-color);
     padding: 10px 20px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.selected {
+    background: var(--bg-color);
 }

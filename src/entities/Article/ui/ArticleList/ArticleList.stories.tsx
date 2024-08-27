@@ -400,3 +400,9 @@ export const PrimaryBigViewLoading: Story = {
 export const PrimarySmallViewLoading: Story = {
   render: () => <ArticleList articles={[]} view={ArticleView.SMALL} isLoading={true} />,
 };
+export const PrimaryBigViewError: Story = {
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} />,
+};
+export const PrimarySmallViewError: Story = {
+  render: () => <ArticleList articles={[]} view={ArticleView.SMALL} />,
+};

@@ -1,25 +1,25 @@
-import React, {
+import {
   type ImgHTMLAttributes,
   memo,
   type ReactElement,
-  type ReactNode,
   useLayoutEffect,
   useRef,
   useState,
 } from 'react';
-import { ErrorFallback as DefaultErrorFallback } from './ErrorFallback';
-
+import { useTranslation } from 'react-i18next';
+import { ErrorImage as DefaultErrorFallback } from './ErrorImage/ErrorImage';
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
-  ErrorFallback?: ReactNode;
+  errorFallback?: ReactElement | boolean;
 }
 
 export const AppImage = memo((props: AppImageProps): JSX.Element => {
-  const { className, src, alt = 'image', ErrorFallback, fallback, ...otherProps } = props;
+  const { className, src, alt = 'image', errorFallback, fallback, ...otherProps } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const { t } = useTranslation();
   useLayoutEffect(() => {
     const img = imgRef.current;
     if (img != null) {
@@ -44,14 +44,13 @@ export const AppImage = memo((props: AppImageProps): JSX.Element => {
   }
 
   if (hasError) {
-    console.log('has Error:', hasError);
     return (
       <>
-        {ErrorFallback ? (
-          <ErrorFallback className={className} alt={alt} {...otherProps} />
-        ) : (
+        {errorFallback !== undefined && typeof errorFallback !== 'boolean' ? (
+          <>{errorFallback}</>
+        ) : typeof errorFallback === 'boolean' ? (
           <DefaultErrorFallback className={className} alt={alt} {...otherProps} />
-        )}
+        ) : null}
       </>
     );
   }

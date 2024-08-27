@@ -5,6 +5,7 @@ import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type DropdownDirection } from '@/shared/types/ui';
 import { Button, ButtonTheme } from '../../../Button';
 import { HStack } from '../../../../redesigned/Stack';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem<ValueType> {
   value: ValueType;
@@ -53,7 +54,7 @@ export function ListBox<ValueType extends string>(props: ListBoxProps<ValueType>
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}
       >
@@ -76,11 +77,12 @@ export function ListBox<ValueType extends string>(props: ListBoxProps<ValueType>
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active ?? 'a']: active,
-                    [cls.disabled ?? 'd']: item.disabled,
+                    [popupCls.active ?? '']: active,
+                    [popupCls.disabled ?? '']: item.disabled,
+                    [popupCls.selected ?? '']: selected,
                   })}
                 >
-                  {selected && '!!!'}
+                  {selected}
                   {item.content}
                 </li>
               )}

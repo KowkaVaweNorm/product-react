@@ -88,17 +88,16 @@ const article: Article = {
   ],
 };
 
-export const BigLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.BIG} />,
+export const PrimaryBig: Story = {
+  args: {
+    article,
+    view: ArticleView.BIG,
+  },
 };
 
-export const BigDark: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.BIG} />,
-};
-export const SmallLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.SMALL} />,
-};
-
-export const SmallDark: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.SMALL} />,
+export const PrimarySmall: Story = {
+  args: {
+    article,
+    view: ArticleView.SMALL,
+  },
 };

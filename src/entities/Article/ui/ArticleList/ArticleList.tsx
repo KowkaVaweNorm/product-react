@@ -2,13 +2,14 @@ import cls from './ArticleList.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { getFeatureFlag, ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { type Article } from '../../model/type/article';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface IArticleListProps {
   className?: string;
@@ -38,7 +39,11 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
   if (!isLoading && !hasSomeArticles) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text title={t('Статьи не найдены')} size="l" />}
+          off={<TextDeprecated size={TextSize.L} title={t('Статьи не найдены')} />}
+        />
       </div>
     );
   }

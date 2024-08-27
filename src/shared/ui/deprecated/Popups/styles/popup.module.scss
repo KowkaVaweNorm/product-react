@@ -12,7 +12,11 @@
 }
 
 .active {
-    background: var(--inverted-primary-color);
+    background-color: var(--bg-color);
+}
+
+.selected {
+    background-color: var(--inverted-primary-color);
 }
 
 .optionsBottomLeft {

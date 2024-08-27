@@ -46,21 +46,15 @@ const list: Comment[] = [
 export default meta;
 type Story = StoryObj<typeof CommentList>;
 
-export const NormalLight: Story = {
-  render: () => <CommentList comments={list} />,
+export const Primary: Story = {
+  args: {
+    comments: list,
+  },
 };
-export const LoadingLight: Story = {
-  render: () => <CommentList isLoading={true} comments={list} />,
+export const PrimaryLoading: Story = {
+  args: {
+    comments: list,
+    isLoading: true,
+  },
 };
-export const NoDataLight: Story = {
-  render: () => <CommentList />,
-};
-export const NormalDark: Story = {
-  render: () => <CommentList comments={list} />,
-};
-export const LoadingDark: Story = {
-  render: () => <CommentList isLoading={true} comments={list} />,
-};
-export const NoDataDark: Story = {
-  render: () => <CommentList />,
-};
+export const PrimaryNoData: Story = {};

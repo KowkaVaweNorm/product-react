@@ -21,6 +21,10 @@
     background: var(--light-bg-redesigned);
 }
 
+.selected {
+    background-color: var(--hint-redesigned);
+}
+
 .optionsBottomLeft {
     top: 100%;
     right: 0;

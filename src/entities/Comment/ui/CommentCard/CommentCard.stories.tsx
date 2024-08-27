@@ -24,22 +24,15 @@ const card: Comment = {
 export default meta;
 type Story = StoryObj<typeof CommentCard>;
 
-export const Light: Story = {
-  render: () => <CommentCard comment={card} />,
+export const Primary: Story = {
+  args: {
+    comment: card,
+  },
 };
-export const LoadingLight: Story = {
-  render: () => <CommentCard comment={card} isLoading={true} />,
+export const PrimaryLoading: Story = {
+  args: {
+    comment: card,
+    isLoading: true,
+  },
 };
-export const NoDataLight: Story = {
-  render: () => <CommentCard />,
-};
-
-export const Dark: Story = {
-  render: () => <CommentCard comment={card} />,
-};
-export const LoadingDark: Story = {
-  render: () => <CommentCard comment={card} isLoading={true} />,
-};
-export const NoDataDark: Story = {
-  render: () => <CommentCard />,
-};
+export const PrimaryNoData: Story = {};

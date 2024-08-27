@@ -22,6 +22,7 @@
 
     .img {
         width: 100%;
+        min-height: 100px;
         max-height: 250px;
         object-fit: cover;
         margin: 16px 0;
@@ -99,6 +100,12 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .card {
+        border: 1px solid var(--secondary-color);
+        height: 300px;
+        width: 240px;
     }
 }
 

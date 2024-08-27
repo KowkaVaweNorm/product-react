@@ -18,5 +18,6 @@
   "Введите текст комментария": "Enter the text of the comment",
   "Отправить": "Send",
   "Создать статью": "Create article",
-  "Загрузка": "Loading"
+  "Загрузка": "Loading",
+  "Не удалось загрузить изображение": "Failed to load image"
 }

@@ -3,6 +3,10 @@
     border: 1px solid var(--primary-color);
 }
 
+.CardRedesigned {
+    border: 1px solid black;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -12,6 +16,6 @@
     margin-left: 10px;
 }
 
-.loading {
-    border: none;
-}
+// .loading {
+//     border: none;
+// }

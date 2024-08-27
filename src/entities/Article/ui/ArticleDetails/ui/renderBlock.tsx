@@ -1,8 +1,9 @@
-import { type ArticleBlock, ArticleBlockType } from '../../../model/type/article';
+import { type ArticleBlock } from '../../../model/type/article';
 import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlockComponent } from '../../ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../../ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
+import { ArticleBlockType } from '../../..';
 
 export const renderArticleBlock = (block: ArticleBlock) => {
   switch (block.type) {
