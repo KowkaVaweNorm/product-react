@@ -1,8 +1,9 @@
-# Сайт с статьями и комментариями
+# Сайт для просмотра статей и обсуждения их
 
 Статьи, комментарии, аутентификация пользователя,
 покрытие тестами, в том числе покрытие storybook.
 Интернационализация, темизация(доступны 3 темы), свой ui-кит
+Скоро будет доступно два дизайна для админа
 
 ## Ссылки
 
@@ -10,7 +11,7 @@
 - [Сайт (последняя сборка)](https://master--kowka-app.netlify.app/)
 - [Chromatic (скришотные тесты)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
 - [Storybook (онлайн версия)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
-
+- [Отчёты (тесты, размер бандла и тд)](https://kowkavawenorm.github.io/product-react))
 ## Команды скриптов
 
 ```bash
