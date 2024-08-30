@@ -1,5 +1,11 @@
 .Icon {
     color: var(--icon-redesigned);
+    fill: var(--icon-redesigned);
+
+    &:hover {
+        color: var(--accent-redesigned);
+        fill: var(--accent-redesigned);
+    }
 }
 
 .button {
@@ -9,8 +15,4 @@
     outline: none;
     background: none;
     cursor: pointer;
-}
-
-.button:hover .Icon {
-    color: var(--accent-redesigned);
 }

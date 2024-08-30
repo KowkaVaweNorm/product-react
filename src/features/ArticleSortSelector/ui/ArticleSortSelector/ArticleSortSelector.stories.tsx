@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleSortSelector, type IArticleSortSelectorProps } from './ArticleSortSelector';
 
 import { ArticleSortField } from '@/entities/Article';
-import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const meta: Meta<typeof ArticleSortSelector> = {
   title: 'features/ArticleSortSelector',
@@ -15,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof ArticleSortSelector>;
 
 const stubArgs: Partial<IArticleSortSelectorProps> = {
-  sort: ArticleSortField.VIEW,
+  sort: ArticleSortField.VIEWS,
   order: 'desc',
   onChangeOrder: (props: any) => {
     console.log(props);
@@ -24,26 +23,6 @@ const stubArgs: Partial<IArticleSortSelectorProps> = {
     console.log(props);
   },
 };
-export const LightDeprecated: Story = {
-  args: stubArgs,
-};
-export const Light: Story = {
-  decorators: [
-    FeaturesFlagsDecorator({
-      isAppRedesigned: true,
-    }),
-  ],
-  args: stubArgs,
-};
-
-export const DarkDeprecated: Story = {
-  args: stubArgs,
-};
-export const Dark: Story = {
-  decorators: [
-    FeaturesFlagsDecorator({
-      isAppRedesigned: true,
-    }),
-  ],
+export const Primary: Story = {
   args: stubArgs,
 };

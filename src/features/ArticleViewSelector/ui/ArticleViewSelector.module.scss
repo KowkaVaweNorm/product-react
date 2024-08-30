@@ -1,11 +1,20 @@
 .ArticleViewSelector {
-    .notSelected {
+    .NotSelected {
         fill: var(--secondary-color);
+    }
+
+    .Icon:hover {
+        fill: inherit;
     }
 }
 
 .ArticleViewSelectorRedesigned {
-    .notSelected {
-        color: var(--light-bg-redesigned);
+    .Selected {
+        // color: var(--accent-redesigned);
+        fill: var(--accent-redesigned);
+    }
+
+    .Icon:hover {
+        // fill: inherit;
     }
 }

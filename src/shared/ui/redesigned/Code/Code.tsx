@@ -6,6 +6,7 @@ import cls from './Code.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '../Icon';
 import { Button, ButtonTheme } from '../../deprecated/Button';
+import { Icon as IconDeprecated } from '../../deprecated/Icon';
 
 interface CodeProps {
   className?: string;
@@ -31,7 +32,7 @@ export const Code = memo((props: CodeProps) => {
       off={
         <pre className={classNames(cls.Code, {}, [className])}>
           <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
-            <CopyIcon className={cls.copyIcon} />
+            <IconDeprecated className={cls.copyIcon} Svg={CopyIcon} />
           </Button>
           <code>{text}</code>
         </pre>

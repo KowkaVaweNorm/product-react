@@ -13,7 +13,6 @@ import { Avatar } from '@/shared/ui/redesigned/Avatar';
 interface AvatarDropdownProps {
   className?: string;
 }
-
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   const { className } = props;
   const { t } = useTranslation();

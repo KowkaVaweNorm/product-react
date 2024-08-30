@@ -132,7 +132,7 @@ export const Primary: Story = {
   },
 };
 
-export const LightWithLoading: Story = {
+export const PrimaryWithLoading: Story = {
   parameters: {
     msw: {
       handlers: [

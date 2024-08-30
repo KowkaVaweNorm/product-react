@@ -21,19 +21,19 @@ interface IArticleViewSelectorProps {
 
 const viewTypes = [
   {
-    view: ArticleView.SMALL,
-    icon: toggleFeatures({
-      name: 'isAppRedesigned',
-      on: () => TiledIcon,
-      off: () => TiledIconDeprecated,
-    }),
-  },
-  {
     view: ArticleView.BIG,
     icon: toggleFeatures({
       name: 'isAppRedesigned',
       on: () => ListIcon,
       off: () => ListIconDeprecated,
+    }),
+  },
+  {
+    view: ArticleView.SMALL,
+    icon: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => TiledIcon,
+      off: () => TiledIconDeprecated,
     }),
   },
 ];
@@ -53,17 +53,19 @@ export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.
           border="round"
         >
           <HStack gap="8">
-            {viewTypes.map((viewType) => (
-              <Icon
-                clickable
-                key={viewType.view}
-                onClick={onClick(viewType.view)}
-                Svg={viewType.icon}
-                className={classNames('', {
-                  [cls.notSelected ?? '']: viewType.view !== view,
-                })}
-              />
-            ))}
+            {viewTypes.map((viewType) => {
+              return (
+                <Icon
+                  clickable
+                  key={viewType.view}
+                  onClick={onClick(viewType.view)}
+                  Svg={viewType.icon}
+                  className={classNames(cls.Icon, {
+                    [cls.Selected ?? '']: viewType.view === view,
+                  })}
+                />
+              );
+            })}
           </HStack>
         </Card>
       }
@@ -80,7 +82,7 @@ export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.
                 height={24}
                 Svg={viewType.icon}
                 className={classNames('', {
-                  [cls.notSelected ?? '']: viewType.view !== view,
+                  [cls.NotSelected ?? '']: viewType.view !== view,
                 })}
               />
             </ButtonDeprecated>

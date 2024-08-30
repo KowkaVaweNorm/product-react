@@ -45,7 +45,7 @@ export const ArticleSortSelector = memo((props: IArticleSortSelectorProps): JSX.
         content: t('названию'),
       },
       {
-        value: ArticleSortField.VIEW,
+        value: ArticleSortField.VIEWS,
         content: t('просмотрам'),
       },
     ],

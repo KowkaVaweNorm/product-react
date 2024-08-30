@@ -6,6 +6,12 @@
     overflow: auto;
 }
 
+.copyBtn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
 .CodeRedesigned {
     padding: 20px;
     position: relative;
@@ -13,12 +19,14 @@
     overflow: auto;
     border: 1px solid var(--accent-redesigned);
     border-radius: 16px;
+
+    // .copyBtn:hover {
+    //     fill: var(--inverted-bg-color);
+    // }
 }
 
-.copyBtn {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+.copyIcon {
+    fill: transparent;
 }
 
 .copyIcon path {

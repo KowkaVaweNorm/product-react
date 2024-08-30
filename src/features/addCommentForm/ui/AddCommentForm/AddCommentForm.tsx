@@ -3,8 +3,6 @@ import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import {
   DynamicModuleLoader,
   type ReducersList,
@@ -19,6 +17,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { AddCommentFormDeprecated } from './deprecated/AddCommentForm.deprecated';
 
 export interface IAddCommentFormProps {
   className?: string;
@@ -74,27 +73,12 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
           </Card>
         }
         off={
-          <HStack
-            data-testid="AddCommentForm"
-            justify="between"
-            max
-            className={classNames(cls.AddCommentForm, {}, [className])}
-          >
-            <InputDeprecated
-              className={cls.input}
-              placeholder={t('Введите текст комментария')}
-              value={text}
-              data-testid="AddCommentForm.Input"
-              onChange={onCommentTextChange}
-            />
-            <ButtonDeprecated
-              data-testid="AddCommentForm.Button"
-              theme={ButtonTheme.OUTLINE}
-              onClick={onSendHandler}
-            >
-              {t('Отправить')}
-            </ButtonDeprecated>
-          </HStack>
+          <AddCommentFormDeprecated
+            onCommentTextChange={onCommentTextChange}
+            onSendHandler={onSendHandler}
+            text={text}
+            className={className}
+          />
         }
       />
     </DynamicModuleLoader>

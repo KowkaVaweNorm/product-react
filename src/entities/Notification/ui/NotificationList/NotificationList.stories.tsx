@@ -32,8 +32,21 @@ export const Primary: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('*', () => {
+        http.get('*/notifications', () => {
           return HttpResponse.json(testData);
+        }),
+      ],
+    },
+  },
+};
+export const PrimaryLoading: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*', async () => {
+          return await new Promise(() => {
+            // Ничего не делаем, оставляем promise неразрешенным
+          });
         }),
       ],
     },

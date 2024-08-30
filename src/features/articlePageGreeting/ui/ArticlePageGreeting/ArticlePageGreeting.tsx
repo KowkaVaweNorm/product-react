@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Modal } from '@/shared/ui/redesigned/Modal';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export const ArticlePageGreeting = memo(() => {
   const { t } = useTranslation();
@@ -25,9 +27,20 @@ export const ArticlePageGreeting = memo(() => {
   };
 
   const text = (
-    <Text
-      title={t('Добро пожаловать на страницу статей')}
-      text={t('Здесь вы можете искать и просматривать статьи на различные темы')}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Text
+          title={t('Добро пожаловать на страницу статей')}
+          text={t('Здесь вы можете искать и просматривать статьи на различные темы')}
+        />
+      }
+      off={
+        <TextDeprecated
+          title={t('Добро пожаловать на страницу статей')}
+          text={t('Здесь вы можете искать и просматривать статьи на различные темы')}
+        />
+      }
     />
   );
 

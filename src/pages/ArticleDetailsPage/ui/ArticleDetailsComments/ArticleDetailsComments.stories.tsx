@@ -14,21 +14,6 @@ const meta: Meta<typeof ArticleDetailsComments> = {
 export default meta;
 type Story = StoryObj<typeof ArticleDetailsComments>;
 
-export const Light: Story = {
-  decorators: [
-    (Story) =>
-      StoreDecorator({
-        articleDetails: {
-          data: article,
-        },
-        articleDetailsPage: {
-          comments,
-        },
-      })(Story),
-  ],
-  render: () => <ArticleDetailsComments />,
-};
-
 const article = {
   id: '1',
   title: 'Javascript news СВЕЖАЯ',
@@ -129,9 +114,9 @@ const comments: ArticleDetailsCommentsSchema = {
   isLoading: false,
 };
 
-export const Dark: Story = {
+export const Primary: Story = {
   decorators: [
-    (Story) => (Story) =>
+    (Story) =>
       StoreDecorator({
         articleDetails: {
           data: article,
@@ -141,5 +126,4 @@ export const Dark: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticleDetailsComments />,
 };

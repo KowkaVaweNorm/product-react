@@ -1,9 +1,9 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { type ArticleBlockType, type ArticleType } from '../../../model/type/article';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { type ArticleType, type ArticleBlockType } from '../../..';
 
 const meta: Meta<typeof ArticleDetails> = {
   title: 'entities/Article/ArticleDetails',

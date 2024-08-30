@@ -3,47 +3,61 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
-
+import { http, HttpResponse } from 'msw';
+import { UserRole } from '@/entities/User';
 const meta: Meta<typeof ArticleRating> = {
   title: 'features/ArticleRating',
   component: ArticleRating,
-  decorators: [StoreDecorator({})],
+  decorators: [
+    StoreDecorator({
+      user: {
+        authData: {
+          id: '1',
+          username: 'admin',
+          roles: [UserRole.ADMIN],
+          avatar:
+            'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
+        },
+      },
+    }),
+  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleRating>;
-
-export const LightDeprecated: Story = {
+const stubData = [
+  {
+    userId: '1',
+    articleId: '7',
+    rate: 3,
+    feedback: '',
+    id: 'bcPnbbZ',
+  },
+];
+export const PrimaryFilled: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/article-ratings?userId=1&articleId=0', () => {
+          return HttpResponse.json(stubData);
+        }),
+      ],
+    },
+  },
   args: {
     articleId: '0',
   },
 };
-
-export const Light: Story = {
-  decorators: [
-    FeaturesFlagsDecorator({
-      isAppRedesigned: true,
-    }),
-  ],
-  args: {
-    articleId: '0',
+export const PrimaryNotFilled: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/article-ratings?userId=1&articleId=0', () => {
+          return HttpResponse.json([]);
+        }),
+      ],
+    },
   },
-};
-
-export const DarkDeprecated: Story = {
-  args: {
-    articleId: '0',
-  },
-};
-
-export const Dark: Story = {
-  decorators: [
-    (Story) =>
-      FeaturesFlagsDecorator({
-        isAppRedesigned: true,
-      }),
-  ],
   args: {
     articleId: '0',
   },
