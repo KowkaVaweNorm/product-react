@@ -13,13 +13,20 @@ export function buildLoaders (options: BuildOption): webpack.RuleSetRule[] {
             icon: true,
             svgoConfig: {
                 plugins: [
-                    {
-                        name: 'convertColors',
-                        params: {
-                            currentColor: true,
-                        }
+                  {
+                    name: 'removeAttrs',
+                    params: {
+                      attrs: '(fill)',
+                    },
+                  },
+                  {
+                    name: 'convertColors',
+                    params: {
+                        currentColor: true,
                     }
-                ]
+                }
+                ],
+                floatPrecision: 2,
             }
         }
     }],

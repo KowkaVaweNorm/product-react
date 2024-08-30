@@ -1,6 +1,4 @@
 // eslint-disable-next-line kowka-vn-plugin/layer-imports
-import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 import { Theme } from '@/shared/const/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { type StoryFn } from '@storybook/react';
@@ -31,7 +29,7 @@ export const ThemeDecorator = (StoryComponent: StoryFn, context: any) => {
     }
   }, [themeName]);
   return (
-    <div className={`app ${themeClassName}`}>
+    <div className={`app ${themeClassName}`} key={themeClassName}>
       <StoryComponent />
     </div>
   );

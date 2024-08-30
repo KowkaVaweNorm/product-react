@@ -7,6 +7,7 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+        icon: true,
         svgoConfig: {
           plugins: [
             {
@@ -15,6 +16,12 @@ export default defineConfig({
                 attrs: '(fill)',
               },
             },
+            {
+              name: 'convertColors',
+              params: {
+                  currentColor: true,
+              }
+          }
           ],
           floatPrecision: 2,
         },
