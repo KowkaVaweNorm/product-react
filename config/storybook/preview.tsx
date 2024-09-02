@@ -8,6 +8,7 @@ import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsD
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
+import { I18nDecorator } from '@/shared/config/storybook/i18nDecorator/i18nDecorator';
 
 initialize();
 
@@ -66,9 +67,10 @@ const preview: Preview = {
     SuspenseDecorator,
     StyleDecorator,
     ThemeDecorator,
-    StoreDecorator({}),
     NewDesignDecorator,
+    StoreDecorator({}),
     RouteDecorator,
+    I18nDecorator,
   ],
   loaders: [mswLoader],
 };

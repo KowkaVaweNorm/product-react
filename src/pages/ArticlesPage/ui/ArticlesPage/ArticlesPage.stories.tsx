@@ -9,7 +9,7 @@ import { Theme } from '@/shared/const/theme';
 import { type ArticlesPageSchema } from '../../model/types/artcilesPage';
 
 const meta: Meta<typeof ArticlesPage> = {
-  title: 'pages/ArticlesPage',
+  title: 'pages/ArticlesPage/ArticlesPage',
   component: ArticlesPage,
 };
 
@@ -380,7 +380,7 @@ const articleStateSmall: ArticlesPageSchema = {
   _inited: false,
 };
 
-export const BigViewLightFirstEnter: Story = {
+export const PrimaryBigViewFirstEnter: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
@@ -394,9 +394,8 @@ export const BigViewLightFirstEnter: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticlesPage />,
 };
-export const BigViewLight: Story = {
+export const PrimaryBigView: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
@@ -410,42 +409,9 @@ export const BigViewLight: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticlesPage />,
 };
 
-export const BigViewDarkFirstEnter: Story = {
-  decorators: [
-    (Story: StoryFn) =>
-      StoreDecorator({
-        articlesPage: articleStateBig,
-        user: {
-          authData: {
-            jsonSettings: {
-              isArticlesPageWasOpened: false,
-            },
-          },
-        },
-      })(Story),
-  ],
-  render: () => <ArticlesPage />,
-};
-export const BigViewDark: Story = {
-  decorators: [
-    (Story: StoryFn) =>
-      StoreDecorator({
-        articlesPage: articleStateBig,
-        user: {
-          authData: {
-            jsonSettings: {
-              isArticlesPageWasOpened: true,
-            },
-          },
-        },
-      })(Story),
-  ],
-  render: () => <ArticlesPage />,
-};
-export const SmallViewLightFirstEnter: Story = {
+export const PrimarySmallViewFirstEnter: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
@@ -459,9 +425,8 @@ export const SmallViewLightFirstEnter: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticlesPage />,
 };
-export const SmallViewLight: Story = {
+export const PrimarySmallView: Story = {
   decorators: [
     (Story: StoryFn) =>
       StoreDecorator({
@@ -475,38 +440,4 @@ export const SmallViewLight: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticlesPage />,
-};
-
-export const SmallViewDarkFirstEnter: Story = {
-  decorators: [
-    (Story: StoryFn) =>
-      StoreDecorator({
-        articlesPage: articleStateSmall,
-        user: {
-          authData: {
-            jsonSettings: {
-              isArticlesPageWasOpened: false,
-            },
-          },
-        },
-      })(Story),
-  ],
-  render: () => <ArticlesPage />,
-};
-export const SmallViewDark: Story = {
-  decorators: [
-    (Story: StoryFn) =>
-      StoreDecorator({
-        articlesPage: articleStateSmall,
-        user: {
-          authData: {
-            jsonSettings: {
-              isArticlesPageWasOpened: true,
-            },
-          },
-        },
-      })(Story),
-  ],
-  render: () => <ArticlesPage />,
 };
