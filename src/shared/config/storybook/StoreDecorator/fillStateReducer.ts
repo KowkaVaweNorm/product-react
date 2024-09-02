@@ -1,7 +1,14 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const fillStateAction = createAction<DeepPartial<StateSchema>>('fillstate');
-export const fillStateReducer = createReducer(0, (builder) => {
-  builder.addCase('fillstate', (state: any, action: any) => action.payload);
+const storybookSlice = createSlice({
+  name: 'storybookSlice',
+  initialState: {},
+  reducers: {
+    fillState: (state, action: PayloadAction<DeepPartial<StateSchema>>) => action.payload,
+  },
 });
+
+// Action creators are generated for each case reducer function
+export const { actions: storybookActions } = storybookSlice;
+export const { reducer: storybookReducer } = storybookSlice;

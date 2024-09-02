@@ -14,7 +14,7 @@ const meta: Meta<typeof ProfilePage> = {
 export default meta;
 type Story = StoryObj<typeof ProfilePage>;
 
-export const Light: Story = {
+export const PrimaryEdit: Story = {
   decorators: [
     (Story: any) =>
       StoreDecorator({
@@ -31,15 +31,23 @@ export const Light: Story = {
         },
       })(Story),
   ],
-  render: () => <ProfilePage />,
 };
-
-export const Dark: Story = {
+export const PrimaryReadonly: Story = {
   decorators: [
-    (Story: any) => (Story: any) =>
+    (Story: any) =>
       StoreDecorator({
         profile: {
+          readonly: true,
           form: {
+            username: 'KowkaVN',
+            age: 22,
+            country: Country.Russia,
+            lastname: 'Vlom',
+            first: 'Kowka',
+            city: 'Moscow',
+            currency: Currency.USD,
+          },
+          data: {
             username: 'KowkaVN',
             age: 22,
             country: Country.Russia,
@@ -51,5 +59,4 @@ export const Dark: Story = {
         },
       })(Story),
   ],
-  render: () => <ProfilePage />,
 };

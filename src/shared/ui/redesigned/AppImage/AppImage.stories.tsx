@@ -11,10 +11,14 @@ const meta: Meta<typeof AppImage> = {
 export default meta;
 type Story = StoryObj<typeof AppImage>;
 
-export const Light: Story = {
-  render: () => <AppImage />,
+export const Primary: Story = {
+  args: {
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png',
+  },
 };
-
-export const Dark: Story = {
-  render: () => <AppImage />,
+export const PrimaryError: Story = {
+  args: {
+    src: '/gap',
+    errorFallback: true,
+  },
 };

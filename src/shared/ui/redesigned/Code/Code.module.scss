@@ -10,6 +10,7 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    fill: var(--primary-color);
 }
 
 .CodeRedesigned {
@@ -20,9 +21,9 @@
     border: 1px solid var(--accent-redesigned);
     border-radius: 16px;
 
-    // .copyBtn:hover {
-    //     fill: var(--inverted-bg-color);
-    // }
+    .copyBtn:hover {
+        fill: var(--inverted-bg-color);
+    }
 }
 
 .copyIcon {

@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ErrorImage as DefaultErrorFallback } from './ErrorImage/ErrorImage';
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
@@ -19,7 +18,6 @@ export const AppImage = memo((props: AppImageProps): JSX.Element => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
-  const { t } = useTranslation();
   useLayoutEffect(() => {
     const img = imgRef.current;
     if (img != null) {

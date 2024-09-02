@@ -13,15 +13,7 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
-export const Light: Story = {
-  render: () => (
-    <Card>
-      <Text title="test title" text="text title" />
-    </Card>
-  ),
-};
-
-export const Dark: Story = {
+export const Primary: Story = {
   render: () => (
     <Card>
       <Text title="test title" text="text title" />
