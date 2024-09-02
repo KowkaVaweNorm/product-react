@@ -60,6 +60,7 @@ export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.
                   key={viewType.view}
                   onClick={onClick(viewType.view)}
                   Svg={viewType.icon}
+                  filled
                   className={classNames(cls.Icon, {
                     [cls.Selected ?? '']: viewType.view === view,
                   })}
@@ -81,7 +82,8 @@ export const ArticleViewSelector = memo((props: IArticleViewSelectorProps): JSX.
                 width={24}
                 height={24}
                 Svg={viewType.icon}
-                className={classNames('', {
+                filled
+                className={classNames(cls.Icon, {
                   [cls.NotSelected ?? '']: viewType.view !== view,
                 })}
               />

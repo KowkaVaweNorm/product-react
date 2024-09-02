@@ -2,10 +2,11 @@ import cls from './Icon.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type SVGProps, memo } from 'react';
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
   Svg?: React.FC<SVGProps<SVGSVGElement>>;
   inverted?: boolean;
+  filled?: boolean;
 }
 
 /**
@@ -13,13 +14,19 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
  * @deprecated
  */
 export const Icon = memo((props: IconProps): JSX.Element => {
-  const { className, Svg, inverted, ...otherProps } = props;
+  const { className, Svg, inverted, filled, ...otherProps } = props;
 
   if (Svg == null) return <></>;
 
   return (
     <Svg
-      className={classNames((inverted ?? false) ? cls.inverted : cls.Icon, {}, [className])}
+      className={classNames(
+        (inverted ?? false) ? cls.inverted : cls.Icon,
+        {
+          [cls.filled ?? '']: filled,
+        },
+        [className],
+      )}
       {...otherProps}
     ></Svg>
   );

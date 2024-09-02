@@ -1,20 +1,15 @@
 .Icon {
-    fill: transparent;
     color: var(--primary-color);
 
-    // Не здесь должно быть!!!
-    // &:hover {
-    //     color: var(--primary-color);
-    //     fill: var(--primary-color);
-    // }
+    &.filled {
+        fill: var(--primary-color);
+    }
 }
 
 .inverted {
-    fill: var(--inverted-primary-color);
     color: var(--inverted-primary-color);
 
-    // &:hover {
-    //     color: var(--primary-color);
-    //     fill: var(--primary-color);
-    // }
+    &.filled {
+        fill: var(--inverted-primary-color);
+    }
 }

@@ -56,7 +56,7 @@ export const Sidebar = memo(({ className = '' }: SidebarProps): JSX.Element => {
             clickable
           />
           <div className={cls.switchers}>
-            <ThemeSwitcher />
+            <ThemeSwitcher filled />
             <LangSwitcher short={collapsed} className={cls.lang} />
           </div>
         </aside>

@@ -11,9 +11,10 @@ import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
 interface ThemeSwitcherProps {
   className?: string;
+  filled?: boolean;
 }
 
-export const ThemeSwitcher = memo(({ className = '' }: ThemeSwitcherProps): JSX.Element => {
+export const ThemeSwitcher = memo(({ className = '', filled }: ThemeSwitcherProps): JSX.Element => {
   const { toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
@@ -26,14 +27,14 @@ export const ThemeSwitcher = memo(({ className = '' }: ThemeSwitcherProps): JSX.
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
-      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} filled />}
       off={
         <Button
           theme={ButtonTheme.CLEAR}
           className={classNames('', {}, [className])}
           onClick={onToggleHandler}
         >
-          <IconDeprecated Svg={ThemeIconDeprecated} width={40} height={40} inverted />
+          <IconDeprecated Svg={ThemeIconDeprecated} width={40} height={40} inverted filled />
         </Button>
       }
     />
