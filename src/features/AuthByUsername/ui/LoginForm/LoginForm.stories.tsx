@@ -15,7 +15,9 @@ const meta: Meta<typeof LoginForm> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof LoginForm>;
+
 export const Primary: Story = {
   decorators: [
     (Story) =>
@@ -27,9 +29,27 @@ export const Primary: Story = {
         },
       })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}} />,
+  args: {
+    onSuccess() {},
+  },
 };
-export const WithError: Story = {
+
+export const PrimaryLoading: Story = {
+  decorators: [
+    (Story) =>
+      StoreDecorator({
+        loginForm: {
+          password: '',
+          username: '',
+          isLoading: true,
+        },
+      })(Story),
+  ],
+  args: {
+    onSuccess() {},
+  },
+};
+export const PrimaryWithError: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
@@ -41,18 +61,7 @@ export const WithError: Story = {
         },
       })(Story),
   ],
-  render: () => <LoginForm onSuccess={() => {}} />,
-};
-export const Loading: Story = {
-  decorators: [
-    (Story) =>
-      StoreDecorator({
-        loginForm: {
-          password: '',
-          username: '',
-          isLoading: true,
-        },
-      })(Story),
-  ],
-  render: () => <LoginForm onSuccess={() => {}} />,
+  args: {
+    onSuccess() {},
+  },
 };

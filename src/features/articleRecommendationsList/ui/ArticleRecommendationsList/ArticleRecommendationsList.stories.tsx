@@ -131,3 +131,17 @@ export const Primary: Story = {
     },
   },
 };
+
+export const PrimaryWithLoading: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/articles?_limit=3', async () => {
+          return await new Promise(() => {
+            // Ничего не делаем, оставляем promise неразрешенным
+          });
+        }),
+      ],
+    },
+  },
+};

@@ -1,0 +1,16 @@
+.Icon {
+    color: var(--primary-color);
+    fill: none;
+
+    &.filled {
+        fill: var(--primary-color);
+    }
+}
+
+.inverted {
+    color: var(--inverted-primary-color);
+
+    &.filled {
+        fill: var(--inverted-primary-color);
+    }
+}

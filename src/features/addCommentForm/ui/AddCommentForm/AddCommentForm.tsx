@@ -1,21 +1,23 @@
 import cls from './AddCommentForm.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { memo, useCallback } from 'react';
-import { Input } from '@/shared/ui/Input';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-  addCommentFormSliceActions,
-  addCommentFormSliceReducer,
-} from '../../model/slice/addCommentFormSlice';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import {
+  addCommentFormReducer,
+  useAddCommentFormActions,
+} from '../../model/slice/addCommentFormSlice';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { AddCommentFormDeprecated } from './deprecated/AddCommentForm.deprecated';
 
 export interface IAddCommentFormProps {
   className?: string;
@@ -23,20 +25,20 @@ export interface IAddCommentFormProps {
 }
 
 const reducers: ReducersList = {
-  addCommentForm: addCommentFormSliceReducer,
+  addCommentForm: addCommentFormReducer,
 };
 
 const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+  const { setText } = useAddCommentFormActions();
   const text = useSelector(getAddCommentFormText);
 
   const onCommentTextChange = useCallback(
     (value: string): void => {
-      dispatch(addCommentFormSliceActions.setText(value));
+      setText(value);
     },
-    [dispatch],
+    [setText],
   );
 
   const onSendHandler = useCallback(() => {
@@ -46,27 +48,39 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack
-        justify="between"
-        max
-        data-testid={'AddCommentForm'}
-        className={classNames(cls.add_comment_form ?? '', {}, [className])}
-      >
-        <Input
-          className={cls.input}
-          placeholder={t('Введите текст комментария')}
-          value={text}
-          onChange={onCommentTextChange}
-          data-testid={'AddCommentForm.Input'}
-        />
-        <Button
-          data-testid={'AddCommentForm.Button'}
-          theme={ButtonTheme.OUTLINE}
-          onClick={onSendHandler}
-        >
-          {t('Отправить')}
-        </Button>
-      </HStack>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Card padding="24" border="partial" fullWidth>
+            <HStack
+              data-testid="AddCommentForm"
+              justify="between"
+              max
+              gap="16"
+              className={classNames(cls.AddCommentFormRedesigned, {}, [className])}
+            >
+              <Input
+                className={cls.input}
+                placeholder={t('Введите текст комментария')}
+                value={text}
+                data-testid="AddCommentForm.Input"
+                onChange={onCommentTextChange}
+              />
+              <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
+                {t('Отправить')}
+              </Button>
+            </HStack>
+          </Card>
+        }
+        off={
+          <AddCommentFormDeprecated
+            onCommentTextChange={onCommentTextChange}
+            onSendHandler={onSendHandler}
+            text={text}
+            className={className}
+          />
+        }
+      />
     </DynamicModuleLoader>
   );
 });

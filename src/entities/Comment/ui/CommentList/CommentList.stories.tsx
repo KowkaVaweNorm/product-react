@@ -1,9 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { CommentList } from './CommentList';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { type Comment } from '../../model/types/comment';
 
 const meta: Meta<typeof CommentList> = {
@@ -47,24 +46,15 @@ const list: Comment[] = [
 export default meta;
 type Story = StoryObj<typeof CommentList>;
 
-export const NormalLight: Story = {
-  render: () => <CommentList comments={list} />,
+export const Primary: Story = {
+  args: {
+    comments: list,
+  },
 };
-export const LoadingLight: Story = {
-  render: () => <CommentList isLoading={true} comments={list} />,
+export const PrimaryLoading: Story = {
+  args: {
+    comments: list,
+    isLoading: true,
+  },
 };
-export const NoDataLight: Story = {
-  render: () => <CommentList />,
-};
-export const NormalDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <CommentList comments={list} />,
-};
-export const LoadingDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <CommentList isLoading={true} comments={list} />,
-};
-export const NoDataDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <CommentList />,
-};
+export const PrimaryNoData: Story = {};

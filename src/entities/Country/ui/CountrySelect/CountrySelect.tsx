@@ -1,25 +1,31 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Country } from '../../model/types/country';
-import { ListBox } from '@/shared/ui/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { type DropdownDirection } from '@/shared/types/ui';
 
 interface CountrySelectProps {
   readonly?: boolean;
   className?: string;
   value?: Country;
+  direction?: DropdownDirection;
   onChange?: (value: Country) => void;
 }
 
 const options = [
+  { value: Country.Armenia, content: Country.Armenia },
   { value: Country.Russia, content: Country.Russia },
   { value: Country.Belarus, content: Country.Belarus },
   { value: Country.Kazakhstan, content: Country.Kazakhstan },
+  { value: Country.Ukraine, content: Country.Ukraine },
 ];
 export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
-  const { className = '', onChange, value, readonly } = props;
+  const { className = '', onChange, value, readonly, direction } = props;
+  // TODO: Перенести в общий список
   const { t } = useTranslation('profile');
-  const [localValue, setLocalValue] = useState<Country | undefined>(undefined);
+  const [localValue, setLocalValue] = useState<Country>(Country.Russia);
   const onChangeHandler = useCallback(
     (value: string) => {
       onChange?.(value as Country);
@@ -27,18 +33,22 @@ export const CountrySelect = memo((props: CountrySelectProps): JSX.Element => {
     },
     [onChange],
   );
+  const propsList = {
+    className,
+    value: value ?? localValue,
+    defaultValue: t('Укажите страну'),
+    label: t('Укажите страну'),
+    items: options,
+    onChange: onChangeHandler,
+    readonly,
+    direction: direction ?? ('bottom right' as const),
+  };
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <ListBox
-        readonly={readonly}
-        label={t('Укажите страну')}
-        defaultValue={t('Укажите страну')}
-        items={options}
-        value={value ?? localValue}
-        onChange={onChangeHandler}
-        direction="top right"
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ListBox {...propsList} />}
+      off={<ListBoxDeprecated {...propsList} />}
+    />
   );
 });

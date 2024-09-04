@@ -1,3 +1,19 @@
-.notSelected {
-    fill: var(--secondary-color);
+.ArticleViewSelector {
+    .NotSelected {
+        fill: var(--secondary-color);
+    }
+
+    .Icon.NotSelected {
+        filter: opacity(0.5);
+    }
+
+    .Icon:hover {
+        filter: none;
+    }
+}
+
+.ArticleViewSelectorRedesigned {
+    .Selected {
+        fill: var(--accent-redesigned);
+    }
 }

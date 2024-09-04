@@ -2,38 +2,45 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AvatarDropdown } from './AvatarDropdown';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import cls from './AvatarDropdown.stories.module.scss';
+import { UserRole } from '@/entities/User';
 const meta: Meta<typeof AvatarDropdown> = {
   title: 'features/AvatarDropdown',
   component: AvatarDropdown,
 };
-
+// TODO: Для светлой темы старого дизайна сделать обводку, мб даже на все дизайны сделать обводку
 export default meta;
 type Story = StoryObj<typeof AvatarDropdown>;
 
-export const NoAuth: Story = {
-  render: () => <AvatarDropdown />,
-};
+export const PrimaryNoAuth: Story = {};
 
-export const PrimaryAuthLight: Story = {
+export const PrimaryAvatar: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
         user: { authData: { id: '', username: '' } },
       })(Story),
   ],
-  render: () => <AvatarDropdown />,
+  args: {
+    className: cls.Centered,
+  },
 };
-export const PrimaryAuthDark: Story = {
+export const PrimaryAvatarAdmin: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
     (Story) =>
       StoreDecorator({
-        user: { authData: { id: '', username: '' } },
+        user: {
+          authData: {
+            id: '',
+            username: '',
+            roles: [UserRole.ADMIN],
+          },
+        },
       })(Story),
   ],
-  render: () => <AvatarDropdown />,
+  args: {
+    className: cls.Centered,
+  },
 };

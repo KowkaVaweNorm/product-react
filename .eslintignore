@@ -8,3 +8,4 @@ cypress
 scripts/*
 PageFactory.js
 /storybook-static
+json-server

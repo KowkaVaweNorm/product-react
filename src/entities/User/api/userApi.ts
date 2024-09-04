@@ -23,6 +23,7 @@ const userApi = rtkApi.injectEndpoints({
         url: `/users/${userId}`,
         method: 'GET',
       }),
+      keepUnusedDataFor: 0,
     }),
   }),
 });

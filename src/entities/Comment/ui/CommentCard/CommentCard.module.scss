@@ -1,7 +1,10 @@
-.comment_card {
-    display: block;
+.CommentCard {
     padding: 10px;
     border: 1px solid var(--primary-color);
+}
+
+.CardRedesigned {
+    border: 1px solid black;
 }
 
 .header {
@@ -12,3 +15,7 @@
 .username {
     margin-left: 10px;
 }
+
+// .loading {
+//     border: none;
+// }

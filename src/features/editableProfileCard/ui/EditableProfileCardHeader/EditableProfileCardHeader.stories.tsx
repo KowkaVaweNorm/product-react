@@ -21,4 +21,5 @@ const meta: Meta<typeof EditableProfileCardHeader> = {
 
 export default meta;
 type Story = StoryObj<typeof EditableProfileCardHeader>;
-export const Primary: Story = {};
+
+export const Light: Story = {};

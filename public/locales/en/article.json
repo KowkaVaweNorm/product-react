@@ -14,5 +14,8 @@
   "Статья не найдена": "Article not found",
   "Статьи не найдены": "Articles not found",
   "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
-  "При загрузке данных произошла ошибка": "An error occurred while loading data"
+  "При загрузке данных произошла ошибка": "An error occurred while loading data",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }

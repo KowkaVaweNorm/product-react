@@ -1,56 +1,86 @@
 import cls from './ArticleList.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { type HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleView, type Article } from '../../model/type/article';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { getFeatureFlag, ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { type Article } from '../../model/type/article';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface IArticleListProps {
   className?: string;
-  articles: Article[];
+  articles?: Article[];
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  possibleCountArticles?: number;
 }
-
-const getSkeletons = (view: ArticleView): JSX.Element[] => {
-  return new Array(view === ArticleView.SMALL ? 9 : 3)
+const getSkeletons = (view: ArticleView, possibleCount?: number) =>
+  new Array(view === ArticleView.SMALL ? (possibleCount ?? 9) : (possibleCount ?? 3))
     .fill(0)
-    .map((item, index) => <ArticleListItemSkeleton view={view} key={index} className={cls.card} />);
-};
+    .map((item, index) => <ArticleListItemSkeleton className={cls.card} key={index} view={view} />);
 
 export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
-  const { className, articles, view = ArticleView.SMALL, isLoading, target } = props;
+  const {
+    className,
+    articles,
+    view = ArticleView.SMALL,
+    isLoading = false,
+    target,
+    possibleCountArticles,
+  } = props;
   const { t } = useTranslation('article');
-  const renderArticle = (article: Article): JSX.Element => {
+  const hasSomeArticles = articles !== undefined && articles.length > 0;
+  const flag = getFeatureFlag('isAppRedesigned');
+  if (!isLoading && !hasSomeArticles) {
     return (
-      <ArticleListItem
-        key={article.id}
-        article={article}
-        view={view}
-        className={cls.card}
-        target={target}
-      />
-    );
-  };
-
-  if (isLoading === false && articles.length === 0) {
-    return (
-      <div className={classNames(cls.article_list ?? '', {}, [className, cls[view]])}>
-        <Text title={t('Статьи не найдены')} size={TextSize.L} />
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text title={t('Статьи не найдены')} size="l" />}
+          off={<TextDeprecated size={TextSize.L} title={t('Статьи не найдены')} />}
+        />
       </div>
     );
   }
-
+  const content = isLoading
+    ? getSkeletons(view, possibleCountArticles)
+    : hasSomeArticles
+      ? articles.map((item) => (
+          <ArticleListItem
+            article={item}
+            view={view}
+            target={target}
+            key={item.id}
+            className={cls.card}
+          />
+        ))
+      : null;
   return (
-    <div
-      className={classNames(cls.article_list ?? '', {}, [className, cls[view]])}
-      data-testid={'ArticleList'}
-    >
-      {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading === true && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {content}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {content}
+        </div>
+      }
+    />
   );
 });

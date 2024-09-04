@@ -21,6 +21,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   };
   // @ts-ignore
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    // Если убрать удаление и добавление лоадера свг, все сломается
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg/i };
     }
@@ -33,9 +34,34 @@ export default ({ config }: { config: webpack.Configuration }) => {
       __PROJECT__: JSON.stringify('storybook'),
     }),
   );
+  // Если убрать удаление и добавление лоадера свг, все сломается
   config.module?.rules.push({
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: [
+      {
+        loader: '@svgr/webpack',
+        options: {
+          icon: true,
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'removeAttrs',
+                params: {
+                  attrs: '(fill)',
+                },
+              },
+              {
+                name: 'convertColors',
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+            floatPrecision: 2,
+          },
+        },
+      },
+    ],
   });
   config.module?.rules?.push(buildCssLoader(true));
   return config;

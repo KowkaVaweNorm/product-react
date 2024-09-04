@@ -1,10 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleListItem } from './ArticleListItem';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticleView, type Article, ArticleBlockType, ArticleType } from '../../model/type/article';
+import { ArticleType, ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
+import { type Article } from '../../model/type/article';
 
 const meta: Meta<typeof ArticleListItem> = {
   title: 'entities/Article/ArticleListItem',
@@ -89,19 +88,16 @@ const article: Article = {
   ],
 };
 
-export const BigLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.BIG} />,
+export const PrimaryBig: Story = {
+  args: {
+    article,
+    view: ArticleView.BIG,
+  },
 };
 
-export const BigDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <ArticleListItem article={article} view={ArticleView.BIG} />,
-};
-export const SmallLight: Story = {
-  render: () => <ArticleListItem article={article} view={ArticleView.SMALL} />,
-};
-
-export const SmallDark: Story = {
-  decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <ArticleListItem article={article} view={ArticleView.SMALL} />,
+export const PrimarySmall: Story = {
+  args: {
+    article,
+    view: ArticleView.SMALL,
+  },
 };

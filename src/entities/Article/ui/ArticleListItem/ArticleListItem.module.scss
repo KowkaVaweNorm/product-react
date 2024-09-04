@@ -1,4 +1,8 @@
 .BIG {
+    .iconView {
+        fill: var(--primary-color);
+    }
+
     .views {
         margin-left: auto;
     }
@@ -22,21 +26,10 @@
 
     .img {
         width: 100%;
+        min-height: 100px;
         max-height: 250px;
         object-fit: cover;
         margin: 16px 0;
-
-        &:not(.skeleton)::after {
-            content: "\f127" " Незагруженная картинка, на которой " attr(alt);
-            display: block;
-            font-size: 16px;
-            font-style: normal;
-            color: rgb(100 100 100);
-            top: 5px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-        }
     }
 
     .footer {
@@ -56,11 +49,15 @@
     transition: 0.2s;
     cursor: pointer;
 
+    .iconView {
+        fill: var(--primary-color);
+    }
+
     .date {
-        display: none;
         position: absolute;
         right: 0;
         top: 0;
+        display: none;
     }
 
     &:hover {
@@ -72,7 +69,7 @@
         }
     }
 
-    .image_wrapper {
+    .imageWrapper {
         width: 200px;
         height: 200px;
         position: relative;
@@ -82,25 +79,9 @@
         width: 200px;
         height: 200px;
         object-fit: cover;
-        font-weight: 300;
-        line-height: 2;
-        text-align: center;
-
-        &:not(.skeleton)::after {
-            content: "\f127" " Незагруженная картинка, на которой " attr(alt);
-            display: block;
-            font-size: 16px;
-            font-style: normal;
-            color: rgb(100 100 100);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            text-align: center;
-        }
     }
 
-    .info_wrapper {
+    .infoWrapper {
         display: flex;
         align-items: center;
         margin-top: 8px;
@@ -113,7 +94,7 @@
         text-overflow: ellipsis;
     }
 
-    .view {
+    .views {
         margin-left: auto;
         margin-right: 8px;
     }
@@ -127,5 +108,24 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .card {
+        border: 1px solid var(--secondary-color);
+        height: 300px;
+        width: 240px;
+    }
+}
+
+.ArticleListItemRedesigned {
+    &.BIG {
+        width: 100%;
+    }
+
+    &.SMALL {
+        .card {
+            height: 350px;
+            width: 240px;
+        }
     }
 }

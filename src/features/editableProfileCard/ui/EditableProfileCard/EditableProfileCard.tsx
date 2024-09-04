@@ -5,13 +5,12 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { type Currency } from '@/entities/Currency';
 import { type Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { ProfileCard } from '@/entities/Profile';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -22,6 +21,7 @@ import { profileActions, profileReducer } from '../../model/slices/editableProfi
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ValidateProfileError } from '../../model/consts/consts';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -38,6 +38,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
+
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);

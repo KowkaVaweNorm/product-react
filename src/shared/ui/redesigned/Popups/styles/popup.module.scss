@@ -1,0 +1,51 @@
+.popup {
+    position: relative;
+    width: fit-content;
+}
+
+.menu {
+    border-radius: 18px;
+    border: 1px solid var(--accent-redesigned);
+    overflow: hidden;
+}
+
+.trigger {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.active {
+    background: var(--light-bg-redesigned);
+}
+
+.selected {
+    background-color: var(--hint-redesigned);
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    left: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    right: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    right: 0;
+}
+
+.optionsTopLeft {
+    left: 0;
+    bottom: 100%;
+}
+
+.disabled {
+    opacity: 0.7;
+}

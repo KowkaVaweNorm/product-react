@@ -1,38 +1,36 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleType } from '@/entities/Article';
+import { type Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
 import { UserRole } from '@/entities/User';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { getRouteArticleDetails } from '@/shared/const/router';
 const meta: Meta<typeof ArticleDetailsPage> = {
   title: 'pages/ArticleDetailsPage/ArticleDetails',
   component: ArticleDetailsPage,
+  parameters: {
+    route: getRouteArticleDetails('1'),
+    path: getRouteArticleDetails(':id'),
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof ArticleDetailsPage>;
 
-export const Light: Story = {
-  decorators: [
-    (Story) =>
-      StoreDecorator({
-        articleDetails: {
-          data: article,
-        },
-        articleDetailsPage: {
-          comments,
-        },
-      })(Story),
-  ],
-  render: () => <ArticleDetailsPage />,
-};
-
-const article = {
+const article: Article = {
   id: '1',
+  user: {
+    id: '1',
+    username: 'admin',
+    roles: [UserRole.ADMIN],
+    avatar:
+      'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
+    features: {
+      isArticleRatingEnabled: true,
+    },
+  },
   title: 'Javascript news СВЕЖАЯ',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png',
@@ -131,20 +129,17 @@ const comments: ArticleDetailsCommentsSchema = {
   isLoading: false,
 };
 // TODO: Вынести роут декоратор чтобы прокидывать текущее местоположение
-export const Dark: Story = {
+export const Primary: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
-    (Story) => (
-      <MemoryRouter initialEntries={['/articles/2']}>
-        <Routes>
-          <Route path="/articles/:id" element={<Story />} />
-        </Routes>
-      </MemoryRouter>
-    ),
     (Story) =>
       StoreDecorator({
         user: {
           authData: {
+            id: '1',
+            username: 'admin',
+            roles: [UserRole.ADMIN],
+            avatar:
+              'https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625',
             features: {
               isArticleRatingEnabled: true,
             },
@@ -159,5 +154,4 @@ export const Dark: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticleDetailsPage />,
 };

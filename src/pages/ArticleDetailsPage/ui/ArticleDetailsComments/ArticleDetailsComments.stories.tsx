@@ -1,8 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleType } from '@/entities/Article';
 import { type ArticleDetailsCommentsSchema } from '../../model/types/articleDetailsCommentsSchema';
@@ -14,21 +13,6 @@ const meta: Meta<typeof ArticleDetailsComments> = {
 
 export default meta;
 type Story = StoryObj<typeof ArticleDetailsComments>;
-
-export const Light: Story = {
-  decorators: [
-    (Story) =>
-      StoreDecorator({
-        articleDetails: {
-          data: article,
-        },
-        articleDetailsPage: {
-          comments,
-        },
-      })(Story),
-  ],
-  render: () => <ArticleDetailsComments />,
-};
 
 const article = {
   id: '1',
@@ -130,9 +114,8 @@ const comments: ArticleDetailsCommentsSchema = {
   isLoading: false,
 };
 
-export const Dark: Story = {
+export const Primary: Story = {
   decorators: [
-    (Story) => ThemeDecorator(Theme.DARK)(Story),
     (Story) =>
       StoreDecorator({
         articleDetails: {
@@ -143,5 +126,4 @@ export const Dark: Story = {
         },
       })(Story),
   ],
-  render: () => <ArticleDetailsComments />,
 };

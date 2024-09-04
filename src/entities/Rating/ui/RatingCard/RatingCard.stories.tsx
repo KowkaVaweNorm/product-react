@@ -2,8 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { RatingCard } from './RatingCard';
-import { Theme } from '@/shared/const/theme';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta: Meta<typeof RatingCard> = {
   title: 'entities/RatingCard',
@@ -13,11 +11,4 @@ const meta: Meta<typeof RatingCard> = {
 export default meta;
 type Story = StoryObj<typeof RatingCard>;
 
-export const Light: Story = {
-  render: () => <RatingCard />,
-};
-
-export const Dark: Story = {
-  decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
-  render: () => <RatingCard />,
-};
+export const Light: Story = {};

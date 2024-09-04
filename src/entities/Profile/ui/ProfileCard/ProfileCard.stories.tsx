@@ -16,33 +16,33 @@ const meta: Meta<typeof ProfileCard> = {
   },
 };
 
+const stubData = {
+  username: 'admin',
+  age: 22,
+  country: Country.Ukraine,
+  lastname: 'Kowka',
+  first: 'michael',
+  city: 'Voronezh',
+  currency: Currency.USD,
+  avatar,
+};
+
 export default meta;
 type Story = StoryObj<typeof ProfileCard>;
 
-export const Primary: Story = {
+export const Light: Story = {
   args: {
     readonly: true,
-    data: {
-      username: 'admin',
-      age: 22,
-      country: Country.Ukraine,
-      lastname: 'Kowka',
-      first: 'michael',
-      city: 'Voronezh',
-      currency: Currency.USD,
-      avatar,
-    },
+    data: stubData,
   },
 };
-
-export const WithError: Story = {
-  args: {
-    error: 'true',
-  },
-};
-
 export const Loading: Story = {
   args: {
     isLoading: true,
+  },
+};
+export const WithError: Story = {
+  args: {
+    error: 'true',
   },
 };

@@ -1,7 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { Currency } from '../../model/types/currency';
 import { memo, useCallback, useState } from 'react';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Currency } from '../../model/types/currency';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { type DropdownDirection } from '@/shared/types/ui';
 
 type ListBoxProps = Omit<Parameters<typeof ListBox>[0], 'onChange' | 'value'>;
 
@@ -9,6 +12,7 @@ type CurrencySelectProps = {
   readonly?: boolean;
   className?: string;
   value?: Currency;
+  direction?: DropdownDirection;
   onChange?: (value: Currency) => void;
 } & ListBoxProps;
 
@@ -23,28 +27,32 @@ const options: OptionItem[] = [
   { value: Currency.USD, content: Currency.USD },
 ];
 export const CurrencySelect = memo((props: CurrencySelectProps): JSX.Element => {
-  const { className = '', onChange, value, readonly, ...otherProps } = props;
+  const { className = '', onChange, value, readonly, direction } = props;
   const { t } = useTranslation('profile');
-  const [valueLocal, setValueLocal] = useState<Currency | undefined>(undefined);
+  const [localValue, setLocalValue] = useState<Currency>(Currency.RUB);
+
   const onChangeHandler = useCallback(
     (value: string) => {
-      setValueLocal(value as Currency);
       onChange?.(value as Currency);
+      setLocalValue(value as Currency);
     },
     [onChange],
   );
-
+  const propsList = {
+    className,
+    value: value ?? localValue,
+    defaultValue: t('Укажите валюту'),
+    label: t('Укажите валюту'),
+    items: options,
+    onChange: onChangeHandler,
+    readonly,
+    direction: direction ?? ('bottom right' as const),
+  };
   return (
-    <ListBox
-      className={className}
-      readonly={readonly}
-      label={t('Укажите валюту')}
-      defaultValue={t('Укажите валюту')}
-      items={options}
-      value={value ?? valueLocal}
-      onChange={onChangeHandler}
-      direction="top right"
-      {...otherProps}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ListBox {...propsList} />}
+      off={<ListBoxDeprecated {...propsList} />}
     />
   );
 });

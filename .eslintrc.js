@@ -76,6 +76,8 @@ module.exports = {
     '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-misused-promises': 'warn',
+    
     'i18next/no-literal-string': [
       'error',
       {
@@ -100,6 +102,10 @@ module.exports = {
           'loading',
           'decoding',
           'feature',
+          'size',
+          'variant',
+          'color',
+          'wrap',
         ],
       },
     ],

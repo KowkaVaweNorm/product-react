@@ -32,6 +32,7 @@ const filledState: ProfileSchema = {
   isLoading: false,
   error: undefined,
   data: profile,
+  form: profile,
 };
 
 export const testDataEditableProfileCard = {
