@@ -13,7 +13,7 @@ const meta: Meta<typeof Sidebar> = {
 export default meta;
 type Story = StoryObj<typeof Sidebar>;
 
-export const Light: Story = {
+export const Primary: Story = {
   decorators: [
     (Story) =>
       StoreDecorator({
@@ -22,26 +22,13 @@ export const Light: Story = {
         },
       })(Story),
   ],
-  render: () => <Sidebar />,
 };
 
-export const Dark: Story = {
-  decorators: [
-    (Story) => (Story) =>
-      StoreDecorator({
-        user: {
-          authData: {},
-        },
-      })(Story),
-  ],
-  render: () => <Sidebar />,
-};
 export const NoAuth: Story = {
   decorators: [
-    (Story) => (Story) =>
+    (Story) =>
       StoreDecorator({
         user: {},
       })(Story),
   ],
-  render: () => <Sidebar />,
 };

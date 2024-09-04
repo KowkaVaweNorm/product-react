@@ -13,7 +13,7 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
-export const Light: Story = {
+export const Primary: Story = {
   decorators: [(Story) => StoreDecorator({})(Story)],
   render: () => <Navbar />,
 };
@@ -24,10 +24,4 @@ export const AuthNavbar: Story = {
         user: { authData: { id: '', username: '' } },
       })(Story),
   ],
-  render: () => <Navbar />,
-};
-
-export const Dark: Story = {
-  decorators: [(Story) => (Story) => StoreDecorator({})(Story)],
-  render: () => <Navbar />,
 };

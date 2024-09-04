@@ -2,9 +2,11 @@
     .NotSelected {
         fill: var(--secondary-color);
     }
-    .Icon.NotSelected{
-        filter:opacity(0.5);
+
+    .Icon.NotSelected {
+        filter: opacity(0.5);
     }
+
     .Icon:hover {
         filter: none;
     }
@@ -14,5 +16,4 @@
     .Selected {
         fill: var(--accent-redesigned);
     }
-
 }

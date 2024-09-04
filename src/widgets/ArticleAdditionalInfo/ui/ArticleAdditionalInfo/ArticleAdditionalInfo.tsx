@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './ArticleAdditionalInfo.module.scss';
 import { type User } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -21,7 +20,7 @@ export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) =>
   const { t } = useTranslation('article');
 
   return (
-    <VStack gap="32" className={classNames(cls.ArticleAdditionalInfo, {}, [className])}>
+    <VStack gap="32" className={classNames('', {}, [className])}>
       <HStack gap="8">
         <Avatar src={author.avatar} size={32} />
         <Text text={author.username} bold />
