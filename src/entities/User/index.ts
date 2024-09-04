@@ -1,3 +1,5 @@
+export { getUserFeatureFlags } from './model/selectors/getUserFeatureFlags/getUserFeatureFlags';
+
 export { useJsonSettings } from './model/selectors/jsonSettings';
 
 export { saveJsonSettings } from './model/services/saveJsonSettings';

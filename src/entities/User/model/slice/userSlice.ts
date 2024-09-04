@@ -26,6 +26,8 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.authData = undefined;
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+      localStorage.setItem(LOCAL_STORAGE_LAST_DESIGN_KEY, 'old');
+      setFeatureFlags({ isAppRedesigned: false });
     },
   },
   extraReducers: (builder) => {

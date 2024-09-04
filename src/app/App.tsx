@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInited, initAuthData } from '@/entities/User';
+import { getUserInited, initAuthData, getUserFeatureFlags } from '@/entities/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from './providers/router';
 import { PageLoader } from '@/widgets/PageLoader';
@@ -18,6 +18,7 @@ const App = memo((): JSX.Element => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
   const inited = useSelector(getUserInited);
+  const userIsAppRedesign = useSelector(getUserFeatureFlags('isAppRedesigned'));
   const { t } = useTranslation();
   const toolbar = useAppToolbar();
   useEffect(() => {
@@ -29,6 +30,7 @@ const App = memo((): JSX.Element => {
   if (!inited) {
     return (
       <ToggleFeatures
+        key={String(userIsAppRedesign)}
         feature="isAppRedesigned"
         on={
           <div id="app" className={classNames('app_redesigned', {}, [theme])}>
@@ -42,6 +44,7 @@ const App = memo((): JSX.Element => {
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
+      key={String(userIsAppRedesign)}
       off={
         <div id="app" className={classNames('app', {}, [theme])}>
           <Suspense fallback="">
