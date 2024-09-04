@@ -1,13 +1,12 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { ListBox } from './ListBox';
+import { Popover } from './Popover';
 // TODO: Сделать отображение относительно заданного направления
 // TODO: Сделать выделение на hover
 
-const meta: Meta<typeof ListBox> = {
-  title: 'shared/depreacated/ListBox',
-  component: ListBox,
+const meta: Meta<typeof Popover> = {
+  title: 'shared/Popover',
+  component: Popover,
   decorators: [
     (Story) => (
       <div style={{ padding: 100 }}>
@@ -23,26 +22,12 @@ const meta: Meta<typeof ListBox> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ListBox>;
+type Story = StoryObj<typeof Popover>;
 
 export const Primary: Story = {
   args: {
     direction: 'bottom right',
-    defaultValue: 'Выпадающий список',
-    items: [
-      {
-        content: '12aasdfsdf',
-        value: '1',
-      },
-      {
-        content: '22aasdfsdf',
-        value: '2',
-      },
-      {
-        content: '32aasdfsdf',
-        value: '3',
-      },
-    ],
-    onChange: action,
+    trigger: <button>Trigger</button>,
+    children: 'children nodes',
   },
 };

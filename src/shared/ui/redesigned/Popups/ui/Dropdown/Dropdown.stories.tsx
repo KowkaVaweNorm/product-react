@@ -4,11 +4,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from './Dropdown';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'shared/depreacated/Dropdown',
+  title: 'shared/Dropdown',
   component: Dropdown,
   decorators: [
     (Story) => (
-      <div style={{ padding: 200 }}>
+      <div style={{ padding: 100 }}>
         <Story />
       </div>
     ),

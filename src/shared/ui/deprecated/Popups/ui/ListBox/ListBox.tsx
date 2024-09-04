@@ -25,10 +25,10 @@ interface ListBoxProps<ValueType> {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft ?? 'oB',
-  'bottom right': cls.optionsBottomRight ?? 'oB',
-  'top left': cls.optionsTopLeft ?? 'oT',
-  'top right': cls.optionsTopRight ?? 'oT',
+  'bottom left': popupCls.optionsBottomLeft ?? 'oB',
+  'bottom right': popupCls.optionsBottomRight ?? 'oB',
+  'top left': popupCls.optionsTopLeft ?? 'oT',
+  'top right': popupCls.optionsTopRight ?? 'oT',
 };
 /**
  * Устарел, используем новые компоненты из папки redesigned

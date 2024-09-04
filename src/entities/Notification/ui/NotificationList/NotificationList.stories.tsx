@@ -43,7 +43,7 @@ export const PrimaryLoading: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('*', async () => {
+        http.get('*/notifications', async () => {
           return await new Promise(() => {
             // Ничего не делаем, оставляем promise неразрешенным
           });

@@ -1,4 +1,8 @@
 .BIG {
+    .iconView {
+        fill: var(--primary-color);
+    }
+
     .views {
         margin-left: auto;
     }
@@ -44,6 +48,10 @@
     width: 230px;
     transition: 0.2s;
     cursor: pointer;
+
+    .iconView {
+        fill: var(--primary-color);
+    }
 
     .date {
         position: absolute;

@@ -1,5 +1,6 @@
 .popup {
     position: relative;
+    width: fit-content;
 }
 
 .menu {
@@ -27,21 +28,21 @@
 
 .optionsBottomLeft {
     top: 100%;
-    right: 0;
+    left: 0;
 }
 
 .optionsBottomRight {
     top: 100%;
-    left: 0;
+    right: 0;
 }
 
 .optionsTopRight {
     bottom: 100%;
-    left: 0;
+    right: 0;
 }
 
 .optionsTopLeft {
-    right: 0;
+    left: 0;
     bottom: 100%;
 }
 

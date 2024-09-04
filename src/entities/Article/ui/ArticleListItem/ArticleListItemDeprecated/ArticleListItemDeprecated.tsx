@@ -25,7 +25,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const views = (
     <>
       <Text text={String(article.views)} className={cls.views} />
-      <Icon Svg={EyeIcon} />
+      <Icon Svg={EyeIcon} className={cls.iconView} />
     </>
   );
 

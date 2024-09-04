@@ -1,10 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppLink, AppLinkTheme } from './AppLink';
+import { AppLink } from './AppLink';
 
 const meta: Meta<typeof AppLink> = {
-  title: 'shared/depreacated/AppLink',
+  title: 'shared/AppLink',
   component: AppLink,
 };
 
@@ -13,15 +13,7 @@ type Story = StoryObj<typeof AppLink>;
 
 export const Primary: Story = {
   render: () => (
-    <AppLink to="/" theme={AppLinkTheme.PRIMARY}>
-      TEXT
-    </AppLink>
-  ),
-};
-
-export const Secondary: Story = {
-  render: () => (
-    <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
+    <AppLink to="/" variant="primary">
       TEXT
     </AppLink>
   ),
@@ -29,7 +21,7 @@ export const Secondary: Story = {
 
 export const Red: Story = {
   render: () => (
-    <AppLink to="/" theme={AppLinkTheme.RED}>
+    <AppLink to="/" variant="red">
       TEXT
     </AppLink>
   ),

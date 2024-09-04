@@ -1,4 +1,4 @@
-import { memo, type ReactNode, useCallback } from 'react';
+import { memo, type ReactNode, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Card } from '../Card/Card';
 import cls from './Tabs.module.scss';
@@ -8,21 +8,32 @@ export interface TabItem {
   value?: string;
   content: ReactNode;
 }
-
-interface TabsProps {
+interface TabsPropsWithValue {
   className?: string;
   tabs: TabItem[];
   value: string;
   onTabClick: (tab: TabItem) => void;
   direction?: FlexDirection;
 }
+interface TabsPropsWithoutValue {
+  className?: string;
+  tabs: TabItem[];
+  value?: string;
+  onTabClick?: (tab: TabItem) => void;
+  direction?: FlexDirection;
+}
+type TabsProps = TabsPropsWithValue | TabsPropsWithoutValue;
 
 export const Tabs = memo((props: TabsProps) => {
   const { className, tabs, onTabClick, value, direction = 'row' } = props;
-
+  const [localValue, setLocalValue] = useState(value ?? tabs[0]?.value);
   const clickHandle = useCallback(
     (tab: TabItem) => () => {
-      onTabClick(tab);
+      if (onTabClick != null) {
+        onTabClick(tab);
+      } else {
+        setLocalValue(tab.value);
+      }
     },
     [onTabClick],
   );
@@ -35,7 +46,7 @@ export const Tabs = memo((props: TabsProps) => {
       className={classNames(cls.Tabs, {}, [className])}
     >
       {tabs.map((tab) => {
-        const isSelected = tab.value === value;
+        const isSelected = tab.value === (value ?? localValue);
         return (
           <Card
             variant={isSelected ? 'light' : 'normal'}

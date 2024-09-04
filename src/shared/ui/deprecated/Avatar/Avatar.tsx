@@ -29,7 +29,13 @@ export const Avatar = (props: AvatarProps): JSX.Element => {
   const mods: Mods = {};
   const fallback = <Skeleton width={size} height={size} border="50%" />;
   const errorFallback = (
-    <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />
+    <Icon
+      className={cls.iconAvatar}
+      inverted={fallbackInverted}
+      width={size}
+      height={size}
+      Svg={UserIcon}
+    />
   );
   return (
     <AppImage
