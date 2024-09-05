@@ -32,10 +32,10 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
   const trigger = (
     <ToggleFeatures
       feature="isAppRedesigned"
-      on={<Icon Svg={NotificationIcon} clickable onClick={onOpenDrawer} />}
+      on={<Icon className={cls.Icon} Svg={NotificationIcon} clickable onClick={onOpenDrawer} />}
       off={
         <ButtonDeprecated onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-          <IconDeprecated Svg={NotificationIconDeprecated} inverted />
+          <IconDeprecated Svg={NotificationIconDeprecated} inverted filled />
         </ButtonDeprecated>
       }
     />
@@ -49,7 +49,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
           on={
             <Popover
               className={classNames(cls.NotificationButton, {}, [className])}
-              direction="bottom left"
+              direction="bottom right"
               trigger={trigger}
             >
               <NotificationList className={cls.notifications} />
@@ -58,7 +58,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
           off={
             <PopoverDeprecated
               className={classNames(cls.NotificationButton, {}, [className])}
-              direction="bottom left"
+              direction="bottom right"
               trigger={trigger}
             >
               <NotificationList className={cls.notifications} />
