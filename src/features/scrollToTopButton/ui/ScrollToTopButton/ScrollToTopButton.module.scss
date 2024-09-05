@@ -1,3 +1,26 @@
 .ScrollToTopButton {
     fill: var(--accent-redesigned);
+    z-index: 2;
+    transition: fill 1.2s;
+}
+
+.BtnIcon {
+    opacity: 0;
+    pointer-events: none;
+    min-height: 100% !important;
+    width: 100% !important;
+    transition: background-color 1.2s;
+
+    &:hover {
+        background-color: var(--bg-redesigned);
+
+        .ScrollToTopButton {
+            fill: var(--secondary-color);
+        }
+    }
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: all;
 }

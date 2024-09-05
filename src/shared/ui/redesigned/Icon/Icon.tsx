@@ -15,6 +15,7 @@ interface NonClickableIconProps extends IconBaseProps {
 }
 
 interface ClickableBaseProps extends IconBaseProps {
+  classnamebutton?: string;
   clickable: true;
   onClick: () => void;
 }
@@ -45,7 +46,7 @@ export const Icon = memo((props: IconProps) => {
     return (
       <button
         type="button"
-        className={cls.button}
+        className={classNames(cls.button, {}, [props.classnamebutton])}
         onClick={props.onClick}
         style={{ height, width }}
       >
