@@ -13,16 +13,21 @@ import { toggleFeatures } from '@/shared/lib/features';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
 import { pageActions } from '../model/slices/pageSlice';
 
+interface OnScrollEndProps {
+  callback?: () => void;
+  options?: IntersectionObserverInit;
+}
+
 interface IPageProps extends TestProps {
   className?: string;
   children: ReactNode;
-  onScrollEnd?: () => void;
+  onScrollEnd?: OnScrollEndProps;
 }
 
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo((props: IPageProps): JSX.Element => {
-  const { className, children, onScrollEnd = undefined } = props;
+  const { className, children, onScrollEnd } = props;
 
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -36,7 +41,8 @@ export const Page = memo((props: IPageProps): JSX.Element => {
       on: () => undefined,
       off: () => wrapperRef,
     }),
-    callback: onScrollEnd,
+    callback: onScrollEnd?.callback,
+    options: onScrollEnd?.options,
   });
 
   useInitialEffect(() => {

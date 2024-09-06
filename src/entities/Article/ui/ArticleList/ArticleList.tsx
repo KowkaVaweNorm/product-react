@@ -6,7 +6,7 @@ import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { getFeatureFlag, ToggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { type Article } from '../../model/type/article';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -35,7 +35,6 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
   } = props;
   const { t } = useTranslation('article');
   const hasSomeArticles = articles !== undefined && articles.length > 0;
-  const flag = getFeatureFlag('isAppRedesigned');
   if (!isLoading && !hasSomeArticles) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -47,19 +46,6 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
       </div>
     );
   }
-  const content = isLoading
-    ? getSkeletons(view, possibleCountArticles)
-    : hasSomeArticles
-      ? articles.map((item) => (
-          <ArticleListItem
-            article={item}
-            view={view}
-            target={target}
-            key={item.id}
-            className={cls.card}
-          />
-        ))
-      : null;
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
@@ -67,10 +53,19 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
         <HStack
           wrap="wrap"
           gap="16"
-          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          className={classNames(cls.ArticleListRedesigned, {}, [className])}
           data-testid="ArticleList"
         >
-          {content}
+          {articles?.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view, possibleCountArticles)}
         </HStack>
       }
       off={
@@ -78,7 +73,16 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
           className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           data-testid="ArticleList"
         >
-          {content}
+          {articles?.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view, possibleCountArticles)}
         </div>
       }
     />
