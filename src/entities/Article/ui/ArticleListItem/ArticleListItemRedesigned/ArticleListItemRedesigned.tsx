@@ -23,10 +23,10 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
   const userInfo = (
     <>
-      <AppLink to={getRouteProfile(article.user.id)}>
+      <AppLink to={getRouteProfile(article.user.id)} className={cls.profile_link_avatar}>
         <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
       </AppLink>
-      <AppLink to={getRouteProfile(article.user.id)}>
+      <AppLink to={getRouteProfile(article.user.id)} className={cls.profile_link_avatar}>
         <Text bold text={article.user.username} />
       </AppLink>
     </>
@@ -79,6 +79,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
   return (
     <AppLink
+      isBlock
       data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
