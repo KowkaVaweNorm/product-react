@@ -1,6 +1,6 @@
 import cls from './ArticlesPage.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   DynamicModuleLoader,
@@ -33,9 +33,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   // TODO: Доделать infinit list
-  const infListRef = useRef();
   const onLoadNextPart = useCallback(() => {
-    console.log('trigger intersection');
     /*
     $0.getBoundingClientRect().height + ($0.getBoundingClientRect().top - window.innerHeight)
      */
@@ -59,7 +57,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
               onScrollEnd={{
                 callback: onLoadNextPart,
                 options: {
-                  rootMargin: '0px 0px 1000px 0px',
+                  rootMargin: '0px 0px 400px 0px',
                 },
               }}
               className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
@@ -76,7 +74,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
           onScrollEnd={{
             callback: onLoadNextPart,
             options: {
-              rootMargin: '0px 0px 1000px 0px',
+              rootMargin: '0px 0px 400px 0px',
             },
           }}
           className={classNames(cls.ArticlesPage, {}, [className])}
