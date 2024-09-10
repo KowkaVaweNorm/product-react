@@ -35,7 +35,7 @@ export const AppImage = memo((props: AppImageProps): JSX.Element => {
   if (isLoading && fallback != null) {
     return (
       <>
-        <img className={className} ref={imgRef} style={{ opacity: 0 }} />
+        <img className={className} ref={imgRef} style={{ display: 'none' }} />
         {fallback}
       </>
     );
