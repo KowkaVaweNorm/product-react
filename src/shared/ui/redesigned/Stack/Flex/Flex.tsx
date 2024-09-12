@@ -1,4 +1,10 @@
-import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
+import {
+  type MutableRefObject,
+  type RefObject,
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react';
 import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Flex.module.scss';
 
@@ -42,6 +48,7 @@ export interface FlexProps extends DivProps {
   wrap?: FlexWrap;
   gap?: FlexGap;
   max?: boolean;
+  flexref?: MutableRefObject<HTMLElement> | null | RefObject<HTMLElement | null>;
 }
 
 export const Flex = (props: FlexProps) => {

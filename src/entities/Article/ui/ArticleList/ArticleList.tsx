@@ -1,7 +1,7 @@
 import cls from './ArticleList.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { type HTMLAttributeAnchorTarget, memo } from 'react';
+import { type HTMLAttributeAnchorTarget, memo, type RefObject } from 'react';
 import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -18,6 +18,7 @@ interface IArticleListProps {
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
   possibleCountArticles?: number;
+  refContainer?: RefObject<HTMLDivElement>;
 }
 const getSkeletons = (view: ArticleView, possibleCount?: number) =>
   new Array(view === ArticleView.SMALL ? (possibleCount ?? 9) : (possibleCount ?? 3))
@@ -32,6 +33,8 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
     isLoading = false,
     target,
     possibleCountArticles,
+    refContainer,
+    ...otherProps
   } = props;
   const { t } = useTranslation('article');
   const hasSomeArticles = articles !== undefined && articles.length > 0;
@@ -51,10 +54,12 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
       feature="isAppRedesigned"
       on={
         <HStack
+          flexref={refContainer}
           wrap="wrap"
           gap="16"
           className={classNames(cls.ArticleListRedesigned, {}, [className])}
           data-testid="ArticleList"
+          {...otherProps}
         >
           {articles?.map((item) => (
             <ArticleListItem
@@ -70,8 +75,10 @@ export const ArticleList = memo((props: IArticleListProps): JSX.Element => {
       }
       off={
         <div
+          ref={refContainer}
           className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           data-testid="ArticleList"
+          {...otherProps}
         >
           {articles?.map((item) => (
             <ArticleListItem

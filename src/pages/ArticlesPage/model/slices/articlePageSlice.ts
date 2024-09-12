@@ -73,6 +73,8 @@ const articlesPageSlice = createSlice({
       })
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
+        // Если элементов пришло с сервера меньше чем мы подгружаем, значит больше их нет -> hasMore= false
+        // Если элементов с севрера пришло больше или равно нашему лимиту то скорее всего элементы ещё есть -> hasMore= true
         state.hasMore = action.payload.length >= state.limit;
         if (action.meta.arg.replace === true) {
           articlesAdapter.setAll(state, action.payload);

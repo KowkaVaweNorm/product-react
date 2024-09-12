@@ -25,9 +25,7 @@ export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
   );
 
   const fallback = <Skeleton className={cls.Avatar} width={size} height={size} border="50%" />;
-  const errorFallback = (
-    <Icon className={cls.Avatar} width={size} height={size} Svg={UserIcon} />
-  );
+  const errorFallback = <Icon className={cls.Avatar} width={size} height={size} Svg={UserIcon} />;
 
   return (
     <AppImage

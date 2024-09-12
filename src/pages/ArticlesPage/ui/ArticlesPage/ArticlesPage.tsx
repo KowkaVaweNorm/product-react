@@ -1,6 +1,6 @@
 import cls from './ArticlesPage.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   DynamicModuleLoader,
@@ -11,7 +11,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Page } from '@/widgets/Page';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -32,13 +31,6 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
-  // TODO: Доделать infinit list
-  const onLoadNextPart = useCallback(() => {
-    /*
-    $0.getBoundingClientRect().height + ($0.getBoundingClientRect().top - window.innerHeight)
-     */
-    dispatch(fetchNextArticlesPage());
-  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
@@ -54,12 +46,6 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
           content={
             <Page
               data-testid="ArticlesPage"
-              onScrollEnd={{
-                callback: onLoadNextPart,
-                options: {
-                  rootMargin: '0px 0px 400px 0px',
-                },
-              }}
               className={classNames(cls.ArticlesPageRedesigned, {}, [className])}
             >
               <ArticleInfiniteList className={cls.list} />
@@ -69,16 +55,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
         />
       }
       off={
-        <Page
-          data-testid="ArticlesPage"
-          onScrollEnd={{
-            callback: onLoadNextPart,
-            options: {
-              rootMargin: '0px 0px 400px 0px',
-            },
-          }}
-          className={classNames(cls.ArticlesPage, {}, [className])}
-        >
+        <Page data-testid="ArticlesPage" className={classNames(cls.ArticlesPage, {}, [className])}>
           <ArticlesPageFilters />
           <ArticleInfiniteList className={cls.list} />
           <ArticlePageGreeting />

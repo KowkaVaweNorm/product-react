@@ -1,6 +1,9 @@
 .tabs {
     display: flex;
     gap: 8px;
-    cursor: pointer;
     caret-color: transparent;
+}
+
+.tab {
+    cursor: pointer;
 }

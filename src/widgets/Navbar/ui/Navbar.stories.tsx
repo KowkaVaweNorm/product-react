@@ -15,7 +15,6 @@ type Story = StoryObj<typeof Navbar>;
 
 export const Primary: Story = {
   decorators: [(Story) => StoreDecorator({})(Story)],
-  render: () => <Navbar />,
 };
 export const AuthNavbar: Story = {
   decorators: [

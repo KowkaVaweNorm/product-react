@@ -1,7 +1,6 @@
 import cls from './Page.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { type ReactNode, memo, useRef, type MutableRefObject, type UIEvent } from 'react';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { type ReactNode, memo, useRef, type UIEvent, type MutableRefObject } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -12,41 +11,29 @@ import { type TestProps } from '@/shared/types/tests';
 import { toggleFeatures } from '@/shared/lib/features';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
 import { pageActions } from '../model/slices/pageSlice';
-
-interface OnScrollEndProps {
-  callback?: () => void;
-  options?: IntersectionObserverInit;
-}
+import { useCombinedRef } from '@/shared/lib/hooks/useCombinedRef/useCombinedRef';
 
 interface IPageProps extends TestProps {
   className?: string;
+  pageRef?: MutableRefObject<HTMLElement | null>;
   children: ReactNode;
-  onScrollEnd?: OnScrollEndProps;
 }
 
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo((props: IPageProps): JSX.Element => {
-  const { className, children, onScrollEnd } = props;
+  const { className, children, pageRef } = props;
 
-  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const wrapperRef = useRef<HTMLElement | null>(null);
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const scrollPosition = useSelector((state: StateSchema) => getPageScrollByPath(state, pathname));
-  useInfiniteScroll({
-    triggerRef,
-    wrapperRef: toggleFeatures({
-      name: 'isAppRedesigned',
-      on: () => undefined,
-      off: () => wrapperRef,
-    }),
-    callback: onScrollEnd?.callback,
-    options: onScrollEnd?.options,
-  });
+  const combinedRef = useCombinedRef(wrapperRef, pageRef);
 
   useInitialEffect(() => {
-    wrapperRef.current.scrollTop = scrollPosition;
+    if (wrapperRef.current != null) {
+      wrapperRef.current.scrollTop = scrollPosition;
+    }
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
@@ -60,7 +47,7 @@ export const Page = memo((props: IPageProps): JSX.Element => {
 
   return (
     <main
-      ref={wrapperRef}
+      ref={combinedRef}
       className={classNames(
         toggleFeatures({
           name: 'isAppRedesigned',
@@ -75,7 +62,6 @@ export const Page = memo((props: IPageProps): JSX.Element => {
       data-testid={props['data-testid'] ?? 'Page'}
     >
       {children}
-      {onScrollEnd != null ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </main>
   );
 });

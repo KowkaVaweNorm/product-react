@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable n/no-callback-literal */
 import { useCallback, useRef } from 'react';
-
+/**
+ *
+ * @param callback function
+ * @param delay ms
+ * @returns
+ */
 export function useThrottle(callback: (...args: any[]) => void, delay: number) {
   const throttleRef = useRef(false);
 

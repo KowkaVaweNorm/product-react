@@ -1,7 +1,8 @@
 .PageLoader {
-    min-height: calc(100vh - var(--navber-height));
+    min-height: calc(100vh - var(--navbar-height));
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    caret-color: transparent;
 }
