@@ -1,10 +1,4 @@
-import {
-  type MutableRefObject,
-  type RefObject,
-  type DetailedHTMLProps,
-  type HTMLAttributes,
-  type ReactNode,
-} from 'react';
+import { type MutableRefObject, type RefObject, type HTMLAttributes, type ReactNode } from 'react';
 import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Flex.module.scss';
 
@@ -37,9 +31,7 @@ const gapClasses: Record<FlexGap, string> = {
   32: cls.gap32 ?? '',
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
-export interface FlexProps extends DivProps {
+export interface FlexProps extends HTMLAttributes<HTMLElement> {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
@@ -51,16 +43,15 @@ export interface FlexProps extends DivProps {
   flexref?: MutableRefObject<HTMLElement> | null | RefObject<HTMLElement | null>;
 }
 
-export const Flex = (props: FlexProps) => {
+export const getFlexStyle = (props: Omit<FlexProps, 'children'>) => {
   const {
     className,
-    children,
     justify = 'start',
     align = 'center',
     direction = 'row',
     wrap = 'nowrap',
     gap,
-    max,
+    max: maxProp,
     ...otherProps
   } = props;
 
@@ -76,12 +67,15 @@ export const Flex = (props: FlexProps) => {
   }
 
   const mods: Mods = {
-    [cls.max ?? '']: max,
+    [cls.max ?? '']: maxProp,
   };
+  return {
+    className: classNames(cls.Flex, mods, classes),
+    ...otherProps,
+  };
+};
+export const Flex = (props: FlexProps) => {
+  const { children } = props;
 
-  return (
-    <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
-      {children}
-    </div>
-  );
+  return <div {...getFlexStyle(props)}>{children}</div>;
 };

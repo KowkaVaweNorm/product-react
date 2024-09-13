@@ -1,9 +1,9 @@
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ButtonTheme, Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 import { t } from 'i18next';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import cls from '../AddCommentForm.module.scss';
+import { getHStackStyle } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 interface IProps {
   className?: string;
   onCommentTextChange: (value: string) => void;
@@ -13,12 +13,16 @@ interface IProps {
 
 export const AddCommentFormDeprecated = (props: IProps): JSX.Element => {
   const { onCommentTextChange, onSendHandler, className, text } = props;
+
   return (
-    <HStack
+    <form
       data-testid="AddCommentForm"
-      justify="between"
-      max
-      className={classNames(cls.AddCommentForm, {}, [className])}
+      onSubmit={onSendHandler}
+      {...getHStackStyle({
+        justify: 'between',
+        max: true,
+        className: classNames(cls.AddCommentForm, {}, [className]),
+      })}
     >
       <InputDeprecated
         className={cls.input}
@@ -28,12 +32,12 @@ export const AddCommentFormDeprecated = (props: IProps): JSX.Element => {
         onChange={onCommentTextChange}
       />
       <ButtonDeprecated
+        type="submit"
         data-testid="AddCommentForm.Button"
         theme={ButtonTheme.OUTLINE}
-        onClick={onSendHandler}
       >
         {t('Отправить')}
       </ButtonDeprecated>
-    </HStack>
+    </form>
   );
 };

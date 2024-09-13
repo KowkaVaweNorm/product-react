@@ -1,7 +1,7 @@
 import cls from './AddCommentForm.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { type FormEvent, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
   DynamicModuleLoader,
@@ -41,10 +41,14 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
     [setText],
   );
 
-  const onSendHandler = useCallback(() => {
-    onSendComment(text ?? '');
-    onCommentTextChange('');
-  }, [onCommentTextChange, onSendComment, text]);
+  const onSendHandler = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      onSendComment(text ?? '');
+      onCommentTextChange('');
+    },
+    [onCommentTextChange, onSendComment, text],
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -52,24 +56,26 @@ const AddCommentForm = memo((props: IAddCommentFormProps): JSX.Element => {
         feature="isAppRedesigned"
         on={
           <Card padding="24" border="partial" fullWidth>
-            <HStack
-              data-testid="AddCommentForm"
-              justify="between"
-              max
-              gap="16"
-              className={classNames(cls.AddCommentFormRedesigned, {}, [className])}
-            >
-              <Input
-                className={cls.input}
-                placeholder={t('Введите текст комментария')}
-                value={text}
-                data-testid="AddCommentForm.Input"
-                onChange={onCommentTextChange}
-              />
-              <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
-                {t('Отправить')}
-              </Button>
-            </HStack>
+            <form onSubmit={onSendHandler}>
+              <HStack
+                data-testid="AddCommentForm"
+                justify="between"
+                max
+                gap="16"
+                className={classNames(cls.AddCommentFormRedesigned, {}, [className])}
+              >
+                <Input
+                  className={cls.input}
+                  placeholder={t('Введите текст комментария')}
+                  value={text}
+                  data-testid="AddCommentForm.Input"
+                  onChange={onCommentTextChange}
+                />
+                <Button type="submit" data-testid="AddCommentForm.Button">
+                  {t('Отправить')}
+                </Button>
+              </HStack>
+            </form>
           </Card>
         }
         off={
