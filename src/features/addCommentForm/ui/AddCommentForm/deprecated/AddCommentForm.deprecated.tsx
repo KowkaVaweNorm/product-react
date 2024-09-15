@@ -4,10 +4,11 @@ import { t } from 'i18next';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import cls from '../AddCommentForm.module.scss';
 import { getHStackStyle } from '@/shared/ui/redesigned/Stack/HStack/HStack';
+import { type FormEvent } from 'react';
 interface IProps {
   className?: string;
   onCommentTextChange: (value: string) => void;
-  onSendHandler: () => void;
+  onSendHandler: (e: FormEvent<HTMLFormElement>) => void;
   text: string;
 }
 
