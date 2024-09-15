@@ -25,5 +25,5 @@ root.render(
         </ErrorBoundary>
       </StoreProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 );
