@@ -13,6 +13,7 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useTranslation } from 'react-i18next';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+import { useAuth } from '@/features/AuthByUsername';
 
 const App = memo((): JSX.Element => {
   const { theme } = useTheme();
@@ -21,6 +22,7 @@ const App = memo((): JSX.Element => {
   const userIsAppRedesign = useSelector(getUserFeatureFlags('isAppRedesigned'));
   const { t } = useTranslation();
   const toolbar = useAppToolbar();
+  useAuth();
   useEffect(() => {
     if (!inited) {
       dispatch(initAuthData());

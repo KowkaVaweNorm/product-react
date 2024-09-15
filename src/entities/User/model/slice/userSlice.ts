@@ -5,6 +5,8 @@ import { saveJsonSettings } from '../services/saveJsonSettings';
 import { initAuthData } from '../services/initAuthData';
 import { type JsonSettings } from '../types/jsonSettings';
 import { setFeatureFlags } from '@/shared/lib/features';
+import { broadcastChannelSend } from '@/shared/lib/utils/broadcastChannelSend';
+import { EBroadcastChannelEventName } from '@/shared/types/broadcastChannel';
 
 const initialState: UserSchema = {
   _inited: false,
@@ -22,12 +24,14 @@ export const userSlice = createSlice({
         LOCAL_STORAGE_LAST_DESIGN_KEY,
         (action.payload.features?.isAppRedesigned ?? false) ? 'new' : 'old',
       );
+      broadcastChannelSend(EBroadcastChannelEventName.AUTH, true);
     },
     logout: (state) => {
       state.authData = undefined;
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
       localStorage.setItem(LOCAL_STORAGE_LAST_DESIGN_KEY, 'old');
       setFeatureFlags({ isAppRedesigned: false });
+      broadcastChannelSend(EBroadcastChannelEventName.AUTH, false);
     },
   },
   extraReducers: (builder) => {
