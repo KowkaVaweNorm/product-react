@@ -1,4 +1,3 @@
-import cls from './NotificationList.module.scss';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -25,7 +24,7 @@ export const NotificationList = memo((props: NotificationListProps) => {
   });
   if (isLoading) {
     return (
-      <VStack gap="16" max className={classNames(cls.NotificationList, {}, [className])}>
+      <VStack gap="16" max className={classNames('', {}, [className])}>
         <Skeleton width="100%" border="8px" height="80px" />
         <Skeleton width="100%" border="8px" height="80px" />
         <Skeleton width="100%" border="8px" height="80px" />
