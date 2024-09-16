@@ -13,13 +13,14 @@ import { type AddCommentFormSchema } from '@/features/addCommentForm';
 import { type ProfileSchema } from '@/features/editableProfileCard';
 import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { type rtkApi } from '@/shared/api/rtkApi';
+import { rtkGCLApi, type rtkApi } from '@/shared/api/rtkApi';
 import { type PageSchema } from '@/widgets/Page';
 
 export interface StateSchema {
   user: UserSchema;
   page: PageSchema;
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+  [rtkGCLApi.reducerPath]: ReturnType<typeof rtkGCLApi.reducer>;
   // Async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

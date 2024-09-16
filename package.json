@@ -6,9 +6,10 @@
   "scripts": {
     "start": "webpack serve",
     "start:vite": "vite --host",
-    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
-    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
+    "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\" \"npm run start:dev:server:graphql\"",
+    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\" \"npm run start:dev:server:graphql\"",
     "start:dev:server": "node ./json-server/index.js",
+    "start:dev:server:graphql": "node ./json-graphql-server/index.js",
     "build:prod": "webpack  --env mode=production apiUrl=https://reactprojectbackend-mynmea5b.b4a.run/",
     "build:dev": "webpack  --env mode=development",
     "prettier:check": "npx prettier --check **/*.{ts,tsx,json}",

@@ -11,7 +11,12 @@ export function buildPlugins
 ({ paths, isDev, apiUrl,apiGCLUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
   const isProd = !isDev;
   const plugins = [
-
+    /* Нужно синхронизовать с: 
+     - eslint конфигом,
+     - app/types/global.d.ts,
+     - jest.config.ts 
+     - config/storybook/webpack.config.ts
+    */
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
@@ -24,6 +29,7 @@ export function buildPlugins
     }),
     new webpack.ProgressPlugin(),
     new ForkTsCheckerWebpackPlugin()
+    // TODO: Включить и проверить билд
     // new CircularDependencyPlugin({
     //   exclude: /node_modules/,
     //   failOnError: true

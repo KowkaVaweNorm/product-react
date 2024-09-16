@@ -19,9 +19,9 @@ export default defineConfig({
             {
               name: 'convertColors',
               params: {
-                  currentColor: true,
-              }
-          }
+                currentColor: true,
+              },
+            },
           ],
           floatPrecision: 2,
         },
@@ -35,7 +35,11 @@ export default defineConfig({
   },
   define: {
     __IS_DEV__: JSON.stringify(true),
+    // Available api
+    // https://react-project-backend-r9fx.onrender.com/
+    // https://reactprojectbackend-mynmea5b.b4a.run/
     __API__: JSON.stringify('http://localhost:8000'),
+    __API_GraphQL__: JSON.stringify(''),
     __PROJECT__: JSON.stringify('frontend'),
   },
 });

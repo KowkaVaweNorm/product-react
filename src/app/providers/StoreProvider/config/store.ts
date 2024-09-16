@@ -9,7 +9,7 @@ import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
 import { pageReducer } from '@/widgets/Page';
-import { rtkApi } from '@/shared/api/rtkApi';
+import { rtkApi, rtkGCLApi } from '@/shared/api/rtkApi';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -20,6 +20,7 @@ export function createReduxStore(
     user: userReducer,
     page: pageReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
+    [rtkGCLApi.reducerPath]: rtkGCLApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -36,7 +37,7 @@ export function createReduxStore(
         thunk: {
           extraArgument: extraArg,
         },
-      }).concat(rtkApi.middleware),
+      }).concat(rtkApi.middleware, rtkGCLApi.middleware),
   });
 
   // @ts-expect-error  Временное решение

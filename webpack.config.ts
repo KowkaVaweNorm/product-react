@@ -12,7 +12,8 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
     return '/api';
   }
 
-  return 'http://localhost:8000';
+  // return 'http://localhost:8000';
+  return 'https://react-project-backend-r9fx.onrender.com';
 }
 /**
  * GraphQL api
@@ -24,6 +25,9 @@ function getApiGCLUrl(mode: BuildMode, apiUrl?: string) {
   if (mode === 'production') {
     return '/api';
   }
+  // Available api
+  // https://react-project-backend-r9fx.onrender.com/
+  // https://reactprojectbackend-mynmea5b.b4a.run/
 
   return 'http://localhost:8000';
 }

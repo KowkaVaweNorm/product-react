@@ -25,6 +25,7 @@ export default {
     },
     __IS_DEV__: true,
     __API__: '',
+    __API_GraphQL__: '',
     __PROJECT__: 'jest',
   },
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
