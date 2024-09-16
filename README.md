@@ -25,7 +25,7 @@ npm run sb        // Запуск storybook
 ```
 TypeScript
 React:
-Redux-toolkit + RTK Query
+Redux-toolkit + RTK Query,DynamicModuleLoader
 i18n - доступен перевод на английский
 SCSS
 Webpack
