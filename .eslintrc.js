@@ -10,9 +10,9 @@ module.exports = {
       version: 'detect',
     },
   },
-
   extends: [
     'prettier',
+    'plugin:prettier/recommended',
     'plugin:react/recommended',
     'standard-with-typescript',
     // "plugin:@typescript-eslint/recommended",
@@ -77,7 +77,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/no-misused-promises': 'warn',
-    
+
     'i18next/no-literal-string': [
       'error',
       {
@@ -136,7 +136,7 @@ module.exports = {
     __IS_DEV__: true,
     __API__: true,
     __PROJECT__: true,
-    __API_GraphQL__: true
+    __API_GraphQL__: true,
   },
 
   overrides: [
