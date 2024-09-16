@@ -8,13 +8,14 @@ import CopyPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import path from 'path';
 export function buildPlugins
-({ paths, isDev, apiUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
+({ paths, isDev, apiUrl,apiGCLUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
   const isProd = !isDev;
   const plugins = [
 
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __API_GraphQL__: JSON.stringify(apiGCLUrl),
       __PROJECT__: JSON.stringify(project)
     }),
 

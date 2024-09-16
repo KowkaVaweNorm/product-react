@@ -15,3 +15,18 @@ export const rtkApi = createApi({
   }),
   endpoints: (builder) => ({}),
 });
+
+export const rtkGCLApi = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({
+    baseUrl: __API__,
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) ?? '';
+      if (token.length > 0) {
+        headers.set('Authorization', token);
+      }
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({}),
+});

@@ -14,6 +14,19 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
 
   return 'http://localhost:8000';
 }
+/**
+ * GraphQL api
+ */
+function getApiGCLUrl(mode: BuildMode, apiUrl?: string) {
+  if (apiUrl) {
+    return apiUrl;
+  }
+  if (mode === 'production') {
+    return '/api';
+  }
+
+  return 'http://localhost:8000';
+}
 export default (env: BuildEnv): object => {
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -28,6 +41,7 @@ export default (env: BuildEnv): object => {
   const mode = env?.mode || 'development';
   const PORT = env?.port || 3002;
   const apiUrl = getApiUrl(mode, env?.apiUrl);
+  const apiGCLUrl = getApiGCLUrl(mode, env?.apiGCLUrl);
 
   const isDev = mode === 'development';
 
@@ -37,6 +51,7 @@ export default (env: BuildEnv): object => {
     isDev,
     port: PORT,
     apiUrl,
+    apiGCLUrl,
     project: 'frontend',
   });
 

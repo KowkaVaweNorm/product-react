@@ -15,6 +15,7 @@ export interface BuildEnv {
   mode: BuildMode
   port: number
   apiUrl: string
+  apiGCLUrl: string
 }
 
 export interface BuildOption {
@@ -22,6 +23,13 @@ export interface BuildOption {
   paths: BuildPaths
   isDev: boolean
   port: number
+  /**
+   * Rest URl
+   */
   apiUrl: string
+  /**
+   * GraphQL URl
+   */
+  apiGCLUrl: string
   project: 'storybook' | 'frontend' | 'jest'
 }

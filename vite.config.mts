@@ -27,7 +27,6 @@ export default defineConfig({
         },
       },
       include: '**/*.svg',
-      // ...
     }),
     react(),
   ],
