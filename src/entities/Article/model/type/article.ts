@@ -26,7 +26,7 @@ export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlo
 export interface Article {
   id: string;
   title: string;
-  user: User;
+  user: User; // в fetchArticleById expand
   subtitle: string;
   img: string;
   views: number;

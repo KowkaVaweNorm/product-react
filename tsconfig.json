@@ -28,7 +28,7 @@
   "include": [
     // "./config/jest/setupTest.ts",
     "./src/**/*.ts",
-     "vite.config.mts",
+    "vite.config.mts",
     "./src/**/*.tsx",
     "./config/**/*.ts",
     "./config/**/*.tsx",
