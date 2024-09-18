@@ -1,3 +1,5 @@
+import { lazy } from 'react';
+
 export {
   ArticleBlockType,
   ArticleSortField,
@@ -17,5 +19,6 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export type { ArticleDetailsSchema } from './model/type/articleDetailsSchema';
 export type { Article } from './model/type/article';
-
-export { ArticleDetails } from './ui/ArticleDetails/ui/ArticleDetails';
+export const ArticleDetails = lazy(
+  async () => await import('./ui/ArticleDetails/ui/ArticleDetails'),
+);

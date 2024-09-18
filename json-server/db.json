@@ -884,7 +884,8 @@
       ],
       "features": {
         "isArticleRatingEnabled": false,
-        "isAppRedesigned": false
+        "isAppRedesigned": false,
+        "isGraphqlEnabled": true
       },
       "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg",
       "jsonSettings": {

@@ -9,5 +9,5 @@ const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
 
 app.use('/', jsonGraphqlExpress.default(data));
 app.listen(PORT, () => {
-  console.log('graphql server is running on 8002 port');
+  console.log('GraphQL server is running on 8002 port');
 });

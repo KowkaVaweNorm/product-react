@@ -48,7 +48,7 @@ interface IProps {
   id?: string;
 }
 
-export const ArticleDetails = memo((props: IProps): JSX.Element => {
+const ArticleDetails = memo((props: IProps): JSX.Element => {
   const { className, id } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -87,3 +87,4 @@ export const ArticleDetails = memo((props: IProps): JSX.Element => {
     </DynamicModuleLoader>
   );
 });
+export default ArticleDetails;
