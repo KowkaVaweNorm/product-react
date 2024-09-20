@@ -12,8 +12,8 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
     return '/api';
   }
 
-  // return 'http://localhost:8000';
-  return 'https://react-project-backend-r9fx.onrender.com';
+  return 'http://localhost:8000';
+  // return 'https://react-project-backend-r9fx.onrender.com';
 }
 /**
  * GraphQL api

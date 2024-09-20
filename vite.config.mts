@@ -39,7 +39,7 @@ export default defineConfig({
     // https://react-project-backend-r9fx.onrender.com/
     // https://reactprojectbackend-mynmea5b.b4a.run/
     __API__: JSON.stringify('http://localhost:8000'),
-    __API_GraphQL__: JSON.stringify(''),
+    __API_GraphQL__: JSON.stringify('http://localhost:8002'),
     __PROJECT__: JSON.stringify('frontend'),
   },
 });

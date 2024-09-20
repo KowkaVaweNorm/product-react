@@ -3,6 +3,7 @@
 /storybook-static
 *storybook.log
 /reports/unit
+/reports/bundleAnalyzer
 package-lock.json
 chromatic.log
 chromatic-diagnostics.json

@@ -31,6 +31,7 @@ export const rtkGCLApi = createApi({
       if (token.length > 0) {
         headers.set('Authorization', token);
       }
+
       return headers;
     },
     method: 'POST',

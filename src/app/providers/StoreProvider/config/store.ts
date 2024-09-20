@@ -27,7 +27,6 @@ export function createReduxStore(
   const extraArg: ThunkExtraArg = {
     api: $api,
   };
-
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,

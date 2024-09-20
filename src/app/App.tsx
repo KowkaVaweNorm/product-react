@@ -43,6 +43,7 @@ const App = memo((): JSX.Element => {
       />
     );
   }
+
   return (
     <ToggleFeatures
       feature="isAppRedesigned"

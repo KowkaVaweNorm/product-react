@@ -885,12 +885,12 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isAppRedesigned": false,
-        "isGraphqlEnabled": true
+        "isGraphqlEnabled": false
       },
       "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
-        "theme": "app_dark_theme"
+        "theme": "app_light_theme"
       }
     },
     {
@@ -903,7 +903,7 @@
       "features": {
         "isArticleRatingEnabled": false
       },
-      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg",
+      "avatar": "https://untemplater.com/wp-content/uploads/2016/09/what-is-it-like-to-be-a-manager-250x166.png",
       "jsonSettings": {
         "isArticlesPageWasOpened": true
       }
@@ -944,6 +944,17 @@
       "city": "Moscow",
       "username": "kowka vn",
       "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
+    },
+    {
+      "id": "3",
+      "first": "Manager",
+      "lastname": "Main",
+      "age": 43,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://untemplater.com/wp-content/uploads/2016/09/what-is-it-like-to-be-a-manager-250x166.png"
     },
     {
       "id": "4",
