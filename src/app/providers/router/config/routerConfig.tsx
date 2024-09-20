@@ -1,13 +1,14 @@
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { ArticlesPage } from '@/pages/ArticlesPage/index.page';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage/index.page';
 import {
   AppRoutes,
   getRouteAbout,
@@ -22,7 +23,6 @@ import {
   getRouteSettings,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
-import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
