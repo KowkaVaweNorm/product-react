@@ -18,6 +18,13 @@ import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { useTranslation } from 'react-i18next';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { getUserAuthData } from '@/entities/User';
+import { useSelector } from 'react-redux';
 
 interface ArticlesPageProps {
   className?: string;
@@ -31,18 +38,28 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
   const { className } = props;
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
-
+  const { t } = useTranslation();
+  const authData = useSelector(getUserAuthData);
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });
-
   const content = (
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
         <StickyContentLayout
           left={<ViewSelectorContainer />}
-          right={<FiltersContainer />}
+          right={
+            <>
+              <Button fullWidth >
+                <AppLink to={getRouteArticleCreate()} variant="primary" className={cls.createBtn}>
+                  {t('Создать статью')}
+                </AppLink>
+              </Button>
+              <br />
+              <FiltersContainer />
+            </>
+          }
           content={
             <Page
               data-testid="ArticlesPage"
