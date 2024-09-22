@@ -23,6 +23,7 @@ import {
   getRouteSettings,
 } from '@/shared/const/router';
 import { type AppRoutesProps } from '@/shared/types/router';
+import { ArtcileCreatePage } from '@/pages/ArtcileCreatePage/index.page';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
@@ -32,6 +33,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.SETTINGS]: {
     path: getRouteSettings(),
     element: <SettingsPage />,
+    authOnly: true,
+    roles: [UserRole.MANAGER, UserRole.ADMIN],
   },
   [AppRoutes.ABOUT]: {
     path: getRouteAbout(),
@@ -54,7 +57,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.ARTICLE_CREATE]: {
     path: getRouteArticleCreate(),
-    element: <ArticleEditPage />,
+    element: <ArtcileCreatePage />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_EDIT]: {
