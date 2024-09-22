@@ -1,1 +1,1 @@
-export { ArticleDetails } from './ui/ArticleDetails';
+export { default as ArticleDetails } from './ui/ArticleDetails';

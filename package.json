@@ -10,7 +10,7 @@
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\" \"npm run start:dev:server:graphql\"",
     "start:dev:server": "node ./json-server/index.js",
     "start:dev:server:graphql": "node ./json-graphql-server/index.js",
-    "build:prod": "webpack  --env mode=production apiUrl=https://reactprojectbackend-mynmea5b.b4a.run/",
+    "build:prod": "webpack  --env mode=production apiUrl=https://react-project-backend-r9fx.onrender.com/",
     "build:dev": "webpack  --env mode=development",
     "prettier:check": "npx prettier --check **/*.{ts,tsx,json}",
     "prettier:fix": "npx prettier --write **/*.{ts,tsx,json}",

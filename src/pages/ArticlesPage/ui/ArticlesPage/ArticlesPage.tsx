@@ -20,7 +20,6 @@ import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { getUserAuthData } from '@/entities/User';
@@ -51,7 +50,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
           left={<ViewSelectorContainer />}
           right={
             <>
-              <Button fullWidth >
+              <Button fullWidth>
                 <AppLink to={getRouteArticleCreate()} variant="primary" className={cls.createBtn}>
                   {t('Создать статью')}
                 </AppLink>
