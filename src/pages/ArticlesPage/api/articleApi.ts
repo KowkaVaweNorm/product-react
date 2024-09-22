@@ -16,6 +16,7 @@ const articleApi = rtkGCLApi.injectEndpoints({
         },
       }),
       transformResponse(response, meta, arg) {
+        // @ts-expect-error TODO:
         return response.data.allArticles; // Исходя из запроса выше эти типы будут
       },
     }),
