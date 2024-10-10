@@ -33,6 +33,11 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
+  server: {
+    host: 'localhost', // Указывает серверу слушать только на localhost
+    port: 3000, // Указываем порт (например, 3000)
+    strictPort: true, // Убедиться, что используется именно этот порт
+  },
   define: {
     __IS_DEV__: JSON.stringify(true),
     // Available api

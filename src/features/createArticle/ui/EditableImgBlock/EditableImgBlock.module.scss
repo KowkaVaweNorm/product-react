@@ -1,0 +1,15 @@
+.block {
+    padding: 10px;
+    min-height: 200px;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+
+.input {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+
+.img {
+    height: clamp(200px, 300px, 300px);
+}

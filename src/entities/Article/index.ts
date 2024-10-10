@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+export { ArticleTypeSelect } from './ui/ArticleTypeSelect/ArticleTypeSelect';
 
 export {
   ArticleBlockType,

@@ -54,7 +54,6 @@ const ArticleDetails = memo((props: IProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
-
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchArticleById(id));
@@ -63,7 +62,7 @@ const ArticleDetails = memo((props: IProps): JSX.Element => {
 
   let content;
 
-  if (isLoading ?? false) {
+  if (isLoading ?? true) {
     content = <ArticleDetailsSkeleton />;
   } else if (error !== undefined) {
     content = (

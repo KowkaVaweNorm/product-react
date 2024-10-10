@@ -9,6 +9,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleMetaInfo } from './ArticleMetaInfo/ArticleMetaInfo';
 import { ControlsAddBlock } from './ControlsAddBlock/ControlsAddBlock';
 import { Blocks } from './Blocks/Blocks';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 const initialReducers: ReducersList = {
   articleCreatePage: articleCreateReducer,
 };
@@ -21,11 +22,11 @@ const ArtcileCreatePage = (): JSX.Element => {
           feature="isAppRedesigned"
           on={<>In process...</>}
           off={
-            <>
+            <VStack gap="16">
               <ArticleMetaInfo />
               <Blocks />
               <ControlsAddBlock />
-            </>
+            </VStack>
           }
         />
       </Page>

@@ -11,6 +11,7 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 export const ArticleDetailsDeprecated = () => {
   const article = useSelector(getArticleDetailsData);
+
   return (
     <>
       <HStack justify="center" max className={cls.avatarWrapper}>

@@ -1,6 +1,6 @@
 import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
 import cls from './Input.module.scss';
-import { memo, type InputHTMLAttributes, useState, useEffect, useRef } from 'react';
+import { memo, type InputHTMLAttributes, useState, useEffect, useRef, useMemo } from 'react';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -21,7 +21,7 @@ interface InputProps extends HTMLInputProps {
 export const Input = memo((props: InputProps): JSX.Element => {
   const {
     className = '',
-    value = '',
+    value,
     onChange,
     type = 'text',
     placeholder = '',
@@ -30,23 +30,53 @@ export const Input = memo((props: InputProps): JSX.Element => {
     ...otherProps
   } = props;
 
-  const ref = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const caretRef = useRef<HTMLSpanElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [caretPosition, setCaretPosition] = useState(0);
-
+  const [localValue, setLocalValue] = useState('');
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   const isCaretVisible = isFocused && !readonly;
 
   useEffect(() => {
     if (autofocus) {
       setIsFocused(true);
-      ref.current?.focus();
+      inputRef.current?.focus();
     }
   }, [autofocus]);
+  // Функция для получения ширины одного символа в ch
+  const chWidthInPx = useMemo((): number => {
+    if (inputRef.current != null) {
+      const testElement = document.createElement('span');
+      testElement.style.fontSize = getComputedStyle(inputRef.current).fontSize;
+      testElement.style.visibility = 'hidden';
+      testElement.innerText = '0';
+      document.body.appendChild(testElement);
+      const chWidth = testElement.getBoundingClientRect().width;
+      document.body.removeChild(testElement);
+      return chWidth;
+    } else {
+      return 10;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputRef.current]);
+  const maxCaretPosition = useMemo(() => {
+    const inputWidthInPx = inputRef.current?.getBoundingClientRect().width ?? 100;
+    return Math.floor(inputWidthInPx / chWidthInPx); // максимальное количество символов в input
+  }, [chWidthInPx]);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(e.target.value);
-    setCaretPosition(e.target.value.length);
+    if (onChange !== undefined && value !== undefined) {
+      onChange(e.target.value);
+    } else if (onChange !== undefined) {
+      // чтобы можно было работать только с onChange
+      onChange(e.target.value);
+      setLocalValue(e.target.value);
+    } else {
+      setLocalValue(e.target.value);
+    }
+    if (caretRef.current != null) {
+      caretRef.current.style.left = `${Math.min(e.target.selectionStart ?? Infinity, maxCaretPosition)}ch`;
+    }
   };
 
   const onBlur = (): void => {
@@ -56,7 +86,10 @@ export const Input = memo((props: InputProps): JSX.Element => {
     setIsFocused(true);
   };
   const onSelect = (e: any): void => {
-    setCaretPosition(e?.target?.selectionStart ?? 0);
+    if (caretRef.current != null) {
+      const currentSelect = e.target.selectionStart ?? 0;
+      caretRef.current.style.left = `${currentSelect > maxCaretPosition ? maxCaretPosition : currentSelect}ch`;
+    }
   };
 
   const mods: Mods = {
@@ -68,9 +101,9 @@ export const Input = memo((props: InputProps): JSX.Element => {
       {placeholder.length > 0 && <div className={cls.placeholder}>{`${placeholder}>`}</div>}
       <div className={classNames(cls.caretWrapper, mods, [])}>
         <input
-          ref={ref}
+          ref={inputRef}
           type={type}
-          value={value}
+          value={value ?? localValue}
           onChange={onChangeHandler}
           className={cls.input}
           onFocus={onFocus}
@@ -80,10 +113,10 @@ export const Input = memo((props: InputProps): JSX.Element => {
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
         />
-        {isCaretVisible && (
-          <span className={cls.caret} style={{ left: `${caretPosition}ch` }}></span>
-        )}
+        {isCaretVisible && <span ref={caretRef} className={cls.caret}></span>}
       </div>
     </div>
   );
 });
+
+Input.TextArea = (): JSX.Element => {};

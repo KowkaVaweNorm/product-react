@@ -1,0 +1,17 @@
+.block {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+
+.TextArea_block {
+    width: 100%;
+    min-height: 100px;
+    padding-bottom: 10px;
+}
+
+.TextArea {
+    display: inline;
+    width: min(90%, calc(100% - 100px));
+    min-height: 100px;
+    resize: vertical;
+}

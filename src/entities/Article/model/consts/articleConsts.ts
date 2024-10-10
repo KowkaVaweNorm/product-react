@@ -1,23 +1,23 @@
-export enum ArticleSortField {
+export const enum ArticleSortField {
   VIEWS = 'views',
   TITLE = 'title',
   CREATED = 'createdAt',
 }
 
-export enum ArticleBlockType {
+export const enum ArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
 }
 
-export enum ArticleType {
+export const enum ArticleType {
   ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
 }
 
-export enum ArticleView {
+export const enum ArticleView {
   BIG = 'BIG',
   SMALL = 'SMALL',
 }

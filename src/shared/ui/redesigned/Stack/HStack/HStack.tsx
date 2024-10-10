@@ -1,7 +1,7 @@
 import { Flex, getFlexStyle, type FlexProps } from '../Flex/Flex';
 
 type HStackProps = Omit<FlexProps, 'direction'>;
-export const getHStackStyle = (props: Omit<HStackProps, 'children'>) => {
+export const getHStackStyle = (props?: Omit<HStackProps, 'children'>) => {
   return getFlexStyle({
     direction: 'row',
     ...props,

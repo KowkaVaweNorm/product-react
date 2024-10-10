@@ -19,7 +19,7 @@ interface AnimationContextPayload {
 }
 
 const AnimationContext = createContext<AnimationContextPayload>({});
-
+// TODO: А что если не загрузятся
 // Две библиотеки созависимы
 const getAsyncAnimationModules = async () => {
   return await Promise.all([import('@react-spring/web'), import('@use-gesture/react')]);
