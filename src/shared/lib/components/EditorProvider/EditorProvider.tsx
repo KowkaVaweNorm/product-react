@@ -38,7 +38,7 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
 
   const value = useMemo(
     () => ({
-      EditorCode: EditorCodeRef.current,
+      CodeEditor: EditorCodeRef.current,
       isLoaded,
     }),
     [isLoaded],

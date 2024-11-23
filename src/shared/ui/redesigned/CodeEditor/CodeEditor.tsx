@@ -1,8 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 import { EditorProvider, useEditorLib } from '@/shared/lib/components/EditorProvider';
-import { type ChangeEvent, useState } from 'react';
+import { type TextareaCodeEditorProps } from '@uiw/react-textarea-code-editor';
+import { type ChangeEvent, memo, useState } from 'react';
 
-type SupportedLanguage =
+export type SupportedLanguage =
   | 'arduino'
   | 'ino'
   | 'bash'
@@ -42,13 +43,13 @@ type SupportedLanguage =
   | 'xml'
   | 'markup-templating';
 
-interface IProps {
+interface IProps extends Omit<TextareaCodeEditorProps, 'onChange'> {
   className?: string;
   onChange?: (arg: string) => void;
   lng?: SupportedLanguage;
 }
 
-export const CodeEditor = (props: IProps) => {
+export const CodeEditorContent = memo((props: IProps) => {
   const { onChange, lng, ...otherProps } = props;
   const { CodeEditor: CodeEditorLib } = useEditorLib();
   const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`);
@@ -64,20 +65,36 @@ export const CodeEditor = (props: IProps) => {
   };
 
   return (
+    <CodeEditorLib.default
+      value={code}
+      language={lng ?? localLng}
+      placeholder="Ваш код"
+      onChange={onChangeLocal}
+      padding={15}
+      style={{
+        fontFamily: 'monospace',
+        font: 'var(--font-m)',
+      }}
+      data-color-mode="light"
+      {...otherProps}
+    />
+  );
+});
+
+const CodeEditorAsync = (props: IProps) => {
+  const { isLoaded } = useEditorLib();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  return <CodeEditorContent {...props} />;
+};
+
+export const CodeEditor = (props: IProps) => {
+  return (
     <EditorProvider>
-      <CodeEditorLib.default
-        value={code}
-        language={lng ?? localLng}
-        placeholder="Ваш код"
-        onChange={onChangeLocal}
-        padding={15}
-        style={{
-          backgroundColor: 'black',
-          fontFamily: 'monospace',
-          font: 'var(--font-m)',
-        }}
-        {...otherProps}
-      />
+      <CodeEditorAsync {...props} />
     </EditorProvider>
   );
 };
