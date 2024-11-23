@@ -29,8 +29,7 @@
     "postinstall": "node ./scripts/clear-cache.js",
     "precommit": "npm run build:prod && npm run prettier:check && npm run sb:build && npm run lint:ts && npm run lint:scss && npm run lint:typecheck && npm run test:unit",
     "remove-feature": "ts-node ./scripts/remove-feature.ts",
-    "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes",
-    "chromatic": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes"
+    "chromatic:publish": "npx chromatic --project-token=chpt_be087a93dbc7664 --exit-zero-on-changes"
   },
   "keywords": [],
   "author": "",
