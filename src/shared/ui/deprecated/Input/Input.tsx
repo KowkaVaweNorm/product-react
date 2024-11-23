@@ -118,5 +118,3 @@ export const Input = memo((props: InputProps): JSX.Element => {
     </div>
   );
 });
-
-Input.TextArea = (): JSX.Element => {};

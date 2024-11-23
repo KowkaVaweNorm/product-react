@@ -36,7 +36,7 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   justify?: FlexJustify;
   align?: FlexAlign;
-  direction: FlexDirection;
+  direction?: FlexDirection;
   wrap?: FlexWrap;
   gap?: FlexGap;
   max?: boolean;
