@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+import { http, HttpResponse } from 'msw';
 
 import { Navbar } from './Navbar';
 
@@ -17,6 +18,19 @@ export const Primary: Story = {
   decorators: [(Story) => StoreDecorator({})(Story)],
 };
 export const AuthNavbar: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/profile', () => {
+          return HttpResponse.json({
+            data: {
+              avatar: '',
+            },
+          });
+        }),
+      ],
+    },
+  },
   decorators: [
     (Story) =>
       StoreDecorator({

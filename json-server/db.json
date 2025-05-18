@@ -928,6 +928,12 @@
       "userId": "1",
       "text": "add commment",
       "id": "FvO7ktG"
+    },
+    {
+      "articleId": "1iOd39o",
+      "userId": "1",
+      "text": "Надо контента больше, а то совсем не то",
+      "id": "Fa14vv8"
     }
   ],
   "users": [
@@ -952,7 +958,7 @@
       "id": "2",
       "username": "user",
       "password": "123",
-       "avatar": "https://avatars.mds.yandex.net/i?id=85fe08c9f79e8cada6596b44be882bcf3d003d59-4229555-images-thumbs&n=13",
+      "avatar": "https://avatars.mds.yandex.net/i?id=85fe08c9f79e8cada6596b44be882bcf3d003d59-4229555-images-thumbs&n=13",
       "roles": [
         "USER"
       ],
@@ -970,7 +976,7 @@
       "id": "3",
       "username": "manager",
       "password": "123",
-       "avatar": "https://i.pinimg.com/736x/6c/51/62/6c5162936d6df60e64f36bfdde8d0d85.jpg",
+      "avatar": "https://i.pinimg.com/736x/6c/51/62/6c5162936d6df60e64f36bfdde8d0d85.jpg",
       "roles": [
         "MANAGER"
       ],
@@ -1006,7 +1012,6 @@
       "city": "Moscow",
       "avatar": "https://www.computerra.ru/wp-content/uploads/2024/02/1670421190_27-kartinkin-net-p-kartinka-khakera-vkontakte-30.jpg",
       "username": "admin213"
-     
     },
     {
       "id": "2",
@@ -1018,7 +1023,6 @@
       "city": "Moscow",
       "avatar": "https://avatars.mds.yandex.net/i?id=85fe08c9f79e8cada6596b44be882bcf3d003d59-4229555-images-thumbs&n=13",
       "username": "kowka vn"
-     
     },
     {
       "id": "3",
@@ -1030,7 +1034,6 @@
       "city": "Moscow",
       "avatar": "https://i.pinimg.com/736x/6c/51/62/6c5162936d6df60e64f36bfdde8d0d85.jpg",
       "username": "testuser"
-     
     },
     {
       "id": "4",
@@ -1042,7 +1045,6 @@
       "city": "Moscow",
       "avatar": "https://i.pinimg.com/736x/de/3d/7d/de3d7d581fbfc7098495af231b9f13b6.jpg",
       "username": "testuser"
-      
     }
   ],
   "article-ratings": [

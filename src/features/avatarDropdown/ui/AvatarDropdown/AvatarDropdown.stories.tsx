@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+import { http, HttpResponse } from 'msw';
 
 import { AvatarDropdown } from './AvatarDropdown';
 import cls from './AvatarDropdown.stories.module.scss';
@@ -17,9 +18,27 @@ type Story = StoryObj<typeof AvatarDropdown>;
 export const PrimaryNoAuth: Story = {};
 
 export const PrimaryAvatar: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/profile', () => {
+          return HttpResponse.json({
+            data: {
+              avatar: '',
+            },
+          });
+        }),
+      ],
+    },
+  },
   decorators: [
     (Story) =>
       StoreDecorator({
+        profile: {
+          data: {
+            avatar: '',
+          },
+        },
         user: { authData: { id: '', username: '' } },
       })(Story),
   ],
@@ -28,6 +47,19 @@ export const PrimaryAvatar: Story = {
   },
 };
 export const PrimaryAvatarAdmin: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get('*/profile', () => {
+          return HttpResponse.json({
+            data: {
+              avatar: '',
+            },
+          });
+        }),
+      ],
+    },
+  },
   decorators: [
     (Story) =>
       StoreDecorator({
