@@ -1,6 +1,8 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import cls from './ArticleTypeTabs.module.scss';
+
 import { ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -56,7 +58,7 @@ export const ArticleTypeTabs = memo((props: IArticleTypeTabsProps) => {
           tabs={typeTabs}
           value={value ?? localValue}
           onTabClick={onTabClick}
-          className={classNames('', {}, [className])}
+          className={classNames(cls.item_text_redesigned, {}, [className])}
         />
       }
       off={

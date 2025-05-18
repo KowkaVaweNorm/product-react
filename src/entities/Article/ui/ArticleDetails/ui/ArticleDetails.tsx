@@ -64,7 +64,7 @@ const ArticleDetails = memo((props: IProps): JSX.Element => {
 
   let content;
 
-  if (isLoading ?? true) {
+  if (isLoading ?? false) {
     content = <ArticleDetailsSkeleton />;
   } else if (error !== undefined) {
     content = (
