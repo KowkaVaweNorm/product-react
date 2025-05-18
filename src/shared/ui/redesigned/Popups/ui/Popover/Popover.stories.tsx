@@ -1,5 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { Popover } from './Popover';
 // TODO: Сделать отображение относительно заданного направления
 // TODO: Сделать выделение на hover

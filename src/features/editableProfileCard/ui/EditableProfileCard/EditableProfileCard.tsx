@@ -1,26 +1,28 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { type Currency } from '@/entities/Currency';
-import { type Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-import { ProfileCard } from '@/entities/Profile';
-import {
-  DynamicModuleLoader,
-  type ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+
+import { ValidateProfileError } from '../../model/consts/consts';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slices/editableProfileCardSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+
+import { type Country } from '@/entities/Country';
+import { type Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { ValidateProfileError } from '../../model/consts/consts';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
@@ -60,56 +62,96 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ first: value ?? '' }));
+      dispatch(
+        profileActions.updateProfile({
+          first: value ?? '',
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeLastname = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value ?? '' }));
+      dispatch(
+        profileActions.updateProfile({
+          lastname: value ?? '',
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeCity = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ city: value ?? '' }));
+      dispatch(
+        profileActions.updateProfile({
+          city: value ?? '',
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ age: Number(value ?? 0) }));
+      dispatch(
+        profileActions.updateProfile({
+          age: Number(value ?? 0),
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeUsername = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ username: value ?? '' }));
+      dispatch(
+        profileActions.updateProfile({
+          username: value ?? '',
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeAvatar = useCallback(
     (value?: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value ?? '' }));
+      dispatch(
+        profileActions.updateProfile({
+          avatar: value ?? '',
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeCurrency = useCallback(
     (currency?: Currency) => {
-      dispatch(profileActions.updateProfile({ currency }));
+      dispatch(
+        profileActions.updateProfile({
+          currency,
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );
 
   const onChangeCountry = useCallback(
     (country?: Country) => {
-      dispatch(profileActions.updateProfile({ country }));
+      dispatch(
+        profileActions.updateProfile({
+          country,
+          id: '',
+        }),
+      );
     },
     [dispatch],
   );

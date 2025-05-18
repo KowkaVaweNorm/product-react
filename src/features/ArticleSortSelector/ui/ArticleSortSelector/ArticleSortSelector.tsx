@@ -1,11 +1,13 @@
-import cls from './ArticleSortSelector.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
-import { Select, type SelectOption } from '@/shared/ui/deprecated/Select';
-import { type SortOrder } from '@/shared/types/sort';
+import { useTranslation } from 'react-i18next';
+
+import cls from './ArticleSortSelector.module.scss';
+
 import { ArticleSortField } from '@/entities/Article';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { type SortOrder } from '@/shared/types/sort';
+import { Select, type SelectOption } from '@/shared/ui/deprecated/Select';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';

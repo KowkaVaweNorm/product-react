@@ -2,7 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { CommentList } from './CommentList';
-
 import { type Comment } from '../../model/types/comment';
 
 const meta: Meta<typeof CommentList> = {

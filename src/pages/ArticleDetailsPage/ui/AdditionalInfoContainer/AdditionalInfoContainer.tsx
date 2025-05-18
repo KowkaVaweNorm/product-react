@@ -1,11 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import cls from './AdditionalInfoContainer.module.scss';
+
+import { getArticleDetailsData } from '@/entities/Article';
+import { getRouteArticleEdit } from '@/shared/const/router';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
-import { getArticleDetailsData } from '@/entities/Article';
-import cls from './AdditionalInfoContainer.module.scss';
-import { getRouteArticleEdit } from '@/shared/const/router';
 
 export const AdditionalInfoContainer = memo(() => {
   const article = useSelector(getArticleDetailsData);

@@ -5,6 +5,8 @@ cypress
 .eslintrc.js
 *.config.js
 *.config.ts
+*.config.mjs
+*.config.mts
 scripts/*
 PageFactory.js
 /storybook-static

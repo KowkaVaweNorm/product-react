@@ -40,12 +40,19 @@ module.exports = {
   ],
 
   rules: {
-    'react/jsx-filename-extension': [
-      2,
-      {
-        extensions: ['.js', '.jsx', '.tsx'],
-      },
+    'import/order': ['error', {
+    'groups': [
+      'builtin', 
+      'external', 
+      'internal',
+      ['parent', 'sibling']
     ],
+    'newlines-between': 'always',
+    'alphabetize': {
+      'order': 'asc',
+      'caseInsensitive': true
+    }
+  }],
     'linebreak-style': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',

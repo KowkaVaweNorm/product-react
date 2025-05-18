@@ -1,14 +1,15 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { memo, useCallback } from 'react';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
 import { saveJsonSettings } from '@/entities/User';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 interface ThemeSwitcherProps {
   className?: string;
   filled?: boolean;

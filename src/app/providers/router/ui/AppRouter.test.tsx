@@ -1,10 +1,27 @@
 import { screen } from '@testing-library/react';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+
 import { UserRole } from '@/entities/User';
+import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 describe('app/router/AppRouter', () => {
+  beforeAll(() => {
+    global.ResizeObserver = class ResizeObserver {
+      observe() {
+        // do nothing
+      }
+
+      unobserve() {
+        // do nothing
+      }
+
+      disconnect() {
+        // do nothing
+      }
+    };
+  });
   test('Страница должна отрендериться', async () => {
     componentRender(<AppRouter />, {
       route: getRouteAbout(),

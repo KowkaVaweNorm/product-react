@@ -6,7 +6,12 @@ import {
   useRef,
   useState,
 } from 'react';
+
+import cls from './AppImage.module.scss';
 import { ErrorImage as DefaultErrorFallback } from './ErrorImage/ErrorImage';
+import { VStack } from '../Stack';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;
@@ -14,7 +19,8 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const AppImage = memo((props: AppImageProps): JSX.Element => {
-  const { className, src, alt = 'image', errorFallback, fallback, ...otherProps } = props;
+  const { className, src, alt = 'image', errorFallback, fallback, style, ...otherProps } = props;
+
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -24,33 +30,53 @@ export const AppImage = memo((props: AppImageProps): JSX.Element => {
       img.src = src ?? '';
       img.onload = () => {
         setIsLoading(false);
+        setHasError(false);
       };
-      img.onerror = () => {
+      img.onerror = (e) => {
+        if (__IS_DEV__ && src !== '') {
+          console.error('Failed load image:', e, 'with source:', src);
+        }
+
         setIsLoading(false);
         setHasError(true);
       };
     }
+    return () => {
+      setIsLoading(true);
+      setHasError(false);
+    };
   }, [src, imgRef]);
-
+  let additionalContent = null;
+  let showImg = true;
   if (isLoading && fallback != null) {
-    return (
-      <>
-        <img className={className} ref={imgRef} style={{ display: 'none' }} />
-        {fallback}
-      </>
-    );
+    additionalContent = fallback;
+    showImg = false;
   }
 
-  if (hasError) {
-    return (
-      <>
-        {errorFallback !== undefined && typeof errorFallback !== 'boolean' ? (
-          <>{errorFallback}</>
-        ) : typeof errorFallback === 'boolean' ? (
-          <DefaultErrorFallback className={className} alt={alt} {...otherProps} />
-        ) : null}
-      </>
-    );
+  if (hasError && !isLoading) {
+    showImg = false;
+    additionalContent =
+      errorFallback !== undefined && typeof errorFallback !== 'boolean' ? (
+        errorFallback
+      ) : typeof errorFallback === 'boolean' ? (
+        <DefaultErrorFallback className={className} alt={alt} {...otherProps} />
+      ) : null;
   }
-  return <img className={className} ref={imgRef} alt={alt} {...otherProps} />;
+  return (
+    <VStack align="center" justify="center" className={className} style={style}>
+      {additionalContent}
+      <img
+        className={classNames(
+          cls.img,
+          {
+            [cls.hidden ?? '']: !showImg,
+          },
+          [className],
+        )}
+        ref={imgRef}
+        alt={alt}
+        {...otherProps}
+      />
+    </VStack>
+  );
 });

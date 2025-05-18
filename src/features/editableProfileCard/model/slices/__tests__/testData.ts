@@ -1,6 +1,7 @@
+import { type ProfileSchema } from '../../types/editableProfileCardSchema';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { type ProfileSchema } from '../../types/editableProfileCardSchema';
 import { type Profile } from '@/entities/Profile';
 
 const initialState: ProfileSchema = {

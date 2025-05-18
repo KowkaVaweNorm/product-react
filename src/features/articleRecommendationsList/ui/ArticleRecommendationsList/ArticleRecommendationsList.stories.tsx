@@ -1,9 +1,11 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { HttpResponse, http } from 'msw';
+
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { ArticleType, type Article } from '@/entities/Article';
 import { ArticleBlockType } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const testData: Article[] = [
   {

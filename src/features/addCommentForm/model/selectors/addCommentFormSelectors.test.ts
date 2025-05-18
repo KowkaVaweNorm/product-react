@@ -1,5 +1,6 @@
-import { type StateSchema } from '@/app/providers/StoreProvider';
 import { getAddCommentFormText, getAddCommentFormError } from './addCommentFormSelectors';
+
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
 const Fullstate: DeepPartial<StateSchema> = {
   addCommentForm: {

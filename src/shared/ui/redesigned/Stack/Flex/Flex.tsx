@@ -1,6 +1,8 @@
 import { type MutableRefObject, type RefObject, type HTMLAttributes, type ReactNode } from 'react';
-import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './Flex.module.scss';
+
+import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
@@ -36,7 +38,7 @@ export interface FlexProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   justify?: FlexJustify;
   align?: FlexAlign;
-  direction: FlexDirection;
+  direction?: FlexDirection;
   wrap?: FlexWrap;
   gap?: FlexGap;
   max?: boolean;

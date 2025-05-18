@@ -1,23 +1,25 @@
-import cls from './AddCommentForm.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
 import { type FormEvent, memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  DynamicModuleLoader,
-  type ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+
+import cls from './AddCommentForm.module.scss';
+import { AddCommentFormDeprecated } from './deprecated/AddCommentForm.deprecated';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormReducer,
   useAddCommentFormActions,
 } from '../../model/slice/addCommentFormSlice';
-import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { AddCommentFormDeprecated } from './deprecated/AddCommentForm.deprecated';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface IAddCommentFormProps {
   className?: string;

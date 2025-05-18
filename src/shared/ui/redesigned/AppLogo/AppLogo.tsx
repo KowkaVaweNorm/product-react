@@ -1,6 +1,8 @@
 import { memo } from 'react';
+
 import cls from './AppLogo.module.scss';
 import { HStack } from '../Stack';
+
 import AppSvg from '@/shared/assets/icons/circle-icon-app.svg';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 

@@ -1,5 +1,6 @@
-import { type TBroadcastChannelEvents } from '@/shared/types/broadcastChannel';
 import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { type TBroadcastChannelEvents } from '@/shared/types/broadcastChannel';
 
 /**
  * @example

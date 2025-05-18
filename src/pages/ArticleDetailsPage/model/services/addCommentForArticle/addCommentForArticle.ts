@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import { fetchCommentsByArticleId } from '../../../';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getUserAuthData } from '@/entities/User';
+
+import { fetchCommentsByArticleId } from '../../../';
+
 import { type ThunkConfig } from '@/app/providers/StoreProvider';
-import { type Comment } from '@/entities/Comment';
 import { getArticleDetailsData } from '@/entities/Article';
+import { type Comment } from '@/entities/Comment';
+import { getUserAuthData } from '@/entities/User';
 
 export const addCommentForArticle = createAsyncThunk<
   Comment,

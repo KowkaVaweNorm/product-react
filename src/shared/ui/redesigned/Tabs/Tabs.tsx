@@ -1,8 +1,10 @@
 import { memo, type ReactNode, useCallback, useState } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { Card } from '../Card/Card';
+
 import cls from './Tabs.module.scss';
+import { Card } from '../Card/Card';
 import { Flex, type FlexDirection } from '../Stack/Flex/Flex';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 export interface TabItem {
   value?: string;

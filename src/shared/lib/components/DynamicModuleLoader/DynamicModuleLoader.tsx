@@ -1,12 +1,13 @@
 /* eslint-disable kowka-vn-plugin/layer-imports */
 import { type ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
+import { type Reducer } from 'redux';
+
 import {
   type StateSchema,
   type ReduxStoreWithManager,
   type StateSchemaKey,
 } from '@/app/providers/StoreProvider/config/StateSchema';
-import { type Reducer } from 'redux';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;

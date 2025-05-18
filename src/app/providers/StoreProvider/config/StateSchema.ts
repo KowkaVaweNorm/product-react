@@ -15,6 +15,7 @@ import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkGCLApi, type rtkApi } from '@/shared/api/rtkApi';
 import { type PageSchema } from '@/widgets/Page';
+import { IArticleCreateSchema } from '@/pages/ArtcileCreatePage';
 
 export interface StateSchema {
   user: UserSchema;
@@ -28,6 +29,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
+  articleCreatePage?: IArticleCreateSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

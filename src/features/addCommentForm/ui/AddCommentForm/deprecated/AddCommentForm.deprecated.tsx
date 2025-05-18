@@ -1,10 +1,13 @@
+import { t } from 'i18next';
+import { type FormEvent } from 'react';
+
+import cls from '../AddCommentForm.module.scss';
+
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ButtonTheme, Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
-import { t } from 'i18next';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import cls from '../AddCommentForm.module.scss';
 import { getHStackStyle } from '@/shared/ui/redesigned/Stack/HStack/HStack';
-import { type FormEvent } from 'react';
+
 interface IProps {
   className?: string;
   onCommentTextChange: (value: string) => void;

@@ -1,26 +1,28 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './ArticleDetails.module.scss';
-import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {
-  DynamicModuleLoader,
-  type ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+
+import cls from './ArticleDetails.module.scss';
+import { ArticleDetailsDeprecated } from './deprecated/ArticleDetailsDeprecated';
+import { Redesigned } from './redesigned/ArticleDetails';
 import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../../model/selectors/articleDetails';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../../model/services/fetchArticleById/fetchArticleById';
-import { ArticleDetailsDeprecated } from './deprecated/ArticleDetailsDeprecated';
-import { Redesigned } from './redesigned/ArticleDetails';
+import { articleDetailsReducer } from '../../../model/slice/articleDetailsSlice';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -54,7 +56,6 @@ const ArticleDetails = memo((props: IProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
-
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchArticleById(id));

@@ -1,6 +1,8 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './MainLayout.module.scss';
 import { memo, type ReactElement } from 'react';
+
+import cls from './MainLayout.module.scss';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface MainLayoutProps {
   className?: string;

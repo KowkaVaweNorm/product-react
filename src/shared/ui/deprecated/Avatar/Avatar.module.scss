@@ -1,9 +1,9 @@
 .Avatar {
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 100%;
+    width: 100%;
 }
 
 .iconAvatar {
-    fill: var(--primary-color);
+    fill: var(--primary-color) !important; 
 }

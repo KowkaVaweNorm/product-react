@@ -41,7 +41,7 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 1022,
       "createdAt": "26.04.2022",
-      "userId": "1",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -113,7 +113,7 @@
       "img": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/113415626/original/a17667d573bf34559bf0d35993ed76e57d43ad00/program-python-scripts-for-automation-and-data-mining.png",
       "views": 4,
       "createdAt": "26.02.2022",
-      "userId": "1",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -161,7 +161,7 @@
       "img": "https://pluspng.com/img-png/scala-logo-png-scala-logo-1200x675.png",
       "views": 10222,
       "createdAt": "24.01.2022",
-      "userId": "1",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -185,7 +185,7 @@
       "img": "https://www.itsec.ru/hs-fs/hubfs/ISR/Golang.png?width=750&name=Golang.png",
       "views": 10222,
       "createdAt": "26.02.2020",
-      "userId": "1",
+      "userId": "3",
       "type": [
         "IT"
       ],
@@ -209,7 +209,7 @@
       "img": "https://andreyex.ru/wp-content/uploads/2018/05/Kak-ustanovit-Java-s-apt-na-Ubuntu-18.04.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId": "1",
+      "userId": "4",
       "type": [
         "IT"
       ],
@@ -233,7 +233,7 @@
       "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--oqV3akcU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/pgnw91fs7tpxn0wyeqh2.jpg",
       "views": 100,
       "createdAt": "21.02.2022",
-      "userId": "1",
+      "userId": "3",
       "type": [
         "IT"
       ],
@@ -257,7 +257,7 @@
       "img": "https://i.ytimg.com/vi/ztk9WZClmLQ/maxresdefault.jpg",
       "views": 102222,
       "createdAt": "26.02.2022",
-      "userId": "1",
+      "userId": "2",
       "type": [
         "IT"
       ],
@@ -281,7 +281,7 @@
       "img": "https://yandex-images.clstorage.net/Upu4M9251/2810ee_Y/oUYWPAm_e3Yd9FhOoKR27__5zM7eT2WTpQTr3CMITeJE--ExD6jpHZMyhqR43zT4vGX-7NDernrb0OAREkzbCWQHM6jdez93qEEcDyXk9t-v2Bka716gM-DVT_nj_A0ysX6kEGooXYhjNjeELeySnzsCXXu2iQxYLATlUdeMyqiwdiXeva8JECwnKnkD5pSfLekJbXyfghHD9RkJEr14cNYpE8b62j6_oeeFk8ufE615U92YZRlcSk-1BGIGTIuMYkUXLEqceNHONnva0WaFPh8oOw8uvgBgsBXoCGM_OPAm6hNlGAoP3FFXdmLr3lIuCVFe6tQ5vuoNpRVjpv65PmBFtP0Z7IqCvqY4S9A0Ns8_COmOX05R0UCGC2tDraoglInhhphYLf5CFfZg6E-RnUvRDnu2ux1rvpYXkDecyCwiNmesGd9LIl2265qDpWYdbVqbTxzswMICZRg48A-qopWKEdYYecy_M5YmocgewO9b4r2oN_tNSq-2duIk7aitYBeUTfjtWMI8JRsLwXV07a05alxc3tIRg7Y4yvAsCBM2WRGHm7i__wI19pBoXkN9y_H9-WXrvVj8lhex9W37X0GXxh9b7njhzAS62eIGxz2PagqMTSwwMaAEqArjb2jj9BgSJYoJ789jlySSWd8iflmynevHCuyqDqTkQ3Rdy5wy12duKS5q4cwEy8gRlLTd7Ck7bM8vUiOwNLo6w2xa01fqEqa4eiytQZVnsxotEj3ZUewrJPifG4y1hEJlv5g_AaQ0bCs--TBtNxpZE9cGLZ36KawfT6GSokUquSCPWvCl63J3euoOPKIW1bCIvSANSDEuafQLHDquVUZgF_yKfXH2BQ3ZfXoBf8Q7WNOm5T3OiAk_T3yRkWAWidsQf2uxBdsRNsioH5-hVwWwW95Q_igS3kvXid77r9Z1YqT-e49R9fW-2KxrM4-2avvCNHbs3otZHm6NsEJyZAnoUY95A",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId": "1",
+      "userId": "3",
       "type": [
         "IT"
       ],
@@ -563,6 +563,79 @@
       ],
       "blocks": [],
       "id": "6f91vPH"
+    },
+    {
+      "title": "awdawd",
+      "subtitle": "My first subhead",
+      "img": "https://avatars.mds.yandex.net/i?id=cfb0a0c5100ff07c962a7f28dcb0fc7f_l-4009035-images-thumbs&n=13",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [
+        {
+          "type": "TEXT",
+          "title": "234235432",
+          "paragraphs": [
+            "wdawd234234"
+          ],
+          "id": "HgIr0MS1Pp_2boh8JWNlF"
+        },
+        {
+          "type": "IMAGE",
+          "src": "https://avatars.mds.yandex.net/i?id=09074e35eb5c75b6fac3c673868f891d61499b42-10117685-images-thumbs&n=13",
+          "title": "My first image with signature",
+          "id": "15wghWGWthHjpeYZ_EDQC"
+        },
+        {
+          "type": "CODE",
+          "code": "function add(a, b) {\n  return a + b;\n}",
+          "id": "T2_vNQkpsPqkzpTQNTsNQ"
+        }
+      ],
+      "id": "6f91vPH1"
+    },
+    {
+      "title": "My second article with economics",
+      "subtitle": "My subtitle this article",
+      "img": "https://yandex-images.clstorage.net/qTUO95399/a81390yGmk/tRngXlEg1FUctfSDNR8AdXPMAftbnW7FDYqSc1Lu7mDwlwN9gEFxW_AFS6jzHmjHjfBsWVZxSag1O0dTL8p_9PtNpwcVfpNVGaG_iXkFDGVmgBy4Tt93wQrTnnI10s1A0f18GPoyASe5XRL0o1dwhZmZV0E0DXu8OHg4QA-eMp-MNcFpaB2pdjatnLQOASV8X4A7znX7SZsFrdYoJsvodf_VYCPWExsvsVMJ5pZGHZ-kglEsNTdClBVjHW4uow2HsiHBe0gEj3wAnpaKOBMse0ehJ-ZL9V2WHa35Mzrh7270-GUrxz8vDIZPOPuIfySZmZVnKTYqQ5gffQ9pMok_q60N1lNoC4NVKpWijxYLI1JqjQn9WeJiqhWl3Ccb_sNz0O5GC_ghHwaTehn1tngXkI62SS8gCGylEnouaAGTB6uaNu1ZaiWtVTmSv6kXIAJlYbcgz2rcRZwBh-QJP-PDVdTReCvUBh0NsWU90ZNZD7aYqUAVMQd4vyBoME8riR6GtTL_cXcYvW43nK2cPgUUQH2LH_x380WtNofKBwDE3FPF20E46xoMDo9uFNGQZCeOrqp4CRknVrQCQxhjEoQAlrEu0kl7JJdwKJCxrxs-FWJDsyvzXuRKnza7yBAE4-FT5MxYI-IxPDy4fwn1iGcar7W-TyASI2O-FFgzZSmmEZayPOFvSheTWQ-gtrcaGRNRUYoIxmzfVZginewiHun_ed7VRhDiOjgRqXgS_pdDJo6lnmsNBwl8hxBqAXslqDSVhi3jSVAmvWg6lJCxBwEvVV-bN9Fi0GS2IKn1DQDc31ng8lQ48hQqObptOv-nYgubqaF7FTcQZZgyZDNhCagLrqkc7k5PC7JOIZOskwYyEkpiqhbVQP5BjSWJ-xcl28ZAxtBSE9s0ICeuejTbgF0mmqekTQ8PC3ajGEE_fw2vH7GmEfpQej-0UhOSrZUlFhx0ZaMo7X3KUag8itcOI8E",
+      "createdAt": "",
+      "userId": "1",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [
+        {
+          "type": "TEXT",
+          "title": "Душный трейд",
+          "paragraphs": [
+            "Новый канал который инновационно подходит к созданию контента. Считаю те кто подписался уже прошли эту жизнь, и им нет необходимости больше ничего делать "
+          ],
+          "id": "JSdxeaLfPYYtmxKZLwtOz"
+        },
+        {
+          "type": "IMAGE",
+          "src": "https://yandex-images.clstorage.net/qTUO95399/a81390yGmk/tRngXlEg1FUctfSDNR8AdXPMAftbnW7FDYqSc1Lu7mDwlwN9gEFxW_AFS6jzHmjHjfBsWVZxSag1O0dTL8p_9PtNpwcVfpNVGaG_iXkFDGVmgBy4Tt93wQrTnnI10s1A0f18GPoyASe5XRL0o1dwhZmZV0E0DXu8OHg4QA-eMp-MNcFpaB2pdjatnLQOASV8X4A7znX7SZsFrdYoJsvodf_VYCPWExsvsVMJ5pZGHZ-kglEsNTdClBVjHW4uow2HsiHBe0gEj3wAnpaKOBMse0ehJ-ZL9V2WHa35Mzrh7270-GUrxz8vDIZPOPuIfySZmZVnKTYqQ5gffQ9pMok_q60N1lNoC4NVKpWijxYLI1JqjQn9WeJiqhWl3Ccb_sNz0O5GC_ghHwaTehn1tngXkI62SS8gCGylEnouaAGTB6uaNu1ZaiWtVTmSv6kXIAJlYbcgz2rcRZwBh-QJP-PDVdTReCvUBh0NsWU90ZNZD7aYqUAVMQd4vyBoME8riR6GtTL_cXcYvW43nK2cPgUUQH2LH_x380WtNofKBwDE3FPF20E46xoMDo9uFNGQZCeOrqp4CRknVrQCQxhjEoQAlrEu0kl7JJdwKJCxrxs-FWJDsyvzXuRKnza7yBAE4-FT5MxYI-IxPDy4fwn1iGcar7W-TyASI2O-FFgzZSmmEZayPOFvSheTWQ-gtrcaGRNRUYoIxmzfVZginewiHun_ed7VRhDiOjgRqXgS_pdDJo6lnmsNBwl8hxBqAXslqDSVhi3jSVAmvWg6lJCxBwEvVV-bN9Fi0GS2IKn1DQDc31ng8lQ48hQqObptOv-nYgubqaF7FTcQZZgyZDNhCagLrqkc7k5PC7JOIZOskwYyEkpiqhbVQP5BjSWJ-xcl28ZAxtBSE9s0ICeuejTbgF0mmqekTQ8PC3ajGEE_fw2vH7GmEfpQej-0UhOSrZUlFhx0ZaMo7X3KUag8itcOI8E",
+          "title": "Душный трейд",
+          "id": "5-4svfeBRoWHfFl5Okzq2"
+        },
+        {
+          "type": "CODE",
+          "code": "/* eslint-disable i18next/no-literal-string */\nimport { useEffect } from 'react';\nimport { useSelector } from 'react-redux';\n\nimport { ArticleMetaInfo } from './ArticleMetaInfo/ArticleMetaInfo';\nimport { Blocks } from './Blocks/Blocks';\nimport { ControlsAddBlock } from './ControlsAddBlock/ControlsAddBlock';\nimport { CreateArticleButton } from './CreateArticleButton/CreateArticleButton';\nimport { articleCreateReducer, useArticleCreateActions } from '../model/slice/articleCreateSlice';\n\nimport { getUserAuthData } from '@/entities/User';\nimport {\n  DynamicModuleLoader,\n  type ReducersList,\n} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';\nimport { ToggleFeatures } from '@/shared/lib/features';\nimport { VStack } from '@/shared/ui/redesigned/Stack';\nimport { Page } from '@/widgets/Page';\nconst initialReducers: ReducersList = {\n  articleCreatePage: articleCreateReducer,\n};\n\nconst ArtcileCreatePage = (): JSX.Element => {\n  const authData = useSelector(getUserAuthData);\n  const { setUserId } = useArticleCreateActions();\n  useEffect(() => {\n    if (authData != null) {\n      setUserId(authData?.id);\n    }\n  }, [authData, setUserId]);\n\n  return (\n    <DynamicModuleLoader reducers={initialReducers}>\n      <Page>\n        <ToggleFeatures\n          feature=\"isAppRedesigned\"\n          on={<>In process...</>}\n          off={\n            <VStack gap=\"16\">\n              <CreateArticleButton />\n              <ArticleMetaInfo />\n              <Blocks />\n              <ControlsAddBlock />\n            </VStack>\n          }\n        />\n      </Page>\n    </DynamicModuleLoader>\n  );\n};\n\nexport default ArtcileCreatePage;\n",
+          "id": "DKQDGHq4c2eMmgQ_mEezZ"
+        },
+        {
+          "type": "TEXT",
+          "title": "Пример кода",
+          "paragraphs": [
+            "Выше вы видите пример кода который генерирует автор статьи, это лучше чем большинство проектов"
+          ],
+          "id": "TRjJSXTwrRhUWfmELSiYN"
+        }
+      ],
+      "id": "1iOd39o"
     }
   ],
   "comments": [
@@ -862,14 +935,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
+      "avatar": "https://www.computerra.ru/wp-content/uploads/2024/02/1670421190_27-kartinkin-net-p-kartinka-khakera-vkontakte-30.jpg",
       "roles": [
         "ADMIN"
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
-      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
         "theme": "app_orange_theme"
@@ -879,6 +952,7 @@
       "id": "2",
       "username": "user",
       "password": "123",
+       "avatar": "https://avatars.mds.yandex.net/i?id=85fe08c9f79e8cada6596b44be882bcf3d003d59-4229555-images-thumbs&n=13",
       "roles": [
         "USER"
       ],
@@ -887,7 +961,6 @@
         "isAppRedesigned": false,
         "isGraphqlEnabled": false
       },
-      "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg",
       "jsonSettings": {
         "isArticlesPageWasOpened": true,
         "theme": "app_light_theme"
@@ -897,13 +970,13 @@
       "id": "3",
       "username": "manager",
       "password": "123",
+       "avatar": "https://i.pinimg.com/736x/6c/51/62/6c5162936d6df60e64f36bfdde8d0d85.jpg",
       "roles": [
         "MANAGER"
       ],
       "features": {
         "isArticleRatingEnabled": false
       },
-      "avatar": "https://untemplater.com/wp-content/uploads/2016/09/what-is-it-like-to-be-a-manager-250x166.png",
       "jsonSettings": {
         "isArticlesPageWasOpened": true
       }
@@ -912,14 +985,14 @@
       "id": "4",
       "username": "testuser",
       "password": "123",
+      "avatar": "https://i.pinimg.com/736x/de/3d/7d/de3d7d581fbfc7098495af231b9f13b6.jpg",
       "roles": [
         "ADMIN"
       ],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
-      },
-      "avatar": "https://s1.1zoom.ru/big3/992/367659-alexfas01.jpg"
+      }
     }
   ],
   "profile": [
@@ -931,8 +1004,9 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://mobimg.b-cdn.net/v3/fetch/22/2207633df03a819cd72889249c8361a8.jpeg?w=1470&r=0.5625"
+      "avatar": "https://www.computerra.ru/wp-content/uploads/2024/02/1670421190_27-kartinkin-net-p-kartinka-khakera-vkontakte-30.jpg",
+      "username": "admin213"
+     
     },
     {
       "id": "2",
@@ -942,8 +1016,9 @@
       "currency": "EUR",
       "country": "Ukraine",
       "city": "Moscow",
-      "username": "kowka vn",
-      "avatar": "https://i.pinimg.com/originals/9a/e0/2d/9ae02d4b4288396108ef77830a59e060.jpg"
+      "avatar": "https://avatars.mds.yandex.net/i?id=85fe08c9f79e8cada6596b44be882bcf3d003d59-4229555-images-thumbs&n=13",
+      "username": "kowka vn"
+     
     },
     {
       "id": "3",
@@ -953,8 +1028,9 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "testuser",
-      "avatar": "https://untemplater.com/wp-content/uploads/2016/09/what-is-it-like-to-be-a-manager-250x166.png"
+      "avatar": "https://i.pinimg.com/736x/6c/51/62/6c5162936d6df60e64f36bfdde8d0d85.jpg",
+      "username": "testuser"
+     
     },
     {
       "id": "4",
@@ -964,8 +1040,9 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "testuser",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://i.pinimg.com/736x/de/3d/7d/de3d7d581fbfc7098495af231b9f13b6.jpg",
+      "username": "testuser"
+      
     }
   ],
   "article-ratings": [

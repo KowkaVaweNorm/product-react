@@ -1,21 +1,22 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import cls from '../ArticleListItem.module.scss';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { type ArticleTextBlock } from '../../../model/type/article';
+
 import { ArticleView, ArticleBlockType } from '../../../model/consts/articleConsts';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { type ArticleListItemProps } from '../ArticleListItem';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent';
+import { type ArticleListItemProps } from '../ArticleListItem';
+import cls from '../ArticleListItem.module.scss';
+
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
@@ -24,15 +25,13 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
     <>
-      <Text text={String(article.views)} className={cls.views} />
+      <Text text={String(article.views ?? 0)} className={cls.views} />
       <Icon Svg={EyeIcon} className={cls.iconView} />
     </>
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as
-      | ArticleTextBlock
-      | undefined;
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT);
 
     return (
       <div

@@ -1,7 +1,9 @@
 import { type ReactNode } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './LoadingOverlay.module.scss';
 import { Loader } from '../Loader/Loader';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface IProps {
   children?: ReactNode;

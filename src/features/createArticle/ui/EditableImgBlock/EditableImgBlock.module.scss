@@ -1,0 +1,20 @@
+.block {
+    padding: 10px;
+    min-height: 200px;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+
+.wrap_input {
+    width: calc(100% - 9ch);
+    min-width: 100px;
+
+    .input {
+        width: 100%;
+        border: 1px solid var(--primary-color);
+    }
+}
+
+.img {
+    height: clamp(200px, 300px, 300px);
+}

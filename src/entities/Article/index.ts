@@ -1,4 +1,6 @@
 import { lazy } from 'react';
+export { useCreateArticleMutation } from './api/articleApi';
+export { ArticleTypeSelect } from './ui/ArticleTypeSelect/ArticleTypeSelect';
 
 export {
   ArticleBlockType,
@@ -16,9 +18,8 @@ export {
 } from './model/selectors/articleDetails';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
-
 export type { ArticleDetailsSchema } from './model/type/articleDetailsSchema';
-export type { Article } from './model/type/article';
+export type { Article, ArticleBlock } from './model/type/article';
 export const ArticleDetails = lazy(
   async () => await import('./ui/ArticleDetails/ui/ArticleDetails'),
 );

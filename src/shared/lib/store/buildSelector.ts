@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import { type StateSchema } from '@/app/providers/StoreProvider';
 
 type Selector<T, Args extends any[]> = (state: StateSchema, ...args: Args) => T;

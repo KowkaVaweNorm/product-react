@@ -61,6 +61,6 @@ export function buildLoaders (options: BuildOption): webpack.RuleSetRule[] {
     codeBabelLoader,
     tsxCodeBabelLoader,
     // typescriptLoader,
-    styleLoader
+    ...styleLoader
   ];
 }

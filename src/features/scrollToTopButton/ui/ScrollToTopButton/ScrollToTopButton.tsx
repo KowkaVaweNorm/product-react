@@ -1,8 +1,10 @@
 import { memo, useEffect, useState } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './ScrollToTopButton.module.scss';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+
 import CircleIcon from '@/shared/assets/icons/circle-up.svg';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ScrollToTopButtonProps {
   className?: string;

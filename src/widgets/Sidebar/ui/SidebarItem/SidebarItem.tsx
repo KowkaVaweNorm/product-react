@@ -1,14 +1,16 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { AppLink as AppLinkDeprecated, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
-import MainIcon from '@/shared/assets/icons/home-icon.svg';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/User';
-import { type SidebarItemType } from '../../model/types/sidebar';
+
 import cls from './SidebarItem.module.scss';
+import { type SidebarItemType } from '../../model/types/sidebar';
+
+import { getUserAuthData } from '@/entities/User';
+import MainIcon from '@/shared/assets/icons/home-icon.svg';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLink as AppLinkDeprecated, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface SidebarItemProps {
