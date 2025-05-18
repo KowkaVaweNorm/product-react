@@ -8,12 +8,12 @@ const app = express();
 const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json')));
 // const logFilePath = path.resolve(__dirname, 'logs.js');
 const corsOptions = {
-  origin: 'http://localhost:5173', // Укажите ваш фронтенд домен
+  origin: 'http://localhost:5173', 
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
-app.use(express.json()); // Для корректной работы с JSON в теле запроса
+app.use(express.json());
 // app.use((req, res, next) => {
 //   const logEntry = {
 //     timestamp: new Date().toISOString(),
@@ -30,5 +30,5 @@ app.use(express.json()); // Для корректной работы с JSON в 
 
 app.use('/', jsonGraphqlExpress.default(data));
 app.listen(PORT, () => {
-  console.log('GraphQL server is running on 8002 port');
+  console.log(`GraphQL server is running on ${PORT} port`);
 });

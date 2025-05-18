@@ -1,4 +1,4 @@
-# Сайт для просмотра статей и обсуждения их
+# Прочтение, написание, обсуждение статей на различную тематику
 
 Статьи, комментарии, аутентификация пользователя,
 покрытие тестами, в том числе покрытие storybook.
@@ -8,7 +8,7 @@
 ## Ссылки
 
 - Логин: `user`, пароль: `123`
-- [Сайт (последняя сборка)](https://kowka-app.netlify.app/)
+- [Сайт (последняя сборка, загрузка может занимать до 3-5 минут пока сервер проснётся)](https://kowka-app.netlify.app/)
 - [Chromatic (скришотные тесты)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
 - [Storybook (онлайн версия)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
 - [Отчёты (тесты, размер бандла и тд)](https://kowkavawenorm.github.io/product-react))
