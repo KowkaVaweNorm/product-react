@@ -1,5 +1,6 @@
-import { type StateSchema } from '@/app/providers/StoreProvider';
 import { type Article } from '../type/article';
+
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleDetailsData = (state: StateSchema): Article | undefined =>
   state.articleDetails?.data;

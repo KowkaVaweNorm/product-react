@@ -1,11 +1,13 @@
 import React, { type ReactNode } from 'react';
-import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
-import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+
+import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
-import cls from './Modal.module.scss';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+
+import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
 import { toggleFeatures } from '@/shared/lib/features';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface ModalProps {
   className?: string;

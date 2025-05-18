@@ -1,19 +1,20 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDepreacetd } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { StarRating } from '@/shared/ui/redesigned/StarRating';
-import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import { Button as ButtonDeprecated, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { useTranslation } from 'react-i18next';
+
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Input } from '@/shared/ui/redesigned/Input';
+import { Button as ButtonDeprecated, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Text as TextDepreacetd } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { StarRating } from '@/shared/ui/redesigned/StarRating';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface RatingCardProps {
   className?: string;

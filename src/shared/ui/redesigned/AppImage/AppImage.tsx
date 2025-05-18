@@ -6,10 +6,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import { ErrorImage as DefaultErrorFallback } from './ErrorImage/ErrorImage';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './AppImage.module.scss';
+import { ErrorImage as DefaultErrorFallback } from './ErrorImage/ErrorImage';
 import { VStack } from '../Stack';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   fallback?: ReactElement;

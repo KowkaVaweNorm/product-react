@@ -1,12 +1,14 @@
-import cls from './ArticleListItem.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
-import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
-import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+
+import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/consts/articleConsts';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 
 interface IArticleListItemSkeletonProps {
   className?: string;
@@ -48,7 +50,7 @@ export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProp
         <ToggleFeatures
           feature="isAppRedesigned"
           on={
-            <CardRedesigned border="round" padding="24" className={cls.card}>
+            <CardRedesigned border="partial" padding="24" className={cls.card}>
               {cardContent}
             </CardRedesigned>
           }
@@ -81,7 +83,7 @@ export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProp
       <ToggleFeatures
         feature="isAppRedesigned"
         on={
-          <CardRedesigned border="round" className={cls.card}>
+          <CardRedesigned border="partial" className={cls.card}>
             {cardContent}
           </CardRedesigned>
         }

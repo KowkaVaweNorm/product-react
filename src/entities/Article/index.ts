@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+export { useCreateArticleMutation } from './api/articleApi';
 export { ArticleTypeSelect } from './ui/ArticleTypeSelect/ArticleTypeSelect';
 
 export {

@@ -1,14 +1,16 @@
-import cls from './ArticleList.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
 import { type HTMLAttributeAnchorTarget, memo, type RefObject } from 'react';
-import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { useTranslation } from 'react-i18next';
+
+import cls from './ArticleList.module.scss';
 import { ArticleView } from '../../model/consts/articleConsts';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 import { type Article } from '../../model/type/article';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 interface IArticleListProps {

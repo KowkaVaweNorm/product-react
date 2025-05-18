@@ -1,7 +1,9 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './AppLink.module.scss';
-import { Link, type LinkProps } from 'react-router-dom';
 import { type ForwardedRef, forwardRef } from 'react';
+import { Link, type LinkProps } from 'react-router-dom';
+
+import cls from './AppLink.module.scss';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 export enum AppLinkTheme {
   PRIMARY = 'primary',

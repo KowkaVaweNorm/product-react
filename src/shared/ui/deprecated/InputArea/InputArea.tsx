@@ -1,6 +1,8 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './InputArea.module.scss';
 import { type DetailedHTMLProps, type TextareaHTMLAttributes } from 'react';
+
+import cls from './InputArea.module.scss';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface IProps
   extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { LangSwitcher } from './LangSwitcher';
+
 import { I18nDecorator } from '@/shared/config/storybook/i18nDecorator/i18nDecorator';
 
 const meta = {

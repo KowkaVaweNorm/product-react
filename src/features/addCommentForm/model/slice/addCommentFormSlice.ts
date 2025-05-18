@@ -1,5 +1,7 @@
 import { type PayloadAction } from '@reduxjs/toolkit';
+
 import { type AddCommentFormSchema } from '../types/addCommentForm';
+
 import { buildSlice } from '@/shared/lib/store';
 
 const initialState: AddCommentFormSchema = {

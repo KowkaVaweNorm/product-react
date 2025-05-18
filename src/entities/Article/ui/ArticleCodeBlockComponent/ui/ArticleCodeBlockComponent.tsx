@@ -1,7 +1,9 @@
-import cls from './ArticleCodeBlockComponent.module.scss';
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
+import cls from './ArticleCodeBlockComponent.module.scss';
 import { type ArticleCodeBlock } from '../../../model/type/article';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Code } from '@/shared/ui/redesigned/Code';
 
 interface IProps {

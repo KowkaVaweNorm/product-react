@@ -1,6 +1,8 @@
-import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './Input.module.scss';
 import { memo, type InputHTMLAttributes, useState, useEffect, useRef, useMemo } from 'react';
+
+import cls from './Input.module.scss';
+
+import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

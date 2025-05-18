@@ -6,7 +6,7 @@
     "noUncheckedIndexedAccess": true, // Запрещать использование значения которого может не быть по этому ключу
     "noImplicitOverride": true, // прописывать перед прегруженными свойствами и методавми ключевое слово override
     "module": "ESNext",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react-jsx",
     "allowJs": true,
     "strict": true,

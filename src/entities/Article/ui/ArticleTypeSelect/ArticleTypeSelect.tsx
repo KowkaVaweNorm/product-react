@@ -1,10 +1,12 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
-import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { useTranslation } from 'react-i18next';
+
+import { ArticleType } from '../../model/consts/articleConsts';
+
 import { ToggleFeatures } from '@/shared/lib/features';
 import { type DropdownDirection } from '@/shared/types/ui';
-import { ArticleType } from '../../model/consts/articleConsts';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface ArticleTypeSelectProps {
   readonly?: boolean;

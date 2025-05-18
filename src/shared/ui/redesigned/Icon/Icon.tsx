@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './Icon.module.scss';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 

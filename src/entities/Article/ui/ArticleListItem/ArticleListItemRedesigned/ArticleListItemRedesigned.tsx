@@ -1,21 +1,23 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import cls from './ArticleListItemRedesigned.module.scss';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Icon } from '@/shared/ui/redesigned/Icon';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { type ArticleTextBlock } from '../../../model/type/article';
-import { Card } from '@/shared/ui/redesigned/Card';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleBlockType, ArticleView } from '../../../model/consts/articleConsts';
+import { type ArticleTextBlock } from '../../../model/type/article';
 import { type ArticleListItemProps } from '../ArticleListItem';
+
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
   const { className, article, view, target } = props;
@@ -34,7 +36,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
   const views = (
     <HStack gap="8">
       <Icon Svg={EyeIcon} />
-      <Text text={String(article.views)} className={cls.views} />
+      <Text text={String(article.views ?? 0)} className={cls.views} />
     </HStack>
   );
 
@@ -45,6 +47,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
     return (
       <Card
+        border="partial"
         padding="24"
         max
         data-testid="ArticleListItem"

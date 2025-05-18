@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+import { http, HttpResponse } from 'msw';
 
 import ArticleRating from './ArticleRating';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { http, HttpResponse } from 'msw';
+
 import { UserRole } from '@/entities/User';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 const meta: Meta<typeof ArticleRating> = {
   title: 'features/ArticleRating',
   component: ArticleRating,

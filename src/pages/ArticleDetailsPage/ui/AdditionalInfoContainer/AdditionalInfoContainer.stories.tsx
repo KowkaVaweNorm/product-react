@@ -2,8 +2,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AdditionalInfoContainer } from './AdditionalInfoContainer';
-import { UserRole } from '@/entities/User';
+
 import { type Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import { UserRole } from '@/entities/User';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta: Meta<typeof AdditionalInfoContainer> = {

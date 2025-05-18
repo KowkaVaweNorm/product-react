@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next';
+
+import { useArticleCreateActions } from '../../model/slice/articleCreateSlice';
+
 import { ArticleTypeSelect } from '@/entities/Article';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { debounce } from '@/shared/lib/utils/debounce';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getVStackStyle, VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
-import { useTranslation } from 'react-i18next';
-import { useArticleCreateActions } from '../../model/slice/articleCreateSlice';
-import { debounce } from '@/shared/lib/utils/debounce';
 
 export const ArticleMetaInfo = (): JSX.Element => {
   const { t } = useTranslation('article-create');
@@ -42,7 +44,7 @@ export const ArticleMetaInfo = (): JSX.Element => {
             </HStack>
             <HStack gap="4">
               <label htmlFor="img">
-                {t('Укажите ссылку')}
+                {t('Укажите ссылку на превью')}
                 {'>'}
               </label>
               <Input id="img" onChange={debounce(setImg)} />

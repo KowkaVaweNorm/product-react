@@ -1,10 +1,12 @@
-import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './Avatar.module.scss';
 import { useMemo } from 'react';
-import { Icon } from '../Icon';
-import { Skeleton } from '../Skeleton';
+
+import cls from './Avatar.module.scss';
 import UserIcon from '../../../assets/icons/user-filled.svg';
 import { AppImage } from '../../redesigned/AppImage';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
+
+import { type Mods, classNames } from '@/shared/lib/ClassNames/ClassNames';
 
 interface AvatarProps {
   className?: string;

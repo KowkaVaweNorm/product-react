@@ -2,11 +2,11 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import ArticlesPage from './ArticlesPage';
-
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
-import { Theme } from '@/shared/const/theme';
 import { type ArticlesPageSchema } from '../../model/types/artcilesPage';
+
+import { ArticleBlockType, ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Theme } from '@/shared/const/theme';
 
 const meta: Meta<typeof ArticlesPage> = {
   title: 'pages/ArticlesPage/ArticlesPage',

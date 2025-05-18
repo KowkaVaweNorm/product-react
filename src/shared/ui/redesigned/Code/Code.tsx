@@ -1,12 +1,14 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
-import CopyIconNew from '@/shared/assets/icons/copy.svg';
+
 import cls from './Code.module.scss';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { Icon } from '../Icon';
 import { Button, ButtonTheme } from '../../deprecated/Button';
 import { Icon as IconDeprecated } from '../../deprecated/Icon';
+import { Icon } from '../Icon';
+
+import CopyIcon from '@/shared/assets/icons/copy-20-20.svg';
+import CopyIconNew from '@/shared/assets/icons/copy.svg';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CodeProps {
   className?: string;

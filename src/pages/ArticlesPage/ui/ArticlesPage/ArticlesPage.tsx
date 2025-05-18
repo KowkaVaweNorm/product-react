@@ -1,29 +1,29 @@
-import cls from './ArticlesPage.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
+
+import cls from './ArticlesPage.module.scss';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesPageReducer } from '../../model/slices/articlePageSlice';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/Page';
-import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
-import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
-import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
-import { articlesPageReducer } from '../../model/slices/articlePageSlice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
-import { getRouteArticleCreate } from '@/shared/const/router';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/redesigned/Button';
-import { getUserAuthData } from '@/entities/User';
-import { useSelector } from 'react-redux';
+import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,7 +38,7 @@ const ArticlesPage = (props: ArticlesPageProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
-  const authData = useSelector(getUserAuthData);
+  // const authData = useSelector(getUserAuthData);
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });

@@ -1,6 +1,8 @@
-import { type StateSchema } from '@/app/providers/StoreProvider';
-import { type ScrollSchema } from '../../types/page';
 import { createSelector } from '@reduxjs/toolkit';
+
+import { type ScrollSchema } from '../../types/page';
+
+import { type StateSchema } from '@/app/providers/StoreProvider';
 
 export const getPageScroll = (state: StateSchema): ScrollSchema => state.page.scroll;
 export const getPageScrollByPath = createSelector(

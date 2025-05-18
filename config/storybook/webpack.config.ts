@@ -31,6 +31,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API__: JSON.stringify('http://localhost:6006'),
+      __API_GraphQL__: JSON.stringify('http://localhost:6006'),
       __PROJECT__: JSON.stringify('storybook'),
     }),
   );

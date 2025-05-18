@@ -1,14 +1,16 @@
+import { useSelector } from 'react-redux';
+
 import { getArticleDetailsData } from '../../../../model/selectors/articleDetails';
+import cls from '../ArticleDetails.module.scss';
+import { renderArticleBlock } from '../renderBlock';
+
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { TextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { useSelector } from 'react-redux';
-import { renderArticleBlock } from '../renderBlock';
 
-import cls from '../ArticleDetails.module.scss';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 export const ArticleDetailsDeprecated = () => {
   const article = useSelector(getArticleDetailsData);
 

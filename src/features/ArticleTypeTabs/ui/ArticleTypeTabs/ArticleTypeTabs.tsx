@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo, useState } from 'react';
-import { type TabItem, Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
-import { ArticleType } from '@/entities/Article';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { Tabs } from '@/shared/ui/redesigned/Tabs';
+import { useTranslation } from 'react-i18next';
 
+import { ArticleType } from '@/entities/Article';
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { type TabItem, Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface IArticleTypeTabsProps {
   className?: string;

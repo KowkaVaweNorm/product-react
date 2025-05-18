@@ -1,10 +1,12 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './StarRating.module.scss';
 import { memo, useState } from 'react';
+
+import cls from './StarRating.module.scss';
 import { Icon as IconDeprecated } from '../../deprecated/Icon/Icon';
-import StarIcon from '@/shared/assets/icons/star.svg';
-import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '../Icon';
+
+import StarIcon from '@/shared/assets/icons/star.svg';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 
 interface StarRatingProps {
   className?: string;

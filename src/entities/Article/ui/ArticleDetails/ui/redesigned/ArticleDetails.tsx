@@ -1,11 +1,12 @@
-import { getArticleDetailsData } from '../../../../model/selectors/articleDetails';
-import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useSelector } from 'react-redux';
+
+import { getArticleDetailsData } from '../../../../model/selectors/articleDetails';
+import cls from '../ArticleDetails.module.scss';
 import { renderArticleBlock } from '../renderBlock';
 
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import cls from '../ArticleDetails.module.scss';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 export const Redesigned = () => {
   const article = useSelector(getArticleDetailsData);

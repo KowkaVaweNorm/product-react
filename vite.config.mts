@@ -38,6 +38,13 @@ export default defineConfig({
     port: 3000, // Указываем порт (например, 3000)
     strictPort: true, // Убедиться, что используется именно этот порт
   },
+  css: {
+    preprocessorOptions: {
+      sass: {
+        api: 'modern-compiler',
+      },
+    },
+  },
   define: {
     __IS_DEV__: JSON.stringify(true),
     // Available api

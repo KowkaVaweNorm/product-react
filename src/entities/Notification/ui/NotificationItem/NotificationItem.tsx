@@ -1,12 +1,14 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './NotificationItem.module.scss';
 import { memo } from 'react';
+
+import cls from './NotificationItem.module.scss';
+import { type Notification } from '../../model/types/notification';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card as CardDeprecated, CardTheme } from '@/shared/ui/deprecated/Card';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { type Notification } from '../../model/types/notification';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface NotificationItemProps {
   className?: string;

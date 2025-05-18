@@ -1,6 +1,8 @@
 import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef, type ReactNode } from 'react';
-import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
+
 import cls from './Button.module.scss';
+
+import { classNames, type Mods } from '@/shared/lib/ClassNames/ClassNames';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
 export type ButtonColor = 'normal' | 'success' | 'error';

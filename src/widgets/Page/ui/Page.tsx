@@ -1,17 +1,19 @@
-import cls from './Page.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { type ReactNode, memo, useRef, type UIEvent, type MutableRefObject } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { type StateSchema } from '@/app/providers/StoreProvider';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
-import { type TestProps } from '@/shared/types/tests';
-import { toggleFeatures } from '@/shared/lib/features';
+import { useLocation } from 'react-router-dom';
+
+import cls from './Page.module.scss';
 import { getPageScrollByPath } from '../model/selectors/getPageScroll/getPageScroll';
 import { pageActions } from '../model/slices/pageSlice';
+
+import { type StateSchema } from '@/app/providers/StoreProvider';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { toggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCombinedRef } from '@/shared/lib/hooks/useCombinedRef/useCombinedRef';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { type TestProps } from '@/shared/types/tests';
 
 interface IPageProps extends TestProps {
   className?: string;

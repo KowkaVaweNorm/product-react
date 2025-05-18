@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
+import { HttpResponse, http } from 'msw';
 
 import { NotificationList } from './NotificationList';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { HttpResponse, http } from 'msw';
 import { type Notification } from '../../model/types/notification';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta: Meta<typeof NotificationList> = {
   title: 'entities/NotificationList',

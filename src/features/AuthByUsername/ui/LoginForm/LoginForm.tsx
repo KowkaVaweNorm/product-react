@@ -1,29 +1,31 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import cls from './LoginForm.module.scss';
+import { type FormEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { type FormEvent, memo, useCallback } from 'react';
+
+import cls from './LoginForm.module.scss';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   Button as ButtonDeprecated,
   ButtonTheme as ButtonThemeDeprecated,
 } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
-import { Text } from '@/shared/ui/redesigned/Text';
-import {
-  DynamicModuleLoader,
-  type ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
-import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
-import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
-import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
 import { LoadingOverlay } from '@/shared/ui/redesigned/LoadingOverlay';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 export interface LoginFormProps {
   className?: string;

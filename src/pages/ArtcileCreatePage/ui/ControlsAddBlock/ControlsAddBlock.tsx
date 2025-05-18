@@ -1,10 +1,11 @@
+import { useTranslation } from 'react-i18next';
+
+import { useArticleCreateActions } from '../../model/slice/articleCreateSlice';
+
+import { ArticleBlockType } from '@/entities/Article';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import cls from './ControlsAddBlock.module.scss';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { useTranslation } from 'react-i18next';
-import { useArticleCreateActions } from '../../model/slice/articleCreateSlice';
-import { ArticleBlockType } from '@/entities/Article';
 
 interface IProps {
   className?: string;
@@ -13,7 +14,7 @@ export const ControlsAddBlock = (props: IProps): JSX.Element => {
   const { t } = useTranslation('article-create');
   const { addBlock } = useArticleCreateActions();
   return (
-    <div className={cls.wrapper_controls_add}>
+    <div>
       <ToggleFeatures
         feature="isAppRedesigned"
         on={<>{t('In process')}</>}

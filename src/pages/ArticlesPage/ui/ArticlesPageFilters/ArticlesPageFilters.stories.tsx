@@ -1,10 +1,11 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
 
 import { ArticlesPageFilters } from './ArticlesPageFilters';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
 import { saveJsonSettings, userActions } from '@/entities/User';
-import { useEffect } from 'react';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const meta: Meta<typeof ArticlesPageFilters> = {
   title: 'pages/ArticlesPage/ArticlesPageFilters',

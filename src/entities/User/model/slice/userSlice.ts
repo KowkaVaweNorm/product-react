@@ -1,9 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
-import { type UserSchema, type User } from '../types/user';
-import { saveJsonSettings } from '../services/saveJsonSettings';
+
 import { initAuthData } from '../services/initAuthData';
+import { saveJsonSettings } from '../services/saveJsonSettings';
 import { type JsonSettings } from '../types/jsonSettings';
+import { type UserSchema, type User } from '../types/user';
+
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { broadcastChannelSend } from '@/shared/lib/utils/broadcastChannelSend';
 import { EBroadcastChannelEventName } from '@/shared/types/broadcastChannel';

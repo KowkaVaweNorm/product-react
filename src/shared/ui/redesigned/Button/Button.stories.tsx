@@ -1,10 +1,12 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useEffect } from 'react';
+
 import { Button } from './Button';
+
 // eslint-disable-next-line kowka-vn-plugin/layer-imports
 import { saveJsonSettings, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useEffect } from 'react';
 
 const meta: Meta<typeof Button> = {
   title: 'shared/Button',

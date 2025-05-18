@@ -1,13 +1,14 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { ToggleFeatures } from '@/shared/lib/features';
+import { type DropdownDirection } from '@/shared/types/ui';
 import {
   ListBox as ListBoxDeprecated,
   type ListBoxItem as ListBoxItemDeprecated,
 } from '@/shared/ui/deprecated/Popups';
-import { ListBox } from '@/shared/ui/redesigned/Popups';
-import { ToggleFeatures } from '@/shared/lib/features';
-import { type DropdownDirection } from '@/shared/types/ui';
 import { type SupportedLanguage } from '@/shared/ui/redesigned/CodeEditor';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CodeLanguageSelectProps {
   readonly?: boolean;

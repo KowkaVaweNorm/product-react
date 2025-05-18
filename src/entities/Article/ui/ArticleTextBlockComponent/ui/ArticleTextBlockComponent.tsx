@@ -1,9 +1,11 @@
-import cls from './ArticleTextBlockComponent.module.scss';
 import { memo } from 'react';
+
+import cls from './ArticleTextBlockComponent.module.scss';
 import { type ArticleTextBlock } from '../../../model/type/article';
+
 import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 interface IProps {

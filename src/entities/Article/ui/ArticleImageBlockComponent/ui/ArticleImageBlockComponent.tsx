@@ -1,7 +1,9 @@
-import cls from './ArticleImageBlockComponent.module.scss';
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+
+import cls from './ArticleImageBlockComponent.module.scss';
 import { type ArticleImageBlock } from '../../../model/type/article';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 

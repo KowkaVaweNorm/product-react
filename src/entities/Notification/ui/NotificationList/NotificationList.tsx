@@ -1,11 +1,13 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { toggleFeatures } from '@/shared/lib/features';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface NotificationListProps {
   className?: string;

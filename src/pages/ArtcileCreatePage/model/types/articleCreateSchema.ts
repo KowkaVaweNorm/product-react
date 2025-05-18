@@ -1,5 +1,6 @@
-import { type ArticleType, type ArticleBlock } from '@/entities/Article';
 import { type EntityState } from '@reduxjs/toolkit';
+
+import { type ArticleType, type ArticleBlock } from '@/entities/Article';
 export type ArticleBlockDraft = ArticleBlock & { draftId: string };
 export interface IArticleCreateSchema {
   title: string;

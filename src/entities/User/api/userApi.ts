@@ -1,6 +1,7 @@
-import { rtkApi } from '@/shared/api/rtkApi';
-import { type User } from '../model/types/user';
 import { type JsonSettings } from '../model/types/jsonSettings';
+import { type User } from '../model/types/user';
+
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface SetJsonSettingsArg {
   userId: string;

@@ -1,19 +1,21 @@
-import cls from './CommentCard.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
-import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
-import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+
+import cls from './CommentCard.module.scss';
 import { type Comment } from '../../model/types/comment';
+
 import { getRouteProfile } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/redesigned/Card';
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface IProps {
   className?: string;

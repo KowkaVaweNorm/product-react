@@ -1,21 +1,22 @@
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { getUserAuthData } from '@/entities/User';
-import { profileActions } from '../../model/slices/editableProfileCardSlice';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slices/editableProfileCardSlice';
+
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -84,7 +85,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
           <TextDeprecated title={t('Профиль')} />
           {canEdit && (
             <div>
-              {readonly ? (
+              {(readonly ?? false) ? (
                 <ButtonDeprecated
                   theme={ButtonTheme.OUTLINE}
                   onClick={onEdit}

@@ -1,6 +1,8 @@
 import React from 'react';
-import { useJsonSettings } from '@/entities/User';
+
 import ThemeProvider from './ThemeProvider';
+
+import { useJsonSettings } from '@/entities/User';
 
 export const withTheme = (Component: React.ComponentType) => {
   return () => {

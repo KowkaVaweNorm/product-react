@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { getArticles } from '../../model/slices/articlePageSlice';
+
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
@@ -11,8 +9,12 @@ import {
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { getArticles } from '../../model/slices/articlePageSlice';
+
+import { ArticleList } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 // Крайние случаи Infinity списка:
 // 1 - Когда догружать, до куда скроллить?

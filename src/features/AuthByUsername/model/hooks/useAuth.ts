@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
+
 import { initAuthData, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useBroadcastChannel } from '@/shared/lib/hooks/useBroadcastChannel/useBroadcastChannel';
 import { EBroadcastChannelEventName } from '@/shared/types/broadcastChannel';
-import { useEffect } from 'react';
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();

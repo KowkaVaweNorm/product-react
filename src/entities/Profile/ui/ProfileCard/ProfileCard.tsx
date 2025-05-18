@@ -1,7 +1,4 @@
-import { type Currency } from '@/entities/Currency';
-import { type Country } from '@/entities/Country';
 import { type Profile } from '../../model/types/profile';
-import { ToggleFeatures } from '@/shared/lib/features';
 import {
   ProfileCardDeprecated,
   ProfileCardDeprecatedError,
@@ -12,6 +9,10 @@ import {
   ProfileCardRedesignedError,
   ProfileCardRedesignedSkeleton,
 } from '../ProfileCardRedesigned/ProfileCardRedesigned';
+
+import { type Country } from '@/entities/Country';
+import { type Currency } from '@/entities/Currency';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export interface ProfileCardProps {
   className?: string;

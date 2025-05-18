@@ -1,7 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import { EditorProvider, useEditorLib } from '@/shared/lib/components/EditorProvider';
 import { type TextareaCodeEditorProps } from '@uiw/react-textarea-code-editor';
 import { type ChangeEvent, memo, useState } from 'react';
+
+import { EditorProvider, useEditorLib } from '@/shared/lib/components/EditorProvider';
 
 export type SupportedLanguage =
   | 'arduino'
@@ -53,7 +54,7 @@ export const CodeEditorContent = memo((props: IProps) => {
   const { onChange, lng, ...otherProps } = props;
   const { CodeEditor: CodeEditorLib } = useEditorLib();
   const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`);
-  const [localLng, setLocalLng] = useState<SupportedLanguage>('js');
+  const [localLng] = useState<SupportedLanguage>('js');
 
   const onChangeLocal = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     const value = event.target.value;

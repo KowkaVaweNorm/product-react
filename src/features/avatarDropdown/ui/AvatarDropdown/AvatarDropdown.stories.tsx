@@ -2,10 +2,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AvatarDropdown } from './AvatarDropdown';
-
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import cls from './AvatarDropdown.stories.module.scss';
+
 import { UserRole } from '@/entities/User';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 const meta: Meta<typeof AvatarDropdown> = {
   title: 'features/AvatarDropdown',
   component: AvatarDropdown,

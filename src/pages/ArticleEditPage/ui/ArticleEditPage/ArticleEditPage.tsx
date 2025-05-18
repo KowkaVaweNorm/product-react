@@ -1,8 +1,10 @@
-import cls from './ArticleEditPage.module.scss';
-import { classNames } from '@/shared/lib/ClassNames/ClassNames';
 import { memo } from 'react';
-import { Page } from '@/widgets/Page';
 import { useParams } from 'react-router-dom';
+
+import cls from './ArticleEditPage.module.scss';
+
+import { classNames } from '@/shared/lib/ClassNames/ClassNames';
+import { Page } from '@/widgets/Page';
 
 interface IArticleEditPageProps {
   className?: string;
