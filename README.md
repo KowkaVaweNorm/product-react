@@ -1,10 +1,10 @@
-# Reading, Writing, and Discussing Articles on Various Topics
+# Habr-like frontend project
+## Features: articles, comments, user authentication, test coverage (including Storybook), internationalization, theming (3 themes available), custom UI kit. Two admin designs.
 
-Features: articles, comments, user authentication, test coverage (including Storybook), internationalization, theming (3 themes available), custom UI kit. Two admin designs coming soon.
+#### Primarily a frontend project; backend is minimally implemented using a JSON-based mock server.
 
 ## Links
-
-- Login: `user`, Password: `123`
+- Login: `admin`, Password: `123`
 - [Site (latest build, server wake-up may take 3-5 minutes)](https://kowka-app.netlify.app/)
 - [Chromatic (visual regression tests)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
 - [Storybook (online)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
