@@ -1,42 +1,39 @@
-# Прочтение, написание, обсуждение статей на различную тематику
+# Reading, Writing, and Discussing Articles on Various Topics
 
-Статьи, комментарии, аутентификация пользователя,
-покрытие тестами, в том числе покрытие storybook.
-Интернационализация, темизация(доступны 3 темы), свой ui-кит
-Скоро будет доступно два дизайна для админа
+Features: articles, comments, user authentication, test coverage (including Storybook), internationalization, theming (3 themes available), custom UI kit. Two admin designs coming soon.
 
-## Ссылки
+## Links
 
-- Логин: `user`, пароль: `123`
-- [Сайт (последняя сборка, загрузка может занимать до 3-5 минут пока сервер проснётся)](https://kowka-app.netlify.app/)
-- [Chromatic (скришотные тесты)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
-- [Storybook (онлайн версия)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
-- [Отчёты (тесты, размер бандла и тд)](https://kowkavawenorm.github.io/product-react))
-## Команды скриптов
+- Login: `user`, Password: `123`
+- [Site (latest build, server wake-up may take 3-5 minutes)](https://kowka-app.netlify.app/)
+- [Chromatic (visual regression tests)](https://www.chromatic.com/library?appId=6690d3546f3d377867d91626)
+- [Storybook (online)](https://6690d3546f3d377867d91626-txilkssvge.chromatic.com/?path=/story/entities-article-articledetails--light)
+- [Reports (tests, bundle size, etc.)](https://kowkavawenorm.github.io/product-react)
+
+## Scripts
 
 ```bash
-npm run start:dev       // Запуск в дев режиме (клиента + мок сервера)
-
-npm run sb        // Запуск storybook
+npm run start:dev       # Dev mode (client + mock server)
+npm run sb              # Start Storybook
 ```
 
-### Технологический стек
+### Tech Stack
 
 ```
 TypeScript
-React:
-Redux-toolkit + RTK Query,DynamicModuleLoader
-i18n - доступен перевод на английский
+React
+Redux Toolkit + RTK Query, DynamicModuleLoader
+i18n (English translation available)
 SCSS
 Webpack
-Jest - unit тесты
-RTL - тесты компонентов
+Jest (unit tests)
+React Testing Library (component tests)
 Storybook
-Chromatic - скриншотное тестирование
+Chromatic (visual testing)
 ESLint
 Stylelint
-json-server - для мока серверных данных
-husky - для прекоммит проверки(тесты на машине разработчика)
-github-actions - CI тесты на коммит
-Feature-sliced-design - Архитектура проекта
+json-server (mock API)
+Husky (pre-commit hooks)
+GitHub Actions (CI on commit)
+Feature-Sliced Design (project architecture)
 ```
